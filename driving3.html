@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>برنامج نشر الابتكار: تحفيز الابتكار وصناعة المستقبل | MEWA</title>
+  <meta name="description" content="برنامج نشر الابتكار — وكالة البحث والابتكار بوزارة البيئة والمياه والزراعة" />
+  <meta name="theme-color" content="#004831" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="agency-reports/assets/driving/driving3.css" />
+  <style>
+    :root {
+      --naama-primary: #003957;
+      --naama-primary-dark: #00283e;
+      --naama-accent: #49aa8b;
+      --naama-accent-dark: #378a6f;
+      --naama-accent-soft: #e8f6f1;
+      --naama-gold: #e8a34f;
+      --naama-muted: #62717d;
+      --naama-border: #e4ecef;
+    }
+    .platform-top {
+      font-family: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+      line-height: 1.75;
+    }
+    .platform-top a { color: inherit; text-decoration: none; }
+    .platform-top .gov-bar {
+      background: var(--naama-primary-dark);
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.82rem;
+      padding: 0.55rem 0;
+    }
+    .platform-top .gov-bar .verified { color: var(--naama-accent); }
+    .platform-top .site-header {
+      background: #fff;
+      border-bottom: 1px solid var(--naama-border);
+      position: sticky;
+      top: 0;
+      z-index: 1030;
+    }
+    .platform-top .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: none;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+    }
+    .platform-top .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background:
+        radial-gradient(circle at 30% 30%, var(--naama-gold) 0 22%, transparent 23%),
+        linear-gradient(145deg, var(--naama-accent) 0%, var(--naama-primary) 100%);
+      position: relative;
+      box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.18);
+      flex-shrink: 0;
+    }
+    .platform-top .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: 16px 8px 10px;
+      border-top: 2px solid rgba(255, 255, 255, 0.75);
+      border-radius: 40%;
+    }
+    .platform-top .brand-text strong {
+      color: var(--naama-primary);
+      font-size: 1.02rem;
+      display: block;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+    .platform-top .brand-text small {
+      color: var(--naama-muted);
+      font-size: 0.78rem;
+      display: block;
+    }
+    .platform-top .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      color: var(--naama-primary) !important;
+      font-weight: 500;
+      transition: background 0.2s ease, color 0.2s ease;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      font-size: 0.92rem;
+      white-space: nowrap;
+      line-height: 1.4;
+    }
+    .platform-top .nav-pill:hover,
+    .platform-top .nav-pill.active {
+      background: var(--naama-accent-soft);
+      color: var(--naama-accent-dark) !important;
+    }
+    .platform-top .btn-login {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--naama-primary);
+      color: #fff !important;
+      border: 0;
+      border-radius: 999px;
+      padding: 0.55rem 1.3rem;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+    .platform-top .btn-login:hover {
+      color: #fff !important;
+      background: var(--naama-primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(0, 40, 62, 0.22);
+    }
+    .platform-top .header-search {
+      display: none;
+      align-items: center;
+      gap: 0.4rem;
+      flex-wrap: nowrap;
+      padding: 0.35rem 0.45rem;
+      background: #f4f7f9;
+      border: 1px solid var(--naama-border);
+      border-radius: 12px;
+      margin-inline-start: 0.5rem;
+      flex: 1 1 auto;
+      min-width: 0;
+      max-width: 560px;
+    }
+    .platform-top .header-search .h-search-input {
+      position: relative;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+    .platform-top .header-search .h-search-input .icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      inset-inline-start: 0.7rem;
+      color: var(--naama-muted);
+      pointer-events: none;
+      font-size: 0.9rem;
+    }
+    .platform-top .header-search .h-search-input input {
+      width: 100%;
+      padding: 0.4rem 0.6rem;
+      padding-inline-start: 2rem;
+      border: 1px solid var(--naama-border);
+      border-radius: 8px;
+      background: #fff;
+      font-size: 0.85rem;
+      color: var(--naama-primary);
+      outline: none;
+      font-family: inherit;
+    }
+    .platform-top .header-search .h-search-input input:focus {
+      border-color: var(--naama-accent);
+      box-shadow: 0 0 0 3px rgba(73, 170, 139, 0.15);
+    }
+    .platform-top .header-search .h-search-select {
+      flex: 0 1 auto;
+      min-width: 7.5rem;
+      padding: 0.4rem 0.6rem;
+      padding-inline-end: 1.9rem;
+      border: 1px solid var(--naama-border);
+      border-radius: 8px;
+      background-color: #fff;
+      font-size: 0.85rem;
+      color: var(--naama-primary);
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      font-family: inherit;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='%23003957' d='M8 11L3 6h10z'/></svg>");
+      background-repeat: no-repeat;
+      background-position: left 0.55rem center;
+      background-size: 12px;
+    }
+    .platform-top .header-search .h-search-select:focus {
+      outline: none;
+      border-color: var(--naama-accent);
+      box-shadow: 0 0 0 3px rgba(73, 170, 139, 0.15);
+    }
+    .platform-top .header-search .h-search-reset {
+      flex: 0 0 auto;
+      padding: 0.4rem 0.65rem;
+      border: 1px solid var(--naama-border);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--naama-primary);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      white-space: nowrap;
+      font-family: inherit;
+      transition: all 0.2s ease;
+    }
+    .platform-top .header-search .h-search-reset:hover {
+      border-color: var(--naama-accent);
+      color: var(--naama-accent-dark);
+      background: var(--naama-accent-soft);
+    }
+    .platform-top .btn-menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--naama-border);
+      border-radius: 12px;
+      background: #fff;
+      color: var(--naama-primary);
+    }
+    .platform-top #mobileNav {
+      display: none;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      padding-top: 0.85rem;
+      margin-top: 0.85rem;
+      border-top: 1px solid var(--naama-border);
+    }
+    .platform-top #mobileNav.is-open { display: flex; }
+
+    /* Platform site footer (match Index.html) */
+    .site-footer {
+      background: #fff;
+      border-top: 1px solid var(--naama-border);
+      margin-top: 0;
+      padding: 2.2rem 0 2.4rem;
+      font-family: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+    }
+    .site-footer .brand-mark {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      position: relative;
+      background:
+        radial-gradient(circle at 30% 30%, var(--naama-gold) 0 22%, transparent 23%),
+        linear-gradient(145deg, var(--naama-accent) 0%, var(--naama-primary) 100%);
+      flex-shrink: 0;
+    }
+    .site-footer .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: 55% 18% 18% 18%;
+      border-radius: 2px 2px 6px 6px;
+      background: rgba(255, 255, 255, 0.35);
+    }
+    .site-footer .footer-links a {
+      color: var(--naama-primary);
+      font-weight: 600;
+      background: transparent;
+      border: 0;
+      padding: 0;
+      text-decoration: none;
+    }
+    .site-footer .footer-links a:hover { color: var(--naama-accent-dark); }
+    .site-footer .text-muted { color: var(--naama-muted) !important; }
+
+    @media (min-width: 992px) and (max-width: 1279.98px) {
+      .platform-top .header-search .h-reset-label { display: none; }
+      .platform-top .header-search .h-search-reset { padding: 0.4rem 0.5rem; }
+    }
+    @media (min-width: 992px) {
+      .platform-top .header-search { display: flex; }
+      .platform-top .header-row {
+        flex-wrap: nowrap !important;
+        gap: 0.6rem !important;
+      }
+      .platform-top .header-row .brand-link { flex: 0 0 auto; }
+      .platform-top .header-row #mainNav {
+        flex: 0 0 auto;
+        flex-wrap: nowrap;
+        white-space: nowrap;
+      }
+      .platform-top .header-row #mainNav .nav-pill {
+        padding: 0.4rem 0.7rem;
+        font-size: 0.88rem;
+      }
+      .platform-top .header-row .btn-login {
+        padding: 0.45rem 0.9rem;
+        font-size: 0.88rem;
+      }
+      .platform-top .header-row .brand-text strong { font-size: 0.98rem; }
+    }
+    @media (max-width: 991.98px) {
+      .platform-top #mainNav { display: none !important; }
+      .platform-top .btn-menu-toggle { display: inline-flex; }
+      .platform-top .header-search { display: none; }
+    }
+  </style>
+</head>
+<body class="drv3-body">
+
+  <div class="platform-top">
+  <div class="gov-bar">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <span><i class="bi bi-shield-check verified me-1"></i> موقع حكومي تابع لوزارة البيئة والمياه والزراعة</span>
+      <span class="d-none d-md-inline">متوافق مع هوية منصة نما · الرقم الموحد <strong>939</strong></span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container py-3">
+      <div class="header-row d-flex flex-wrap align-items-center gap-3">
+        <a class="brand-link" href="Index.html" aria-label="الصفحة الرئيسية">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-text text-start">
+            <strong>منصة البحث والابتكار</strong>
+            <small>وزارة البيئة والمياه والزراعة</small>
+          </span>
+        </a>
+
+        <nav id="mainNav" class="d-none d-lg-flex gap-1" aria-label="التنقل الرئيسي">
+          <a class="nav-pill" href="Index.html"><i class="bi bi-house me-1"></i>الرئيسية</a>
+          <a class="nav-pill active" href="Index.html?view=our-services" aria-current="page"><i class="bi bi-briefcase me-1"></i>خدماتنا</a>
+          <a class="nav-pill" href="Index.html?view=services"><i class="bi bi-lightbulb me-1"></i>برامج الابتكار</a>
+          <a class="nav-pill" href="Index.html?view=news"><i class="bi bi-megaphone me-1"></i>الأخبار</a>
+          <a class="nav-pill" href="Index.html?view=publications"><i class="bi bi-journal-richtext me-1"></i>منشورات وتقارير</a>
+          <a class="nav-pill" href="Index.html?view=my-requests"><i class="bi bi-file-earmark-text me-1"></i>طلباتي</a>
+        </nav>
+
+        <div class="header-search" aria-label="بحث سريع">
+          <div class="h-search-input">
+            <i class="bi bi-search icon" aria-hidden="true"></i>
+            <input type="search" placeholder="البحث عن خدمة..." aria-label="البحث عن خدمة" />
+          </div>
+          <select class="h-search-select" aria-label="نوع المستفيد">
+            <option selected>نوع المستفيد: الكل</option>
+            <option>باحث</option>
+            <option>مبتكر</option>
+            <option>جهة حكومية</option>
+            <option>قطاع خاص</option>
+          </select>
+          <button type="button" class="h-search-reset" title="إعادة تعيين الفلتر" aria-label="إعادة تعيين الفلتر">
+            <i class="bi bi-arrow-counterclockwise"></i>
+            <span class="h-reset-label">إعادة تعيين</span>
+          </button>
+        </div>
+
+        <div class="ms-auto d-flex align-items-center gap-2">
+          <a class="btn-login" href="https://naama.sa/Account/Login" target="_blank" rel="noopener">
+            <i class="bi bi-box-arrow-in-left"></i>
+            <span>تسجيل الدخول</span>
+          </a>
+          <button type="button" class="btn-menu-toggle" id="drv3MenuToggle" aria-label="القائمة" aria-expanded="false" aria-controls="mobileNav">
+            <i class="bi bi-list"></i>
+          </button>
+        </div>
+      </div>
+
+      <nav id="mobileNav" aria-label="قائمة الجوال">
+        <a class="nav-pill" href="Index.html"><i class="bi bi-house me-1"></i>الرئيسية</a>
+        <a class="nav-pill active" href="Index.html?view=our-services"><i class="bi bi-briefcase me-1"></i>خدماتنا</a>
+        <a class="nav-pill" href="Index.html?view=services"><i class="bi bi-lightbulb me-1"></i>برامج الابتكار</a>
+        <a class="nav-pill" href="Index.html?view=news"><i class="bi bi-megaphone me-1"></i>الأخبار</a>
+        <a class="nav-pill" href="Index.html?view=publications"><i class="bi bi-journal-richtext me-1"></i>منشورات وتقارير</a>
+        <a class="nav-pill" href="Index.html?view=my-requests"><i class="bi bi-file-earmark-text me-1"></i>طلباتي</a>
+      </nav>
+    </div>
+  </header>
+  </div>
+
+  <div class="drv3-page-title">
+    <div class="drv-container">
+      <div class="drv3-page-hero-top">
+        <nav class="drv3-breadcrumb" aria-label="مسار التنقل">
+          <a href="Index.html?view=our-services">الخدمات</a>
+          <span aria-hidden="true"> ← </span>
+          <span>برنامج نشر الابتكار</span>
+        </nav>
+        <a class="drv3-back-services" href="Index.html?view=our-services">
+          <i class="bi bi-arrow-right" aria-hidden="true"></i>
+          رجوع إلى الخدمات الرئيسية
+        </a>
+      </div>
+      <h1>برنامج نشر الابتكار: تحفيز الابتكار وصناعة المستقبل</h1>
+      <p class="drv3-page-intro">
+        برنامج مؤسسي يهدف إلى تمكين وتسريع تبني الحلول الابتكارية وتحويلها إلى تطبيقات عملية ذات أثر ملموس تساهم في تحقيق المستهدفات الوطنية في قطاعات البيئة والمياه والزراعة.
+      </p>
+    </div>
+  </div>
+
+  <main>
+    <!-- Hero -->
+    <header class="drv-hero" aria-label="نبذة عن برنامج نشر الابتكار">
+      <div class="drv-hero__inner">
+        <h2 class="visually-hidden">برنامج نشر الابتكار — Innovation Deployment Program</h2>
+        <p class="drv-hero__text">
+          برنامج مؤسسي أُطلق من قبل معالي وزير البيئة والمياه والزراعة بهدف تمكين وتسريع تبني الحلول الابتكارية وتحويلها إلى تطبيقات عملية ذات أثر ملموس تساهم في تحقيق المستهدفات الوطنية. ويأتي البرنامج استجابةً للحاجة إلى تحفيز الطلب على الحلول الابتكارية ذات مستوى الجاهزية العالية (TRL 7+) وتعزيز اختبار جدوى مواءمتها لبيئة المملكة، بما يسهم في تبنيها ونشرها على نطاق واسع في المملكة.
+        </p>
+      </div>
+    </header>
+
+    <!-- أهداف -->
+    <section class="drv-section drv-section--mint drv-section--goals" id="goals" aria-labelledby="goalsTitle">
+      <div class="drv-container">
+        <h2 class="drv-section-title" id="goalsTitle">أهداف برنامج نشر الابتكار</h2>
+        <div class="drv-goals">
+          <div class="drv-goal">
+            <p>تحفيز الطلب على الحلول الابتكارية في المراحل المتقدمة.</p>
+          </div>
+          <div class="drv-goal">
+            <p>تمكين نشر الابتكار والتوسع فيه.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- فرص القطاعية -->
+    <section class="drv-section drv-section--white" id="sectors" aria-labelledby="sectorsTitle">
+      <div class="drv-container">
+        <h2 class="drv-section-title" id="sectorsTitle">فرص الابتكار القطاعية</h2>
+        <div class="drv-sectors">
+          <article class="drv-sector">
+            <div class="drv-sector__head">
+              <span class="drv-sector__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 2.5 4.2 5.5 4.2 9S14.8 18.5 12 21c-2.8-2.5-4.2-5.5-4.2-9S9.2 5.5 12 3z"/></svg>
+              </span>
+              <h3>قطاع البيئة</h3>
+            </div>
+            <div class="drv-sector__body">
+              <p class="drv-sector__kicker">من أبرزها</p>
+              <ul>
+                <li>معالجة النفايات.</li>
+                <li>الري الذكي.</li>
+                <li>مراقبة النظام البيئي.</li>
+                <li>تقييم قابلية التأثر بمخاطر المناخ والتكيف معها.</li>
+                <li>إدارة أراضي الرعي.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="drv-sector">
+            <div class="drv-sector__head">
+              <span class="drv-sector__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 3c3.5 4.2 6 7.4 6 10.2A6 6 0 0 1 6 13.2C6 10.4 8.5 7.2 12 3z"/></svg>
+              </span>
+              <h3>قطاع المياه</h3>
+            </div>
+            <div class="drv-sector__body">
+              <p class="drv-sector__kicker">من أبرزها</p>
+              <ul>
+                <li>إعادة استخدام مياه الصرف.</li>
+                <li>الاستهلاك المبتكر للمياه في الزراعة.</li>
+                <li>استهلاك المياه المبتكر في المنازل.</li>
+                <li>إدارة تسرب المياه الذكية.</li>
+                <li>أنظمة التناضح العكسي المتقدمة.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="drv-sector">
+            <div class="drv-sector__head">
+              <span class="drv-sector__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 21V11"/><path d="M12 11c2.8-1.2 4.5-3.2 5-5.5-3.2.4-5.5 2-5 5.5z"/><path d="M12 13c-2.8-1.2-4.5-3.2-5-5.5 3.2.4 5.5 2 5 5.5z"/><path d="M7 21h10"/></svg>
+              </span>
+              <h3>قطاع الزراعة</h3>
+            </div>
+            <div class="drv-sector__body">
+              <p class="drv-sector__kicker">من أبرزها</p>
+              <ul>
+                <li>هدر وفقد الطعام.</li>
+                <li>الري وإدارة المياه.</li>
+                <li>الطائرات المسيرة والأقمار الصناعية للمحاصيل.</li>
+                <li>الزراعة المحمية والبيئة المتحكم بها.</li>
+                <li>الإدارة المتكاملة لتربية الأحياء المائية.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- منهجية -->
+    <section class="drv-section drv-section--mint" id="method" aria-labelledby="methodTitle">
+      <div class="drv-container">
+        <h2 class="drv-section-title" id="methodTitle">منهجية عمل البرنامج</h2>
+        <div class="drv-cards-3">
+          <article class="drv-card">
+            <span class="drv-badge">01</span>
+            <span class="drv-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-3.8-3.8"/></svg>
+            </span>
+            <h3>الرصد</h3>
+            <p>رصد وتقييم الحلول الابتكارية، وتحديد مدى مواءمتها لاحتياجات وفرص القطاعات المستهدفة.</p>
+          </article>
+          <article class="drv-card">
+            <span class="drv-badge">02</span>
+            <span class="drv-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 15.5v5.5"/><path d="M9.5 21h5"/><circle cx="12" cy="12" r="2.6"/><path d="M12 7.8V6.2M7.8 12H6.2M17.8 12h-1.6M8.6 8.6l-1.1-1.1M16.5 16.5l-1.1-1.1M16.5 8.6l1.1-1.1M8.6 16.5l1.1-1.1"/></svg>
+            </span>
+            <h3>الاختبار التجريبي</h3>
+            <p>دعم اختبار وبرهنة الحلول الواعدة، والتحقق من جاهزيتها الفنية والتشغيلية في بيئة المملكة.</p>
+          </article>
+          <article class="drv-card">
+            <span class="drv-badge">03</span>
+            <span class="drv-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3c2.5 3 5.5 7.2 5.5 11.2A5.5 5.5 0 0 1 6.5 14.2C6.5 10.2 9.5 6 12 3z"/><path d="M9.2 17.5L7 21l2.8-1.2"/><path d="M14.8 17.5L17 21l-2.8-1.2"/><circle cx="12" cy="11.5" r="1.2"/></svg>
+            </span>
+            <h3>التوسع والنشر</h3>
+            <p>تمكين التوسع في تطبيق الحلول الناجحة، وتعزيز تبنّيها على نطاق أوسع لتحقيق أثر مستدام.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- خدمات -->
+    <section class="drv-section drv-section--white" id="services" aria-labelledby="servicesTitle">
+      <div class="drv-container">
+        <h2 class="drv-section-title" id="servicesTitle">خدمات البرنامج</h2>
+        <div class="drv-cards-6">
+          <article class="drv-card drv-card--service">
+            <span class="drv-badge">01</span>
+            <span class="drv-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M8 4h8a2 2 0 0 1 2 2v14l-6-3-6 3V6a2 2 0 0 1 2-2z"/><path d="M9.5 11.2l1.7 1.7 3.3-3.4"/></svg>
+            </span>
+            <h3>دعم الاختبار التجريبي (Piloting)</h3>
+            <p>تمكين تنفيذ المشاريع التجريبية في بيئات تشغيلية حقيقية، مع متابعة الأداء، وقياس النتائج، والتحقق من جدوى الحلول قبل التوسع.</p>
+          </article>
+          <article class="drv-card drv-card--service">
+            <span class="drv-badge">02</span>
+            <span class="drv-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 21V10"/><path d="M12 10c2.6-1.2 4.2-3.2 4.6-5.4-3 .4-5.1 2-4.6 5.4z"/><path d="M12 12c-2.6-1.2-4.2-3.2-4.6-5.4 3 .4 5.1 2 4.6 5.4z"/><path d="M7 21h10"/></svg>
+            </span>
+            <h3>توفير البنية التحتية</h3>
+            <p>توفير البيئة التقنية والتشغيلية اللازمة لدعم تطوير الحلول، بما يشمل الأدوات والمنصات والتقنيات المساندة لتنفيذ المشاريع بكفاءة.</p>
+          </article>
+          <article class="drv-card drv-card--service">
+            <span class="drv-badge">03</span>
+            <span class="drv-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3c2.5 3 5.5 7.2 5.5 11.2A5.5 5.5 0 0 1 6.5 14.2C6.5 10.2 9.5 6 12 3z"/><path d="M9.2 17.5L7 21l2.8-1.2"/><path d="M14.8 17.5L17 21l-2.8-1.2"/></svg>
+            </span>
+            <h3>توفير الدعم والنشر</h3>
+            <p>مساندة الحلول الناجحة في الانتقال من المرحلة التجريبية إلى التطبيق الواسع، مع توفير الممكنات اللازمة لضمان الاستدامة وتحقيق الأثر.</p>
+          </article>
+          <article class="drv-card drv-card--service">
+            <span class="drv-badge">04</span>
+            <span class="drv-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M6 8h12l-1 11H7L6 8z"/><path d="M9 8V6.5A3 3 0 0 1 12 3.5 3 3 0 0 1 15 6.5V8"/><path d="M10 12h4"/></svg>
+            </span>
+            <h3>تحفيز الدخول للسوق</h3>
+            <p>تمكين الجهات المبتكرة من الوصول إلى الأسواق المستهدفة من خلال تسهيل إجراءات التبني، وبناء الشراكات، ودعم جاهزية الحلول للتطبيق.</p>
+          </article>
+          <article class="drv-card drv-card--service">
+            <span class="drv-badge">05</span>
+            <span class="drv-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v4c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 10v4c0 1.7 3.1 3 7 3s7-1.3 7-3v-4"/><path d="M5 14v4c0 1.7 3.1 3 7 3s7-1.3 7-3v-4"/></svg>
+            </span>
+            <h3>توفير البيانات</h3>
+            <p>إتاحة البيانات اللازمة للمشاريع الابتكارية، وتعزيز الاستفادة منها في التحليل، وبناء النماذج، واتخاذ القرارات المبنية على البيانات.</p>
+          </article>
+          <article class="drv-card drv-card--service">
+            <span class="drv-badge">06</span>
+            <span class="drv-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 8.5h16v10.5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8.5z"/><path d="M4 8.5C4 6.5 7.6 5 12 5s8 1.5 8 3.5"/><path d="M12 12.5v2"/><circle cx="12" cy="12.5" r="0.2"/></svg>
+            </span>
+            <h3>تحفيز الحلول الواعدة</h3>
+            <p>تقديم حوافز للمشاريع والحلول ذات الإمكانات العالية، لتسريع تطويرها وتعزيز فرص نجاحها واستدامتها.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- الفئة المستهدفة -->
+    <section class="drv-section drv-section--audience" id="audience" aria-labelledby="audienceTitle">
+      <div class="drv-container">
+        <h2 class="drv-section-title drv-section-title--light" id="audienceTitle">الفئة المستهدفة</h2>
+        <div class="drv-audience">
+          <div class="drv-audience__item">
+            <span class="drv-audience__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 20V9l6-4 6 4v11"/><path d="M10 20v-6h4v6"/><path d="M16 9.5V20h4V11l-4-1.5z"/></svg>
+            </span>
+            <span>الجهات الشقيقة والبرامج الوطنية</span>
+          </div>
+          <div class="drv-audience__item">
+            <span class="drv-audience__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v2.2M12 18.8V21M4.9 6.5l1.6 1.6M17.5 15.9l1.6 1.6M3 12h2.2M18.8 12H21M4.9 17.5l1.6-1.6M17.5 8.1l1.6-1.6"/></svg>
+            </span>
+            <span>مزودي التقنية محلياً وعالمياً</span>
+          </div>
+          <div class="drv-audience__item">
+            <span class="drv-audience__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 20V8l5-3 5 3v12"/><path d="M9 20v-5h4v5"/><path d="M3 20h18"/></svg>
+            </span>
+            <span>القطاع الخاص</span>
+          </div>
+          <div class="drv-audience__item">
+            <span class="drv-audience__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 20V9"/><path d="M12 9c2.4-1.1 3.8-2.9 4.1-4.8-2.7.3-4.5 1.8-4.1 4.8z"/><path d="M12 11c-2.4-1.1-3.8-2.9-4.1-4.8 2.7.3 4.5 1.8 4.1 4.8z"/><path d="M8 20h8"/></svg>
+            </span>
+            <span>القطاع غير الربحي</span>
+          </div>
+          <div class="drv-audience__item">
+            <span class="drv-audience__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M6 20V10l6-5 6 5v10"/><path d="M10 20v-4h4v4"/><path d="M9 10.5h6"/><path d="M12 5.5V3.8"/></svg>
+            </span>
+            <span>الجهات الأكاديمية</span>
+          </div>
+          <div class="drv-audience__item">
+            <span class="drv-audience__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 18c0-2.2.8-3.5 2-4.8 1.2 1.3 2 2.6 2 4.8"/><path d="M12 13.2V9.5"/><path d="M10.2 7.2a2.2 2.2 0 1 1 3.6 0c.4.7.2 1.5-.4 2.1L12 11l-1.4-1.7c-.6-.6-.8-1.4-.4-2.1z"/></svg>
+            </span>
+            <span>الأفراد المبتكرين</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- آلية التقديم -->
+    <section class="drv-section drv-section--mint drv-section--apply" id="apply" aria-labelledby="applyTitle">
+      <div class="drv-container">
+        <div class="drv-apply">
+          <div class="drv-apply__main">
+            <h2 class="drv-apply__title" id="applyTitle">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>
+              آلية التقديم على البرنامج
+            </h2>
+            <p>
+              يمكن للراغبين في الانضمام إلى برنامج نشر الابتكار تقديم طلباتهم من خلال القنوات التالية، وسيتم التواصل مع المتقدمين بعد مراجعة الطلبات واستكمال الإجراءات اللازمة.
+            </p>
+            <div class="drv-apply__actions">
+              <a href="mailto:IDP@mewa.gov.sa">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg>
+                إرسال الطلب عبر البريد الإلكتروني
+              </a>
+              <a href="https://forms.office.com/r/ciCdyM6Fi0" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8a2 2 0 0 1 2 2v14l-6-2.5L6 20V6a2 2 0 0 1 2-2z"/><path d="M9 10h6M9 14h4"/></svg>
+                تعبئة نموذج التقديم
+              </a>
+            </div>
+          </div>
+          <div class="drv-apply__brand">
+            <img src="agency-reports/assets/driving/idp-logo.png" alt="" width="52" height="52" />
+            <strong>برنامج نشر الابتكار</strong>
+            <span>Innovation Deployment Program</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- المنظومة -->
+    <section class="drv-section drv-section--white drv-eco drv-section--eco" id="ecosystem" aria-labelledby="ecoTitle">
+      <div class="drv-container">
+        <h2 class="drv-section-title" id="ecoTitle">منظومة برنامج نشر الابتكار</h2>
+        <p>
+          سيعمل البرنامج كحلقة وصل مركزية لإدارة شبكة واسعة من التفاعلات الاستراتيجية، حيث يرتكز على التعاون المشترك بين وزارة البيئة والمياه والزراعة والجهات الشقيقة، وهيئة تنمية البحث والتطوير والابتكار.
+        </p>
+        <div class="drv-eco__tab">وزارة البيئة والمياه والزراعة والجهات الشقيقة</div>
+        <div class="drv-eco__logos">
+          <img
+            src="agency-reports/assets/driving/idp-partners-logos.png"
+            alt="شعارات وزارة البيئة والمياه والزراعة والجهات الشقيقة ضمن منظومة برنامج نشر الابتكار"
+            width="920"
+            height="720"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-5">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <span class="brand-mark" style="width:36px;height:36px;border-radius:10px" aria-hidden="true"></span>
+            <strong style="color:var(--naama-primary)">منصة البحث والابتكار</strong>
+          </div>
+          <p class="text-muted mb-0" style="max-width: 34rem">المحور المركزي لأنشطة البحث والابتكار في قطاعات البيئة والمياه والزراعة، ضمن منظومة منصة نما وأهداف رؤية 2030.</p>
+        </div>
+        <div class="col-md-4">
+          <h6 style="color:var(--naama-primary);font-weight:700">روابط سريعة</h6>
+          <div class="footer-links d-flex flex-wrap gap-3">
+            <a href="Index.html">الرئيسية</a>
+            <a href="Index.html?view=services">برامج الابتكار</a>
+            <a href="Index.html?view=our-services">خدماتنا</a>
+            <a href="Index.html?view=publications">منشورات وتقارير</a>
+            <a href="Index.html?view=my-requests">طلباتي</a>
+            <a href="https://naama.sa/" target="_blank" rel="noreferrer">منصة نما</a>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <h6 style="color:var(--naama-primary);font-weight:700">الدعم</h6>
+          <p class="text-muted mb-1"><i class="bi bi-headset me-1"></i> الرقم الموحد <strong>939</strong></p>
+          <p class="text-muted mb-0"><i class="bi bi-envelope me-1"></i> ri-support@mewa.gov.sa</p>
+        </div>
+      </div>
+      <hr class="my-4" />
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 text-muted small">
+        <span>© جميع الحقوق محفوظة · وزارة البيئة والمياه والزراعة</span>
+        <span>الإصدار التجريبي · متوافق مع النفاذ الموحد</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var menuToggle = document.getElementById("drv3MenuToggle");
+      var mobileNav = document.getElementById("mobileNav");
+      if (menuToggle && mobileNav) {
+        menuToggle.addEventListener("click", function () {
+          var open = mobileNav.classList.toggle("is-open");
+          menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

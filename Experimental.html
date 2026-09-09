@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>البيئة التنظيمية التجريبية | منصة البحث والابتكار</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green: #1b8354;
+      --green-dark: #0f5132;
+      --green-mid: #004b44;
+      --green-soft: #e8f5ef;
+      --mint: #f4f9f6;
+      --ink: #161616;
+      --muted: #4b5563;
+      --border: #e5e7eb;
+      --bg: #f3f4f6;
+      --white: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+    .top {
+      background: var(--green-dark);
+      color: #fff;
+      font-size: 0.82rem;
+      padding: 0.45rem 1rem;
+    }
+    .wrap {
+      width: min(1080px, calc(100% - 2rem));
+      margin: 1.25rem auto 2.75rem;
+    }
+    .actions {
+      display: none;
+    }
+    .embed-back {
+      display: block;
+      margin: 0 0 1rem;
+      text-align: left;
+    }
+    .embed-back-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.55rem 1.05rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      line-height: 1.2;
+      border: 1.5px solid #104631;
+      background: #fff;
+      color: #104631;
+      cursor: pointer;
+      font-family: inherit;
+      text-decoration: none;
+      box-shadow: 0 1px 3px rgba(16, 40, 30, 0.06);
+    }
+    .embed-back-btn:hover {
+      border-color: #1b8354;
+      color: #1b8354;
+    }
+    .embed-back-btn svg {
+      width: 1rem;
+      height: 1rem;
+      flex-shrink: 0;
+    }
+    h1 {
+      margin: 0 0 1rem;
+      color: var(--green-dark);
+      font-size: clamp(1.4rem, 2.8vw, 1.95rem);
+      line-height: 1.4;
+      font-weight: 800;
+      text-align: center;
+    }
+    .hero-banner {
+      margin: 0;
+      border-radius: 0;
+      overflow: hidden;
+      min-height: clamp(180px, 24vw, 260px);
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100vw;
+      max-width: 100vw;
+      margin-inline: calc(50% - 50vw);
+      box-sizing: border-box;
+      padding:
+        clamp(1.5rem, 3.5vw, 2.4rem)
+        max(1.2rem, calc((100vw - 1080px) / 2 + 1rem));
+      background-color: #0a2a1c;
+      background-image:
+        linear-gradient(90deg, rgba(8, 28, 20, 0.42) 0%, rgba(8, 28, 20, 0.38) 100%),
+        url("agency-reports/assets/exp-hero-bg.jpg");
+      background-position: center;
+      background-size: 112% 112%;
+      background-repeat: no-repeat;
+      box-shadow: none;
+      filter: none;
+    }
+    .hero-banner-copy {
+      max-width: min(640px, 100%);
+      color: #fff;
+    }
+    .page-sub {
+      margin: 0 0 0.45rem;
+      color: #fff;
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      font-weight: 800;
+      line-height: 1.5;
+      text-shadow: none;
+    }
+    .hero-lead {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.95);
+      font-size: clamp(0.92rem, 1.5vw, 1.05rem);
+      font-weight: 500;
+      line-height: 1.7;
+      text-shadow: none;
+    }
+    section {
+      margin-top: 1.75rem;
+    }
+    h2 {
+      margin: 0 0 1rem;
+      color: var(--green-mid);
+      font-size: clamp(1.15rem, 2.1vw, 1.4rem);
+      font-weight: 800;
+      text-align: center;
+    }
+    h3 {
+      margin: 0 0 0.4rem;
+      color: var(--green-dark);
+      font-size: 1rem;
+      font-weight: 800;
+    }
+    p { margin: 0 0 0.85rem; color: var(--muted); }
+
+    /* About */
+    .about {
+      margin-top: 0;
+      margin-bottom: 0;
+      border: 0;
+      border-radius: 0;
+      overflow: hidden;
+      min-height: clamp(180px, 24vw, 260px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 100vw;
+      max-width: 100vw;
+      margin-inline: calc(50% - 50vw);
+      box-sizing: border-box;
+      padding: clamp(1.6rem, 4vw, 2.5rem) max(1.2rem, calc((100vw - 900px) / 2 + 1rem));
+      background: #0f5132;
+      color: #fff;
+      box-shadow: none;
+      outline: none;
+    }
+    .about-inner {
+      max-width: 820px;
+      width: 100%;
+    }
+    .about h2 {
+      margin: 0 0 0.85rem;
+      color: #fff;
+      font-size: clamp(1.1rem, 2.1vw, 1.35rem);
+      font-weight: 800;
+      line-height: 1.5;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    }
+    .about p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.96);
+      font-size: clamp(0.88rem, 1.4vw, 1rem);
+      line-height: 1.85;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Goals */
+    .goals {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+      max-width: 720px;
+      margin-inline: auto;
+      width: 100%;
+    }
+    .goal-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.15rem 1.1rem;
+      display: flex;
+      gap: 0.85rem;
+      align-items: flex-start;
+      box-shadow: 0 1px 3px rgba(16, 40, 30, 0.04);
+    }
+    .goal-icon {
+      width: 2.6rem;
+      height: 2.6rem;
+      border-radius: 999px;
+      background: var(--green-soft);
+      color: var(--green-dark);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .goal-icon svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .goal-card p { margin: 0; color: var(--ink); font-weight: 600; }
+
+    /* Who + eligibility band */
+    .who-criteria-band {
+      margin-top: 1.75rem;
+      width: 100vw;
+      max-width: 100vw;
+      margin-inline: calc(50% - 50vw);
+      box-sizing: border-box;
+      padding: 2rem max(1.2rem, calc((100vw - 1080px) / 2 + 1rem)) 2.2rem;
+      background: #1b8354;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      outline: none;
+      overflow: hidden;
+    }
+    .who-criteria-band section {
+      margin-top: 0;
+    }
+    .who-criteria-band section + section {
+      margin-top: 1.75rem;
+    }
+    .who-criteria-band h2 {
+      color: #fff;
+      text-align: right;
+    }
+    .who-criteria-band .eligibility-intro {
+      color: rgba(255, 255, 255, 0.95);
+      text-align: right;
+      max-width: none;
+      margin: 0 0 1.1rem;
+    }
+    .who-criteria-inner {
+      max-width: 1080px;
+      margin-inline: auto;
+    }
+
+    /* Who can apply */
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.85rem;
+    }
+    .audience-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.1rem 0.85rem;
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(16, 40, 30, 0.04);
+    }
+    .audience-card .icon {
+      width: 2.8rem;
+      height: 2.8rem;
+      margin: 0 auto 0.65rem;
+      border-radius: 999px;
+      background: var(--mint);
+      color: var(--green-dark);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .audience-card .icon svg {
+      width: 1.35rem;
+      height: 1.35rem;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .audience-card strong {
+      display: block;
+      font-size: 0.92rem;
+      color: var(--green-dark);
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
+    /* Eligibility */
+    .eligibility-intro {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 1.1rem;
+      color: var(--muted);
+    }
+    .criteria {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-auto-rows: 1fr;
+      align-items: stretch;
+      gap: 0.85rem;
+    }
+    .criterion {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.1rem 1rem 1.15rem;
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+    }
+    .criterion::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      inset-inline-start: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--green);
+    }
+    .criterion h3 {
+      flex-shrink: 0;
+    }
+    .criterion p {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    /* Process timeline — مطابق لتصميم MEWA الرسمي */
+    .process {
+      margin-top: 2rem;
+      margin-inline: calc(50% - 50vw);
+      width: 100vw;
+      max-width: 100vw;
+      box-sizing: border-box;
+      background: #f7f8f6 url("agency-reports/assets/experimental/process.jpg") center / cover no-repeat;
+      padding:
+        3.5rem
+        max(1.25rem, calc((100vw - 1080px) / 2 + 1rem))
+        3.75rem;
+      min-height: 440px;
+      position: relative;
+    }
+    .process > h2 {
+      text-align: center;
+      color: #1f2a37;
+      font-size: clamp(1.45rem, 2.4vw, 1.85rem);
+      font-weight: 800;
+      margin: 0 0 0.65rem;
+    }
+    .process > .eligibility-intro {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 2rem;
+      color: #6b7280;
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+    .process-timeline {
+      position: relative;
+      margin-top: 0.5rem;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.15rem;
+      align-items: stretch;
+      position: relative;
+      z-index: 1;
+    }
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      text-align: right;
+      position: relative;
+      z-index: 1;
+      min-height: 100%;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      padding: 0;
+    }
+    .step-icon {
+      position: relative;
+      width: 100%;
+      margin: 0 0 1.15rem;
+      padding: 0 0 1.85rem;
+      overflow: visible;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      color: #61b97d;
+      background: transparent;
+      z-index: 1;
+    }
+    .step-icon img {
+      display: block;
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      position: relative;
+      z-index: 2;
+      background: transparent;
+    }
+    .step-icon::before {
+      content: "";
+      position: absolute;
+      width: 58px;
+      height: 6px;
+      background: #61b97d;
+      bottom: 0;
+      inset-inline-start: 0;
+      z-index: 2;
+      border-radius: 1px;
+    }
+    .step-icon::after {
+      content: "";
+      position: absolute;
+      inset-inline: 0;
+      bottom: 1px;
+      height: 3px;
+      background: #d2d6db;
+      z-index: 1;
+    }
+    .step-last {
+      overflow: visible;
+    }
+    .step-last .process-arrow-img {
+      position: absolute;
+      top: 58px;
+      inset-inline-end: -8px;
+      width: 28px;
+      height: auto;
+      z-index: 3;
+      pointer-events: none;
+      transform: rotate(180deg);
+    }
+    .step-head {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.55rem;
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+    .step h3 {
+      margin: 0;
+      color: #1f2a37;
+      font-size: 1.125rem;
+      font-weight: 700;
+      line-height: 1.55;
+    }
+    .step .time {
+      display: inline-block;
+      margin: 0;
+      padding: 0.28rem 0.75rem;
+      border-radius: 8px;
+      background: #e5e7eb;
+      color: #4b5563;
+      font-size: 0.78rem;
+      font-weight: 600;
+      line-height: 1.45;
+      white-space: nowrap;
+    }
+    .step-card {
+      flex: 1;
+      width: 100%;
+      background: #fff;
+      border: 1px solid #d2d6db;
+      border-radius: 1rem;
+      padding: 1rem;
+      box-shadow: 0 4px 8px -2px rgba(16, 24, 40, 0.1), 0 2px 4px -2px rgba(16, 24, 40, 0.06);
+      text-align: right;
+      box-sizing: border-box;
+      display: flex;
+      min-height: 125px;
+    }
+    .step-card p {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: #4b5563;
+    }
+
+    /* Join CTA */
+    .join {
+      background: transparent;
+      border-radius: 16px;
+      padding: 1.4rem 1.2rem 1.5rem;
+      color: var(--ink);
+      text-align: center;
+    }
+    .join h2 {
+      color: var(--green-dark);
+      margin-bottom: 0.45rem;
+    }
+    .join > p {
+      color: var(--muted);
+      margin: 0 auto 1.1rem;
+      max-width: 520px;
+    }
+    .join-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.9rem;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .join-card {
+      background: #fff;
+      border: 1px solid #e8eaed;
+      border-radius: 14px;
+      min-height: 7.5rem;
+      padding: 1.1rem 1.15rem 1rem;
+      color: #1f2937;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+      gap: 0.55rem;
+      box-shadow: 0 8px 20px rgba(16, 40, 30, 0.06);
+      box-sizing: border-box;
+      cursor: default;
+      pointer-events: none;
+      text-align: right;
+    }
+    .join-icon {
+      width: 2.55rem;
+      height: 2.55rem;
+      border-radius: 999px;
+      background: #e8f5ef;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      align-self: flex-start;
+    }
+    .join-icon img {
+      width: 1.45rem;
+      height: 1.45rem;
+      object-fit: contain;
+      display: block;
+    }
+    .join-card > span:not(.join-icon) {
+      font-weight: 800;
+      color: #1f2937;
+      font-size: 1rem;
+      line-height: 1.3;
+      text-align: right;
+      width: 100%;
+    }
+
+    /* Latest news */
+    .latest-news {
+      margin-top: 1.75rem;
+      width: 100vw;
+      max-width: 100vw;
+      margin-inline: calc(50% - 50vw);
+      box-sizing: border-box;
+      padding: 1.75rem max(1.2rem, calc((100vw - 1080px) / 2 + 1rem)) 2rem;
+      background: #0f5132;
+      color: #fff;
+    }
+    .latest-news-inner {
+      max-width: 1080px;
+      margin-inline: auto;
+    }
+    .latest-news h2 {
+      margin: 0 0 1.15rem;
+      color: #fff;
+      text-align: right;
+      font-size: clamp(1.15rem, 2.1vw, 1.4rem);
+      font-weight: 800;
+    }
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      max-width: 720px;
+    }
+    .news-item {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.14);
+      min-height: 100%;
+    }
+    .news-cover {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: #e8f0eb;
+    }
+    .news-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .news-body {
+      padding: 0.85rem 0.95rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      flex: 1;
+    }
+    .news-body h3 {
+      margin: 0;
+      color: #1f2937;
+      font-size: 0.98rem;
+      font-weight: 800;
+      line-height: 1.45;
+      text-align: right;
+    }
+    .news-more {
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: auto;
+      background: var(--green);
+      color: #fff;
+      border: 0;
+      border-radius: 6px;
+      padding: 0.4rem 0.75rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      line-height: 1.2;
+      font-family: inherit;
+      cursor: default;
+      pointer-events: none;
+    }
+    .news-more img,
+    .news-more svg {
+      width: 0.85rem;
+      height: 0.85rem;
+      display: block;
+    }
+
+    /* FAQ */
+    .faq {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.25rem 1.15rem 0.5rem;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-item:last-child { border-bottom: 0; }
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.95rem 0.1rem;
+      color: var(--ink);
+      font-size: 0.95rem;
+      font-weight: 700;
+      line-height: 1.55;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: "";
+      width: 0.55rem;
+      height: 0.55rem;
+      border-inline-end: 2px solid #6b7280;
+      border-bottom: 2px solid #6b7280;
+      transform: rotate(45deg);
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+      margin-top: -0.2rem;
+    }
+    .faq-item[open] summary::after {
+      transform: rotate(-135deg);
+      margin-top: 0.15rem;
+    }
+    .faq-item p {
+      margin: 0 0 1rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.75;
+    }
+
+    html.is-platform-embed .top { display: none; }
+    /* زر الرجوع والعنوان يظهران من صفحة المنصة الأم بنفس تصميم الدعم الاستشاري */
+    html.is-platform-embed .embed-back,
+    html.is-platform-embed #expTitle { display: none; }
+    html.is-platform-embed body { background: transparent; }
+    html.is-platform-embed .wrap { width: 100%; margin: 0; padding: 0; }
+
+    @media (max-width: 900px) {
+      .goals,
+      .criteria { grid-template-columns: 1fr; }
+      .audience-grid,
+      .join-grid { grid-template-columns: 1fr 1fr; }
+      .steps { grid-template-columns: 1fr 1fr; gap: 1.75rem 1.25rem; }
+      .step-last .process-arrow-img { display: none; }
+      .step .time { white-space: normal; }
+      .news-grid { max-width: none; }
+    }
+    @media (max-width: 600px) {
+      .audience-grid,
+      .join-grid,
+      .goals,
+      .steps,
+      .news-grid { grid-template-columns: 1fr; }
+      .step-icon::after { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top">نسخة محلية للمعاينة داخل منصة البحث والابتكار — المحتوى مستند إلى صفحة الوزارة</div>
+  <div class="wrap">
+    <div class="embed-back">
+      <button type="button" class="embed-back-btn" id="expBackToServices">
+        <svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg>
+        رجوع إلى الخدمات الرئيسية
+      </button>
+    </div>
+
+    <article class="page">
+      <h1 id="expTitle">البيئة التنظيمية التجريبية</h1>
+      <section class="hero-banner" aria-label="نبذة عن البيئة التنظيمية التجريبية">
+        <div class="hero-banner-copy">
+          <p class="page-sub">البيئة التنظيمية التجريبية لوزارة البيئة والمياه والزراعة</p>
+          <p class="hero-lead">تمكين الابتكار والمبتكرين في قطاعات البيئة والمياه والزراعة</p>
+        </div>
+      </section>
+
+      <section class="about" aria-labelledby="aboutTitle">
+        <div class="about-inner">
+          <h2 id="aboutTitle">عن البيئة التنظيمية التجريبية لوزارة البيئة والمياه والزراعة</h2>
+          <p>
+            البيئة التنظيمية التجريبية لوزارة البيئة والمياه والزراعة تمكّن من اختبار المنتجات أو الخدمات أو نماذج العمل المبتكرة في بيئة آمنة خاضعة للرقابة من قبل المنظمين.
+          </p>
+        </div>
+      </section>
+
+      <section aria-labelledby="goalsTitle">
+        <h2 id="goalsTitle">أهداف البيئة التنظيمية التجريبية لوزارة البيئة والمياه والزراعة</h2>
+        <div class="goals">
+          <article class="goal-card">
+            <span class="goal-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3l2 4 4 .6-3 2.9.8 4.5L12 13.8 8.2 15l.8-4.5-3-2.9L10 7z"/></svg>
+            </span>
+            <div>
+              <h3>معالجة التحديات التنظيمية</h3>
+              <p>معالجة التحديات التنظيمية التي يواجهها المبتكرون.</p>
+            </div>
+          </article>
+          <article class="goal-card">
+            <span class="goal-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 19V9l8-5 8 5v10"/><path d="M9 19v-6h6v6"/></svg>
+            </span>
+            <div>
+              <h3>تمكين بيئة تنظيمية داعمة للابتكار</h3>
+              <p>تمكين بيئة تنظيمية داعمة تواكب الابتكار والتغيرات.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <div class="who-criteria-band">
+        <div class="who-criteria-inner">
+        <section aria-labelledby="whoTitle">
+          <h2 id="whoTitle">من يمكنه التقديم؟</h2>
+          <div class="audience-grid">
+            <article class="audience-card">
+              <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V9l5-4 5 4v11"/><path d="M9 20v-5h4v5"/><path d="M14 11h5v9"/></svg></span>
+              <strong>شركات التقنية الناشئة</strong>
+            </article>
+            <article class="audience-card">
+              <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 20h18"/><path d="M6 20V10h4v10M14 20V6h4v14"/></svg></span>
+              <strong>المؤسسات الصغيرة والمتوسطة</strong>
+            </article>
+            <article class="audience-card">
+              <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V8l8-4 8 4v12"/><path d="M9 20v-6h6v6"/></svg></span>
+              <strong>الشركات الكبرى</strong>
+            </article>
+            <article class="audience-card">
+              <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 10l8-5 8 5v9H4z"/><path d="M9 19v-5h6v5"/></svg></span>
+              <strong>البرامج الحكومية</strong>
+            </article>
+          </div>
+        </section>
+
+        <section aria-labelledby="criteriaTitle">
+          <h2 id="criteriaTitle">معايير الأهلية</h2>
+          <p class="eligibility-intro">
+            ترحب البيئة التنظيمية التجريبية لوزارة البيئة والمياه والزراعة بجميع المبتكرين الذين يستوفون المعايير التالية
+          </p>
+          <div class="criteria">
+            <article class="criterion">
+              <h3>الحلول المبتكرة</h3>
+              <p>حلول مبتكرة في قطاعات البيئة والمياه والزراعة لم يتم تطبيقها بعد في المملكة.</p>
+            </article>
+            <article class="criterion">
+              <h3>الارتباط بالأهداف القطاعية</h3>
+              <p>حلول تواكب أولويات واستراتيجيات قطاعات البيئة والمياه والزراعة وتسهم في تحقيق مستهدفاتها.</p>
+            </article>
+            <article class="criterion">
+              <h3>المساهمة الاقتصادية والاجتماعية</h3>
+              <p>حلول تقدم أثرًا اقتصاديًا واجتماعيًا ملموسًا للمملكة.</p>
+            </article>
+            <article class="criterion">
+              <h3>الفائدة للمستهلك</h3>
+              <p>حلول توفر منافع للمستهلك، مثل تحسين الوصول إلى المنتجات أو زيادة القدرة على تحمّل التكاليف، وغيرها.</p>
+            </article>
+            <article class="criterion">
+              <h3>وضوح العوائق التنظيمية</h3>
+              <p>مبتكرون لديهم فهم واضح ومحدد للتحديات التنظيمية التي يمكن للبيئة التنظيمية التجريبية مساعدتهم على تجاوزها.</p>
+            </article>
+            <article class="criterion">
+              <h3>جاهزية الحلول</h3>
+              <p>حلول مكتملة التطوير وقابلة للنشر والتطبيق.</p>
+            </article>
+          </div>
+        </section>
+
+        </div>
+      </div>
+
+      <section class="process" aria-labelledby="processTitle">
+        <h2 id="processTitle">الإجراءات</h2>
+        <p class="eligibility-intro">
+          تعتمد البيئة التنظيمية التجريبية لوزارة البيئة والمياه والزراعة إجراءات مبسّطة تُوجّه المبتكرين من مرحلة تقديم الطلبات وحتى مرحلة التطبيق الفعلي
+        </p>
+        <div class="process-timeline">
+          <div class="steps">
+            <article class="step">
+              <div class="step-icon" aria-hidden="true">
+                <img src="agency-reports/assets/experimental/Application.png" alt="" width="50" height="50" />
+              </div>
+              <div class="step-head">
+                <h3>تقديم الطلبات</h3>
+                <span class="time">الفرز الأولي (30 يوم عمل)</span>
+              </div>
+              <div class="step-card">
+                <p>يقدّم المبتكرون مقترحات تفصيلية تشمل الحل المبتكر، والأهداف، والتحديات التنظيمية التي واجهوها ويسعون لمعالجتها</p>
+              </div>
+            </article>
+            <article class="step">
+              <div class="step-icon" aria-hidden="true">
+                <img src="agency-reports/assets/experimental/Evaluation.png" alt="" width="50" height="50" />
+              </div>
+              <div class="step-head">
+                <h3>التقييم</h3>
+                <span class="time">التقييم (90 يوم عمل)</span>
+              </div>
+              <div class="step-card">
+                <p>تخضع الطلبات لعملية تقييم شاملة لقياس مدى مواءمتها مع معايير وأهداف البيئة التنظيمية التجريبية</p>
+              </div>
+            </article>
+            <article class="step">
+              <div class="step-icon" aria-hidden="true">
+                <img src="agency-reports/assets/experimental/Testing.png" alt="" width="50" height="50" />
+              </div>
+              <div class="step-head">
+                <h3>الاختبار التجريبي</h3>
+                <span class="time">الاختبار التجريبي (6 أشهر- سنتين)</span>
+              </div>
+              <div class="step-card">
+                <p>في حال تطلّب الأمر، يُطلب من المبتكرين تجربة حلولهم ضمن بيئة خاضعة للإشراف التنظيمي</p>
+              </div>
+            </article>
+            <article class="step step-last">
+              <div class="step-icon" aria-hidden="true">
+                <img src="agency-reports/assets/experimental/Completion.png" alt="" width="50" height="50" />
+              </div>
+              <img
+                class="process-arrow-img"
+                src="agency-reports/assets/experimental/Completion2.png"
+                alt=""
+                aria-hidden="true"
+              />
+              <div class="step-head">
+                <h3>الإتمام</h3>
+                <span class="time">إتمام البرنامج</span>
+              </div>
+              <div class="step-card">
+                <p>بعد التقييم والاختبار التجريبي، يتم اتخاذ الإجراءات التنظيمية اللازمة لدعم نشر الحل في السوق</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="join" id="joinNow" aria-labelledby="joinTitle">
+        <h2 id="joinTitle">انضم الآن</h2>
+        <p>قدّم طلبك حسب القطاع المستهدف عبر قنوات التقديم المعتمدة.</p>
+        <div class="join-grid">
+          <div class="join-card">
+            <span class="join-icon" aria-hidden="true">
+              <img src="agency-reports/assets/exp-join-env.png" alt="" />
+            </span>
+            <span>البيئة</span>
+          </div>
+          <div class="join-card">
+            <span class="join-icon" aria-hidden="true">
+              <img src="agency-reports/assets/exp-join-water.png" alt="" />
+            </span>
+            <span>المياه</span>
+          </div>
+          <div class="join-card">
+            <span class="join-icon" aria-hidden="true">
+              <img src="agency-reports/assets/exp-join-agri.png" alt="" />
+            </span>
+            <span>الزراعة</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="latest-news" aria-labelledby="newsTitle">
+        <div class="latest-news-inner">
+          <h2 id="newsTitle">أحدث الأخبار والمقالات</h2>
+          <div class="news-grid">
+            <article class="news-item">
+              <div class="news-cover">
+                <img src="agency-reports/assets/exp-news-social.png" alt="وسائل التواصل الاجتماعي" />
+              </div>
+              <div class="news-body">
+                <h3>وسائل التواصل الاجتماعي</h3>
+                <span class="news-more">
+                  للمزيد
+                  <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M6.2 2.4h7.4v7.4h-1.5V5l-7 7-1.1-1.1 7-7H6.2z"/></svg>
+                </span>
+              </div>
+            </article>
+            <article class="news-item">
+              <div class="news-cover">
+                <img src="agency-reports/assets/exp-news-article.png" alt="المقالات" />
+              </div>
+              <div class="news-body">
+                <h3>المقالات</h3>
+                <span class="news-more">
+                  للمزيد
+                  <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M6.2 2.4h7.4v7.4h-1.5V5l-7 7-1.1-1.1 7-7H6.2z"/></svg>
+                </span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq" aria-labelledby="faqTitle">
+        <h2 id="faqTitle">الأسئلة الشائعة حول برنامج البيئة التنظيمية التجريبية</h2>
+        <details class="faq-item">
+          <summary>ما هي البيئة التنظيمية التجريبية؟</summary>
+          <p>برنامج يتيح اختبار الابتكارات والحلول الجديدة في بيئة خاضعة للرقابة التنظيمية ولمدة محددة، بهدف دراسة أثرها ودعم تطوير الأطر التنظيمية ذات العلاقة.</p>
+        </details>
+        <details class="faq-item">
+          <summary>من يمكنه التقديم؟</summary>
+          <p>يمكن للشركات الناشئة، والمنشآت الصغيرة والمتوسطة، والشركات الكبرى، والجهات البحثية، والجهات المحلية أو الدولية التي تمتلك حلولاً مبتكرة مرتبطة بقطاعات الوزارة التقديم على البرنامج.</p>
+        </details>
+        <details class="faq-item">
+          <summary>ما أنواع الابتكارات التي يمكنها التقديم؟</summary>
+          <p>الابتكارات التي تقدم حلولاً جديدة أو نماذج أعمال أو تقنيات مبتكرة في قطاعات البيئة أو المياه أو الزراعة أو الأمن الغذائي، والتي تواجه تحدياً أو عائقاً تنظيمياً يحول دون اختبارها أو تطبيقها.</p>
+        </details>
+        <details class="faq-item">
+          <summary>هل يشترط أن يكون لدي منتج جاهز أو يمكن التقديم بفكرة فقط؟</summary>
+          <p>يفضل أن يكون لدى المتقدم نموذج أولي أو منتج قابل للاختبار، حيث تهدف البيئة التنظيمية التجريبية إلى اختبار الحلول عملياً وليس دراسة الأفكار النظرية فقط.</p>
+        </details>
+        <details class="faq-item">
+          <summary>ما المقصود بالعائق التنظيمي؟</summary>
+          <p>هو وجود نظام أو لائحة أو اشتراط أو غياب إطار تنظيمي يمنع أو يحد من اختبار أو تطبيق الابتكار المقترح في الظروف الحالية.</p>
+        </details>
+        <details class="faq-item">
+          <summary>هل يوفر البرنامج دعمًا ماليًا أو تمويلًا للمشاريع؟</summary>
+          <p>لا يعني القبول في البيئة التنظيمية التجريبية الحصول على تمويل، وإنما يهدف البرنامج إلى تمكين اختبار الابتكار ومعالجة التحديات التنظيمية المرتبطة به.</p>
+        </details>
+        <details class="faq-item">
+          <summary>هل يضمن القبول في البيئة التنظيمية التجريبية الحصول على ترخيص دائم؟</summary>
+          <p>لا. القبول يتيح إجراء الاختبار التجريبي ضمن شروط محددة، بينما يتم تقييم نتائج التجربة قبل اتخاذ أي قرارات تنظيمية لاحقة.</p>
+        </details>
+        <details class="faq-item">
+          <summary>كم تستغرق عملية التقييم والقبول؟</summary>
+          <p>تختلف المدة حسب طبيعة الابتكار وتعقيد الحالة التنظيمية، وسيتم إشعار المتقدم بمراحل التقييم والتحديثات المتعلقة بطلبه.</p>
+        </details>
+        <details class="faq-item">
+          <summary>هل يتم الحفاظ على سرية المعلومات المقدمة؟</summary>
+          <p>نعم، يتم التعامل مع المعلومات المقدمة وفق الأنظمة والإجراءات المعمول بها، واستخدامها لأغراض تقييم الطلب ودراسة الحالة التنظيمية فقط.</p>
+        </details>
+        <details class="faq-item">
+          <summary>ماذا يحدث بعد تقديم الطلب؟</summary>
+          <p>يتم مراجعة الطلب والتحقق من استيفائه للمتطلبات، ثم تقييم الابتكار والعائق التنظيمي والجدوى المحتملة للاختبار. وقد يتم التواصل مع المتقدم لطلب معلومات إضافية قبل اتخاذ القرار النهائي.</p>
+        </details>
+      </section>
+    </article>
+  </div>
+
+  <script>
+    (function () {
+      var embedded = window.self !== window.top || /(?:^\?|&)embed=1(?:&|$)/.test(window.location.search || "");
+      if (embedded) document.documentElement.classList.add("is-platform-embed");
+
+      function postHeight() {
+        if (!embedded || !window.parent) return;
+        var height = Math.max(
+          document.body ? document.body.scrollHeight : 0,
+          document.documentElement ? document.documentElement.scrollHeight : 0
+        );
+        window.parent.postMessage({ type: "experimental-embed-height", height: height }, "*");
+      }
+
+      var backBtn = document.getElementById("expBackToServices");
+      if (backBtn) {
+        backBtn.addEventListener("click", function () {
+          if (embedded && window.parent) {
+            window.parent.postMessage({ type: "experimental-embed-back" }, "*");
+            return;
+          }
+          window.location.href = "منصة-البحث-والابتكار.html?view=our-services";
+        });
+      }
+
+      window.addEventListener("load", postHeight);
+      window.addEventListener("resize", postHeight);
+      window.addEventListener("message", function (event) {
+        if (event.data && event.data.type === "experimental-embed-request-height") postHeight();
+      });
+      document.querySelectorAll(".faq-item").forEach(function (el) {
+        el.addEventListener("toggle", postHeight);
+      });
+      if (window.ResizeObserver) {
+        var ro = new ResizeObserver(postHeight);
+        ro.observe(document.documentElement);
+      }
+      setTimeout(postHeight, 120);
+      setTimeout(postHeight, 500);
+    })();
+  </script>
+</body>
+</html>

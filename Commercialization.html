@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>نموذج طلب تتجير الملكية الفكرية | MEWA</title>
+  <meta name="description" content="نموذج طلب تتجير الملكية الفكرية — وكالة البحث والابتكار بوزارة البيئة والمياه والزراعة" />
+  <meta name="theme-color" content="#074d31" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+  <style>
+    :root {
+      --primary-green: #1b8354;
+      --dark-green: #074d31;
+      --light-green: #f3fcf6;
+      --mint-soft: #f3fcf6;
+      --mint-border: #d1fae5;
+      --text-color: #1f2a37;
+      --text-muted: #384250;
+      --background-color: #f7f8f9;
+      --border-color: #d2d6db;
+      --danger: #b42318;
+      --naama-primary: #003957;
+      --naama-primary-dark: #00283e;
+      --naama-accent: #49aa8b;
+      --naama-accent-soft: #e8f6f1;
+      --naama-border: #e4ecef;
+      --ps-paper-alt: #F4F1E9;
+      --ps-green-deep: #0B5D42;
+      --ps-line: #d8d2c4;
+      --ps-white: #fff;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans Arabic", "TheSans", "Arial", "Tahoma", sans-serif;
+      color: var(--text-color);
+      background: var(--background-color);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; }
+
+    /* ===== Header ===== */
+    .platform-top { position: relative; z-index: 100; }
+    .gov-bar {
+      background: var(--naama-primary-dark);
+      color: #fff;
+      font-size: 0.82rem;
+      padding: 0.45rem 0;
+    }
+    .gov-bar .verified { color: #7dd3a8; }
+    .site-header {
+      background: #fff;
+      border-bottom: 1px solid var(--naama-border);
+      box-shadow: 0 1px 0 rgba(16, 24, 40, 0.04);
+    }
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      min-width: 0;
+    }
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background:
+        linear-gradient(135deg, var(--primary-green), var(--dark-green));
+      flex-shrink: 0;
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.25;
+    }
+    .brand-text strong { font-size: 0.98rem; color: var(--naama-primary); }
+    .brand-text small { font-size: 0.75rem; color: #62717d; }
+    .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.4rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--naama-primary);
+      transition: background 0.2s ease, color 0.2s ease;
+      white-space: nowrap;
+    }
+    .nav-pill:hover { background: var(--naama-accent-soft); color: var(--dark-green); }
+    .nav-pill.active { background: var(--naama-accent-soft); color: var(--dark-green); }
+    .btn-login {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      background: var(--naama-primary);
+      color: #fff !important;
+      font-size: 0.86rem;
+      font-weight: 600;
+    }
+    .btn-login:hover { background: var(--naama-primary-dark); color: #fff !important; }
+    .btn-menu-toggle {
+      display: none;
+      border: 1px solid var(--naama-border);
+      background: #fff;
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      color: var(--naama-primary);
+    }
+    .header-search {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex: 1 1 280px;
+      max-width: 520px;
+      min-width: 0;
+    }
+    .h-search-input {
+      position: relative;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+    .h-search-input .icon {
+      position: absolute;
+      right: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #62717d;
+      pointer-events: none;
+    }
+    .h-search-input input {
+      width: 100%;
+      min-height: 40px;
+      border: 1px solid var(--naama-border);
+      border-radius: 999px;
+      padding: 0.4rem 2.2rem 0.4rem 0.85rem;
+      font-family: inherit;
+      font-size: 0.86rem;
+      background: #f4f7f9;
+    }
+    .h-search-select {
+      min-height: 40px;
+      border: 1px solid var(--naama-border);
+      border-radius: 999px;
+      padding: 0.35rem 0.85rem;
+      font-family: inherit;
+      font-size: 0.8rem;
+      background: #fff;
+      max-width: 160px;
+    }
+    .h-search-reset {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      border: 1px solid var(--naama-border);
+      background: #fff;
+      border-radius: 999px;
+      padding: 0.35rem 0.7rem;
+      font-size: 0.78rem;
+      color: var(--naama-primary);
+      white-space: nowrap;
+    }
+    #mobileNav {
+      display: none;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      padding-top: 0.75rem;
+    }
+    #mobileNav.is-open { display: flex; }
+
+    /* ===== Page title ===== */
+    .exp3-page-title {
+      background: var(--ps-paper-alt);
+      border-bottom: 1px solid var(--ps-line);
+      padding: 1.25rem 0 1.5rem;
+    }
+    .exp3-page-hero-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.85rem;
+      margin-bottom: 0.85rem;
+    }
+    .exp3-breadcrumb {
+      font-size: 0.88rem;
+      color: #5b6470;
+    }
+    .exp3-breadcrumb a { color: var(--ps-green-deep); font-weight: 600; }
+    .exp3-breadcrumb a:hover { text-decoration: underline; }
+    .exp3-page-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .exp3-back-services {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 7px 14px;
+      border: 1.5px solid var(--ps-line);
+      border-radius: 999px;
+      background: var(--ps-white);
+      color: var(--ps-green-deep);
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+    .exp3-back-services:hover {
+      background: #eef7f2;
+      border-color: var(--primary-green);
+    }
+    .exp3-page-title h1 {
+      margin: 0;
+      font-size: clamp(1.45rem, 2.4vw, 1.85rem);
+      font-weight: 700;
+      color: var(--ps-green-deep);
+      line-height: 1.35;
+    }
+
+    /* ===== Main form ===== */
+    .comm-main {
+      padding: 2rem 0 3.5rem;
+    }
+    .wrapper-form {
+      background: #fff;
+      padding: 1.5rem 1.35rem 1.75rem;
+      border-radius: 1rem;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 16px rgba(16, 24, 40, 0.06);
+    }
+    .form-page-title {
+      margin: 0 0 0.85rem;
+      font-size: clamp(1.25rem, 2vw, 1.55rem);
+      font-weight: 700;
+      color: var(--dark-green);
+      text-align: center;
+    }
+    .form-intro {
+      margin: 0 0 0.85rem;
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+      text-align: center;
+    }
+    .form-note {
+      margin: 0 0 1.5rem;
+      padding: 0.75rem 1rem;
+      background: var(--mint-soft);
+      border: 1px solid var(--mint-border);
+      border-radius: 0.5rem;
+      color: var(--dark-green);
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .form-section { margin-bottom: 1.5rem; }
+    .form-section__head {
+      background: var(--mint-soft);
+      border: 1px solid var(--mint-border);
+      border-radius: 0.5rem;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1.1rem;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--dark-green);
+    }
+
+    .field { margin-bottom: 1rem; }
+    .field label,
+    .field .field-label {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #1f2a37;
+      margin-bottom: 0.4rem;
+    }
+    .field .req { color: var(--danger); }
+    .field input[type="text"],
+    .field input[type="email"],
+    .field input[type="date"],
+    .field textarea,
+    .field select {
+      width: 100%;
+      min-height: 44px;
+      padding: 0.55rem 0.85rem;
+      border: 1px solid var(--border-color);
+      border-radius: 0.375rem;
+      background: #fff;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--text-color);
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .field select {
+      appearance: none;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='%23003957' d='M8 11L3 6h10z'/></svg>");
+      background-repeat: no-repeat;
+      background-position: left 0.75rem center;
+      background-size: 12px;
+      padding-left: 2rem;
+    }
+    .field textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    .field textarea::placeholder,
+    .field input::placeholder {
+      color: #9da4ae;
+      opacity: 1;
+    }
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      outline: 0;
+      border-color: var(--primary-green);
+      box-shadow: 0 0 0 0.2rem rgba(27, 131, 84, 0.18);
+    }
+
+    .field-error {
+      display: none;
+      color: var(--danger);
+      font-size: 0.82rem;
+      margin-top: 0.3rem;
+    }
+    .field.is-invalid input,
+    .field.is-invalid textarea,
+    .field.is-invalid select {
+      border-color: var(--danger);
+    }
+    .field.is-invalid .field-error { display: block; }
+    .field.is-invalid .radio-row,
+    .field.is-invalid .check-row {
+      outline: 1px solid rgba(180, 35, 24, 0.35);
+      border-radius: 6px;
+      padding: 0.35rem;
+    }
+
+    .radio-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      padding-top: 0.15rem;
+    }
+    .radio-row label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: 500;
+      cursor: pointer;
+      margin: 0;
+    }
+    .radio-row input { accent-color: var(--primary-green); width: 1.05rem; height: 1.05rem; }
+
+    .check-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      margin-bottom: 0.85rem;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 0.5rem;
+      background: #fff;
+    }
+    .check-row input {
+      margin-top: 0.3rem;
+      accent-color: var(--primary-green);
+      width: 1.1rem;
+      height: 1.1rem;
+      flex-shrink: 0;
+    }
+    .check-row label {
+      margin: 0;
+      font-weight: 500;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      cursor: pointer;
+    }
+
+    .conditional-field {
+      display: none;
+      margin-top: 0.25rem;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.28s ease, opacity 0.22s ease, margin 0.22s ease;
+    }
+    .conditional-field.is-open {
+      display: block;
+      max-height: 320px;
+      opacity: 1;
+      margin-top: 0.75rem;
+    }
+
+    .file-upload-card {
+      border: 1px solid var(--border-color);
+      background: #fff;
+      border-radius: 0.375rem;
+      padding: 1rem;
+    }
+    .file-upload-card .browse-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.55rem 1.1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 0.375rem;
+      background: var(--mint-soft);
+      color: var(--dark-green);
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.92rem;
+    }
+    .file-upload-card .browse-btn:hover { background: #e8f6ef; }
+    .file-upload-card input[type="file"] { display: none; }
+    .file-name {
+      margin-top: 0.65rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+    .file-hint {
+      display: block;
+      margin-top: 0.45rem;
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+
+    .form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.85rem;
+      margin-top: 1.35rem;
+      padding-top: 1.1rem;
+      border-top: 1px solid #e5e7eb;
+    }
+    .btn-submit,
+    .btn-reset {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0.55rem 1.75rem;
+      border-radius: 0.375rem;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .btn-submit {
+      background: var(--dark-green);
+      color: #fff;
+      border: 0;
+    }
+    .btn-submit:hover { background: #053824; color: #fff; }
+    .btn-submit:focus-visible {
+      outline: 0;
+      box-shadow: 0 0 0 0.25rem rgba(27, 131, 84, 0.35);
+    }
+    .btn-submit[disabled] { opacity: 0.55; pointer-events: none; }
+    .btn-reset {
+      background: #fff;
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+    }
+    .btn-reset:hover {
+      background: #f3f4f6;
+      border-color: #9ca3af;
+      color: var(--text-color);
+    }
+
+    .form-success {
+      display: none;
+      width: 100%;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 0.5rem;
+      background: #e8f6ef;
+      border: 1px solid #b7dfc8;
+      color: var(--dark-green);
+      margin-bottom: 1rem;
+    }
+    .form-success.is-visible { display: flex; }
+    .form-success strong { display: block; margin-bottom: 0.15rem; }
+    .form-success p { margin: 0; color: var(--text-muted); font-size: 0.9rem; }
+
+    .comm-footer {
+      background: var(--dark-green);
+      color: rgba(255, 255, 255, 0.9);
+      padding: 1.25rem 0;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    /* Embedded inside Index portal */
+    html.is-platform-embed body {
+      background: transparent;
+    }
+    html.is-platform-embed .platform-top,
+    html.is-platform-embed .exp3-page-title,
+    html.is-platform-embed .comm-footer {
+      display: none !important;
+    }
+    html.is-platform-embed .comm-main {
+      padding: 0 0 0.5rem;
+    }
+    html.is-platform-embed .wrapper-form {
+      box-shadow: none;
+    }
+
+    @media (max-width: 991.98px) {
+      .header-search { display: none; }
+      .btn-menu-toggle { display: inline-flex; }
+      #mainNav { display: none !important; }
+    }
+    @media (max-width: 767.98px) {
+      .wrapper-form { padding: 1.15rem 0.9rem 1.35rem; }
+      .form-actions { flex-direction: column; align-items: stretch; }
+      .btn-submit,
+      .btn-reset { width: 100%; }
+      .exp3-page-title h1 { font-size: 1.35rem; }
+      .exp3-back-services { font-size: 0.78rem; padding: 7px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="platform-top">
+    <div class="gov-bar">
+      <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <span><i class="bi bi-shield-check verified me-1"></i> موقع حكومي تابع لوزارة البيئة والمياه والزراعة</span>
+        <span class="d-none d-md-inline">متوافق مع هوية منصة نما · الرقم الموحد <strong>939</strong></span>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="container py-3">
+        <div class="header-row d-flex flex-wrap align-items-center gap-3">
+          <a class="brand-link" href="Index.html" aria-label="الصفحة الرئيسية">
+            <span class="brand-mark" aria-hidden="true"></span>
+            <span class="brand-text text-start">
+              <strong>منصة البحث والابتكار</strong>
+              <small>وزارة البيئة والمياه والزراعة</small>
+            </span>
+          </a>
+
+          <nav id="mainNav" class="d-none d-lg-flex gap-1" aria-label="التنقل الرئيسي">
+            <a class="nav-pill" href="Index.html"><i class="bi bi-house me-1"></i>الرئيسية</a>
+            <a class="nav-pill active" href="Index.html?view=our-services" aria-current="page"><i class="bi bi-briefcase me-1"></i>خدماتنا</a>
+            <a class="nav-pill" href="Index.html?view=services"><i class="bi bi-lightbulb me-1"></i>برامج الابتكار</a>
+            <a class="nav-pill" href="Index.html?view=news"><i class="bi bi-megaphone me-1"></i>الأخبار</a>
+            <a class="nav-pill" href="Index.html?view=publications"><i class="bi bi-journal-richtext me-1"></i>منشورات وتقارير</a>
+            <a class="nav-pill" href="Index.html?view=my-requests"><i class="bi bi-file-earmark-text me-1"></i>طلباتي</a>
+          </nav>
+
+          <div class="header-search" aria-label="بحث سريع">
+            <div class="h-search-input">
+              <i class="bi bi-search icon" aria-hidden="true"></i>
+              <input type="search" placeholder="البحث عن خدمة..." aria-label="البحث عن خدمة" autocomplete="off" />
+            </div>
+            <select class="h-search-select" aria-label="نوع المستفيد">
+              <option selected>نوع المستفيد: الكل</option>
+              <option>باحث</option>
+              <option>مبتكر</option>
+              <option>جهة حكومية</option>
+              <option>قطاع خاص</option>
+            </select>
+            <button type="button" class="h-search-reset" title="إعادة تعيين الفلتر" aria-label="إعادة تعيين الفلتر">
+              <i class="bi bi-arrow-counterclockwise"></i>
+              <span class="h-reset-label">إعادة تعيين</span>
+            </button>
+          </div>
+
+          <div class="ms-auto d-flex align-items-center gap-2">
+            <a class="btn-login" href="https://naama.sa/Account/Login" target="_blank" rel="noopener">
+              <i class="bi bi-box-arrow-in-left"></i>
+              <span>تسجيل الدخول</span>
+            </a>
+            <button type="button" class="btn-menu-toggle" id="commMenuToggle" aria-label="القائمة" aria-expanded="false" aria-controls="mobileNav">
+              <i class="bi bi-list"></i>
+            </button>
+          </div>
+        </div>
+
+        <nav id="mobileNav" aria-label="قائمة الجوال">
+          <a class="nav-pill" href="Index.html"><i class="bi bi-house me-1"></i>الرئيسية</a>
+          <a class="nav-pill active" href="Index.html?view=our-services"><i class="bi bi-briefcase me-1"></i>خدماتنا</a>
+          <a class="nav-pill" href="Index.html?view=services"><i class="bi bi-lightbulb me-1"></i>برامج الابتكار</a>
+          <a class="nav-pill" href="Index.html?view=news"><i class="bi bi-megaphone me-1"></i>الأخبار</a>
+          <a class="nav-pill" href="Index.html?view=publications"><i class="bi bi-journal-richtext me-1"></i>منشورات وتقارير</a>
+          <a class="nav-pill" href="Index.html?view=my-requests"><i class="bi bi-file-earmark-text me-1"></i>طلباتي</a>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <div class="exp3-page-title">
+    <div class="container">
+      <div class="exp3-page-hero-top">
+        <nav class="exp3-breadcrumb" aria-label="مسار التنقل">
+          <a href="Index.html?view=our-services">الخدمات</a>
+          <span aria-hidden="true"> — </span>
+          <span>تتجير الملكية الفكرية</span>
+        </nav>
+        <div class="exp3-page-actions">
+          <a class="exp3-back-services" href="Index.html?view=our-services">
+            <i class="bi bi-arrow-right" aria-hidden="true"></i>
+            رجوع إلى الخدمات الرئيسية
+          </a>
+        </div>
+      </div>
+      <h1>تتجير الملكية الفكرية</h1>
+    </div>
+  </div>
+
+  <main class="comm-main">
+    <div class="container" style="max-width: 960px;">
+      <div class="wrapper-form">
+        <h2 class="form-page-title">نموذج طلب تتجير الملكية الفكرية</h2>
+        <p class="form-intro">
+          يهدف هذا النموذج إلى استقبال وتقييم طلبات تتجير أصول الملكية الفكرية، ودراسة فرص تحويلها إلى منتجات أو خدمات قابلة للتطبيق والاستثمار، وتحديد مسارات التتجير المناسبة بما يسهم في تعظيم قيمتها الاقتصادية وتحقيق الاستفادة المستدامة منها.
+        </p>
+        <p class="form-note">ملاحظة: الحقول المشار إليها بـ (*) إلزامية.</p>
+
+        <div id="commSuccess" class="form-success" role="status" aria-live="polite">
+          <i class="bi bi-check-circle-fill" aria-hidden="true" style="font-size:1.35rem;flex-shrink:0"></i>
+          <div>
+            <strong>تم استلام طلبكم بنجاح</strong>
+            <p>شكرًا لكم. سيتم مراجعة الطلب والتواصل معكم عند الحاجة لاستكمال المعلومات.</p>
+          </div>
+        </div>
+
+        <form id="commForm" novalidate>
+
+          <!-- أولاً -->
+          <div class="form-section">
+            <div class="form-section__head">أولاً: بيانات مقدم الطلب</div>
+
+            <div class="field" data-field="fullName">
+              <label for="fullName"><span class="req">*</span> الاسم الكامل</label>
+              <input id="fullName" name="fullName" type="text" maxlength="255" required aria-required="true" placeholder="الاسم الكامل" />
+              <span class="field-error">هذا الحقل مطلوب</span>
+            </div>
+
+            <div class="field" data-field="orgName">
+              <label for="orgName"><span class="req">*</span> اسم الجهة</label>
+              <input id="orgName" name="orgName" type="text" maxlength="255" required aria-required="true" placeholder="اسم الجهة" />
+              <span class="field-error">هذا الحقل مطلوب</span>
+            </div>
+
+            <div class="field" data-field="crNumber">
+              <label for="crNumber"><span class="req">*</span> رقم السجل التجاري</label>
+              <input id="crNumber" name="crNumber" type="text" maxlength="30" required aria-required="true" placeholder="رقم السجل التجاري" />
+              <span class="field-error">هذا الحقل مطلوب</span>
+            </div>
+
+            <div class="field" data-field="applicantRole">
+              <label for="applicantRole"><span class="req">*</span> صفة مقدم الطلب</label>
+              <select id="applicantRole" name="applicantRole" required aria-required="true">
+                <option value="">اختر صفة مقدم الطلب</option>
+                <option value="مبتكر">مبتكر</option>
+                <option value="شركة ناشئة أو متوسطة">شركة ناشئة أو متوسطة</option>
+                <option value="شركة كبرى">شركة كبرى</option>
+                <option value="جهة حكومية">جهة حكومية</option>
+                <option value="جهة أكاديمية أو بحثية">جهة أكاديمية أو بحثية</option>
+                <option value="جهة خارجية">جهة خارجية</option>
+                <option value="أخرى">أخرى</option>
+              </select>
+              <span class="field-error">هذا الحقل مطلوب</span>
+            </div>
+
+            <div class="field" data-field="email">
+              <label for="email">البريد الإلكتروني: <span class="req">*</span></label>
+              <input id="email" name="email" type="email" maxlength="255" required aria-required="true" dir="ltr" placeholder="name@example.com" />
+              <span class="field-error">يرجى إدخال بريد إلكتروني صحيح</span>
+            </div>
+          </div>
+
+          <!-- ثانياً -->
+          <div class="form-section">
+            <div class="form-section__head">ثانياً: بيانات الملكية الفكرية</div>
+
+            <div class="field" data-field="ipName">
+              <label for="ipName"><span class="req">*</span> اسم الملكية الفكرية</label>
+              <input id="ipName" name="ipName" type="text" maxlength="255" required aria-required="true" placeholder="اسم الملكية الفكرية" />
+              <span class="field-error">هذا الحقل مطلوب</span>
+            </div>
+
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="field" data-field="ipType">
+                  <label for="ipType">نوع الملكية الفكرية: <span class="req">*</span></label>
+                  <select id="ipType" name="ipType" required aria-required="true">
+                    <option value="">اختر النوع</option>
+                    <option value="براءة اختراع">براءة اختراع</option>
+                    <option value="نموذج منفعة">نموذج منفعة</option>
+                    <option value="علامة تجارية">علامة تجارية</option>
+                    <option value="تصميم صناعي">تصميم صناعي</option>
+                    <option value="حق مؤلف">حق مؤلف</option>
+                    <option value="صنف نباتي">صنف نباتي</option>
+                    <option value="سر تجاري">سر تجاري</option>
+                    <option value="أخرى">أخرى</option>
+                  </select>
+                  <span class="field-error">هذا الحقل مطلوب</span>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="field" data-field="regStatus">
+                  <label for="regStatus">حالة التسجيل: <span class="req">*</span></label>
+                  <select id="regStatus" name="regStatus" required aria-required="true">
+                    <option value="">اختر الحالة</option>
+                    <option value="مسجلة">مسجلة</option>
+                    <option value="تحت الإجراء">تحت الإجراء</option>
+                    <option value="غير مسجلة">غير مسجلة</option>
+                  </select>
+                  <span class="field-error">هذا الحقل مطلوب</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="field" data-field="appNumber">
+                  <label for="appNumber"><span class="req">*</span> رقم الطلب أو البراءة</label>
+                  <input id="appNumber" name="appNumber" type="text" maxlength="100" required aria-required="true" placeholder="رقم الطلب أو البراءة" />
+                  <span class="field-error">هذا الحقل مطلوب</span>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="field" data-field="depositDate">
+                  <label for="depositDate"><span class="req">*</span> تاريخ الإيداع</label>
+                  <input id="depositDate" name="depositDate" type="date" required aria-required="true" />
+                  <span class="field-error">هذا الحقل مطلوب</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="field" data-field="regAuthority">
+                  <label for="regAuthority"><span class="req">*</span> جهة التسجيل</label>
+                  <select id="regAuthority" name="regAuthority" required aria-required="true">
+                    <option value="">اختر جهة التسجيل</option>
+                    <option value="الهيئة السعودية للملكية الفكرية">الهيئة السعودية للملكية الفكرية</option>
+                    <option value="مكتب تسجيل دولي">مكتب تسجيل دولي</option>
+                    <option value="أخرى">أخرى</option>
+                  </select>
+                  <span class="field-error">هذا الحقل مطلوب</span>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="field" data-field="protectionScope">
+                  <label for="protectionScope"><span class="req">*</span> نطاق الحماية</label>
+                  <select id="protectionScope" name="protectionScope" required aria-required="true">
+                    <option value="">اختر نطاق الحماية</option>
+                    <option value="داخل المملكة">داخل المملكة</option>
+                    <option value="خارج المملكة">خارج المملكة</option>
+                  </select>
+                  <span class="field-error">هذا الحقل مطلوب</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="field" data-field="ipOwnership">
+              <label for="ipOwnership">ملكية الأصل الفكري: <span class="req">*</span></label>
+              <select id="ipOwnership" name="ipOwnership" required aria-required="true">
+                <option value="">اختر ملكية الأصل</option>
+                <option value="ملكية فردية">ملكية فردية</option>
+                <option value="تعود للجهة">تعود للجهة</option>
+                <option value="ملكية مشتركة">ملكية مشتركة</option>
+              </select>
+              <span class="field-error">هذا الحقل مطلوب</span>
+            </div>
+          </div>
+
+          <!-- ثالثاً -->
+          <div class="form-section">
+            <div class="form-section__head">ثالثاً: جاهزية الأصل للتتجير</div>
+
+            <div class="field" data-field="hasPrototype">
+              <span class="field-label"><span class="req">*</span> هل يوجد نموذج أولي أو منتج قابل للتسويق؟</span>
+              <div class="radio-row">
+                <label><input type="radio" name="hasPrototype" value="نعم" required /> نعم</label>
+                <label><input type="radio" name="hasPrototype" value="لا" /> لا</label>
+                <label><input type="radio" name="hasPrototype" value="تحت التطوير" /> تحت التطوير</label>
+              </div>
+              <span class="field-error">هذا الحقل مطلوب</span>
+            </div>
+
+            <div class="field" data-field="testedInField">
+              <span class="field-label"><span class="req">*</span> هل سبق اختبار أو تطبيق الأصل في بيئة فعلية؟</span>
+              <div class="radio-row">
+                <label><input type="radio" name="testedInField" value="نعم" required /> نعم</label>
+                <label><input type="radio" name="testedInField" value="لا" /> لا</label>
+              </div>
+              <span class="field-error">هذا الحقل مطلوب</span>
+
+              <div id="testedDetailsWrap" class="conditional-field" hidden>
+                <div class="field" data-field="testedDetails" style="margin-bottom:0">
+                  <label for="testedDetails">في حال الإجابة نعم: اذكر مكان ونطاق الاختبار وأبرز النتائج</label>
+                  <textarea id="testedDetails" name="testedDetails" rows="4" placeholder="اذكر مكان ونطاق الاختبار وأبرز النتائج"></textarea>
+                  <span class="field-error">هذا الحقل مطلوب عند اختيار نعم</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="field" data-field="hasFeasibility">
+              <span class="field-label"><span class="req">*</span> هل توجد دراسة جدوى أو تقييم مالي للأصل الفكري؟</span>
+              <div class="radio-row">
+                <label><input type="radio" name="hasFeasibility" value="نعم" required /> نعم</label>
+                <label><input type="radio" name="hasFeasibility" value="لا" /> لا</label>
+              </div>
+              <span class="field-error">هذا الحقل مطلوب</span>
+            </div>
+
+            <div class="field" data-field="previouslyCommercialized">
+              <span class="field-label"><span class="req">*</span> هل سبق تتجير الأصل أو جزء منه؟</span>
+              <div class="radio-row">
+                <label><input type="radio" name="previouslyCommercialized" value="نعم" required /> نعم</label>
+                <label><input type="radio" name="previouslyCommercialized" value="لا" /> لا</label>
+              </div>
+              <span class="field-error">هذا الحقل مطلوب</span>
+
+              <div id="commercializedDetailsWrap" class="conditional-field" hidden>
+                <div class="field" data-field="commercializedDetails" style="margin-bottom:0">
+                  <label for="commercializedDetails">في حال الإجابة نعم: اذكر الجهة وصيغة الاتفاق</label>
+                  <textarea id="commercializedDetails" name="commercializedDetails" rows="4" placeholder="اذكر الجهة وصيغة الاتفاق"></textarea>
+                  <span class="field-error">هذا الحقل مطلوب عند اختيار نعم</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="field" data-field="hasFunding">
+              <span class="field-label"><span class="req">*</span> هل يوجد تمويل أو شريك مستثمر حالي؟</span>
+              <div class="radio-row">
+                <label><input type="radio" name="hasFunding" value="نعم" required /> نعم</label>
+                <label><input type="radio" name="hasFunding" value="لا" /> لا</label>
+              </div>
+              <span class="field-error">هذا الحقل مطلوب</span>
+            </div>
+          </div>
+
+          <!-- رابعاً -->
+          <div class="form-section">
+            <div class="form-section__head">رابعاً: خطة التتجير المستهدفة</div>
+
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="field" data-field="commercializationMethod">
+                  <label for="commercializationMethod">أسلوب التتجير المطلوب: <span class="req">*</span></label>
+                  <select id="commercializationMethod" name="commercializationMethod" required aria-required="true">
+                    <option value="">اختر الأسلوب</option>
+                    <option value="ترخيص">ترخيص</option>
+                    <option value="بيع أو تنازل عن الحقوق">بيع أو تنازل عن الحقوق</option>
+                    <option value="شراكة تجارية">شراكة تجارية</option>
+                    <option value="تأسيس شركة منبثقة">تأسيس شركة منبثقة</option>
+                    <option value="التصنيع والإنتاج">التصنيع والإنتاج</option>
+                  </select>
+                  <span class="field-error">هذا الحقل مطلوب</span>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="field" data-field="targetCategories">
+                  <label for="targetCategories"><span class="req">*</span> الجهات أو الفئات المستهدفة</label>
+                  <select id="targetCategories" name="targetCategories" required aria-required="true">
+                    <option value="">اختر الفئة</option>
+                    <option value="مراكز ووكالات الوزارة">مراكز ووكالات الوزارة</option>
+                    <option value="جهات حكومية أخرى">جهات حكومية أخرى</option>
+                    <option value="شركات ومؤسسات القطاع الخاص">شركات ومؤسسات القطاع الخاص</option>
+                    <option value="مستثمرون">مستثمرون</option>
+                    <option value="جامعات ومراكز بحثية">جامعات ومراكز بحثية</option>
+                    <option value="أخرى">أخرى</option>
+                  </select>
+                  <span class="field-error">هذا الحقل مطلوب</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="field" data-field="targetEntities">
+              <label for="targetEntities"><span class="req">*</span> اذكر اسم الجهة أو الجهات المستهدفة</label>
+              <input id="targetEntities" name="targetEntities" type="text" maxlength="500" required aria-required="true" placeholder="اسم الجهة أو الجهات المستهدفة" />
+              <span class="field-error">هذا الحقل مطلوب</span>
+            </div>
+
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="field" data-field="supportNeeded">
+                  <label for="supportNeeded"><span class="req">*</span> الدعم المطلوب من البرنامج</label>
+                  <select id="supportNeeded" name="supportNeeded" required aria-required="true">
+                    <option value="">اختر نوع الدعم</option>
+                    <option value="تقييم وتسعير الأصل الفكري">تقييم وتسعير الأصل الفكري</option>
+                    <option value="الدعم القانوني والتعاقدي">الدعم القانوني والتعاقدي</option>
+                    <option value="الربط بالمستثمرين والشركاء">الربط بالمستثمرين والشركاء</option>
+                    <option value="التمويل">التمويل</option>
+                    <option value="التطوير التقني">التطوير التقني</option>
+                    <option value="أخرى">أخرى</option>
+                  </select>
+                  <span class="field-error">هذا الحقل مطلوب</span>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="field" data-field="expectedDuration">
+                  <label for="expectedDuration">المدة المتوقعة لتنفيذ خطة التتجير: <span class="req">*</span></label>
+                  <select id="expectedDuration" name="expectedDuration" required aria-required="true">
+                    <option value="">اختر المدة</option>
+                    <option value="أقل من 3 أشهر">أقل من 3 أشهر</option>
+                    <option value="من 3 إلى 6 أشهر">من 3 إلى 6 أشهر</option>
+                    <option value="من سنة إلى سنتين">من سنة إلى سنتين</option>
+                    <option value="أكثر من سنتين">أكثر من سنتين</option>
+                  </select>
+                  <span class="field-error">هذا الحقل مطلوب</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="field" data-field="challenges">
+              <label for="challenges">أبرز التحديات التي قد تعيق التتجير: <span class="req">*</span></label>
+              <select id="challenges" name="challenges" required aria-required="true">
+                <option value="">اختر التحدي</option>
+                <option value="متطلبات تنظيمية">متطلبات تنظيمية</option>
+                <option value="الوصول إلى الجهات والمستثمرين">الوصول إلى الجهات والمستثمرين</option>
+                <option value="التمويل">التمويل</option>
+                <option value="تحديات تعاقدية">تحديات تعاقدية</option>
+                <option value="دخول السوق">دخول السوق</option>
+                <option value="أخرى">أخرى</option>
+              </select>
+              <span class="field-error">هذا الحقل مطلوب</span>
+            </div>
+
+            <div class="field" data-field="economicImpact">
+              <label for="economicImpact"><span class="req">*</span> العائد أو الأثر الاقتصادي المتوقع</label>
+              <textarea id="economicImpact" name="economicImpact" rows="5" required aria-required="true" placeholder="يرجى توضيح العائد أو الأثر الاقتصادي المتوقع من تتجير الأصل الفكري"></textarea>
+              <span class="field-error">هذا الحقل مطلوب</span>
+            </div>
+
+            <div class="field" data-field="nationalContribution">
+              <label for="nationalContribution"><span class="req">*</span> مساهمة الأصل الفكري في المستهدفات الوطنية</label>
+              <textarea id="nationalContribution" name="nationalContribution" rows="5" required aria-required="true" placeholder="يرجى توضيح مساهمة الأصل الفكري في المستهدفات الوطنية"></textarea>
+              <span class="field-error">هذا الحقل مطلوب</span>
+            </div>
+
+            <div class="field" data-field="attachments">
+              <div class="file-upload-card">
+                <span class="field-label"><span class="req">*</span> العرض التعريفي والمرفقات الداعمة</span>
+                <label class="browse-btn" for="attachments">
+                  <i class="bi bi-upload" aria-hidden="true"></i>
+                  اختيار ملف
+                </label>
+                <input id="attachments" name="attachments" type="file" accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation,image/jpeg,image/png" required aria-required="true" />
+                <div id="fileName" class="file-name">لم يتم اختيار ملف</div>
+                <span class="file-hint">الصيغ المسموحة: PDF, DOC, DOCX, PPT, PPTX, JPG, PNG</span>
+                <span class="field-error">يرجى إرفاق ملف داعم</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- خامساً -->
+          <div class="form-section">
+            <div class="form-section__head">الإقرار والموافقة</div>
+
+            <div class="field" data-field="declaration">
+              <div class="check-row">
+                <input id="declaration" name="declaration" type="checkbox" value="yes" required aria-required="true" />
+                <label for="declaration">أقر بأن جميع المعلومات المقدمة في هذا النموذج صحيحة، وأوافق على استخدامها لغرض دراسة وتقييم طلب تتجير الأصل الفكري. <span class="req">*</span></label>
+              </div>
+              <span class="field-error">يجب الموافقة على الإقرار للمتابعة</span>
+            </div>
+
+            <div class="field" data-field="contactConsent">
+              <div class="check-row">
+                <input id="contactConsent" name="contactConsent" type="checkbox" value="yes" />
+                <label for="contactConsent">أوافق على التواصل معي لاستكمال المعلومات أو مناقشة متطلبات التتجير.</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-submit" id="commSubmit">إرسال الطلب</button>
+            <button type="reset" class="btn-reset" id="commReset">إعادة تعيين</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="comm-footer">
+    <div class="container">
+      © وزارة البيئة والمياه والزراعة — وكالة البحث والابتكار. جميع الحقوق محفوظة
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var embedded = params.get("embed") === "1" || window.self !== window.top;
+      if (embedded) {
+        document.documentElement.classList.add("is-platform-embed");
+      }
+
+      function postHeight() {
+        if (!embedded || !window.parent) return;
+        var height = Math.max(
+          document.body ? document.body.scrollHeight : 0,
+          document.documentElement ? document.documentElement.scrollHeight : 0
+        );
+        window.parent.postMessage({ type: "commercialization-embed-height", height: height }, "*");
+      }
+
+      window.addEventListener("load", postHeight);
+      window.addEventListener("resize", postHeight);
+      window.addEventListener("message", function (event) {
+        if (event.data && event.data.type === "commercialization-embed-request-height") postHeight();
+      });
+      if (window.ResizeObserver) {
+        var ro = new ResizeObserver(postHeight);
+        ro.observe(document.documentElement);
+      }
+      setTimeout(postHeight, 120);
+      setTimeout(postHeight, 500);
+      setTimeout(postHeight, 1200);
+
+      var menuToggle = document.getElementById("commMenuToggle");
+      var mobileNav = document.getElementById("mobileNav");
+      if (menuToggle && mobileNav) {
+        menuToggle.addEventListener("click", function () {
+          var open = mobileNav.classList.toggle("is-open");
+          menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+      }
+
+      var form = document.getElementById("commForm");
+      var success = document.getElementById("commSuccess");
+      var submitBtn = document.getElementById("commSubmit");
+      var resetBtn = document.getElementById("commReset");
+      var fileInput = document.getElementById("attachments");
+      var fileName = document.getElementById("fileName");
+      if (!form) return;
+
+      function clearInvalid(el) {
+        var field = el.closest(".field");
+        if (field) field.classList.remove("is-invalid");
+      }
+
+      function setInvalid(name) {
+        var field = form.querySelector('[data-field="' + name + '"]');
+        if (field) field.classList.add("is-invalid");
+      }
+
+      function radioValue(name) {
+        var checked = form.querySelector('input[name="' + name + '"]:checked');
+        return checked ? checked.value : "";
+      }
+
+      function toggleConditional(wrapId, show, clearId) {
+        var wrap = document.getElementById(wrapId);
+        if (!wrap) return;
+        if (show) {
+          wrap.hidden = false;
+          wrap.classList.add("is-open");
+        } else {
+          wrap.classList.remove("is-open");
+          wrap.hidden = true;
+          if (clearId) {
+            var ta = document.getElementById(clearId);
+            if (ta) {
+              ta.value = "";
+              clearInvalid(ta);
+            }
+          }
+        }
+      }
+
+      function syncConditionals() {
+        toggleConditional("testedDetailsWrap", radioValue("testedInField") === "نعم", "testedDetails");
+        toggleConditional("commercializedDetailsWrap", radioValue("previouslyCommercialized") === "نعم", "commercializedDetails");
+      }
+
+      form.querySelectorAll('input[name="testedInField"], input[name="previouslyCommercialized"]').forEach(function (el) {
+        el.addEventListener("change", syncConditionals);
+      });
+
+      if (fileInput && fileName) {
+        fileInput.addEventListener("change", function () {
+          fileName.textContent = fileInput.files && fileInput.files[0]
+            ? fileInput.files[0].name
+            : "لم يتم اختيار ملف";
+          clearInvalid(fileInput);
+        });
+      }
+
+      form.querySelectorAll("input, textarea, select").forEach(function (el) {
+        el.addEventListener("input", function () { clearInvalid(el); });
+        el.addEventListener("change", function () { clearInvalid(el); });
+      });
+
+      function isEmail(v) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+      }
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        form.querySelectorAll(".field.is-invalid").forEach(function (f) {
+          f.classList.remove("is-invalid");
+        });
+
+        var ok = true;
+
+        function requireText(name) {
+          var el = form.elements[name];
+          if (!el || !(el.value || "").trim()) {
+            setInvalid(name);
+            ok = false;
+          }
+        }
+
+        function requireSelect(name) {
+          var el = form.elements[name];
+          if (!el || !el.value) {
+            setInvalid(name);
+            ok = false;
+          }
+        }
+
+        function requireRadio(name) {
+          if (!radioValue(name)) {
+            setInvalid(name);
+            ok = false;
+          }
+        }
+
+        requireText("fullName");
+        requireText("orgName");
+        requireText("crNumber");
+        requireSelect("applicantRole");
+
+        var email = (form.email.value || "").trim();
+        if (!email || !isEmail(email)) {
+          setInvalid("email");
+          ok = false;
+        }
+
+        requireText("ipName");
+        requireSelect("ipType");
+        requireSelect("regStatus");
+        requireText("appNumber");
+        requireText("depositDate");
+        requireSelect("regAuthority");
+        requireSelect("protectionScope");
+        requireSelect("ipOwnership");
+
+        requireRadio("hasPrototype");
+        requireRadio("testedInField");
+        if (radioValue("testedInField") === "نعم" && !(form.testedDetails.value || "").trim()) {
+          setInvalid("testedDetails");
+          ok = false;
+        }
+        requireRadio("hasFeasibility");
+        requireRadio("previouslyCommercialized");
+        if (radioValue("previouslyCommercialized") === "نعم" && !(form.commercializedDetails.value || "").trim()) {
+          setInvalid("commercializedDetails");
+          ok = false;
+        }
+        requireRadio("hasFunding");
+
+        requireSelect("commercializationMethod");
+        requireSelect("targetCategories");
+        requireText("targetEntities");
+        requireSelect("supportNeeded");
+        requireSelect("expectedDuration");
+        requireSelect("challenges");
+        requireText("economicImpact");
+        requireText("nationalContribution");
+
+        if (!fileInput || !fileInput.files || !fileInput.files[0]) {
+          setInvalid("attachments");
+          ok = false;
+        }
+
+        if (!form.declaration.checked) {
+          setInvalid("declaration");
+          ok = false;
+        }
+
+        if (!ok) {
+          var first = form.querySelector(".field.is-invalid input, .field.is-invalid textarea, .field.is-invalid select, .field.is-invalid .radio-row");
+          if (first) first.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+
+        if (submitBtn) submitBtn.disabled = true;
+        if (success) {
+          success.classList.add("is-visible");
+          success.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+        setTimeout(function () {
+          if (submitBtn) submitBtn.disabled = false;
+        }, 1200);
+      });
+
+      if (resetBtn) {
+        resetBtn.addEventListener("click", function () {
+          setTimeout(function () {
+            form.querySelectorAll(".field.is-invalid").forEach(function (f) {
+              f.classList.remove("is-invalid");
+            });
+            if (fileName) fileName.textContent = "لم يتم اختيار ملف";
+            if (success) success.classList.remove("is-visible");
+            syncConditionals();
+          }, 0);
+        });
+      }
+
+      syncConditionals();
+    })();
+  </script>
+</body>
+</html>

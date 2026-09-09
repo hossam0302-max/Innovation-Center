@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>البيئة التنظيمية التجريبية لقطاع البيئة | MEWA</title>
+  <meta name="description" content="البيئة التنظيمية التجريبية لقطاع البيئة — وكالة البحث والابتكار بوزارة البيئة والمياه والزراعة" />
+  <meta name="theme-color" content="#074d31" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+  <style>
+    :root {
+      --primary-color: #1b8354;
+      --secondary-color: #074d31;
+      --accent-color: #88d8ad;
+      --text-color: #1f2a37;
+      --text-muted: #384250;
+      --background-color: #fff;
+      --border-color: #d2d6db;
+      --mint: #ecfdf3;
+      --mint-soft: #f3fcf6;
+      --naama-primary: #003957;
+      --naama-primary-dark: #00283e;
+      --naama-accent: #49aa8b;
+      --naama-accent-dark: #378a6f;
+      --naama-accent-soft: #e8f6f1;
+      --naama-gold: #e8a34f;
+      --naama-muted: #62717d;
+      --naama-border: #e4ecef;
+      --danger: #b42318;
+      --img-hero: url("agency-reports/assets/experimental/env/environment-hero-hands.jpg");
+      --img-focus: url("agency-reports/assets/experimental/env/regulatoryFocusAreas.jpg");
+      --img-form: url("agency-reports/assets/experimental/env/Apply-forms.jpg");
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+      color: var(--text-color);
+      background: var(--background-color);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; }
+
+    /* ===== Platform header (match Experimental3) ===== */
+    .platform-top {
+      font-family: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+      line-height: 1.75;
+    }
+    .platform-top a { color: inherit; text-decoration: none; }
+    .platform-top .container {
+      max-width: 1140px;
+      width: 100%;
+      margin-inline: auto;
+      padding-inline: 12px;
+    }
+    @media (min-width: 1400px) {
+      .platform-top .container { max-width: 1320px; }
+    }
+    .platform-top .gov-bar {
+      background: var(--naama-primary-dark);
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.82rem;
+      padding: 0.55rem 0;
+    }
+    .platform-top .gov-bar .verified { color: var(--naama-accent); }
+    .platform-top .site-header {
+      background: #fff;
+      border-bottom: 1px solid var(--naama-border);
+      position: sticky;
+      top: 0;
+      z-index: 1030;
+    }
+    .platform-top .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: none;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+    }
+    .platform-top .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background:
+        radial-gradient(circle at 30% 30%, var(--naama-gold) 0 22%, transparent 23%),
+        linear-gradient(145deg, var(--naama-accent) 0%, var(--naama-primary) 100%);
+      position: relative;
+      box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.18);
+      flex-shrink: 0;
+    }
+    .platform-top .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: 16px 8px 10px;
+      border-top: 2px solid rgba(255, 255, 255, 0.75);
+      border-radius: 40%;
+    }
+    .platform-top .brand-text strong {
+      color: var(--naama-primary);
+      font-size: 1.02rem;
+      display: block;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+    .platform-top .brand-text small {
+      color: var(--naama-muted);
+      font-size: 0.78rem;
+      display: block;
+    }
+    .platform-top .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      color: var(--naama-primary) !important;
+      font-weight: 500;
+      transition: background 0.2s ease, color 0.2s ease;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      font-size: 0.92rem;
+      white-space: nowrap;
+      line-height: 1.4;
+    }
+    .platform-top .nav-pill:hover,
+    .platform-top .nav-pill.active {
+      background: var(--naama-accent-soft);
+      color: var(--naama-accent-dark) !important;
+    }
+    .platform-top .btn-login {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--naama-primary);
+      color: #fff !important;
+      border: 0;
+      border-radius: 999px;
+      padding: 0.55rem 1.3rem;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+    .platform-top .btn-login:hover {
+      color: #fff !important;
+      background: var(--naama-primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(0, 40, 62, 0.22);
+    }
+    .platform-top .header-search {
+      display: none;
+      align-items: center;
+      gap: 0.4rem;
+      flex-wrap: nowrap;
+      padding: 0.35rem 0.45rem;
+      background: #f4f7f9;
+      border: 1px solid var(--naama-border);
+      border-radius: 12px;
+      margin-inline-start: 0.5rem;
+      flex: 1 1 auto;
+      min-width: 0;
+      max-width: 560px;
+    }
+    .platform-top .header-search .h-search-input {
+      position: relative;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+    .platform-top .header-search .h-search-input .icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      inset-inline-start: 0.7rem;
+      color: var(--naama-muted);
+      pointer-events: none;
+      font-size: 0.9rem;
+    }
+    .platform-top .header-search .h-search-input input {
+      width: 100%;
+      padding: 0.4rem 0.6rem;
+      padding-inline-start: 2rem;
+      border: 1px solid var(--naama-border);
+      border-radius: 8px;
+      background: #fff;
+      font-size: 0.85rem;
+      color: var(--naama-primary);
+      outline: none;
+      font-family: inherit;
+    }
+    .platform-top .header-search .h-search-input input:focus {
+      border-color: var(--naama-accent);
+      box-shadow: 0 0 0 3px rgba(73, 170, 139, 0.15);
+    }
+    .platform-top .header-search .h-search-select {
+      flex: 0 1 auto;
+      min-width: 7.5rem;
+      padding: 0.4rem 0.6rem;
+      padding-inline-end: 1.9rem;
+      border: 1px solid var(--naama-border);
+      border-radius: 8px;
+      background-color: #fff;
+      font-size: 0.85rem;
+      color: var(--naama-primary);
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      font-family: inherit;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='%23003957' d='M8 11L3 6h10z'/></svg>");
+      background-repeat: no-repeat;
+      background-position: left 0.55rem center;
+      background-size: 12px;
+    }
+    .platform-top .header-search .h-search-select:focus {
+      outline: none;
+      border-color: var(--naama-accent);
+      box-shadow: 0 0 0 3px rgba(73, 170, 139, 0.15);
+    }
+    .platform-top .header-search .h-search-reset {
+      flex: 0 0 auto;
+      padding: 0.4rem 0.65rem;
+      border: 1px solid var(--naama-border);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--naama-primary);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      white-space: nowrap;
+      font-family: inherit;
+      transition: all 0.2s ease;
+    }
+    .platform-top .header-search .h-search-reset:hover {
+      border-color: var(--naama-accent);
+      color: var(--naama-accent-dark);
+      background: var(--naama-accent-soft);
+    }
+    .platform-top .btn-menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--naama-border);
+      border-radius: 12px;
+      background: #fff;
+      color: var(--naama-primary);
+    }
+    .platform-top #mobileNav {
+      display: none;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      padding-top: 0.85rem;
+      margin-top: 0.85rem;
+      border-top: 1px solid var(--naama-border);
+    }
+    .platform-top #mobileNav.is-open { display: flex; }
+    @media (min-width: 992px) and (max-width: 1279.98px) {
+      .platform-top .header-search .h-reset-label { display: none; }
+      .platform-top .header-search .h-search-reset { padding: 0.4rem 0.5rem; }
+    }
+    @media (min-width: 992px) {
+      .platform-top .header-search { display: flex !important; }
+      .platform-top .header-row {
+        flex-wrap: nowrap !important;
+        gap: 0.6rem !important;
+        align-items: center !important;
+      }
+      .platform-top .header-row .brand-link { flex: 0 0 auto; }
+      .platform-top .header-row #mainNav {
+        display: flex !important;
+        flex: 0 0 auto;
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        gap: 0.25rem;
+      }
+      .platform-top .header-row #mainNav .nav-pill {
+        padding: 0.4rem 0.7rem;
+        font-size: 0.88rem;
+      }
+      .platform-top .header-row .btn-login {
+        padding: 0.45rem 0.9rem;
+        font-size: 0.88rem;
+      }
+      .platform-top .header-row .brand-text strong { font-size: 0.98rem; }
+      .platform-top .header-row .ms-auto { margin-inline-start: auto !important; }
+    }
+    @media (max-width: 991.98px) {
+      .platform-top #mainNav { display: none !important; }
+      .platform-top .btn-menu-toggle { display: inline-flex; }
+      .platform-top .header-search { display: none !important; }
+    }
+
+    /* ===== Page title / breadcrumb (match Experimental3) ===== */
+    .exp3-page-title {
+      --ps-green-deep: #0B5D42;
+      --ps-green: #12805A;
+      --ps-ink-soft: #4B5C54;
+      --ps-paper-alt: #F4F1E9;
+      --ps-line: #E3E0D2;
+      --ps-white: #FFFFFF;
+      background: var(--ps-paper-alt);
+      border-bottom: 1px solid var(--ps-line);
+      padding: 44px 0 34px;
+      min-height: 220px;
+      box-sizing: border-box;
+    }
+    .exp3-page-title .container {
+      max-width: 1180px;
+      margin-inline: auto;
+      padding-inline: 1rem;
+    }
+    .exp3-page-hero-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem 1rem;
+      margin-bottom: 10px;
+    }
+    .exp3-breadcrumb {
+      margin: 0;
+      font-size: 0.82rem;
+      color: var(--ps-ink-soft);
+    }
+    .exp3-breadcrumb a {
+      color: var(--ps-green-deep);
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .exp3-breadcrumb a:hover { text-decoration: underline; }
+    .exp3-page-title h1 {
+      margin: 0;
+      color: var(--ps-green-deep);
+      font-size: 1.9rem;
+      line-height: 1.35;
+      font-weight: 800;
+      text-align: start;
+    }
+    .exp3-page-intro {
+      color: var(--ps-ink-soft);
+      margin: 8px 0 0;
+      max-width: 60ch;
+      line-height: 1.75;
+      font-size: 0.98rem;
+    }
+    .exp3-page-intro--spacer {
+      visibility: hidden;
+      pointer-events: none;
+      user-select: none;
+    }
+    .exp3-back-services {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-shrink: 0;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.82rem;
+      border: 1.5px solid var(--ps-line);
+      background: var(--ps-white);
+      color: var(--ps-green-deep);
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 1px 3px rgba(16, 40, 30, 0.06);
+      white-space: nowrap;
+    }
+    .exp3-back-services:hover {
+      border-color: var(--ps-green);
+      color: var(--ps-green);
+    }
+    .exp3-page-actions {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    @media (max-width: 767.98px) {
+      .exp3-page-title {
+        padding: 28px 0 24px;
+        min-height: 0;
+      }
+      .exp3-page-title h1 { font-size: 1.35rem; }
+      .exp3-back-services { font-size: 0.78rem; padding: 7px 12px; }
+    }
+
+    /* ===== Lay-environment / Water page ===== */
+    .lay-env .container {
+      max-width: 1140px;
+      margin-inline: auto;
+      padding-inline: 1rem;
+    }
+
+    .lay-env .hero {
+      position: relative;
+      min-height: calc(100vh - 250px);
+      display: flex;
+      align-items: center;
+      background: var(--img-hero) center / cover no-repeat;
+    }
+    .lay-env .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(45deg, transparent, #09140f);
+    }
+    .lay-env .hero > .container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      min-height: inherit;
+      padding-block: 4rem;
+    }
+    .lay-env .hero .title {
+      font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.35;
+      margin: 0 0 1.5rem;
+      max-width: 18ch;
+    }
+    .lay-env .btn-hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .lay-env .btn-hero .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0.55rem 1.35rem;
+      border-radius: 0.375rem;
+      font-weight: 600;
+      font-size: 1rem;
+      border: 0;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .lay-env .btn-hero .btn-primary {
+      background: var(--primary-color);
+      color: #fff;
+    }
+    .lay-env .btn-hero .btn-primary:hover { background: #146c44; color: #fff; }
+    .lay-env .btn-hero .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid #fff;
+    }
+    .lay-env .btn-hero .btn-outline:hover {
+      background: rgba(255,255,255,.12);
+      color: #fff;
+    }
+
+    .regulatoryFocusAreas {
+      position: relative;
+      padding-block: 4rem;
+      min-height: 440px;
+      background: var(--img-focus) center / cover no-repeat;
+    }
+    .title-section {
+      text-align: center;
+      margin-block-end: 3rem;
+    }
+    .title-section .title {
+      font-size: clamp(1.35rem, 2.5vw, 1.875rem);
+      font-weight: 600;
+      color: #1f2a37;
+      line-height: 38px;
+      margin: 0;
+    }
+    .focus-columns {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 1.5rem;
+      row-gap: 0;
+      align-items: stretch;
+    }
+    .focus-col {
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-row: span 5;
+      align-items: stretch;
+    }
+    .card-objectives-green {
+      background: #ecfdf3;
+      padding: 1.15rem 1rem;
+      border-radius: 1rem;
+      border: 1px solid #ecfdf3;
+      box-shadow: 0 4px 8px -2px rgba(16,24,40,.1), 0 2px 4px -2px rgba(16,24,40,.06);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100%;
+    }
+    .card-objectives {
+      background: #fff;
+      padding: 1.15rem 1rem;
+      border-radius: 1rem;
+      border: 1px solid #d2d6db;
+      box-shadow: 0 4px 8px -2px rgba(16,24,40,.1), 0 2px 4px -2px rgba(16,24,40,.06);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100%;
+    }
+    .card-objectives-green .icons,
+    .card-objectives .icons {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      padding: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 0.85rem;
+    }
+    .card-objectives-green .icons { background: #fff; }
+    .card-objectives .icons { background: #f3fcf6; }
+    .card-objectives-green .icons img,
+    .card-objectives .icons img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .card-objectives-green .title,
+    .card-objectives .title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1f2a37;
+      margin: 0;
+      line-height: 1.45;
+    }
+    .card-objectives p {
+      margin: 0.55rem 0 0;
+      font-size: 0.9rem;
+      color: #384250;
+      line-height: 1.55;
+    }
+    .styp-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-block: 0.85rem;
+    }
+    .styp-icon img { width: 24px; height: 24px; }
+    .focus-note {
+      margin-top: 2.5rem;
+      text-align: center;
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .focus-note .btn-link {
+      color: var(--primary-color);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+    .focus-note .btn-link:hover { color: #54c08a; }
+
+    @supports not (grid-template-rows: subgrid) {
+      .focus-col {
+        display: flex;
+        flex-direction: column;
+        grid-row: auto;
+      }
+      .focus-col > .card-objectives:first-of-type {
+        min-height: 15.5rem;
+      }
+    }
+
+    @media (max-width: 991.98px) {
+      .focus-columns { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 575.98px) {
+      .focus-columns { grid-template-columns: 1fr; }
+      .focus-col {
+        grid-row: span 5;
+      }
+    }
+
+    .Apply-forms {
+      position: relative;
+      padding-block: 4rem;
+      background: var(--img-form) center / cover no-repeat;
+      min-height: 200px;
+    }
+    .Apply-forms .title-section .title { margin-bottom: 0.5rem; }
+    .Apply-forms .title-section p {
+      margin: 0.5rem 0 0;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+    }
+
+    .wrapper-form {
+      background: #fff;
+      padding: 1.25rem 1.25rem 1.5rem;
+      border-radius: 1rem;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 16px rgba(16,24,40,.06);
+    }
+    .form-lead {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-color);
+      margin: 0 0 1.25rem;
+    }
+    .form-section {
+      margin-bottom: 1.5rem;
+    }
+    .form-section__head {
+      background: var(--mint-soft);
+      border: 1px solid #d1fae5;
+      border-radius: 0.5rem;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1.1rem;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--secondary-color);
+    }
+    .field {
+      margin-bottom: 1rem;
+    }
+    .field label,
+    .field .field-label {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #1f2a37;
+      margin-bottom: 0.4rem;
+    }
+    .field .req { color: var(--danger); }
+    .field .hint {
+      display: block;
+      font-size: 0.8rem;
+      color: #6b7280;
+      margin-top: 0.25rem;
+    }
+    .field input[type="text"],
+    .field input[type="email"],
+    .field input[type="tel"],
+    .field input[type="url"],
+    .field textarea,
+    .field select {
+      width: 100%;
+      min-height: 44px;
+      padding: 0.55rem 0.85rem;
+      border: 1px solid var(--border-color);
+      border-radius: 0.375rem;
+      background: #fff;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--text-color);
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .field textarea { min-height: 120px; resize: vertical; }
+    .field textarea.textarea-guide {
+      min-height: 200px;
+    }
+    .field textarea::placeholder {
+      color: #9da4ae;
+      opacity: 1;
+      white-space: pre-line;
+    }
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      outline: 0;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 0.2rem rgba(27,131,84,.18);
+    }
+    .field-error {
+      display: none;
+      color: var(--danger);
+      font-size: 0.82rem;
+      margin-top: 0.3rem;
+    }
+    .field.is-invalid input,
+    .field.is-invalid textarea,
+    .field.is-invalid select {
+      border-color: var(--danger);
+    }
+    .field.is-invalid .field-error { display: block; }
+    .field.is-invalid .choice-grid,
+    .field.is-invalid .radio-row {
+      outline: 1px solid rgba(180,35,24,.35);
+      border-radius: 6px;
+      padding: 0.35rem;
+    }
+
+    .radio-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+    .radio-row label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: 500;
+      cursor: pointer;
+      margin: 0;
+    }
+    .radio-row input { accent-color: var(--primary-color); }
+
+    .check-cols {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .check-group {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.75rem;
+      padding: 0.85rem;
+    }
+    .check-group h4 {
+      margin: 0 0 0.65rem;
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--secondary-color);
+    }
+    .check-group label {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.45rem;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: #374151;
+      margin-bottom: 0.45rem;
+      cursor: pointer;
+    }
+    .check-group input { margin-top: 0.2rem; accent-color: var(--primary-color); flex-shrink: 0; }
+
+    .file-upload-card {
+      border: 1px solid var(--border-color);
+      background: #fff;
+      border-radius: 0.375rem;
+      padding: 1rem;
+    }
+    .file-upload-card .browse-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 0.375rem;
+      background: var(--mint-soft);
+      color: var(--secondary-color);
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .file-upload-card input[type="file"] { display: none; }
+    .file-name {
+      margin-top: 0.65rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+    .docs-mail-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      margin-top: 0.85rem;
+      padding: 0.85rem 1rem;
+      background: #eef6ff;
+      border: 1px solid #c5ddf5;
+      border-bottom: 2px solid #7eb6e8;
+      border-radius: 0.35rem;
+      color: #2b6cb0;
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+    .docs-mail-note__icon {
+      flex-shrink: 0;
+      width: 1.35rem;
+      height: 1.35rem;
+      margin-top: 0.15rem;
+      color: #3182ce;
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+    .docs-mail-note__body { flex: 1; min-width: 0; }
+    .docs-mail-note a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: #1f2a37;
+      font-weight: 700;
+      text-decoration: none;
+      direction: ltr;
+      unicode-bidi: isolate;
+    }
+    .docs-mail-note a:hover { color: var(--primary-color); }
+    .docs-mail-note a i { font-size: 0.95rem; color: #6b7280; }
+
+    .form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e5e7eb;
+    }
+    .btn-submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0.55rem 1.75rem;
+      background: var(--secondary-color);
+      color: #fff;
+      border: 0;
+      border-radius: 0.375rem;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .btn-submit:hover { background: #053824; color: #fff; }
+    .btn-submit:focus-visible {
+      outline: 0;
+      box-shadow: 0 0 0 0.25rem rgba(27,131,84,.35);
+    }
+    .btn-submit[disabled] { opacity: 0.55; pointer-events: none; }
+
+    .form-success {
+      display: none;
+      width: 100%;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 0.5rem;
+      background: #e8f6ef;
+      border: 1px solid #b7dfc8;
+      color: var(--secondary-color);
+    }
+    .form-success.is-visible { display: flex; }
+    .form-success strong { display: block; margin-bottom: 0.15rem; }
+    .form-success p { margin: 0; color: var(--text-muted); font-size: 0.9rem; }
+
+    @media (max-width: 991.98px) {
+      .check-cols { grid-template-columns: 1fr; }
+      .lay-env .hero { min-height: 420px; }
+      .lay-env .hero .title { max-width: none; }
+    }
+    @media (max-width: 767.98px) {
+      .regulatoryFocusAreas,
+      .Apply-forms { padding-block: 2.5rem; }
+      .btn-submit { width: 100%; }
+      .form-actions { justify-content: stretch; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="platform-top">
+  <div class="gov-bar">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <span><i class="bi bi-shield-check verified me-1"></i> موقع حكومي تابع لوزارة البيئة والمياه والزراعة</span>
+      <span class="d-none d-md-inline">متوافق مع هوية منصة نما · الرقم الموحد <strong>939</strong></span>
+    </div>
+  </div>
+
+  <header class="site-header">
+      <div class="container py-3">
+        <div class="header-row d-flex flex-wrap align-items-center gap-3">
+          <a class="brand-link" href="Index.html" aria-label="الصفحة الرئيسية">
+            <span class="brand-mark" aria-hidden="true"></span>
+            <span class="brand-text text-start">
+              <strong>منصة البحث والابتكار</strong>
+              <small>وزارة البيئة والمياه والزراعة</small>
+            </span>
+          </a>
+
+          <nav id="mainNav" class="d-none d-lg-flex gap-1" aria-label="التنقل الرئيسي">
+            <a class="nav-pill" href="Index.html"><i class="bi bi-house me-1"></i>الرئيسية</a>
+            <a class="nav-pill active" href="Index.html?view=our-services" aria-current="page"><i class="bi bi-briefcase me-1"></i>خدماتنا</a>
+            <a class="nav-pill" href="Index.html?view=services"><i class="bi bi-lightbulb me-1"></i>برامج الابتكار</a>
+            <a class="nav-pill" href="Index.html?view=news"><i class="bi bi-megaphone me-1"></i>الأخبار</a>
+            <a class="nav-pill" href="Index.html?view=publications"><i class="bi bi-journal-richtext me-1"></i>منشورات وتقارير</a>
+            <a class="nav-pill" href="Index.html?view=my-requests"><i class="bi bi-file-earmark-text me-1"></i>طلباتي</a>
+          </nav>
+
+          <div class="header-search" aria-label="بحث سريع">
+            <div class="h-search-input">
+              <i class="bi bi-search icon" aria-hidden="true"></i>
+              <input type="search" placeholder="البحث عن خدمة..." aria-label="البحث عن خدمة" autocomplete="off" />
+            </div>
+            <select class="h-search-select" aria-label="نوع المستفيد">
+              <option selected>نوع المستفيد: الكل</option>
+              <option>باحث</option>
+              <option>مبتكر</option>
+              <option>جهة حكومية</option>
+              <option>قطاع خاص</option>
+            </select>
+            <button type="button" class="h-search-reset" title="إعادة تعيين الفلتر" aria-label="إعادة تعيين الفلتر">
+              <i class="bi bi-arrow-counterclockwise"></i>
+              <span class="h-reset-label">إعادة تعيين</span>
+            </button>
+          </div>
+
+          <div class="ms-auto d-flex align-items-center gap-2">
+            <a class="btn-login" href="https://naama.sa/Account/Login" target="_blank" rel="noopener">
+              <i class="bi bi-box-arrow-in-left"></i>
+              <span>تسجيل الدخول</span>
+            </a>
+            <button type="button" class="btn-menu-toggle" id="env4MenuToggle" aria-label="القائمة" aria-expanded="false" aria-controls="mobileNav">
+              <i class="bi bi-list"></i>
+            </button>
+          </div>
+        </div>
+
+        <nav id="mobileNav" aria-label="قائمة الجوال">
+          <a class="nav-pill" href="Index.html"><i class="bi bi-house me-1"></i>الرئيسية</a>
+          <a class="nav-pill active" href="Index.html?view=our-services"><i class="bi bi-briefcase me-1"></i>خدماتنا</a>
+          <a class="nav-pill" href="Index.html?view=services"><i class="bi bi-lightbulb me-1"></i>برامج الابتكار</a>
+          <a class="nav-pill" href="Index.html?view=news"><i class="bi bi-megaphone me-1"></i>الأخبار</a>
+          <a class="nav-pill" href="Index.html?view=publications"><i class="bi bi-journal-richtext me-1"></i>منشورات وتقارير</a>
+          <a class="nav-pill" href="Index.html?view=my-requests"><i class="bi bi-file-earmark-text me-1"></i>طلباتي</a>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <div class="exp3-page-title">
+    <div class="container">
+      <div class="exp3-page-hero-top">
+        <nav class="exp3-breadcrumb" aria-label="مسار التنقل">
+          <a href="Index.html?view=our-services">الخدمات</a>
+          <span aria-hidden="true"> — </span>
+          <a href="Experimental3.html">البيئة التنظيمية التجريبية</a>
+          <span aria-hidden="true"> / </span>
+          <span>قطاع البيئة</span>
+        </nav>
+        <div class="exp3-page-actions">
+          <a class="exp3-back-services" href="Experimental3.html" id="envBackBtn">
+            <i class="bi bi-arrow-right" aria-hidden="true"></i>
+            رجوع
+          </a>
+          <a class="exp3-back-services" href="Index.html?view=our-services">
+            <i class="bi bi-arrow-right" aria-hidden="true"></i>
+            رجوع إلى الخدمات الرئيسية
+          </a>
+        </div>
+      </div>
+      <h1>البيئة</h1>
+      <p class="exp3-page-intro exp3-page-intro--spacer" aria-hidden="true">
+        البيئة التنظيمية التجريبية لقطاع البيئة.
+      </p>
+    </div>
+  </div>
+
+  <main class="lay-env">
+    <section class="hero" aria-label="البيئة التنظيمية التجريبية لقطاع البيئة">
+      <div class="container">
+        <div class="hero-content">
+          <h2 class="title">البيئة التنظيمية التجريبية لقطاع البيئة</h2>
+          <div class="btn-hero">
+            <a href="#envFocusAreas" class="btn btn-primary">استكشِف القطاع</a>
+            <a href="#env-Apply-forms" class="btn btn-outline">قدِّم طلبك</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="regulatoryFocusAreas" id="envFocusAreas">
+      <div class="container">
+        <div class="title-section">
+          <h2 class="title">المجالات ذات الأولوية والمحاور الأساسية</h2>
+        </div>
+
+        <div class="focus-columns">
+          <div class="focus-col">
+            <div class="card-objectives-green">
+              <div class="icons"><img src="agency-reports/assets/experimental/env/Biodiversity.png" alt="" /></div>
+              <div class="title">التنوع الأحيائي</div>
+            </div>
+            <div class="styp-icon"><img src="agency-reports/assets/experimental/env/arrow-down-02.svg" alt="" /></div>
+            <div class="card-objectives">
+              <div class="icons"><img src="agency-reports/assets/experimental/env/EcosystemMonitoring.png" alt="" /></div>
+              <div class="title">تقنيات متابعة الأنظمة البيئية</div>
+              <p>التقنيات المستخدمة لفهم النظم البيئية وتقييمها وإدارتها</p>
+            </div>
+          </div>
+
+          <div class="focus-col">
+            <div class="card-objectives-green">
+              <div class="icons"><img src="agency-reports/assets/experimental/env/LandVegetationDesertification.png" alt="" /></div>
+              <div class="title">الأراضي والنباتات والتصحر</div>
+            </div>
+            <div class="styp-icon"><img src="agency-reports/assets/experimental/env/arrow-down-02.svg" alt="" /></div>
+            <div class="card-objectives">
+              <div class="icons"><img src="agency-reports/assets/experimental/env/SmartIrrigation.png" alt="" /></div>
+              <div class="title">الري المبتكر</div>
+              <p>تقنيات لتحسين كفاءة وفعالية أنظمة الري</p>
+            </div>
+            <div class="styp-icon"><img src="agency-reports/assets/experimental/env/arrow-down-02.svg" alt="" /></div>
+            <div class="card-objectives">
+              <div class="icons"><img src="agency-reports/assets/experimental/env/GrazingManagement.png" alt="" /></div>
+              <div class="title">إدارة أراضي الرعي</div>
+              <p>تهدف التقنيات إلى الإدارة المستدامة للمراعي وحمايتها من الرعي الجائر والتصحر</p>
+            </div>
+          </div>
+
+          <div class="focus-col">
+            <div class="card-objectives-green">
+              <div class="icons"><img src="agency-reports/assets/experimental/env/WasteManagement.png" alt="" /></div>
+              <div class="title">إدارة النفايات</div>
+            </div>
+            <div class="styp-icon"><img src="agency-reports/assets/experimental/env/arrow-down-02.svg" alt="" /></div>
+            <div class="card-objectives">
+              <div class="icons"><img src="agency-reports/assets/experimental/env/Treatmentenvironment.png" alt="" /></div>
+              <div class="title">معالجة النفايات (بما في ذلك إعادة التدوير والتسميد واستعادة الطاقة)</div>
+              <p>التقنيات التي تخضع فيها مواد النفايات لعمليات لتقليل التأثير البيئي واستعادة المواد الأولية منها</p>
+            </div>
+          </div>
+
+          <div class="focus-col">
+            <div class="card-objectives-green">
+              <div class="icons"><img src="agency-reports/assets/experimental/env/MeteorologyClimate.png" alt="" /></div>
+              <div class="title">الأرصاد الجوية والمناخ</div>
+            </div>
+            <div class="styp-icon"><img src="agency-reports/assets/experimental/env/arrow-down-02.svg" alt="" /></div>
+            <div class="card-objectives">
+              <div class="icons"><img src="agency-reports/assets/experimental/env/ClimateRiskVulnerabilityAssessmentAdaptation.png" alt="" /></div>
+              <div class="title">تقييم قابلية التأثر بمخاطر المناخ ووضع خطط للتكيف</div>
+              <p>رصد الأحوال الجوية والتنبؤ بها</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="focus-note">
+          لمزيد من المعلومات حول الابتكار في قطاع البيئة، يُرجى الرجوع إلى التقرير بعنوان:
+          «الابتكار البيئي في المملكة العربية السعودية – خارطة طريق تبني التقنيات».
+          <a class="btn-link" href="https://www.mewa.gov.sa/ar/Ministry/Agencies/AgencyForInnovation/Topics/LegislativeExperimentalEnvProgram/Documents/MEWA-Environment-AR_changes_05.09.pdf" target="_blank" rel="noopener">اضغط هنا لمزيد من المعلومات</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="Apply-forms" id="env-Apply-forms">
+      <div class="container">
+        <div class="title-section">
+          <h2 class="title">قدّم طلبك للانضمام إلى البيئة التنظيمية التجريبية لقطاع البيئة</h2>
+          <p>للتقديم إلى البيئة التنظيمية التجريبية لقطاع البيئة التابعة لوزارة البيئة والمياه والزراعة</p>
+        </div>
+
+        <form class="wrapper-form" id="envForm" novalidate>
+          <p class="form-lead">تعبئة وإرسال النموذج التالي:</p>
+
+          <div class="form-section">
+            <div class="form-section__head">1. معلومات مقدم الطلب</div>
+
+            <div class="field" data-field="orgName">
+              <label for="orgName">1.1 اسم الشركة / الجهة <span class="req">*</span></label>
+              <input id="orgName" name="orgName" type="text" maxlength="255" required aria-required="true" placeholder="1.1 اسم الشركة / الجهة" />
+              <span class="field-error">هذا الحقل مطلوب</span>
+            </div>
+
+            <div class="field" data-field="contactPerson">
+              <label for="contactPerson">1.2 الشخص المسؤول للتواصل <span class="req">*</span></label>
+              <input id="contactPerson" name="contactPerson" type="text" maxlength="255" required aria-required="true" placeholder="1.2 الشخص المسؤول للتواصل" />
+              <span class="field-error">هذا الحقل مطلوب</span>
+            </div>
+
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="field" data-field="email">
+                  <label for="email">1.3 عنوان البريد الإلكتروني <span class="req">*</span></label>
+                  <input id="email" name="email" type="email" maxlength="255" required aria-required="true" dir="ltr" placeholder="1.3 عنوان البريد الإلكتروني" />
+                  <span class="field-error">يرجى إدخال البريد الإلكتروني بشكل صحيح</span>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="field" data-field="phone">
+                  <label for="phone">1.4 رقم الجوال <span class="req">*</span></label>
+                  <input id="phone" name="phone" type="tel" maxlength="20" required aria-required="true" dir="ltr" placeholder="1.4 رقم الجوال" />
+                  <span class="field-error">يرجى إدخال رقم الجوال بشكل صحيح (05xxxxxxxx)</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="field" data-field="website">
+              <label for="website">1.5 رابط موقع الشركة الإلكتروني</label>
+              <input id="website" name="website" type="url" maxlength="255" dir="ltr" placeholder="يرجى إدخال رابط موقع الشركة" />
+              <span class="field-error">فضلاً أدخل الموقع بشكل صحيح</span>
+            </div>
+
+            <div class="field" data-field="registered">
+              <span class="field-label">1.6 هل الشركة مسجلة في المملكة العربية السعودية؟ <span class="req">*</span></span>
+              <div class="radio-row">
+                <label><input type="radio" name="registered" value="yes" /> نعم</label>
+                <label><input type="radio" name="registered" value="no" /> لا</label>
+              </div>
+              <span class="field-error">هذا الحقل مطلوب</span>
+            </div>
+
+            <div class="field" data-field="crNumber">
+              <label for="crNumber">1.7 في حال كانت الشركة مسجلة في المملكة، يرجى تزويدنا برقم السجل التجاري</label>
+              <input id="crNumber" name="crNumber" type="text" maxlength="20" inputmode="numeric" dir="rtl" placeholder="رقم السجل التجاري أو رقم التعريف" />
+              <span class="field-error">هذا الحقل مطلوب عند التسجيل في المملكة</span>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <div class="form-section__head">2. معلومات الابتكار</div>
+
+            <div class="field" data-field="innovationDesc">
+              <label for="innovationDesc">2.1 ما هو الابتكار الذي تقدمه؟ <span class="req">*</span></label>
+              <textarea id="innovationDesc" name="innovationDesc" class="textarea-guide" rows="6" required aria-required="true" placeholder="يرجى تقديم وصف مختصر للابتكار لا يتجاوز 200 كلمة، يشمل ما يلي:
+- هل الابتكار عبارة عن منتج، خدمة، أم نموذج عمل جديد؟
+- ما الذي يجعل هذا الحل مبتكرًا؟"></textarea>
+              <span class="field-error">هذا الحقل مطلوب</span>
+            </div>
+
+            <div class="field" data-field="implementedAbroad">
+              <label for="implementedAbroad">2.2 هل تم تنفيذ الابتكار بنجاح في دول أخرى؟ <span class="req">*</span></label>
+              <textarea id="implementedAbroad" name="implementedAbroad" class="textarea-guide" rows="8" required aria-required="true" placeholder="يرجى توضيح ما إذا كان الابتكار المقترح قد تم تطبيقه أو تنفيذه في دول أخرى. إذا كان ذلك ينطبق، يُرجى تقديم المعلومات التالية:
+- تحديد الدول التي تم فيها استخدام الابتكار بنجاح
+- وصف نطاق وحجم التنفيذ في تلك الدول
+- إبراز النتائج أو الفوائد أو التأثيرات الملحوظة الناتجة عن التنفيذ
+- شرح كيف يمكن أن تساهم البيئة التنظيمية التجريبية لوزارة البيئة والمياه والزراعة في دعم نشر الابتكار بنجاح بطريقة مشابهة لما تم في تلك الدول"></textarea>
+              <span class="field-error">هذا الحقل مطلوب</span>
+            </div>
+
+            <div class="field" data-field="challenge">
+              <label for="challenge">2.3 ما التحدي أو الفرصة التي يستهدفها الابتكار، وكيف سيساهم في معالجتها؟ <span class="req">*</span></label>
+              <textarea id="challenge" name="challenge" class="textarea-guide" rows="8" required aria-required="true" placeholder="يرجى الشرح بنقاط واضحة وبما لا يتجاوز 300 كلمة، مع تضمين ما يلي:
+- وصف التحدي أو الفرصة المستهدفة، وشرح كيف يمكن للابتكار معالجتها
+- توضيح كيفية مساهمة الابتكار المقترح في حل هذا التحدي أو التخفيف من حدته
+- عرض لأوجه الشبه والاختلاف بين الابتكار المقترح والأفكار أو الحلول المتوفرة حاليًا في السوق"></textarea>
+              <span class="field-error">هذا الحقل مطلوب</span>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <div class="form-section__head">3. ارتباط حل التقنيات ذات الأولوية</div>
+
+            <div class="field" data-field="sectors">
+              <span class="field-label">3.1 ما القطاع أو القطاعات التي يمكن لابتكاركم أن يحقق فيها فائدة؟ <span class="req">*</span></span>
+              <div class="check-cols">
+                <div class="check-group">
+                  <h4>البيئة</h4>
+                  <label><input type="checkbox" name="sectors" value="env-bio" /> التنوع الأحيائي</label>
+                  <label><input type="checkbox" name="sectors" value="env-land" /> الأراضي والنباتات والتصحر</label>
+                  <label><input type="checkbox" name="sectors" value="env-waste" /> إدارة النفايات</label>
+                  <label><input type="checkbox" name="sectors" value="env-pollution" /> مكافحة التلوث والامتثال</label>
+                  <label><input type="checkbox" name="sectors" value="env-climate" /> الأرصاد الجوية والمناخ</label>
+                  <label><input type="checkbox" name="sectors" value="env-other" /> أخرى</label>
+                </div>
+                <div class="check-group">
+                  <h4>المياه</h4>
+                  <label><input type="checkbox" name="sectors" value="wat-supply" /> الإمداد</label>
+                  <label><input type="checkbox" name="sectors" value="wat-transport" /> النقل والتخزين</label>
+                  <label><input type="checkbox" name="sectors" value="wat-dist" /> التوزيع</label>
+                  <label><input type="checkbox" name="sectors" value="wat-demand" /> الطلب</label>
+                  <label><input type="checkbox" name="sectors" value="wat-reuse" /> معالجة مياه الصرف وإعادة استخدامها</label>
+                  <label><input type="checkbox" name="sectors" value="wat-other" /> أخرى</label>
+                </div>
+                <div class="check-group">
+                  <h4>الزراعة</h4>
+                  <label><input type="checkbox" name="sectors" value="agr-plant" /> الإنتاج النباتي</label>
+                  <label><input type="checkbox" name="sectors" value="agr-animal" /> الثروة الحيوانية والسمكية</label>
+                  <label><input type="checkbox" name="sectors" value="agr-food" /> الغذاء</label>
+                  <label><input type="checkbox" name="sectors" value="agr-other" /> أخرى</label>
+                </div>
+              </div>
+              <span class="field-error">هذا الحقل مطلوب</span>
+            </div>
+
+            <div class="field" data-field="techGroups" style="margin-top:1.25rem">
+              <span class="field-label">3.2 إلى أي من المجموعات التقنية التالية ينتمي الابتكار؟ <span class="req">*</span></span>
+              <div class="check-cols">
+                <div class="check-group">
+                  <h4>البيئة</h4>
+                  <label><input type="checkbox" name="techGroups" value="t-irr" /> الري المبتكر</label>
+                  <label><input type="checkbox" name="techGroups" value="t-graze" /> إدارة أراضي الرعي</label>
+                  <label><input type="checkbox" name="techGroups" value="t-waste" /> معالجة النفايات</label>
+                  <label><input type="checkbox" name="techGroups" value="t-eco" /> تقنيات متابعة الأنظمة البيئية</label>
+                  <label><input type="checkbox" name="techGroups" value="t-meteo" /> التنبؤ بالأرصاد الجوية والمناخ</label>
+                  <label><input type="checkbox" name="techGroups" value="t-env-other" /> أخرى</label>
+                </div>
+                <div class="check-group">
+                  <h4>المياه</h4>
+                  <label><input type="checkbox" name="techGroups" value="t-ro" /> أنظمة التناضح العكسي المتقدمة</label>
+                  <label><input type="checkbox" name="techGroups" value="t-adapt" /> التقنيات التكيفية لإعادة استخدام مياه الصرف</label>
+                  <label><input type="checkbox" name="techGroups" value="t-leak" /> إدارة التسرب الذكية</label>
+                  <label><input type="checkbox" name="techGroups" value="t-home" /> الاستهلاك المبتكر للمياه في المنازل</label>
+                  <label><input type="checkbox" name="techGroups" value="t-farm" /> الاستهلاك المبتكر للمياه في الزراعة</label>
+                  <label><input type="checkbox" name="techGroups" value="t-wat-other" /> أخرى</label>
+                </div>
+                <div class="check-group">
+                  <h4>الزراعة</h4>
+                  <label><input type="checkbox" name="techGroups" value="t-agri-water" /> الري وإدارة المياه</label>
+                  <label><input type="checkbox" name="techGroups" value="t-aqua" /> الإدارة المتكاملة للاستزراع المائي</label>
+                  <label><input type="checkbox" name="techGroups" value="t-protect" /> الزراعة المحمية والتحكم البيئي</label>
+                  <label><input type="checkbox" name="techGroups" value="t-food" /> حفظ الأغذية واستخراج قيمة مضافة من الفاقد</label>
+                  <label><input type="checkbox" name="techGroups" value="t-drone" /> الأقمار الصناعية والطائرات بدون طيار للمحاصيل</label>
+                  <label><input type="checkbox" name="techGroups" value="t-agri-other" /> أخرى</label>
+                </div>
+              </div>
+              <span class="field-error">هذا الحقل مطلوب</span>
+            </div>
+
+            <div class="field" data-field="otherClarify" style="margin-top:1rem">
+              <label for="otherClarify">في حال اختيار «أخرى»، يُرجى التوضيح:</label>
+              <textarea id="otherClarify" name="otherClarify" rows="3"></textarea>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <div class="form-section__head">4. العوائق التنظيمية</div>
+
+            <div class="field" data-field="barriers">
+              <label for="barriers">4.1 ما هي العوائق التنظيمية التي تحول دون تطبيق ابتكاركم؟ <span class="req">*</span></label>
+              <textarea id="barriers" name="barriers" class="textarea-guide" rows="8" required aria-required="true" placeholder="يرجى توضيح ما الذي يعيق تقدمكم في تنفيذ خطط الابتكار:
+- ما هي اللوائح التنظيمية المحددة التي تعيق تطبيق الابتكار؟
+- قدم وصفًا تفصيليًا للتحديات التي تم تحديدها، مع الإشارة إلى الشروط أو اللوائح التنظيمية أو المتطلبات ذات الصلة (مثل التراخيص أو التصاريح)
+- حدد الجهات ذات العلاقة (مثل الجهات التنظيمية أو الجهات المعنية) المرتبطة بابتكاركم
+
+[قد تشمل العوائق التنظيمية: إجراءات الترخيص أو التصاريح المعقدة، غياب متطلبات واضحة، متطلبات امتثال صارمة، أو نقص الإرشادات التنظيمية الشاملة، وغيرها]"></textarea>
+              <span class="field-error">هذا الحقل مطلوب</span>
+            </div>
+
+            <div class="field" data-field="sandboxValue">
+              <label for="sandboxValue">4.2 كيف تعتقد أن البيئة التنظيمية التجريبية يمكن أن تضيف قيمة؟ <span class="req">*</span></label>
+              <textarea id="sandboxValue" name="sandboxValue" class="textarea-guide" rows="5" required aria-required="true" placeholder="يرجى توضيح سبب حاجتكم للانضمام إلى البيئة التنظيمية التجريبية، وكيف سيساهم ذلك في دعم ابتكاركم (أي لماذا يتطلب الابتكار اختبارًا تنظيميًا قبل التمكين من تطبيقه)"></textarea>
+              <span class="field-error">هذا الحقل مطلوب</span>
+            </div>
+
+            <div class="field" data-field="docs">
+              <span class="field-label">رفع المستندات الداعمة <span class="req">*</span></span>
+              <p class="hint" style="margin-bottom:0.65rem">
+                يرجى إرفاق أي ملفات داعمة مطلوبة (مثل المواصفات الفنية، خطط التجارب، ملف تعريفي عن الشركة) لدعم طلبكم. يُرجى رفع ملف مضغوط واحد بصيغة ZIP يحتوي على جميع المستندات المطلوبة. لا يمكن رفع أكثر من ملف واحد ، لذا تأكد من دمج جميع المستندات في ملف مضغوط قبل الإرسال. يرجى تسمية الملف بالتنسيق التالي: رقم الهوية/رقم السجل التجاري_اسم الجهة - ملفات طلب تقديم البيئة التنظيمية التجريبية لوزارة البيئة والمياه والزراعة - اليوم_الشهر_السنة
+              </p>
+              <div class="file-upload-card">
+                <label class="browse-btn" for="docs">
+                  <i class="bi bi-folder2-open" aria-hidden="true"></i>
+                  تصفح الملفات
+                </label>
+                <input id="docs" name="docs" type="file" accept=".zip,application/zip" />
+                <div class="file-name" id="fileName">لم يتم اختيار ملف</div>
+              </div>
+              <div class="docs-mail-note" role="note">
+                <i class="bi bi-info-circle-fill docs-mail-note__icon" aria-hidden="true"></i>
+                <div class="docs-mail-note__body">
+                  <div>لمشاركة مزيد من الملفات والمعلومات إرسالها عن طريق الإيميل</div>
+                  <div>
+                    <a href="mailto:MRS@mewa.gov.sa">
+                      <i class="bi bi-link-45deg" aria-hidden="true"></i>
+                      MRS@mewa.gov.sa
+                    </a>
+                  </div>
+                  <div>مع ذكر رقم الطلب</div>
+                </div>
+              </div>
+              <span class="field-error">هذا الحقل مطلوب — الامتداد المسموح به zip</span>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-submit" id="envSubmit">إرسال الطلب</button>
+            <div class="form-success" id="envSuccess" role="status" aria-live="polite">
+              <div>
+                <strong>تم تسجيل طلبك بنجاح</strong>
+                <p>شكرًا لاهتمامك. سيتم التواصل معك بخصوص طلب الانضمام إلى البيئة التنظيمية التجريبية لقطاع البيئة.</p>
+              </div>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    (function () {
+      var menuToggle = document.getElementById("env4MenuToggle");
+      var mobileNav = document.getElementById("mobileNav");
+      if (menuToggle && mobileNav) {
+        menuToggle.addEventListener("click", function () {
+          var open = mobileNav.classList.toggle("is-open");
+          menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+      }
+
+      var backBtn = document.getElementById("envBackBtn");
+      if (backBtn) {
+        backBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          var ref = document.referrer || "";
+          if (ref && /Experimental3\.html/i.test(ref) && window.history.length > 1) {
+            window.history.back();
+          } else {
+            window.location.href = "Experimental3.html";
+          }
+        });
+      }
+
+      var form = document.getElementById("envForm");
+      var success = document.getElementById("envSuccess");
+      var submitBtn = document.getElementById("envSubmit");
+      var fileInput = document.getElementById("docs");
+      var fileName = document.getElementById("fileName");
+      if (!form) return;
+
+      if (fileInput && fileName) {
+        fileInput.addEventListener("change", function () {
+          fileName.textContent = fileInput.files && fileInput.files[0]
+            ? fileInput.files[0].name
+            : "لم يتم اختيار ملف";
+          var field = fileInput.closest(".field");
+          if (field) field.classList.remove("is-invalid");
+        });
+      }
+
+      function clearErrors() {
+        form.querySelectorAll(".field.is-invalid").forEach(function (el) {
+          el.classList.remove("is-invalid");
+        });
+      }
+
+      function setInvalid(name) {
+        var field = form.querySelector('[data-field="' + name + '"]');
+        if (field) field.classList.add("is-invalid");
+      }
+
+      function isEmail(v) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+      }
+
+      function isPhone(v) {
+        var digits = String(v || "").replace(/[\s\-()]/g, "");
+        return /^(05\d{8}|9665\d{8}|\+9665\d{8})$/.test(digits);
+      }
+
+      function checkedAny(name) {
+        return !!form.querySelector('input[name="' + name + '"]:checked');
+      }
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        clearErrors();
+        if (success) success.classList.remove("is-visible");
+
+        var ok = true;
+        var orgName = (form.orgName.value || "").trim();
+        var contactPerson = (form.contactPerson.value || "").trim();
+        var email = (form.email.value || "").trim();
+        var phone = (form.phone.value || "").trim();
+        var website = (form.website.value || "").trim();
+        var registered = form.querySelector('input[name="registered"]:checked');
+        var crNumber = (form.crNumber.value || "").trim();
+
+        if (!orgName) { setInvalid("orgName"); ok = false; }
+        if (!contactPerson) { setInvalid("contactPerson"); ok = false; }
+        if (!email || !isEmail(email)) { setInvalid("email"); ok = false; }
+        if (!phone || !isPhone(phone)) { setInvalid("phone"); ok = false; }
+        if (website) {
+          try { new URL(website); } catch (err) { setInvalid("website"); ok = false; }
+        }
+        if (!registered) { setInvalid("registered"); ok = false; }
+        if (registered && registered.value === "yes" && !/^\d+$/.test(crNumber)) {
+          setInvalid("crNumber");
+          ok = false;
+        }
+        if (!(form.innovationDesc.value || "").trim()) { setInvalid("innovationDesc"); ok = false; }
+        if (!(form.implementedAbroad.value || "").trim()) { setInvalid("implementedAbroad"); ok = false; }
+        if (!(form.challenge.value || "").trim()) { setInvalid("challenge"); ok = false; }
+        if (!checkedAny("sectors")) { setInvalid("sectors"); ok = false; }
+        if (!checkedAny("techGroups")) { setInvalid("techGroups"); ok = false; }
+        if (!(form.barriers.value || "").trim()) { setInvalid("barriers"); ok = false; }
+        if (!(form.sandboxValue.value || "").trim()) { setInvalid("sandboxValue"); ok = false; }
+        if (!fileInput.files || !fileInput.files[0]) { setInvalid("docs"); ok = false; }
+        else {
+          var name = fileInput.files[0].name.toLowerCase();
+          if (!name.endsWith(".zip")) { setInvalid("docs"); ok = false; }
+        }
+
+        if (!ok) {
+          var first = form.querySelector(".field.is-invalid input, .field.is-invalid textarea, .field.is-invalid select");
+          if (first) first.focus();
+          return;
+        }
+
+        if (submitBtn) submitBtn.disabled = true;
+        window.setTimeout(function () {
+          if (success) {
+            success.classList.add("is-visible");
+            success.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          }
+          form.reset();
+          if (fileName) fileName.textContent = "لم يتم اختيار ملف";
+          if (submitBtn) submitBtn.disabled = false;
+        }, 450);
+      });
+
+      form.querySelectorAll("input, textarea, select").forEach(function (el) {
+        el.addEventListener("input", function () {
+          var field = el.closest(".field");
+          if (field) field.classList.remove("is-invalid");
+        });
+        el.addEventListener("change", function () {
+          var field = el.closest(".field");
+          if (field) field.classList.remove("is-invalid");
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

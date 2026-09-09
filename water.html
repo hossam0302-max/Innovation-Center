@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Water STRIP | Mandate, Value Proposition &amp; Functions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+  <style>
+    :root {
+      --ws-green-deep: #0B5D42;
+      --ws-green: #12805A;
+      --ws-green-soft: #E4F1EA;
+      --ws-line: #D8D4C8;
+      --ws-ink: #1A2E28;
+      --ws-muted: #5C6B64;
+      --ws-paper: #F7F6F2;
+      --ws-white: #FFFFFF;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+      background: var(--ws-paper);
+      color: var(--ws-ink);
+      line-height: 1.55;
+      overflow-x: visible;
+    }
+
+    body.is-embedded .page-wrap {
+      padding-top: 1.25rem;
+    }
+
+    .page-wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 3rem;
+      overflow-x: visible;
+    }
+
+    .page-top {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--ws-line);
+    }
+
+    .page-top h1 {
+      margin: 0 0 0.35rem;
+      font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+      font-weight: 800;
+      color: var(--ws-green-deep);
+      line-height: 1.35;
+      max-width: 52rem;
+    }
+
+    .page-top p {
+      margin: 0;
+      font-size: 0.92rem;
+      color: var(--ws-muted);
+      font-weight: 600;
+    }
+
+    .mandate-value-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      align-items: stretch;
+    }
+
+    .mandate-group,
+    .value-group {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      overflow: visible;
+    }
+
+    .mandate-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      padding: 1rem;
+      flex: 1;
+      align-items: stretch;
+      min-height: 0;
+    }
+
+    .statement-card {
+      border: 1px solid var(--ws-line);
+      border-radius: 12px;
+      overflow: visible;
+      background: #fff;
+      height: 100%;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding-top: 1.55rem;
+    }
+
+    .statement-head--badge {
+      position: relative;
+      background: var(--ws-green-soft);
+      border: 1px solid color-mix(in srgb, var(--ws-green) 45%, white);
+      border-radius: 4px;
+      padding: 1.75rem 0.85rem 0.8rem;
+      margin: 0 0.75rem;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .statement-head-badge {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .statement-icon-halo {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: color-mix(in srgb, var(--ws-green-soft) 70%, var(--ws-green) 30%);
+    }
+
+    .statement-head--badge .statement-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: color-mix(in srgb, var(--ws-green) 72%, white);
+      color: var(--ws-ink);
+      display: grid;
+      place-items: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .statement-icon-wrap {
+      background: var(--ws-green-soft);
+      padding: 1.35rem 1rem 1rem;
+      display: flex;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .statement-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--ws-green-deep);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 1.35rem;
+    }
+
+    .panel {
+      background: var(--ws-white);
+      border: 1px solid var(--ws-line);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(11, 93, 66, 0.06);
+    }
+
+    .panel.mandate-group,
+    .panel.value-group {
+      overflow: visible;
+    }
+
+    .panel-head {
+      background: var(--ws-green-deep);
+      color: #fff;
+      padding: 0.85rem 1.1rem;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      text-align: center;
+    }
+
+    .statement-head {
+      flex-shrink: 0;
+    }
+
+    .statement-head h2 {
+      margin: 0;
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: var(--ws-ink);
+      text-align: center;
+    }
+
+    .statement-head--badge h2 {
+      position: relative;
+      z-index: 2;
+      margin-top: 0.2rem;
+    }
+
+    .statement-content {
+      flex: 1;
+      padding: 1rem 1rem 1.25rem;
+      margin: 0.75rem 0.75rem 0.75rem;
+      font-size: 0.9rem;
+      color: var(--ws-muted);
+      background: #fff;
+      border: 1px solid var(--ws-line);
+      border-radius: 4px;
+    }
+
+    .statement-content strong {
+      color: var(--ws-ink);
+      font-weight: 700;
+    }
+
+    .value-group .value-body {
+      flex: 1;
+      min-height: 0;
+    }
+
+    .value-body {
+      padding: 0;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    .value-intro {
+      border: none;
+      border-radius: 0;
+      overflow: visible;
+      margin: 0;
+      padding-top: 1.85rem;
+      flex-shrink: 0;
+    }
+
+    .value-intro .statement-body {
+      padding: 0;
+    }
+
+    .value-list {
+      display: grid;
+      grid-template-rows: repeat(4, minmax(0, 1fr));
+      gap: 0.5rem;
+      flex: 1;
+      align-content: stretch;
+      padding: 0.65rem;
+      min-height: 0;
+    }
+
+    .value-item {
+      border: 1px solid var(--ws-line);
+      border-radius: 10px;
+      padding: 0.55rem 0.75rem;
+      background: #fff;
+      font-size: 0.86rem;
+      color: var(--ws-muted);
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      display: flex;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .value-text {
+      margin: 0;
+      text-align: left;
+      line-height: 1.5;
+      font-size: 0.86rem;
+      color: var(--ws-muted);
+      width: 100%;
+    }
+
+    .statement-body {
+      padding: 0.95rem 1rem 1.1rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .value-item strong,
+    .value-text strong {
+      color: var(--ws-ink);
+      font-weight: 700;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-bottom: 1rem;
+      padding: 0.55rem 1rem;
+      border-radius: 999px;
+      border: 1.5px solid var(--ws-line);
+      background: #fff;
+      color: var(--ws-green-deep);
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-decoration: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .back-link:hover {
+      border-color: var(--ws-green);
+      color: var(--ws-green-deep);
+    }
+
+    .page-section {
+      margin-top: 2.5rem;
+      overflow: visible;
+    }
+
+    .services-intro {
+      overflow: visible;
+    }
+
+    .functions-panel {
+      margin-top: 0;
+    }
+
+    .functions-panel .panel-head {
+      text-align: center;
+      border-radius: 14px 14px 0 0;
+    }
+
+    .functions-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: #fff;
+      align-items: stretch;
+    }
+
+    .function-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      height: 100%;
+      border-left: 1px solid var(--ws-line);
+    }
+
+    .function-card:first-child {
+      border-left: none;
+    }
+
+    .function-head {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 1.2rem 0.85rem;
+      min-height: 6.2rem;
+      background: var(--ws-green-soft);
+      border-bottom: 1px solid var(--ws-line);
+    }
+
+    .function-head .statement-icon {
+      width: 60px;
+      height: 60px;
+      font-size: 1.35rem;
+      flex-shrink: 0;
+    }
+
+    .function-head .function-title {
+      flex: 1;
+      margin: 0;
+      padding: 0;
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--ws-ink);
+      text-align: left;
+    }
+
+    .function-text {
+      background: #F3F3F0;
+      padding: 3.75rem 0.95rem 2.75rem;
+      min-height: 14.5rem;
+      font-size: 0.84rem;
+      color: var(--ws-muted);
+      flex: 1;
+      text-align: left;
+      line-height: 1.55;
+    }
+
+    .function-text strong {
+      color: var(--ws-ink);
+      font-weight: 700;
+    }
+
+    @media (max-width: 900px) {
+      .mandate-value-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .mandate-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .functions-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .function-card {
+        border-left: none;
+        border-top: 1px solid var(--ws-line);
+      }
+
+      .function-card:nth-child(-n+2) {
+        border-top: none;
+      }
+
+      .function-card:nth-child(odd) {
+        border-left: none;
+      }
+
+      .function-card:nth-child(even) {
+        border-left: 1px solid var(--ws-line);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .functions-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .function-card,
+      .function-card:nth-child(even) {
+        border-left: none;
+      }
+
+      .function-card:first-child {
+        border-top: none;
+      }
+    }
+
+    .services-intro h2 {
+      margin: 0 0 0.35rem;
+      font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+      font-weight: 800;
+      color: var(--ws-green);
+      line-height: 1.4;
+      max-width: 52rem;
+    }
+
+    .services-intro p:not(.join-notice-text) {
+      margin: 0;
+      font-size: 0.92rem;
+      color: var(--ws-muted);
+      font-weight: 600;
+    }
+
+    .services-table-wrap {
+      margin-top: 1rem;
+      overflow-x: auto;
+      border: 1px solid var(--ws-line);
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: 0 8px 24px rgba(11, 93, 66, 0.06);
+    }
+
+    .services-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 720px;
+    }
+
+    .services-table thead th {
+      background: #E8E6E0;
+      color: var(--ws-ink);
+      font-weight: 800;
+      font-size: 0.95rem;
+      padding: 0.85rem 1rem;
+      text-align: center;
+      border: 1px solid var(--ws-line);
+    }
+
+    .services-table tbody td {
+      border: 1px solid var(--ws-line);
+      padding: 0.85rem 1rem;
+      font-size: 0.88rem;
+      vertical-align: middle;
+    }
+
+    .services-table .col-offering {
+      background: #D9EBE2;
+      font-weight: 700;
+      color: var(--ws-ink);
+      width: 42%;
+    }
+
+    .services-table .col-definition {
+      background: #F3F3F0;
+      color: var(--ws-ink);
+      text-align: center;
+      font-weight: 400;
+    }
+
+    .join-notice {
+      display: flex;
+      flex-direction: column;
+      margin-top: 2rem;
+      margin-inline: 0;
+      padding: 0;
+      width: 100%;
+      max-width: 100%;
+      min-height: 21.04rem;
+      box-sizing: border-box;
+      border: 1px solid color-mix(in srgb, var(--ws-green) 35%, var(--ws-line));
+      border-radius: 14px;
+      background: var(--ws-green-soft);
+      color: var(--ws-ink);
+      font-size: 0.92rem;
+      font-weight: 600;
+      line-height: 1.7;
+      text-align: right;
+      direction: rtl;
+      overflow: visible;
+    }
+
+    .join-notice-header {
+      display: block;
+      padding: 1.35rem 2.46rem 0.65rem;
+      background: transparent;
+      color: var(--ws-green-deep);
+      text-align: right;
+      border-radius: 0;
+    }
+
+    .join-notice-header .join-notice-text,
+    .services-intro .join-notice-header .join-notice-text {
+      margin: 0;
+      width: 100%;
+      max-width: none;
+      color: var(--ws-green-deep);
+      background: transparent;
+      font-size: 1.1rem;
+      font-weight: 700;
+      line-height: 1.55;
+      text-align: right;
+    }
+
+    .join-notice-content {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0.65rem 2.46rem 1.25rem;
+      min-height: 10.2rem;
+    }
+
+    .join-notice-body {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    .join-notice-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 0;
+      justify-content: flex-start;
+    }
+
+    .join-notice-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 0.95rem;
+      border-radius: 999px;
+      border: 1.5px solid var(--ws-green);
+      background: #fff;
+      color: var(--ws-green-deep);
+      font-weight: 700;
+      font-size: 0.84rem;
+      cursor: pointer;
+      text-decoration: none;
+      font-family: inherit;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .join-notice-btn:hover {
+      background: color-mix(in srgb, var(--ws-green-soft) 65%, white);
+      border-color: var(--ws-green-deep);
+      color: var(--ws-green-deep);
+    }
+
+    .join-notice-btn--primary {
+      background: var(--ws-green-deep);
+      color: #fff;
+      border-color: var(--ws-green-deep);
+    }
+
+    .join-notice-btn--primary:hover {
+      background: var(--ws-green);
+      border-color: var(--ws-green);
+      color: #fff;
+    }
+
+    .join-notice-btn--danger {
+      background: #fff;
+      color: #9B2C2C;
+      border-color: #E8B4B4;
+    }
+
+    .join-notice-btn--danger:hover {
+      background: #FDF2F2;
+      border-color: #C53030;
+      color: #9B2C2C;
+    }
+
+    .join-notice-upload {
+      display: none;
+    }
+
+    .join-notice-status {
+      margin: 0;
+      padding: 0;
+      font-size: 0.82rem;
+      color: var(--ws-muted);
+      font-weight: 600;
+      line-height: 1.5;
+      text-align: right;
+      flex-shrink: 0;
+      width: 100%;
+    }
+
+    .join-notice-status[hidden] {
+      display: none !important;
+    }
+
+    .join-notice-status.is-success {
+      color: var(--ws-green-deep);
+    }
+
+    .join-notice-btn.is-hidden {
+      display: none !important;
+    }
+
+    .join-notice-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: auto;
+      margin-bottom: 0;
+      padding-top: 0.75rem;
+      color: var(--ws-green-deep);
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 0.15rem;
+      flex-shrink: 0;
+    }
+
+    .join-notice-link:hover {
+      color: var(--ws-green);
+    }
+
+    .water-download-toast-layer {
+      position: fixed;
+      left: 0;
+      width: 100%;
+      z-index: 1200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      background: rgba(26, 46, 40, 0.18);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.2s ease, visibility 0.2s ease;
+      box-sizing: border-box;
+    }
+
+    .water-download-toast-layer.is-visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .water-download-toast {
+      position: relative;
+      z-index: 1;
+      min-width: 390px;
+      max-width: calc(100vw - 2rem);
+      padding: 1.5rem 1.875rem;
+      border-radius: 18px;
+      background: #3A4248;
+      color: #fff;
+      border: 1.5px solid #2A3136;
+      font-size: 1.38rem;
+      font-weight: 700;
+      text-align: center;
+      direction: rtl;
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.28);
+    }
+
+    .water-pdf-viewer {
+      display: none;
+      min-height: 100vh;
+      background: var(--ws-paper);
+    }
+
+    .water-pdf-viewer.is-open {
+      display: block;
+    }
+
+    .water-pdf-viewer-top {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 1rem 1.25rem 0.75rem;
+    }
+
+    body.is-pdf-view .water-pdf-viewer-top {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1200;
+      max-width: none;
+      margin: 0;
+      padding: 0.85rem 1.25rem;
+      background: rgba(247, 246, 242, 0.98);
+      border-bottom: 1px solid var(--ws-line);
+      box-shadow: 0 2px 12px rgba(26, 46, 40, 0.08);
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    body.is-embedded.is-pdf-view .water-pdf-viewer-top {
+      display: none;
+    }
+
+    body.is-pdf-view .water-pdf-viewer-frame-wrap {
+      padding-top: 4.25rem;
+    }
+
+    body.is-embedded.is-pdf-view .water-pdf-viewer-frame-wrap {
+      padding-top: 0;
+    }
+
+    .water-pdf-viewer-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.68rem 1.15rem;
+      border-radius: 999px;
+      border: 1.5px solid #E3E0D2;
+      background: #fff;
+      color: var(--ws-green-deep);
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: border-color 0.2s ease;
+    }
+
+    .water-pdf-viewer-back:hover {
+      border-color: var(--ws-green);
+    }
+
+    .water-pdf-viewer-frame-wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 1.25rem 2rem;
+    }
+
+    .water-pdf-viewer-frame {
+      width: 100%;
+      min-height: 78vh;
+      border: 1px solid var(--ws-line);
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    body.is-pdf-view .page-wrap {
+      display: none;
+    }
+
+    .offering-cell {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .offering-icon {
+      width: 34px;
+      height: 34px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: var(--ws-green-deep);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="waterDownloadToastLayer" class="water-download-toast-layer" aria-hidden="true">
+    <div id="waterDownloadToast" class="water-download-toast" role="status" aria-live="polite"></div>
+  </div>
+
+  <div id="waterPdfViewer" class="water-pdf-viewer" hidden>
+    <div class="water-pdf-viewer-top" dir="ltr" lang="ar">
+      <button type="button" class="water-pdf-viewer-back" id="waterPdfViewerBack">
+        <i class="bi bi-arrow-left" aria-hidden="true"></i>
+        رجوع
+      </button>
+    </div>
+    <div class="water-pdf-viewer-frame-wrap">
+      <iframe id="waterPdfViewerFrame" class="water-pdf-viewer-frame" title="Water STRIP Join Letter"></iframe>
+    </div>
+  </div>
+
+  <div class="page-wrap">
+    <a class="back-link" href="منصة-البحث-والابتكار.html" id="waterBackLink">
+      <i class="bi bi-arrow-left" aria-hidden="true"></i>
+      رجوع
+    </a>
+
+    <header class="page-top" id="waterStripHome">
+      <h1>Particularly, the Water STRIP is mandated to advance national water priorities through technology and innovation</h1>
+      <p>Water STRIP&rsquo;s Mandate</p>
+    </header>
+
+    <div class="mandate-value-layout">
+      <section class="panel mandate-group" aria-labelledby="mandateTitle">
+        <div class="panel-head" id="mandateTitle">Water STRIP Mandate</div>
+        <div class="mandate-grid">
+          <article class="statement-card" aria-labelledby="visionTitle">
+            <div class="statement-head statement-head--badge">
+              <div class="statement-head-badge" aria-hidden="true">
+                <span class="statement-icon-halo">
+                  <span class="statement-icon"><i class="bi bi-eye"></i></span>
+                </span>
+              </div>
+              <h2 id="visionTitle">Vision Statement</h2>
+            </div>
+            <div class="statement-content">Advancing <strong>sustainable water innovation</strong> from <strong>Saudi Arabia to the world</strong>, setting new standards in <strong>efficiency, resilience, and impact</strong></div>
+          </article>
+
+          <article class="statement-card" aria-labelledby="missionTitle">
+            <div class="statement-head statement-head--badge">
+              <div class="statement-head-badge" aria-hidden="true">
+                <span class="statement-icon-halo">
+                  <span class="statement-icon"><i class="bi bi-bullseye"></i></span>
+                </span>
+              </div>
+              <h2 id="missionTitle">Mission Statement</h2>
+            </div>
+            <div class="statement-content">Driving <strong>research</strong> and <strong>technological innovation</strong> through <strong>stakeholder collaboration</strong> to ensure a <strong>sustainable water future</strong> for KSA</div>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel value-group" aria-labelledby="valueTitle">
+        <div class="panel-head" id="valueTitle">Value Proposition</div>
+        <div class="value-body">
+          <div class="value-intro">
+            <div class="statement-head statement-head--badge">
+              <div class="statement-head-badge" aria-hidden="true">
+                <span class="statement-icon-halo">
+                  <span class="statement-icon"><i class="bi bi-gem"></i></span>
+                </span>
+              </div>
+              <h2 id="valueStatementsTitle">Value Proposition Statements</h2>
+            </div>
+          </div>
+
+          <div class="value-list">
+            <div class="value-item">
+              <p class="value-text">Advance <strong>national priorities</strong> through <strong>R&amp;D</strong> and <strong>fostering innovation dynamics</strong></p>
+            </div>
+            <div class="value-item">
+              <p class="value-text">Strengthen <strong>global water leadership</strong> by influencing <strong>policy</strong>, exporting <strong>knowledge</strong>, and enhancing <strong>industry visibility</strong></p>
+            </div>
+            <div class="value-item">
+              <p class="value-text">Expand opportunities by facilitating access to <strong>resources</strong> and <strong>funding</strong></p>
+            </div>
+            <div class="value-item">
+              <p class="value-text">Develop <strong>industry pioneers</strong> through <strong>training</strong> and <strong>mentorship</strong></p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="page-section" aria-labelledby="functionsHeading">
+      <header class="page-top">
+        <h1 id="functionsHeading">To deliver its mandate, the Water STRIP will have 4 main functions: service coordination, support delivery, internal operations, and marketing &amp; communication</h1>
+        <p>Functions of Water STRIP</p>
+      </header>
+
+      <div class="panel functions-panel">
+        <div class="panel-head">Water Strip Functions</div>
+        <div class="functions-grid">
+          <article class="function-card">
+            <div class="function-head">
+              <span class="statement-icon" aria-hidden="true"><i class="bi bi-diagram-3"></i></span>
+              <div class="function-title">Service Coordination</div>
+            </div>
+            <div class="function-text">Facilitates <strong>alignment around member-led services</strong>, maps ecosystem needs, and manages <strong>inbound requests</strong> from stakeholders.</div>
+          </article>
+
+          <article class="function-card">
+            <div class="function-head">
+              <span class="statement-icon" aria-hidden="true"><i class="bi bi-gear-wide-connected"></i></span>
+              <div class="function-title">Delivery Enablement</div>
+            </div>
+            <div class="function-text">Oversees execution of <strong>STRIP-hosted services</strong>, such as knowledge-sharing events, networking forums, and collaboration platforms.</div>
+          </article>
+
+          <article class="function-card">
+            <div class="function-head">
+              <span class="statement-icon" aria-hidden="true"><i class="bi bi-gear-fill"></i></span>
+              <div class="function-title">Internal Operations</div>
+            </div>
+            <div class="function-text">Manages <strong>staffing, internal systems, compliance, and partner coordination</strong> to ensure operational continuity.</div>
+          </article>
+
+          <article class="function-card">
+            <div class="function-head">
+              <span class="statement-icon" aria-hidden="true"><i class="bi bi-megaphone"></i></span>
+              <div class="function-title">Marketing &amp; Communication</div>
+            </div>
+            <div class="function-text">Drives awareness of STRIP services and positioning through <strong>strategic communications, branding, and outreach efforts.</strong></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section services-intro" aria-labelledby="servicesHeading">
+      <header class="page-top">
+        <h2 id="servicesHeading">13 services will be offered through the STRIP, providing a range of benefits for the 7 target beneficiaries...</h2>
+        <p>Water STRIP Services</p>
+      </header>
+
+      <div class="services-table-wrap">
+        <table class="services-table">
+          <thead>
+            <tr>
+              <th scope="col">Service Offerings</th>
+              <th scope="col">Definitions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-offering">
+                <div class="offering-cell">
+                  <span class="offering-icon" aria-hidden="true"><i class="bi bi-gear-wide-connected"></i></span>
+                  <span>Ecosystem Networking Events</span>
+                </div>
+              </td>
+              <td class="col-definition">Hosting conferences, panels, and fireside chats</td>
+            </tr>
+            <tr>
+              <td class="col-offering">
+                <div class="offering-cell">
+                  <span class="offering-icon" aria-hidden="true"><i class="bi bi-gear-wide-connected"></i></span>
+                  <span>General Training &amp; Workshops</span>
+                </div>
+              </td>
+              <td class="col-definition">Broad training on business fundamentals and industry trends</td>
+            </tr>
+            <tr>
+              <td class="col-offering">
+                <div class="offering-cell">
+                  <span class="offering-icon" aria-hidden="true"><i class="bi bi-gear-wide-connected"></i></span>
+                  <span>Market Intelligence</span>
+                </div>
+              </td>
+              <td class="col-definition">Gathering and analyzing data on the water sector</td>
+            </tr>
+            <tr>
+              <td class="col-offering">
+                <div class="offering-cell">
+                  <span class="offering-icon" aria-hidden="true"><i class="bi bi-gear-wide-connected"></i></span>
+                  <span>Mentorship &amp; Advisory Services</span>
+                </div>
+              </td>
+              <td class="col-definition">Structured but limited support via mentorship and office hours</td>
+            </tr>
+            <tr>
+              <td class="col-offering">
+                <div class="offering-cell">
+                  <span class="offering-icon" aria-hidden="true"><i class="bi bi-gear-wide-connected"></i></span>
+                  <span>Specialized Technical Training</span>
+                </div>
+              </td>
+              <td class="col-definition">In-depth, sector-specific training programs</td>
+            </tr>
+            <tr>
+              <td class="col-offering">
+                <div class="offering-cell">
+                  <span class="offering-icon" aria-hidden="true"><i class="bi bi-megaphone"></i></span>
+                  <span>Industry Awareness &amp; Visibility</span>
+                </div>
+              </td>
+              <td class="col-definition">Industry talks, media collaborations, and policy advocacy</td>
+            </tr>
+            <tr>
+              <td class="col-offering">
+                <div class="offering-cell">
+                  <span class="offering-icon" aria-hidden="true"><i class="bi bi-diagram-3"></i></span>
+                  <span>Joint R&amp;D &amp; Innovation Collaborations</span>
+                </div>
+              </td>
+              <td class="col-definition">Long-term R&amp;D and commercialization partnerships</td>
+            </tr>
+            <tr>
+              <td class="col-offering">
+                <div class="offering-cell">
+                  <span class="offering-icon" aria-hidden="true"><i class="bi bi-diagram-3"></i></span>
+                  <span>High-Impact Partnerships</span>
+                </div>
+              </td>
+              <td class="col-definition">Corporate-startup collaborations and global networks</td>
+            </tr>
+            <tr>
+              <td class="col-offering">
+                <div class="offering-cell">
+                  <span class="offering-icon" aria-hidden="true"><i class="bi bi-diagram-3"></i></span>
+                  <span>Research Commercialization Enablement</span>
+                </div>
+              </td>
+              <td class="col-definition">Supporting research-based startups and spin-offs</td>
+            </tr>
+            <tr>
+              <td class="col-offering">
+                <div class="offering-cell">
+                  <span class="offering-icon" aria-hidden="true"><i class="bi bi-diagram-3"></i></span>
+                  <span>Infrastructure &amp; Workspace Access</span>
+                </div>
+              </td>
+              <td class="col-definition">Access to labs and pilot plants</td>
+            </tr>
+            <tr>
+              <td class="col-offering">
+                <div class="offering-cell">
+                  <span class="offering-icon" aria-hidden="true"><i class="bi bi-diagram-3"></i></span>
+                  <span>Incubation &amp; Acceleration</span>
+                </div>
+              </td>
+              <td class="col-definition">Business development, funding, and mentorship for startups</td>
+            </tr>
+            <tr>
+              <td class="col-offering">
+                <div class="offering-cell">
+                  <span class="offering-icon" aria-hidden="true"><i class="bi bi-diagram-3"></i></span>
+                  <span>Water Innovation Career Support</span>
+                </div>
+              </td>
+              <td class="col-definition">Scholarships, fellowships, and internships</td>
+            </tr>
+            <tr>
+              <td class="col-offering">
+                <div class="offering-cell">
+                  <span class="offering-icon" aria-hidden="true"><i class="bi bi-diagram-3"></i></span>
+                  <span>Indirect Financial Support</span>
+                </div>
+              </td>
+              <td class="col-definition">Discounts on real estate leasing</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="join-notice" dir="rtl" lang="ar">
+        <div class="join-notice-header">
+          <p class="join-notice-text">للانضمام لبرنامج الشريط المائي يجب تحميل خطاب الانضمام إلى البرنامج وتوقيعه وإعادة رفعه</p>
+        </div>
+        <div class="join-notice-content">
+        <div class="join-notice-body">
+        <div class="join-notice-actions">
+          <button
+            type="button"
+            class="join-notice-btn"
+            id="waterJoinDownloadAr"
+            data-pdf="water-strip-letters/Water STRIP_Membership_Letter of Interest AR_v3.pdf"
+            data-toast="جاري تحميل الملف باللغة العربية"
+          >
+            <i class="bi bi-download" aria-hidden="true"></i>
+            تحميل ملف عربي
+          </button>
+          <button
+            type="button"
+            class="join-notice-btn"
+            id="waterJoinDownloadEn"
+            data-pdf="water-strip-letters/Water STRIP_Membership_Letter of Interest_v3.pdf"
+            data-toast="جاري تحميل الملف باللغة الانجليزية"
+          >
+            <i class="bi bi-download" aria-hidden="true"></i>
+            تحميل ملف انجليزي
+          </button>
+          <button type="button" class="join-notice-btn join-notice-btn--primary" id="waterJoinUploadBtn">
+            <i class="bi bi-upload" aria-hidden="true"></i>
+            رفع الملف بعد التوقيع
+          </button>
+          <button type="button" class="join-notice-btn join-notice-btn--primary is-hidden" id="waterJoinPreviewBtn">
+            <i class="bi bi-eye" aria-hidden="true"></i>
+            استعراض الملف
+          </button>
+          <button type="button" class="join-notice-btn join-notice-btn--danger is-hidden" id="waterJoinDeleteBtn">
+            <i class="bi bi-trash" aria-hidden="true"></i>
+            حذف الملف المرفوع
+          </button>
+          <input
+            type="file"
+            id="waterJoinUploadInput"
+            class="join-notice-upload"
+            accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+          />
+        </div>
+        <p class="join-notice-status" id="waterJoinUploadStatus" hidden></p>
+        </div>
+        <a
+          class="join-notice-link"
+          href="https://www.linkedin.com/authwall?trk=bf&amp;trkInfo=AQEdl7pXVnjveAAAAaBcy4WIFRuYe45hwEyVsdIuAwlzP6A8TaFgPiV2fOgalwcAZ8tLzRl-YxJZZziVuhe6j0PaqcZ7lmOuagpiycqsY6Zn7152WUwsZSWeYRGBeCqvuHAD2QQ=&amp;original_referer=&amp;sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Fwater-strip-%25D8%25B4%25D8%25B1%25D9%258A%25D8%25B7-%25D8%25B4%25D8%25B1%25D9%2583%25D8%25A7%25D8%25AA-%25D8%25A7%25D9%2584%25D8%25A7%25D8%25A8%25D8%25AA%25D9%2583%25D8%25A7%25D8%25B1-%25D8%25A7%25D9%2584%25D9%2585%25D8%25A7%25D8%25A6%25D9%258A%2F"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="bi bi-linkedin" aria-hidden="true"></i>
+          لزيارة صفحة برنامج الشريط المائي linkedIn
+        </a>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+    (function initWaterStripPage() {
+      const params = new URLSearchParams(window.location.search);
+      const isEmbedded = params.get("embed") === "1";
+      const uploadBtn = document.getElementById("waterJoinUploadBtn");
+      const uploadInput = document.getElementById("waterJoinUploadInput");
+      const uploadStatus = document.getElementById("waterJoinUploadStatus");
+      const downloadArBtn = document.getElementById("waterJoinDownloadAr");
+      const downloadEnBtn = document.getElementById("waterJoinDownloadEn");
+      const previewBtn = document.getElementById("waterJoinPreviewBtn");
+      const deleteBtn = document.getElementById("waterJoinDeleteBtn");
+      const downloadToast = document.getElementById("waterDownloadToast");
+      const downloadToastLayer = document.getElementById("waterDownloadToastLayer");
+      const pdfViewer = document.getElementById("waterPdfViewer");
+      const pdfViewerFrame = document.getElementById("waterPdfViewerFrame");
+      const pdfViewerBack = document.getElementById("waterPdfViewerBack");
+      let notifyHeight = null;
+      let uploadedFileUrl = null;
+      let downloadToastTimer = null;
+      let downloadToastRepositionBound = false;
+
+      function positionDownloadToastInView() {
+        if (!downloadToastLayer) return;
+
+        if (window.visualViewport) {
+          downloadToastLayer.style.top = window.visualViewport.offsetTop + "px";
+          downloadToastLayer.style.left = window.visualViewport.offsetLeft + "px";
+          downloadToastLayer.style.width = window.visualViewport.width + "px";
+          downloadToastLayer.style.height = window.visualViewport.height + "px";
+        } else {
+          downloadToastLayer.style.top = "0";
+          downloadToastLayer.style.left = "0";
+          downloadToastLayer.style.width = "100%";
+          downloadToastLayer.style.height = window.innerHeight + "px";
+        }
+      }
+
+      function bindDownloadToastReposition() {
+        if (downloadToastRepositionBound) return;
+        downloadToastRepositionBound = true;
+        window.addEventListener("resize", positionDownloadToastInView);
+        window.addEventListener("scroll", positionDownloadToastInView, { passive: true });
+        if (window.visualViewport) {
+          window.visualViewport.addEventListener("resize", positionDownloadToastInView);
+          window.visualViewport.addEventListener("scroll", positionDownloadToastInView);
+        }
+      }
+
+      function unbindDownloadToastReposition() {
+        if (!downloadToastRepositionBound) return;
+        downloadToastRepositionBound = false;
+        window.removeEventListener("resize", positionDownloadToastInView);
+        window.removeEventListener("scroll", positionDownloadToastInView);
+        if (window.visualViewport) {
+          window.visualViewport.removeEventListener("resize", positionDownloadToastInView);
+          window.visualViewport.removeEventListener("scroll", positionDownloadToastInView);
+        }
+      }
+
+      function refreshEmbedHeight() {
+        if (!notifyHeight) return;
+        setTimeout(notifyHeight, 0);
+        setTimeout(notifyHeight, 120);
+        setTimeout(notifyHeight, 400);
+      }
+
+      function scrollPdfViewerIntoView() {
+        window.scrollTo({ top: 0, behavior: "auto" });
+        if (pdfViewer) {
+          pdfViewer.scrollIntoView({ block: "start", behavior: "auto" });
+        }
+        if (window.parent && window.parent !== window && window.frameElement) {
+          try {
+            window.frameElement.scrollIntoView({ block: "start", behavior: "auto" });
+          } catch (_) { /* ignore */ }
+        }
+      }
+
+      function showDownloadToast(message) {
+        if (!downloadToast || !downloadToastLayer) return;
+
+        if (isEmbedded && window.parent && window.parent !== window) {
+          window.parent.postMessage({ type: "water-strip-show-toast", message: message }, "*");
+          return;
+        }
+
+        positionDownloadToastInView();
+        bindDownloadToastReposition();
+        downloadToast.textContent = message;
+        downloadToastLayer.classList.add("is-visible");
+        downloadToastLayer.setAttribute("aria-hidden", "false");
+      }
+
+      function hideDownloadToast() {
+        if (!downloadToast || !downloadToastLayer) return;
+
+        if (isEmbedded && window.parent && window.parent !== window) {
+          window.parent.postMessage({ type: "water-strip-hide-toast" }, "*");
+          return;
+        }
+
+        downloadToastLayer.classList.remove("is-visible");
+        downloadToastLayer.setAttribute("aria-hidden", "true");
+        unbindDownloadToastReposition();
+      }
+
+      function toPdfHref(path) {
+        if (!path) return "";
+        try {
+          return new URL(path, window.location.href).href;
+        } catch (_) {
+          return path;
+        }
+      }
+
+      function restoreWaterStripPage() {
+        window.scrollTo({ top: 0, behavior: "auto" });
+        const home = document.getElementById("waterStripHome");
+        if (home) {
+          home.scrollIntoView({ block: "start", behavior: "auto" });
+        }
+        refreshEmbedHeight();
+        if (isEmbedded && window.parent && window.parent !== window) {
+          window.parent.postMessage({ type: "water-strip-restore-page" }, "*");
+        }
+      }
+
+      function openPdfViewer(pdfUrl) {
+        if (!pdfViewer || !pdfViewerFrame) return;
+        pdfViewerFrame.src = toPdfHref(pdfUrl) + "#view=FitH";
+        pdfViewer.hidden = false;
+        pdfViewer.classList.add("is-open");
+        document.body.classList.add("is-pdf-view");
+        if (isEmbedded && window.parent && window.parent !== window) {
+          window.parent.postMessage({ type: "water-strip-pdf-open" }, "*");
+        }
+        scrollPdfViewerIntoView();
+        refreshEmbedHeight();
+      }
+
+      function closePdfViewer() {
+        if (!pdfViewer || !pdfViewerFrame) return;
+        pdfViewer.hidden = true;
+        pdfViewer.classList.remove("is-open");
+        pdfViewerFrame.src = "about:blank";
+        document.body.classList.remove("is-pdf-view");
+        if (isEmbedded && window.parent && window.parent !== window) {
+          window.parent.postMessage({ type: "water-strip-pdf-close" }, "*");
+        }
+        restoreWaterStripPage();
+        setTimeout(restoreWaterStripPage, 150);
+        setTimeout(restoreWaterStripPage, 450);
+      }
+
+      function handleLetterDownload(button) {
+        if (!button) return;
+        const pdfUrl = button.getAttribute("data-pdf");
+        const toastMessage = button.getAttribute("data-toast");
+        if (!pdfUrl) return;
+
+        if (downloadToastTimer) {
+          clearTimeout(downloadToastTimer);
+          downloadToastTimer = null;
+        }
+
+        const pdfHref = toPdfHref(pdfUrl);
+
+        if (toastMessage) {
+          showDownloadToast(toastMessage);
+        }
+
+        downloadToastTimer = setTimeout(function () {
+          hideDownloadToast();
+          downloadToastTimer = null;
+          window.open(pdfHref, "_blank", "noopener,noreferrer");
+        }, 3000);
+      }
+
+      if (downloadArBtn) {
+        downloadArBtn.addEventListener("click", function () {
+          handleLetterDownload(downloadArBtn);
+        });
+      }
+
+      if (downloadEnBtn) {
+        downloadEnBtn.addEventListener("click", function () {
+          handleLetterDownload(downloadEnBtn);
+        });
+      }
+
+      if (pdfViewerBack) {
+        pdfViewerBack.addEventListener("click", closePdfViewer);
+      }
+
+      window.addEventListener("message", function (event) {
+        if (!event.data || event.data.type !== "water-strip-close-pdf") return;
+        closePdfViewer();
+      });
+
+      if (isEmbedded) {
+        document.body.classList.add("is-embedded");
+        notifyHeight = function () {
+          const height = Math.max(
+            document.body.scrollHeight,
+            document.documentElement.scrollHeight
+          );
+          if (window.parent && window.parent !== window) {
+            window.parent.postMessage({ type: "water-strip-embed-height", height: height }, "*");
+          }
+        };
+        window.addEventListener("load", notifyHeight);
+        window.addEventListener("resize", notifyHeight);
+        if (window.ResizeObserver) {
+          new ResizeObserver(notifyHeight).observe(document.body);
+        }
+        setTimeout(notifyHeight, 120);
+        setTimeout(notifyHeight, 500);
+      }
+
+      function resetUploadedFile() {
+        if (uploadedFileUrl) {
+          URL.revokeObjectURL(uploadedFileUrl);
+          uploadedFileUrl = null;
+        }
+        if (uploadInput) uploadInput.value = "";
+        if (previewBtn) previewBtn.classList.add("is-hidden");
+        if (deleteBtn) deleteBtn.classList.add("is-hidden");
+        if (uploadBtn) uploadBtn.classList.remove("is-hidden");
+        if (uploadStatus) {
+          uploadStatus.hidden = true;
+          uploadStatus.textContent = "";
+          uploadStatus.classList.remove("is-success");
+        }
+        if (notifyHeight) refreshEmbedHeight();
+      }
+
+      if (uploadBtn && uploadInput) {
+        uploadBtn.addEventListener("click", function () {
+          uploadInput.click();
+        });
+        uploadInput.addEventListener("change", function () {
+          const file = uploadInput.files && uploadInput.files[0];
+          if (!file) return;
+
+          if (uploadedFileUrl) {
+            URL.revokeObjectURL(uploadedFileUrl);
+            uploadedFileUrl = null;
+          }
+          uploadedFileUrl = URL.createObjectURL(file);
+
+          uploadBtn.classList.add("is-hidden");
+          if (previewBtn) previewBtn.classList.remove("is-hidden");
+          if (deleteBtn) deleteBtn.classList.remove("is-hidden");
+
+          if (uploadStatus) {
+            uploadStatus.hidden = false;
+            uploadStatus.textContent = "تم رفع الملف بنجاح: " + file.name;
+            uploadStatus.classList.add("is-success");
+          }
+          if (notifyHeight) {
+            refreshEmbedHeight();
+          }
+        });
+      }
+
+      if (previewBtn) {
+        previewBtn.addEventListener("click", function () {
+          if (!uploadedFileUrl) return;
+          window.open(uploadedFileUrl, "_blank", "noopener,noreferrer");
+        });
+      }
+
+      if (deleteBtn) {
+        deleteBtn.addEventListener("click", resetUploadedFile);
+      }
+
+      window.addEventListener("beforeunload", function () {
+        if (uploadedFileUrl) URL.revokeObjectURL(uploadedFileUrl);
+        if (downloadToastTimer) clearTimeout(downloadToastTimer);
+      });
+
+      const backLink = document.getElementById("waterBackLink");
+      if (!backLink) return;
+      backLink.addEventListener("click", function (event) {
+        if (isEmbedded) {
+          event.preventDefault();
+          if (window.parent && window.parent !== window) {
+            window.parent.postMessage({ type: "water-strip-embed-back" }, "*");
+          }
+          return;
+        }
+        if (window.opener && !window.opener.closed) {
+          event.preventDefault();
+          window.close();
+          return;
+        }
+        if (document.referrer && new URL(document.referrer, window.location.href).origin === window.location.origin) {
+          event.preventDefault();
+          window.location.href = document.referrer;
+          return;
+        }
+        if (window.history.length > 1) {
+          event.preventDefault();
+          history.back();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>احجز مقعدك الآن | منتدى NXT للابتكار</title>
+  <meta name="description" content="احجز مقعدك في منتدى NXT للابتكار — وكالة البحث والابتكار بوزارة البيئة والمياه والزراعة" />
+  <meta name="theme-color" content="#074d31" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;family=Tajawal:wght@400;500;700;800&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+  <style>
+    :root {
+      --naama-primary: #003957;
+      --naama-primary-dark: #00283e;
+      --naama-accent: #49aa8b;
+      --naama-accent-dark: #378a6f;
+      --naama-accent-soft: #e8f6f1;
+      --naama-gold: #e8a34f;
+      --naama-muted: #62717d;
+      --naama-border: #e4ecef;
+      --mewa-green: #1b8354;
+      --mewa-green-deep: #074d31;
+      --mewa-green-hover: #146c44;
+      --ink: #161616;
+      --ink-soft: #4b5563;
+      --line: #ced4da;
+      --bg-page: #f7f9f8;
+      --danger: #ff0000;
+      --max: 960px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans Arabic", "Tajawal", "Segoe UI", Tahoma, sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; }
+
+    /* ===== Platform header (same as NXT3) ===== */
+    .platform-top {
+      font-family: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+      line-height: 1.75;
+    }
+    .platform-top a { color: inherit; text-decoration: none; }
+    .platform-top .container {
+      max-width: 1140px;
+      margin-inline: auto;
+      padding-inline: 12px;
+      width: 100%;
+    }
+    @media (min-width: 1400px) {
+      .platform-top .container { max-width: 1320px; }
+    }
+    .platform-top .gov-bar {
+      background: var(--naama-primary-dark);
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.82rem;
+      padding: 0.55rem 0;
+    }
+    .platform-top .gov-bar .verified { color: var(--naama-accent); }
+    .platform-top .gov-bar strong { color: #fff; font-weight: 700; }
+    .platform-top .site-header {
+      background: #fff;
+      border-bottom: 1px solid var(--naama-border);
+      position: sticky;
+      top: 0;
+      z-index: 1030;
+    }
+    .platform-top .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: none;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+    }
+    .platform-top .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background:
+        radial-gradient(circle at 30% 30%, var(--naama-gold) 0 22%, transparent 23%),
+        linear-gradient(145deg, var(--naama-accent) 0%, var(--naama-primary) 100%);
+      position: relative;
+      box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.18);
+      flex-shrink: 0;
+    }
+    .platform-top .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: 16px 8px 10px;
+      border-top: 2px solid rgba(255, 255, 255, 0.75);
+      border-radius: 40%;
+    }
+    .platform-top .brand-text strong {
+      color: var(--naama-primary);
+      font-size: 1.02rem;
+      display: block;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+    .platform-top .brand-text small {
+      color: var(--naama-muted);
+      font-size: 0.78rem;
+      display: block;
+    }
+    .platform-top .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      color: var(--naama-primary) !important;
+      font-weight: 500;
+      transition: background 0.2s ease, color 0.2s ease;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      font-size: 0.92rem;
+      white-space: nowrap;
+      line-height: 1.4;
+    }
+    .platform-top .nav-pill:hover,
+    .platform-top .nav-pill.active {
+      background: var(--naama-accent-soft);
+      color: var(--naama-accent-dark) !important;
+    }
+    .platform-top .btn-login {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--naama-primary);
+      color: #fff !important;
+      border: 0;
+      border-radius: 999px;
+      padding: 0.55rem 1.3rem;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+    .platform-top .btn-login:hover {
+      color: #fff !important;
+      background: var(--naama-primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(0, 40, 62, 0.22);
+    }
+    .platform-top .header-search {
+      display: none;
+      align-items: center;
+      gap: 0.4rem;
+      flex-wrap: nowrap;
+      padding: 0.35rem 0.45rem;
+      background: #f4f7f9;
+      border: 1px solid var(--naama-border);
+      border-radius: 12px;
+      margin-inline-start: 0.5rem;
+      flex: 1 1 auto;
+      min-width: 0;
+      max-width: 560px;
+    }
+    .platform-top .header-search .h-search-input {
+      position: relative;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+    .platform-top .header-search .h-search-input .icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      inset-inline-start: 0.7rem;
+      color: var(--naama-muted);
+      pointer-events: none;
+      font-size: 0.9rem;
+    }
+    .platform-top .header-search .h-search-input input {
+      width: 100%;
+      padding: 0.4rem 0.6rem;
+      padding-inline-start: 2rem;
+      border: 1px solid var(--naama-border);
+      border-radius: 8px;
+      background: #fff;
+      font-size: 0.85rem;
+      color: var(--naama-primary);
+      outline: none;
+      font-family: inherit;
+    }
+    .platform-top .header-search .h-search-input input:focus {
+      border-color: var(--naama-accent);
+      box-shadow: 0 0 0 3px rgba(73, 170, 139, 0.15);
+    }
+    .platform-top .header-search .h-search-select {
+      flex: 0 1 auto;
+      min-width: 7.5rem;
+      padding: 0.4rem 0.6rem;
+      padding-inline-end: 1.9rem;
+      border: 1px solid var(--naama-border);
+      border-radius: 8px;
+      background-color: #fff;
+      font-size: 0.85rem;
+      color: var(--naama-primary);
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      font-family: inherit;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='%23003957' d='M8 11L3 6h10z'/></svg>");
+      background-repeat: no-repeat;
+      background-position: left 0.55rem center;
+      background-size: 12px;
+    }
+    .platform-top .header-search .h-search-select:focus {
+      outline: none;
+      border-color: var(--naama-accent);
+      box-shadow: 0 0 0 3px rgba(73, 170, 139, 0.15);
+    }
+    .platform-top .header-search .h-search-reset {
+      flex: 0 0 auto;
+      padding: 0.4rem 0.65rem;
+      border: 1px solid var(--naama-border);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--naama-primary);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      white-space: nowrap;
+      font-family: inherit;
+      transition: all 0.2s ease;
+    }
+    .platform-top .header-search .h-search-reset:hover {
+      border-color: var(--naama-accent);
+      color: var(--naama-accent-dark);
+      background: var(--naama-accent-soft);
+    }
+    .platform-top .btn-menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--naama-border);
+      border-radius: 12px;
+      background: #fff;
+      color: var(--naama-primary);
+    }
+    .platform-top #mobileNav {
+      display: none;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      padding-top: 0.85rem;
+      margin-top: 0.85rem;
+      border-top: 1px solid var(--naama-border);
+    }
+    .platform-top #mobileNav.is-open { display: flex; }
+
+    /* Platform site footer */
+    .site-footer {
+      background: #fff;
+      border-top: 1px solid var(--naama-border);
+      margin-top: 0;
+      padding: 2.2rem 0 2.4rem;
+      font-family: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+    }
+    .site-footer .brand-mark {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      position: relative;
+      background:
+        radial-gradient(circle at 30% 30%, var(--naama-gold) 0 22%, transparent 23%),
+        linear-gradient(145deg, var(--naama-accent) 0%, var(--naama-primary) 100%);
+      flex-shrink: 0;
+    }
+    .site-footer .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: 55% 18% 18% 18%;
+      border-radius: 2px 2px 6px 6px;
+      background: rgba(255, 255, 255, 0.35);
+    }
+    .site-footer .footer-links a {
+      color: var(--naama-primary);
+      font-weight: 600;
+      background: transparent;
+      border: 0;
+      padding: 0;
+      text-decoration: none;
+    }
+    .site-footer .footer-links a:hover { color: var(--naama-accent-dark); }
+    .site-footer .text-muted { color: var(--naama-muted) !important; }
+    @media (min-width: 992px) and (max-width: 1279.98px) {
+      .platform-top .header-search .h-reset-label { display: none; }
+      .platform-top .header-search .h-search-reset { padding: 0.4rem 0.5rem; }
+    }
+    @media (min-width: 992px) {
+      .platform-top .header-search { display: flex !important; }
+      .platform-top .header-row {
+        flex-wrap: nowrap !important;
+        gap: 0.6rem !important;
+        align-items: center !important;
+      }
+      .platform-top .header-row .brand-link { flex: 0 0 auto; }
+      .platform-top .header-row #mainNav {
+        display: flex !important;
+        flex: 0 0 auto;
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        gap: 0.25rem;
+      }
+      .platform-top .header-row #mainNav .nav-pill {
+        padding: 0.4rem 0.7rem;
+        font-size: 0.88rem;
+      }
+      .platform-top .header-row .btn-login {
+        padding: 0.45rem 0.9rem;
+        font-size: 0.88rem;
+      }
+      .platform-top .header-row .brand-text strong { font-size: 0.98rem; }
+      .platform-top .header-row .brand-text small { display: none; }
+      .platform-top .header-row .ms-auto { margin-inline-start: auto !important; }
+    }
+    @media (min-width: 1280px) {
+      .platform-top .header-row .brand-text small { display: block; }
+    }
+    @media (max-width: 991.98px) {
+      .platform-top #mainNav { display: none !important; }
+      .platform-top .btn-menu-toggle { display: inline-flex; }
+      .platform-top .header-search { display: none !important; }
+    }
+    .platform-top .btn-header-back {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0.45rem 0.95rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.82rem;
+      line-height: 1.2;
+      border: 1.5px solid var(--naama-border);
+      background: #fff;
+      color: #0B5D42 !important;
+      text-decoration: none;
+      white-space: nowrap;
+      font-family: inherit;
+      box-shadow: 0 1px 3px rgba(16, 40, 30, 0.06);
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+    .platform-top .btn-header-back:hover {
+      border-color: #12805A;
+      color: #074d31 !important;
+    }
+    @media (min-width: 992px) {
+      .platform-top .header-row .btn-header-back {
+        padding: 0.4rem 0.85rem;
+        font-size: 0.8rem;
+      }
+    }
+
+    /* ===== MEWA-style page content ===== */
+    .seat-page {
+      background: linear-gradient(180deg, #eef6f1 0%, #f7f9f8 120px, #fff 220px);
+      min-height: 50vh;
+    }
+    .seat-wrap {
+      width: min(var(--max), calc(100% - 2.5rem));
+      margin-inline: auto;
+      padding: 28px 0 64px;
+    }
+
+    .seat-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .seat-crumbs {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+    .seat-crumbs a { color: var(--mewa-green-deep); font-weight: 600; }
+    .seat-crumbs a:hover { color: var(--mewa-green); }
+    .seat-utils {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .seat-utils button {
+      width: 34px;
+      height: 34px;
+      border: 0;
+      background: transparent;
+      color: #9ca3af;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: color 0.15s ease, background 0.15s ease;
+    }
+    .seat-utils button:hover {
+      color: var(--mewa-green-deep);
+      background: rgba(27, 131, 84, 0.08);
+    }
+
+    .seat-title {
+      margin: 0 0 1.75rem;
+      text-align: center;
+      font-size: clamp(1.55rem, 2.8vw, 2rem);
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 1.4;
+    }
+
+    .seat-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.35rem;
+      max-width: 100%;
+    }
+
+    .question { width: 100%; }
+    .question-label {
+      display: block;
+      margin-bottom: 0.45rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #212529;
+      text-align: start;
+    }
+    .question-label .req { color: var(--danger); margin-inline-start: 2px; font-weight: 700; }
+
+    .question .form-control {
+      display: block;
+      width: 100%;
+      min-height: 46px;
+      padding: 0.65rem 0.85rem;
+      font-size: 0.95rem;
+      font-family: inherit;
+      color: #212529;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 0.375rem;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      appearance: none;
+    }
+    .question .form-control:focus {
+      outline: 0;
+      border-color: var(--mewa-green);
+      box-shadow: 0 0 0 0.2rem rgba(27, 131, 84, 0.18);
+    }
+
+    .validation-error {
+      display: none;
+      margin-top: 0.35rem;
+      font-size: 0.82rem;
+      color: var(--danger);
+    }
+    .question.is-invalid .form-control {
+      border-color: var(--danger);
+      box-shadow: 0 0 0 0.15rem rgba(255, 0, 0, 0.08);
+    }
+    .question.is-invalid .validation-error { display: block; }
+    .question.is-invalid .choice-list { outline: 1px solid rgba(255, 0, 0, 0.35); border-radius: 6px; padding: 0.35rem; }
+
+    .choice-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      margin-top: 0.35rem;
+    }
+    .choice-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      cursor: pointer;
+      font-size: 0.92rem;
+      color: #212529;
+      line-height: 1.55;
+    }
+    .choice-item input[type="radio"] {
+      flex-shrink: 0;
+      width: 1.05rem;
+      height: 1.05rem;
+      margin-top: 0.2rem;
+      accent-color: var(--mewa-green);
+      cursor: pointer;
+    }
+    .choice-item .choice-text { flex: 1; }
+    .choice-item .choice-meta {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--ink-soft);
+      margin-top: 0.15rem;
+    }
+
+    .hall-warning {
+      color: #c62828;
+      font-size: 0.9rem;
+      font-weight: 600;
+      line-height: 1.65;
+      margin: 0 0 0.65rem;
+    }
+
+    .form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 0.5rem;
+      justify-content: flex-start;
+    }
+
+    .btn-send {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 110px;
+      min-height: 42px;
+      padding: 0.55rem 1.6rem;
+      background: var(--mewa-green);
+      color: #fff;
+      border: 0;
+      border-radius: 0.375rem;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-send:hover { background: var(--mewa-green-hover); color: #fff; }
+    .btn-send:active { background: var(--mewa-green-deep); }
+    .btn-send:focus-visible {
+      outline: 0;
+      box-shadow: 0 0 0 0.25rem rgba(27, 131, 84, 0.35);
+    }
+    .btn-send[disabled] { opacity: 0.55; pointer-events: none; }
+
+    .form-success {
+      display: none;
+      width: 100%;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 0.5rem;
+      background: #e8f6ef;
+      border: 1px solid #b7dfc8;
+      color: var(--mewa-green-deep);
+    }
+    .form-success.is-visible { display: flex; }
+    .form-success strong { display: block; font-size: 1.02rem; margin-bottom: 0.15rem; }
+    .form-success p { margin: 0; color: var(--ink-soft); font-size: 0.9rem; }
+    .form-success .ok {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--mewa-green);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+      .seat-wrap { width: min(100%, calc(100% - 1.5rem)); padding: 20px 0 48px; }
+      .seat-title { margin-bottom: 1.35rem; text-align: start; }
+      .btn-send { width: 100%; }
+      .form-actions { justify-content: stretch; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="platform-top">
+    <div class="gov-bar">
+      <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <span><i class="bi bi-shield-check verified me-1"></i> موقع حكومي تابع لوزارة البيئة والمياه والزراعة</span>
+        <span class="d-none d-md-inline">متوافق مع هوية منصة نما · الرقم الموحد <strong>939</strong></span>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="container py-3">
+        <div class="header-row d-flex flex-wrap align-items-center gap-3">
+          <a class="brand-link" href="Index.html" aria-label="الصفحة الرئيسية">
+            <span class="brand-mark" aria-hidden="true"></span>
+            <span class="brand-text text-start">
+              <strong>منصة البحث والابتكار</strong>
+              <small>وزارة البيئة والمياه والزراعة</small>
+            </span>
+          </a>
+
+          <nav id="mainNav" class="d-none d-lg-flex gap-1" aria-label="التنقل الرئيسي">
+            <a class="nav-pill" href="Index.html"><i class="bi bi-house me-1"></i>الرئيسية</a>
+            <a class="nav-pill active" href="Index.html?view=our-services" aria-current="page"><i class="bi bi-briefcase me-1"></i>خدماتنا</a>
+            <a class="nav-pill" href="Index.html?view=services"><i class="bi bi-lightbulb me-1"></i>برامج الابتكار</a>
+            <a class="nav-pill" href="Index.html?view=news"><i class="bi bi-megaphone me-1"></i>الأخبار</a>
+            <a class="nav-pill" href="Index.html?view=publications"><i class="bi bi-journal-richtext me-1"></i>منشورات وتقارير</a>
+            <a class="nav-pill" href="Index.html?view=my-requests"><i class="bi bi-file-earmark-text me-1"></i>طلباتي</a>
+          </nav>
+
+          <div class="header-search" aria-label="بحث سريع">
+            <div class="h-search-input">
+              <i class="bi bi-search icon" aria-hidden="true"></i>
+              <input type="search" placeholder="البحث عن خدمة..." aria-label="البحث عن خدمة" autocomplete="off" />
+            </div>
+            <select class="h-search-select" aria-label="نوع المستفيد">
+              <option selected>نوع المستفيد: الكل</option>
+              <option>باحث</option>
+              <option>مبتكر</option>
+              <option>جهة حكومية</option>
+              <option>قطاع خاص</option>
+            </select>
+            <button type="button" class="h-search-reset" title="إعادة تعيين الفلتر" aria-label="إعادة تعيين الفلتر">
+              <i class="bi bi-arrow-counterclockwise"></i>
+              <span class="h-reset-label">إعادة تعيين</span>
+            </button>
+          </div>
+
+          <div class="ms-auto d-flex align-items-center gap-2">
+            <a class="btn-header-back" href="NXT3.html">
+              <i class="bi bi-arrow-right" aria-hidden="true"></i>
+              رجوع
+            </a>
+            <a class="btn-login" href="https://naama.sa/Account/Login" target="_blank" rel="noopener">
+              <i class="bi bi-box-arrow-in-left"></i>
+              <span>تسجيل الدخول</span>
+            </a>
+            <button type="button" class="btn-menu-toggle" id="seatMenuToggle" aria-label="القائمة" aria-expanded="false" aria-controls="mobileNav">
+              <i class="bi bi-list"></i>
+            </button>
+          </div>
+        </div>
+
+        <nav id="mobileNav" aria-label="قائمة الجوال">
+          <a class="nav-pill" href="Index.html"><i class="bi bi-house me-1"></i>الرئيسية</a>
+          <a class="nav-pill active" href="Index.html?view=our-services"><i class="bi bi-briefcase me-1"></i>خدماتنا</a>
+          <a class="nav-pill" href="Index.html?view=services"><i class="bi bi-lightbulb me-1"></i>برامج الابتكار</a>
+          <a class="nav-pill" href="Index.html?view=news"><i class="bi bi-megaphone me-1"></i>الأخبار</a>
+          <a class="nav-pill" href="Index.html?view=publications"><i class="bi bi-journal-richtext me-1"></i>منشورات وتقارير</a>
+          <a class="nav-pill" href="Index.html?view=my-requests"><i class="bi bi-file-earmark-text me-1"></i>طلباتي</a>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <main class="seat-page">
+    <div class="seat-wrap">
+      <div class="seat-toolbar">
+        <nav class="seat-crumbs" aria-label="مسار التنقل">
+          <a href="Index.html">الرئيسية</a>
+          <span aria-hidden="true">/</span>
+          <a href="NXT3.html">منتدى NXT للابتكار</a>
+          <span aria-hidden="true">/</span>
+          <span>احجز مقعدك الآن</span>
+        </nav>
+        <div class="seat-utils" aria-label="أدوات الصفحة">
+          <button type="button" title="مشاركة" aria-label="مشاركة"><i class="bi bi-share"></i></button>
+          <button type="button" title="تكبير الخط" aria-label="تكبير الخط"><i class="bi bi-type"></i></button>
+          <button type="button" title="طباعة" aria-label="طباعة" onclick="window.print()"><i class="bi bi-printer"></i></button>
+          <button type="button" title="إعجاب" aria-label="إعجاب"><i class="bi bi-hand-thumbs-up"></i></button>
+          <button type="button" title="عدم الإعجاب" aria-label="عدم الإعجاب"><i class="bi bi-hand-thumbs-down"></i></button>
+          <button type="button" title="بريد إلكتروني" aria-label="بريد إلكتروني"><i class="bi bi-envelope"></i></button>
+        </div>
+      </div>
+
+      <h1 class="seat-title" id="seatTitle">احجز مقعدك الآن</h1>
+
+      <form class="seat-form" id="seatForm" novalidate>
+        <div class="question" data-field="fullName">
+          <label class="question-label" for="fullName">الاسم الكامل:<span class="req" aria-hidden="true">*</span></label>
+          <input class="form-control" id="fullName" name="fullName" type="text" maxlength="255" required aria-required="true" aria-describedby="err-fullName" autocomplete="name" />
+          <span class="validation-error" id="err-fullName" role="alert">هذا السؤال مطلوب</span>
+        </div>
+
+        <div class="question" data-field="orgName">
+          <label class="question-label" for="orgName">الجهة\المنظمة:<span class="req" aria-hidden="true">*</span></label>
+          <input class="form-control" id="orgName" name="orgName" type="text" maxlength="255" required aria-required="true" aria-describedby="err-orgName" autocomplete="organization" />
+          <span class="validation-error" id="err-orgName" role="alert">هذا السؤال مطلوب</span>
+        </div>
+
+        <div class="question" data-field="jobTitle">
+          <label class="question-label" for="jobTitle">المسمى الوظيفي:<span class="req" aria-hidden="true">*</span></label>
+          <input class="form-control" id="jobTitle" name="jobTitle" type="text" maxlength="255" required aria-required="true" aria-describedby="err-jobTitle" autocomplete="organization-title" />
+          <span class="validation-error" id="err-jobTitle" role="alert">هذا السؤال مطلوب</span>
+        </div>
+
+        <div class="question" data-field="phone">
+          <label class="question-label" for="phone">رقم الهاتف:<span class="req" aria-hidden="true">*</span></label>
+          <input class="form-control" id="phone" name="phone" type="tel" maxlength="255" required aria-required="true" aria-describedby="err-phone" autocomplete="tel" dir="ltr" />
+          <span class="validation-error" id="err-phone" role="alert">يرجى إدخال رقم هاتف صحيح</span>
+        </div>
+
+        <div class="question" data-field="email">
+          <label class="question-label" for="email">البريد الإلكتروني:<span class="req" aria-hidden="true">*</span></label>
+          <input class="form-control" id="email" name="email" type="email" maxlength="255" required aria-required="true" aria-describedby="err-email" autocomplete="email" dir="ltr" />
+          <span class="validation-error" id="err-email" role="alert">يرجى إدخال بريد إلكتروني صحيح</span>
+        </div>
+
+        <div class="question" data-field="nationality">
+          <label class="question-label" for="nationality">الجنسية:<span class="req" aria-hidden="true">*</span></label>
+          <input class="form-control" id="nationality" name="nationality" type="text" maxlength="255" required aria-required="true" aria-describedby="err-nationality" />
+          <span class="validation-error" id="err-nationality" role="alert">هذا السؤال مطلوب</span>
+        </div>
+
+        <div class="question" data-field="idNumber">
+          <label class="question-label" for="idNumber">رقم الهوية الوطنية\ رقم جواز السفر:<span class="req" aria-hidden="true">*</span></label>
+          <input class="form-control" id="idNumber" name="idNumber" type="text" maxlength="255" required aria-required="true" aria-describedby="err-idNumber" dir="ltr" />
+          <span class="validation-error" id="err-idNumber" role="alert">هذا السؤال مطلوب</span>
+        </div>
+
+        <fieldset class="question" data-field="expoVisit">
+          <legend class="question-label">هل ترغب في زيارة مساحة معرض الابتكار؟<span class="req" aria-hidden="true">*</span></legend>
+          <div class="choice-list" role="radiogroup" aria-required="true" aria-describedby="err-expoVisit">
+            <label class="choice-item">
+              <input type="radio" name="expoVisit" value="yes" />
+              <span class="choice-text">نعم</span>
+            </label>
+            <label class="choice-item">
+              <input type="radio" name="expoVisit" value="no" />
+              <span class="choice-text">لا</span>
+            </label>
+          </div>
+          <span class="validation-error" id="err-expoVisit" role="alert">هذا السؤال مطلوب</span>
+        </fieldset>
+
+        <fieldset class="question" data-field="mainStage">
+          <legend class="question-label">المسرح الرئيسي:<span class="req" aria-hidden="true">*</span></legend>
+          <div class="choice-list" role="radiogroup" aria-required="true" aria-describedby="err-mainStage">
+            <label class="choice-item">
+              <input type="radio" name="mainStage" value="ask-decision" />
+              <span class="choice-text">اسأل صانع القرار (12:30 – 1:00 مساءً)</span>
+            </label>
+            <label class="choice-item">
+              <input type="radio" name="mainStage" value="invest-env" />
+              <span class="choice-text">الاستثمار في البيئة (1:15 – 1:35 مساءً)</span>
+            </label>
+            <label class="choice-item">
+              <input type="radio" name="mainStage" value="deep-tech" />
+              <span class="choice-text">شركات التقنيات العميقة مع سيكوينسيف (1:45 – 2:05 مساءً)</span>
+            </label>
+            <label class="choice-item">
+              <input type="radio" name="mainStage" value="regulatory" />
+              <span class="choice-text">ورشة عمل البيئة التنظيمية التجريبية (2:15 – 2:45 مساءً)</span>
+            </label>
+          </div>
+          <span class="validation-error" id="err-mainStage" role="alert">هذا السؤال مطلوب</span>
+        </fieldset>
+
+        <fieldset class="question" data-field="glassHall">
+          <legend class="question-label">
+            القاعة الزجاجية - تنبيه: المقاعد في القاعة الزجاجية محدودة والأولوية على أساس الحضور الأسبق, التسجيل لا يضمن مقعداً. ننصح بالحضور مبكراً لضمان مقعدك<span class="req" aria-hidden="true">*</span>
+          </legend>
+          <p class="hall-warning" aria-hidden="true">تنبيه: المقاعد في القاعة الزجاجية محدودة والأولوية على أساس الحضور الأسبق، التسجيل لا يضمن مقعداً. ننصح بالحضور مبكراً لضمان مقعدك.</p>
+          <div class="choice-list" role="radiogroup" aria-required="true" aria-describedby="err-glassHall">
+            <label class="choice-item">
+              <input type="radio" name="glassHall" value="sodium" />
+              <span class="choice-text">ملح الصوديوم كحل لتخزين الطاقة (9:30-10:00)</span>
+            </label>
+            <label class="choice-item">
+              <input type="radio" name="glassHall" value="greywater" />
+              <span class="choice-text">إطار إعادة استخدام المياه الرمادية لمستقبل المياه في المملكة العربية السعودية (10:15 - 11:00)</span>
+            </label>
+            <label class="choice-item">
+              <input type="radio" name="glassHall" value="ai" />
+              <span class="choice-text">الابتكار المدعوم بالذكاء الاصطناعي (1:00 – 2:00 مساءً)</span>
+            </label>
+            <label class="choice-item">
+              <input type="radio" name="glassHall" value="sustain" />
+              <span class="choice-text">ابتكار الاستدامة: من التحدي إلى الحلول القابلة للتوسع (2:15 – 3:00 مساءً)</span>
+            </label>
+          </div>
+          <span class="validation-error" id="err-glassHall" role="alert">هذا السؤال مطلوب</span>
+        </fieldset>
+
+        <fieldset class="question" data-field="hallB">
+          <legend class="question-label">المسرح – القاعة ب:<span class="req" aria-hidden="true">*</span></legend>
+          <div class="choice-list" role="radiogroup" aria-required="true" aria-describedby="err-hallB">
+            <label class="choice-item">
+              <input type="radio" name="hallB" value="innovative-thinking" />
+              <span class="choice-text">
+                التفكير الابتكاري (9:00 – 9:30 صباحًا)
+                <span class="choice-meta">كلمة رئيسية تفاعلية تستعرض أبرز التحديات والفرص في تبنّي الابتكار عبر قطاعات البيئة والمياه والزراعة - تُقدَّم هذه الجلسة من قبل عبدالواحد الغانم</span>
+              </span>
+            </label>
+            <label class="choice-item">
+              <input type="radio" name="hallB" value="innovator-mindset" />
+              <span class="choice-text">
+                عقلية المبتكر (10:00 – 10:30 صباحًا)
+                <span class="choice-meta">كيف تعيد تشكيل طريقة تفكيرك وتبني عقلية قادرة على إحداث تغيير حقيقي ومستدام - تُقدَّم هذه الجلسة من قبل د. محمود من معهد الابتكار العالمي</span>
+              </span>
+            </label>
+            <label class="choice-item">
+              <input type="radio" name="hallB" value="science-to-practice" />
+              <span class="choice-text">
+                من العلم إلى التطبيق: بناء منظومة الابتكار في قطاعات البيئة والمياه والزراعة في المملكة (1:15 – 2:00 مساءً)
+                <span class="choice-meta">جلسة نقاش تستعرض سبل بناء منظومة ابتكار متكاملة ومستدامة عبر قطاعات البيئة والمياه والزراعة</span>
+              </span>
+            </label>
+            <label class="choice-item">
+              <input type="radio" name="hallB" value="live-innovation" />
+              <span class="choice-text">
+                عرض الابتكار المباشر (3:00 – 2:15 مساءً)
+                <span class="choice-meta">يقدّم طلاب موهبة من برامج آيسف 2026 ابتكاراتهم في قطاعات البيئة والمياه والزراعة بشكل مباشر، يليها جلسة أسئلة ونقاش مع الحضور</span>
+              </span>
+            </label>
+          </div>
+          <span class="validation-error" id="err-hallB" role="alert">هذا السؤال مطلوب</span>
+        </fieldset>
+
+        <div class="form-actions">
+          <button class="btn-send" type="submit" id="seatSubmit">إرسال</button>
+          <div class="form-success" id="seatSuccess" role="status" aria-live="polite">
+            <span class="ok" aria-hidden="true"><i class="bi bi-check-lg"></i></span>
+            <div>
+              <strong>تم تسجيل حجزك بنجاح</strong>
+              <p>شكرًا لاهتمامك. سيتم التواصل معك لتأكيد تفاصيل الحجز.</p>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-5">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <span class="brand-mark" style="width:36px;height:36px;border-radius:10px" aria-hidden="true"></span>
+            <strong style="color:var(--naama-primary)">منصة البحث والابتكار</strong>
+          </div>
+          <p class="text-muted mb-0" style="max-width: 34rem">المحور المركزي لأنشطة البحث والابتكار في قطاعات البيئة والمياه والزراعة، ضمن منظومة منصة نما وأهداف رؤية 2030.</p>
+        </div>
+        <div class="col-md-4">
+          <h6 style="color:var(--naama-primary);font-weight:700">روابط سريعة</h6>
+          <div class="footer-links d-flex flex-wrap gap-3">
+            <a href="Index.html">الرئيسية</a>
+            <a href="Index.html?view=services">برامج الابتكار</a>
+            <a href="Index.html?view=our-services">خدماتنا</a>
+            <a href="Index.html?view=publications">منشورات وتقارير</a>
+            <a href="Index.html?view=my-requests">طلباتي</a>
+            <a href="https://naama.sa/" target="_blank" rel="noreferrer">منصة نما</a>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <h6 style="color:var(--naama-primary);font-weight:700">الدعم</h6>
+          <p class="text-muted mb-1"><i class="bi bi-headset me-1"></i> الرقم الموحد <strong>939</strong></p>
+          <p class="text-muted mb-0"><i class="bi bi-envelope me-1"></i> ri-support@mewa.gov.sa</p>
+        </div>
+      </div>
+      <hr class="my-4" />
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 text-muted small">
+        <span>© جميع الحقوق محفوظة · وزارة البيئة والمياه والزراعة</span>
+        <span>الإصدار التجريبي · متوافق مع النفاذ الموحد</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    (function () {
+      var menuToggle = document.getElementById("seatMenuToggle");
+      var mobileNav = document.getElementById("mobileNav");
+      if (menuToggle && mobileNav) {
+        menuToggle.addEventListener("click", function () {
+          var open = mobileNav.classList.toggle("is-open");
+          menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+      }
+
+      var form = document.getElementById("seatForm");
+      var success = document.getElementById("seatSuccess");
+      var submitBtn = document.getElementById("seatSubmit");
+      if (!form) return;
+
+      function clearErrors() {
+        form.querySelectorAll(".question.is-invalid").forEach(function (el) {
+          el.classList.remove("is-invalid");
+        });
+      }
+
+      function setInvalid(name) {
+        var field = form.querySelector('[data-field="' + name + '"]');
+        if (field) field.classList.add("is-invalid");
+      }
+
+      function isEmail(v) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+      }
+
+      function isPhone(v) {
+        var digits = String(v || "").replace(/[\s\-()]/g, "");
+        return /^(05\d{8}|9665\d{8}|\+9665\d{8}|0\d{8,11}|\+?\d{8,15})$/.test(digits);
+      }
+
+      function radioChecked(name) {
+        return !!form.querySelector('input[name="' + name + '"]:checked');
+      }
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        clearErrors();
+        if (success) success.classList.remove("is-visible");
+
+        var ok = true;
+        var fullName = (form.fullName.value || "").trim();
+        var orgName = (form.orgName.value || "").trim();
+        var jobTitle = (form.jobTitle.value || "").trim();
+        var phone = (form.phone.value || "").trim();
+        var email = (form.email.value || "").trim();
+        var nationality = (form.nationality.value || "").trim();
+        var idNumber = (form.idNumber.value || "").trim();
+
+        if (!fullName) { setInvalid("fullName"); ok = false; }
+        if (!orgName) { setInvalid("orgName"); ok = false; }
+        if (!jobTitle) { setInvalid("jobTitle"); ok = false; }
+        if (!phone || !isPhone(phone)) { setInvalid("phone"); ok = false; }
+        if (!email || !isEmail(email)) { setInvalid("email"); ok = false; }
+        if (!nationality) { setInvalid("nationality"); ok = false; }
+        if (!idNumber) { setInvalid("idNumber"); ok = false; }
+        if (!radioChecked("expoVisit")) { setInvalid("expoVisit"); ok = false; }
+        if (!radioChecked("mainStage")) { setInvalid("mainStage"); ok = false; }
+        if (!radioChecked("glassHall")) { setInvalid("glassHall"); ok = false; }
+        if (!radioChecked("hallB")) { setInvalid("hallB"); ok = false; }
+
+        if (!ok) {
+          var first = form.querySelector(".question.is-invalid .form-control, .question.is-invalid input[type='radio']");
+          if (first) first.focus();
+          return;
+        }
+
+        if (submitBtn) submitBtn.disabled = true;
+        window.setTimeout(function () {
+          if (success) {
+            success.classList.add("is-visible");
+            success.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          }
+          form.reset();
+          if (submitBtn) submitBtn.disabled = false;
+        }, 400);
+      });
+
+      form.querySelectorAll("input").forEach(function (el) {
+        el.addEventListener("input", function () {
+          var field = el.closest(".question");
+          if (field) field.classList.remove("is-invalid");
+        });
+        el.addEventListener("change", function () {
+          var field = el.closest(".question");
+          if (field) field.classList.remove("is-invalid");
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

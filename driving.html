@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>برنامج نشر الابتكار: تحفيز الابتكار وصناعة المستقبل | منصة البحث والابتكار</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green: #1b8354;
+      --green-dark: #104631;
+      --green-soft: #e8f5ef;
+      --ink: #161616;
+      --muted: #384250;
+      --border: #e5e7eb;
+      --bg: #f3f4f6;
+      --white: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+    .top {
+      background: var(--green-dark);
+      color: #fff;
+      font-size: 0.82rem;
+      padding: 0.45rem 1rem;
+    }
+    .wrap {
+      width: min(1080px, calc(100% - 2rem));
+      margin: 1.25rem auto 2.75rem;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+    }
+    .embed-back {
+      display: none;
+      margin: 0 0 1rem;
+      text-align: left;
+    }
+    .embed-back-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.55rem 1.05rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      line-height: 1.2;
+      border: 1.5px solid #104631;
+      background: #fff;
+      color: #104631;
+      cursor: pointer;
+      font-family: inherit;
+      box-shadow: 0 1px 3px rgba(16, 40, 30, 0.06);
+    }
+    .embed-back-btn:hover {
+      border-color: #1b8354;
+      color: #1b8354;
+    }
+    .embed-back-btn svg {
+      width: 1rem;
+      height: 1rem;
+      flex-shrink: 0;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 0.5rem 1rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--green-dark);
+    }
+    .btn-primary {
+      background: var(--green);
+      border-color: var(--green);
+      color: #fff;
+    }
+    .page {
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      padding: 0;
+      box-shadow: none;
+    }
+    h1 {
+      margin: 0 0 1rem;
+      color: var(--green-dark);
+      font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+      line-height: 1.45;
+      font-weight: 800;
+    }
+    .intro-banner {
+      margin: 0 0 1.75rem;
+      border-radius: 0;
+      overflow: hidden;
+      background-color: #002b1b;
+      background-image: url("agency-reports/assets/idp-intro-bg.png");
+      background-position: center right;
+      background-size: cover;
+      background-repeat: no-repeat;
+      box-shadow: none;
+      min-height: clamp(240px, 28vw, 300px);
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      width: 100vw;
+      max-width: 100vw;
+      margin-inline: calc(50% - 50vw);
+      box-sizing: border-box;
+      padding:
+        clamp(1.2rem, 2.8vw, 1.8rem)
+        max(1.35rem, calc((100vw - 1080px) / 2 + 1rem))
+        clamp(1.35rem, 3vw, 1.9rem);
+    }
+    .intro-banner-content {
+      width: min(640px, 100%);
+      margin-inline-end: auto;
+      color: #fff;
+    }
+    .intro-banner-content > p {
+      margin: 0;
+      color: #fff;
+      font-size: clamp(0.78rem, 1.2vw, 0.88rem);
+      line-height: 1.75;
+      text-align: right;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    }
+    @media (max-width: 700px) {
+      .intro-banner {
+        justify-content: flex-start;
+        align-items: flex-end;
+        min-height: 200px;
+        padding-top: 3.5rem;
+        padding-inline: 1rem;
+      }
+      .intro-banner-content { width: 100%; }
+    }
+    h2 {
+      margin: 0 0 0.9rem;
+      color: var(--green-dark);
+      font-size: clamp(1.15rem, 2vw, 1.35rem);
+      font-weight: 800;
+    }
+    h3 {
+      margin: 0 0 0.45rem;
+      color: var(--ink);
+      font-size: 1.02rem;
+      font-weight: 700;
+    }
+    p { margin: 0 0 0.85rem; color: var(--muted); }
+    ul {
+      margin: 0;
+      padding-inline-start: 1.2rem;
+      color: var(--muted);
+    }
+    li { margin-bottom: 0.35rem; }
+    section.block {
+      margin-top: 1.85rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+    section.block:first-of-type {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: 0;
+    }
+    .mewa-showcase {
+      margin-top: 1.75rem;
+      padding: 1.5rem 1rem 1.75rem;
+      background: #f3f7f5;
+      border-radius: 12px;
+    }
+    .mewa-showcase .block {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: 0;
+    }
+    .mewa-showcase .block + .block {
+      margin-top: 2rem;
+    }
+    .mewa-showcase h2 {
+      text-align: center;
+      color: #0f5132;
+      font-size: clamp(1.2rem, 2.2vw, 1.45rem);
+      margin-bottom: 1.15rem;
+    }
+    .goals {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      max-width: 920px;
+      margin-inline: auto;
+    }
+    .goal-card {
+      background: #0f5132;
+      border: 0;
+      border-radius: 10px;
+      padding: 0.95rem 1.15rem;
+      text-align: center;
+      color: #fff;
+      min-height: 3.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .goal-card p {
+      margin: 0;
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+    .sectors {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      max-width: 880px;
+      margin-inline: auto;
+      width: 100%;
+    }
+    .sector-card {
+      border: 1px solid #d7dde3;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+    }
+    .sector-card header {
+      background: #f3f4f6;
+      color: #111827;
+      padding: 0.85rem 1rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .sector-icon {
+      width: 2.15rem;
+      height: 2.15rem;
+      border-radius: 999px;
+      background: #1b8354;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .sector-icon svg {
+      width: 1.15rem;
+      height: 1.15rem;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .sector-card .body { padding: 0.95rem 1.05rem 1.15rem; }
+    .sector-card .kicker {
+      margin: 0 0 0.55rem;
+      color: #374151;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .sector-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .sector-card li {
+      position: relative;
+      padding-inline-start: 1.05rem;
+      margin-bottom: 0.45rem;
+      color: #4b5563;
+      font-size: 0.94rem;
+      line-height: 1.7;
+    }
+    .sector-card li::before {
+      content: "";
+      position: absolute;
+      inset-inline-start: 0;
+      top: 0.62rem;
+      width: 0.42rem;
+      height: 0.42rem;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+    .method-block {
+      margin-top: 1.85rem;
+      padding: 2rem 1.15rem 2.1rem;
+      background: transparent;
+      border-radius: 0;
+      border-top: 0;
+    }
+    .method-block h2 {
+      text-align: center;
+      color: #004b44;
+      font-size: clamp(1.25rem, 2.3vw, 1.55rem);
+      font-weight: 800;
+      margin: 0 0 1.4rem;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.15rem;
+      max-width: 1040px;
+      margin-inline: auto;
+    }
+    .step {
+      border: 1px solid #dde3e0;
+      border-radius: 14px;
+      padding: 1.35rem 1.2rem 1.4rem;
+      background: #fff;
+      position: relative;
+      overflow: visible;
+      box-shadow: 0 2px 8px rgba(16, 40, 30, 0.06);
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+    .step-num {
+      position: absolute;
+      top: 0;
+      left: 14px;
+      z-index: 2;
+      min-width: 2.15rem;
+      padding: 0.55rem 0.45rem 0.65rem;
+      background: #004b44;
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.86rem;
+      line-height: 1;
+      border-radius: 0 0 8px 8px;
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
+    .step-head {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 0.95rem;
+      padding-inline-end: 2.4rem;
+    }
+    .step-icon {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 999px;
+      background: #eaf6f0;
+      border: 1.5px solid #b7dfc8;
+      color: #004b44;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .step-icon svg {
+      width: 1.35rem;
+      height: 1.35rem;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .step h3 {
+      margin: 0 0 0.5rem;
+      color: #004b44;
+      font-size: 1.08rem;
+      font-weight: 800;
+      text-align: right;
+    }
+    .step p {
+      margin: 0;
+      color: #5b6470;
+      font-size: 0.93rem;
+      line-height: 1.85;
+      text-align: right;
+    }
+    .services-block {
+      margin-top: 1.85rem;
+      padding: 1.5rem 1rem 1.6rem;
+      background: transparent;
+      border-top: 0;
+    }
+    .services-block h2 {
+      text-align: center;
+      color: #004b44;
+      font-size: clamp(1.15rem, 2vw, 1.35rem);
+      font-weight: 800;
+      margin: 0 0 1rem;
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.85rem;
+      max-width: 1040px;
+      margin-inline: auto;
+      align-items: start;
+    }
+    .service {
+      border: 1px solid #dde3e0;
+      border-radius: 12px;
+      padding: 0.7rem 0.85rem 0.75rem;
+      background: #fff;
+      position: relative;
+      overflow: visible;
+      box-shadow: 0 2px 8px rgba(16, 40, 30, 0.06);
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+    .service-num {
+      position: absolute;
+      top: 0;
+      left: 12px;
+      z-index: 2;
+      min-width: 1.75rem;
+      padding: 0.32rem 0.35rem 0.4rem;
+      background: #004b44;
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.75rem;
+      line-height: 1;
+      border-radius: 0 0 7px 7px;
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
+    .service-head {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 0.4rem;
+      padding-inline-end: 1.9rem;
+    }
+    .service-icon {
+      width: 2.15rem;
+      height: 2.15rem;
+      border-radius: 999px;
+      background: #eaf6f0;
+      border: 1.5px solid #b7dfc8;
+      color: #004b44;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .service-icon svg {
+      width: 1.05rem;
+      height: 1.05rem;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .service h3 {
+      margin: 0 0 0.25rem;
+      color: #004b44;
+      font-size: 0.9rem;
+      font-weight: 800;
+      text-align: right;
+      line-height: 1.4;
+    }
+    .service p {
+      margin: 0;
+      color: #5b6470;
+      font-size: 0.8rem;
+      line-height: 1.55;
+      text-align: right;
+    }
+    .audience-block {
+      margin-top: 1.85rem;
+      padding: 1.5rem max(1.25rem, calc((100vw - 980px) / 2)) 1.65rem;
+      background: #0f5d38;
+      border-top: 0;
+      border-radius: 0;
+      width: 100vw;
+      max-width: 100vw;
+      margin-inline: calc(50% - 50vw);
+      box-sizing: border-box;
+    }
+    .audience-block h2 {
+      text-align: center;
+      color: #fff;
+      font-size: clamp(1.2rem, 2.2vw, 1.45rem);
+      font-weight: 800;
+      margin: 0 0 1rem;
+    }
+    .audience {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      max-width: 980px;
+      margin-inline: auto;
+      align-items: start;
+    }
+    .audience-item {
+      border: 0;
+      background: #fff;
+      border-radius: 12px;
+      padding: 0.75rem 0.85rem 0.7rem;
+      text-align: center;
+      color: #1f2937;
+      font-weight: 700;
+      font-size: 0.92rem;
+      line-height: 1.45;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      min-height: 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+    .audience-icon {
+      width: 1.9rem;
+      height: 1.9rem;
+      color: #2a9d8f;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .audience-icon svg {
+      width: 1.55rem;
+      height: 1.55rem;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .apply-block {
+      margin-top: 1.5rem;
+      border-top: 0;
+      padding-top: 0;
+    }
+    .apply-banner {
+      background: #04442b;
+      border-radius: 14px;
+      padding: 1rem 1.15rem 1.05rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .apply-main {
+      flex: 1 1 280px;
+      min-width: 0;
+      color: #fff;
+    }
+    .apply-title {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin: 0 0 0.45rem;
+      color: #fff;
+      font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+      font-weight: 800;
+      line-height: 1.35;
+    }
+    .apply-title svg {
+      width: 1.1rem;
+      height: 1.1rem;
+      flex-shrink: 0;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .apply-main > p {
+      margin: 0 0 0.7rem;
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 0.8rem;
+      line-height: 1.65;
+    }
+    .apply-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .apply-actions a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      padding: 0.45rem 0.8rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.78rem;
+      background: #fff;
+      border: 0;
+      line-height: 1.3;
+    }
+    .apply-actions a svg {
+      width: 0.95rem;
+      height: 0.95rem;
+      flex-shrink: 0;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .apply-mail {
+      color: #04442b;
+    }
+    .apply-form {
+      color: #7c6bc4;
+    }
+    .apply-brand {
+      flex: 0 0 auto;
+      text-align: center;
+      color: #fff;
+      padding-inline: 0.35rem;
+    }
+    .apply-brand img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto 0.4rem;
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.25));
+    }
+    .apply-brand strong {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+    .apply-brand span {
+      display: block;
+      margin-top: 0.1rem;
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.85);
+    }
+    @media (max-width: 760px) {
+      .apply-banner {
+        flex-direction: column-reverse;
+        align-items: stretch;
+        text-align: center;
+        padding: 0.9rem 1rem;
+      }
+      .apply-title { justify-content: center; }
+      .apply-actions { justify-content: center; }
+      .apply-main > p { text-align: center; }
+    }
+    .ecosystem {
+      background: transparent;
+      color: #111;
+      border-radius: 0;
+      padding: 2.25rem 1rem 2rem;
+      margin-top: 1.85rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .ecosystem h2 {
+      color: #111;
+      margin: 0 0 1.15rem;
+      font-size: clamp(1.25rem, 2.3vw, 1.55rem);
+      font-weight: 800;
+    }
+    .ecosystem > p {
+      margin: 0 0 1.4rem;
+      color: #4a4a4a;
+      font-size: 0.78rem;
+      line-height: 1.7;
+      max-width: 780px;
+    }
+    .ecosystem-tab {
+      display: inline-block;
+      margin: 0;
+      padding: 0 0 0.55rem;
+      color: #111;
+      font-size: 0.95rem;
+      font-weight: 800;
+      border-bottom: 3px solid #006633;
+      line-height: 1.5;
+    }
+    .partners-logos {
+      width: min(920px, 100%);
+      margin: 1.5rem auto 0;
+      padding: 0.5rem 0 0.25rem;
+    }
+    .partners-logos img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      background: transparent;
+    }
+    html.is-platform-embed .top,
+    html.is-platform-embed .actions { display: none; }
+    /* زر الرجوع والعنوان يظهران من صفحة المنصة الأم بنفس تصميم الدعم الاستشاري */
+    html.is-platform-embed .embed-back,
+    html.is-platform-embed .page > h1 { display: none; }
+    html.is-platform-embed body { background: transparent; }
+    html.is-platform-embed .wrap { width: 100%; margin: 0; padding: 0; }
+    @media (max-width: 900px) {
+      .sectors,
+      .steps,
+      .audience,
+      .goals,
+      .services { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top">نسخة محلية للمعاينة داخل منصة البحث والابتكار — المحتوى مستند إلى صفحة الوزارة</div>
+  <div class="wrap">
+    <div class="embed-back">
+      <button type="button" class="embed-back-btn" id="drivingBackToServices">
+        <svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg>
+        رجوع إلى الخدمات الرئيسية
+      </button>
+    </div>
+    <div class="actions">
+      <a class="btn" href="منصة-البحث-والابتكار.html">العودة للمنصة</a>
+      <a class="btn btn-primary" href="https://www.mewa.gov.sa/ar/Ministry/Agencies/AgencyForInnovation/Topics/DrivingInnovationForTheFuture/Pages/default.aspx" target="_blank" rel="noopener noreferrer">الصفحة الرسمية</a>
+    </div>
+
+    <article class="page">
+      <h1>برنامج نشر الابتكار: تحفيز الابتكار وصناعة المستقبل</h1>
+      <section class="intro-banner" aria-label="نبذة عن برنامج نشر الابتكار">
+        <div class="intro-banner-content">
+          <p>
+            برنامج مؤسسي أُطلق من قبل معالي وزير البيئة والمياه والزراعة بهدف تمكين وتسريع تبني الحلول الابتكارية وتحويلها إلى تطبيقات عملية ذات أثر ملموس تساهم في تحقيق المستهدفات الوطنية. ويأتي البرنامج استجابةً للحاجة إلى تحفيز الطلب على الحلول الابتكارية ذات مستوى الجاهزية العالية (TRL 7+) وتعزيز اختبار جدوى مواءمتها لبيئة المملكة، بما يسهم في تبنيها ونشرها على نطاق واسع في المملكة.
+          </p>
+        </div>
+      </section>
+
+      <div class="mewa-showcase">
+        <section class="block" aria-labelledby="goalsTitle">
+          <h2 id="goalsTitle">أهداف برنامج نشر الابتكار</h2>
+          <div class="goals">
+            <div class="goal-card">
+              <p>تحفيز الطلب على الحلول الابتكارية في المراحل المتقدمة.</p>
+            </div>
+            <div class="goal-card">
+              <p>تمكين نشر الابتكار والتوسع فيه.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="block" aria-labelledby="sectorsTitle">
+          <h2 id="sectorsTitle">فرص الابتكار القطاعية</h2>
+          <div class="sectors">
+            <article class="sector-card">
+              <header>
+                <span class="sector-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 2.5 4.2 5.5 4.2 9S14.8 18.5 12 21c-2.8-2.5-4.2-5.5-4.2-9S9.2 5.5 12 3z"/></svg>
+                </span>
+                <span>قطاع البيئة</span>
+              </header>
+              <div class="body">
+                <p class="kicker">من أبرزها</p>
+                <ul>
+                  <li>معالجة النفايات.</li>
+                  <li>الري الذكي.</li>
+                  <li>مراقبة النظام البيئي.</li>
+                  <li>تقييم قابلية التأثر بمخاطر المناخ والتكيف معها.</li>
+                  <li>إدارة أراضي الرعي.</li>
+                </ul>
+              </div>
+            </article>
+            <article class="sector-card">
+              <header>
+                <span class="sector-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 3c3.5 4.2 6 7.4 6 10.2A6 6 0 0 1 6 13.2C6 10.4 8.5 7.2 12 3z"/></svg>
+                </span>
+                <span>قطاع المياه</span>
+              </header>
+              <div class="body">
+                <p class="kicker">من أبرزها</p>
+                <ul>
+                  <li>إعادة استخدام مياه الصرف.</li>
+                  <li>الاستهلاك المبتكر للمياه في الزراعة.</li>
+                  <li>استهلاك المياه المبتكر في المنازل.</li>
+                  <li>إدارة تسرب المياه الذكية.</li>
+                  <li>أنظمة التناضح العكسي المتقدمة.</li>
+                </ul>
+              </div>
+            </article>
+            <article class="sector-card">
+              <header>
+                <span class="sector-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 21V11"/><path d="M12 11c2.8-1.2 4.5-3.2 5-5.5-3.2.4-5.5 2-5 5.5z"/><path d="M12 13c-2.8-1.2-4.5-3.2-5-5.5 3.2.4 5.5 2 5 5.5z"/><path d="M7 21h10"/></svg>
+                </span>
+                <span>قطاع الزراعة</span>
+              </header>
+              <div class="body">
+                <p class="kicker">من أبرزها</p>
+                <ul>
+                  <li>هدر وفقد الطعام.</li>
+                  <li>الري وإدارة المياه.</li>
+                  <li>الطائرات المسيرة والأقمار الصناعية للمحاصيل.</li>
+                  <li>الزراعة المحمية والبيئة المتحكم بها.</li>
+                  <li>الإدارة المتكاملة لتربية الأحياء المائية.</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <section class="block method-block" aria-labelledby="methodTitle">
+        <h2 id="methodTitle">منهجية عمل البرنامج</h2>
+        <div class="steps">
+          <article class="step">
+            <span class="step-num">01</span>
+            <div class="step-head">
+              <span class="step-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-3.8-3.8"/></svg>
+              </span>
+            </div>
+            <h3>الرصد</h3>
+            <p>رصد وتقييم الحلول الابتكارية، وتحديد مدى مواءمتها لاحتياجات وفرص القطاعات المستهدفة.</p>
+          </article>
+          <article class="step">
+            <span class="step-num">02</span>
+            <div class="step-head">
+              <span class="step-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 15.5v5.5"/>
+                  <path d="M9.5 21h5"/>
+                  <circle cx="12" cy="12" r="2.6"/>
+                  <path d="M12 7.8V6.2M7.8 12H6.2M17.8 12h-1.6M8.6 8.6l-1.1-1.1M16.5 16.5l-1.1-1.1M16.5 8.6l1.1-1.1M8.6 16.5l1.1-1.1"/>
+                  <path d="M10.2 7.2c-.1-1.8.7-3.4 2-4 .2 1.5-.2 2.9-2 4z"/>
+                  <path d="M13.8 7.2c.1-1.8-.7-3.4-2-4-.2 1.5.2 2.9 2 4z"/>
+                </svg>
+              </span>
+            </div>
+            <h3>الاختبار التجريبي</h3>
+            <p>دعم اختبار وبرهنة الحلول الواعدة، والتحقق من جاهزيتها الفنية والتشغيلية في بيئة المملكة.</p>
+          </article>
+          <article class="step">
+            <span class="step-num">03</span>
+            <div class="step-head">
+              <span class="step-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 3c2.5 3 5.5 7.2 5.5 11.2A5.5 5.5 0 0 1 6.5 14.2C6.5 10.2 9.5 6 12 3z"/>
+                  <path d="M9.2 17.5L7 21l2.8-1.2"/>
+                  <path d="M14.8 17.5L17 21l-2.8-1.2"/>
+                  <circle cx="12" cy="11.5" r="1.2"/>
+                </svg>
+              </span>
+            </div>
+            <h3>التوسع والنشر</h3>
+            <p>تمكين التوسع في تطبيق الحلول الناجحة، وتعزيز تبنّيها على نطاق أوسع لتحقيق أثر مستدام.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="block services-block" aria-labelledby="servicesTitle">
+        <h2 id="servicesTitle">خدمات البرنامج</h2>
+        <div class="services">
+          <article class="service">
+            <span class="service-num">01</span>
+            <div class="service-head">
+              <span class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M8 4h8a2 2 0 0 1 2 2v14l-6-3-6 3V6a2 2 0 0 1 2-2z"/><path d="M9.5 11.2l1.7 1.7 3.3-3.4"/></svg>
+              </span>
+            </div>
+            <h3>دعم الاختبار التجريبي (Piloting)</h3>
+            <p>تمكين تنفيذ المشاريع التجريبية في بيئات تشغيلية حقيقية، مع متابعة الأداء، وقياس النتائج، والتحقق من جدوى الحلول قبل التوسع.</p>
+          </article>
+          <article class="service">
+            <span class="service-num">02</span>
+            <div class="service-head">
+              <span class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 21V10"/><path d="M12 10c2.6-1.2 4.2-3.2 4.6-5.4-3 .4-5.1 2-4.6 5.4z"/><path d="M12 12c-2.6-1.2-4.2-3.2-4.6-5.4 3 .4 5.1 2 4.6 5.4z"/><path d="M7 21h10"/></svg>
+              </span>
+            </div>
+            <h3>توفير البنية التحتية</h3>
+            <p>توفير البيئة التقنية والتشغيلية اللازمة لدعم تطوير الحلول، بما يشمل الأدوات والمنصات والتقنيات المساندة لتنفيذ المشاريع بكفاءة.</p>
+          </article>
+          <article class="service">
+            <span class="service-num">03</span>
+            <div class="service-head">
+              <span class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 3c2.5 3 5.5 7.2 5.5 11.2A5.5 5.5 0 0 1 6.5 14.2C6.5 10.2 9.5 6 12 3z"/><path d="M9.2 17.5L7 21l2.8-1.2"/><path d="M14.8 17.5L17 21l-2.8-1.2"/></svg>
+              </span>
+            </div>
+            <h3>توفير الدعم والنشر</h3>
+            <p>مساندة الحلول الناجحة في الانتقال من المرحلة التجريبية إلى التطبيق الواسع، مع توفير الممكنات اللازمة لضمان الاستدامة وتحقيق الأثر.</p>
+          </article>
+          <article class="service">
+            <span class="service-num">04</span>
+            <div class="service-head">
+              <span class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M6 8h12l-1 11H7L6 8z"/><path d="M9 8V6.5A3 3 0 0 1 12 3.5 3 3 0 0 1 15 6.5V8"/><path d="M10 12h4"/></svg>
+              </span>
+            </div>
+            <h3>تحفيز الدخول للسوق</h3>
+            <p>تمكين الجهات المبتكرة من الوصول إلى الأسواق المستهدفة من خلال تسهيل إجراءات التبني، وبناء الشراكات، ودعم جاهزية الحلول للتطبيق.</p>
+          </article>
+          <article class="service">
+            <span class="service-num">05</span>
+            <div class="service-head">
+              <span class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v4c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 10v4c0 1.7 3.1 3 7 3s7-1.3 7-3v-4"/><path d="M5 14v4c0 1.7 3.1 3 7 3s7-1.3 7-3v-4"/></svg>
+              </span>
+            </div>
+            <h3>توفير البيانات</h3>
+            <p>إتاحة البيانات اللازمة للمشاريع الابتكارية، وتعزيز الاستفادة منها في التحليل، وبناء النماذج، واتخاذ القرارات المبنية على البيانات.</p>
+          </article>
+          <article class="service">
+            <span class="service-num">06</span>
+            <div class="service-head">
+              <span class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 8.5h16v10.5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8.5z"/><path d="M4 8.5C4 6.5 7.6 5 12 5s8 1.5 8 3.5"/><path d="M12 12.5v2"/><circle cx="12" cy="12.5" r="0.2"/></svg>
+              </span>
+            </div>
+            <h3>تحفيز الحلول الواعدة</h3>
+            <p>تقديم حوافز للمشاريع والحلول ذات الإمكانات العالية، لتسريع تطويرها وتعزيز فرص نجاحها واستدامتها.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="block audience-block" aria-labelledby="audienceTitle">
+        <h2 id="audienceTitle">الفئة المستهدفة</h2>
+        <div class="audience">
+          <div class="audience-item">
+            <span class="audience-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 20V9l6-4 6 4v11"/><path d="M10 20v-6h4v6"/><path d="M16 9.5V20h4V11l-4-1.5z"/></svg>
+            </span>
+            <span>الجهات الشقيقة والبرامج الوطنية</span>
+          </div>
+          <div class="audience-item">
+            <span class="audience-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v2.2M12 18.8V21M4.9 6.5l1.6 1.6M17.5 15.9l1.6 1.6M3 12h2.2M18.8 12H21M4.9 17.5l1.6-1.6M17.5 8.1l1.6-1.6"/></svg>
+            </span>
+            <span>مزودي التقنية محلياً وعالمياً</span>
+          </div>
+          <div class="audience-item">
+            <span class="audience-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 20V8l5-3 5 3v12"/><path d="M9 20v-5h4v5"/><path d="M3 20h18"/></svg>
+            </span>
+            <span>القطاع الخاص</span>
+          </div>
+          <div class="audience-item">
+            <span class="audience-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 20V9"/><path d="M12 9c2.4-1.1 3.8-2.9 4.1-4.8-2.7.3-4.5 1.8-4.1 4.8z"/><path d="M12 11c-2.4-1.1-3.8-2.9-4.1-4.8 2.7.3 4.5 1.8 4.1 4.8z"/><path d="M8 20h8"/></svg>
+            </span>
+            <span>القطاع غير ربحي</span>
+          </div>
+          <div class="audience-item">
+            <span class="audience-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M6 20V10l6-5 6 5v10"/><path d="M10 20v-4h4v4"/><path d="M9 10.5h6"/><path d="M12 5.5V3.8"/></svg>
+            </span>
+            <span>الجهات الأكاديمية</span>
+          </div>
+          <div class="audience-item">
+            <span class="audience-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 18c0-2.2.8-3.5 2-4.8 1.2 1.3 2 2.6 2 4.8"/><path d="M12 13.2V9.5"/><path d="M10.2 7.2a2.2 2.2 0 1 1 3.6 0c.4.7.2 1.5-.4 2.1L12 11l-1.4-1.7c-.6-.6-.8-1.4-.4-2.1z"/></svg>
+            </span>
+            <span>الأفراد المبتكرين</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="block apply-block" aria-labelledby="applyTitle">
+        <div class="apply-banner">
+          <div class="apply-main">
+            <h2 class="apply-title" id="applyTitle">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>
+              آلية التقديم على البرنامج
+            </h2>
+            <p>
+              يمكن للراغبين في الانضمام إلى برنامج نشر الابتكار تقديم طلباتهم من خلال القنوات التالية، وسيتم التواصل مع المتقدمين بعد مراجعة الطلبات واستكمال الإجراءات اللازمة.
+            </p>
+            <div class="apply-actions">
+              <a class="apply-mail" href="mailto:IDP@mewa.gov.sa">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg>
+                إرسال الطلب عبر البريد الإلكتروني
+              </a>
+              <a class="apply-form" href="https://forms.office.com/r/ciCdyM6Fi0" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8a2 2 0 0 1 2 2v14l-6-2.5L6 20V6a2 2 0 0 1 2-2z"/><path d="M9 10h6M9 14h4"/></svg>
+                تعبئة نموذج التقديم
+              </a>
+            </div>
+          </div>
+          <div class="apply-brand">
+            <img src="agency-reports/assets/idp-logo.png" alt="" width="78" height="78" />
+            <strong>برنامج نشر الابتكار</strong>
+            <span>Innovation Deployment Program</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="ecosystem" aria-labelledby="ecoTitle">
+        <h2 id="ecoTitle">منظومة برنامج نشر الابتكار</h2>
+        <p>
+          سيعمل البرنامج كحلقة وصل مركزية لإدارة شبكة واسعة من التفاعلات الاستراتيجية، حيث يرتكز على التعاون المشترك بين وزارة البيئة والمياه والزراعة والجهات الشقيقة، وهيئة تنمية البحث والتطوير والابتكار.
+        </p>
+        <p class="ecosystem-tab">وزارة البيئة و المياه و الزراعة و الجهات الشقيقة</p>
+        <div class="partners-logos">
+          <img
+            src="agency-reports/assets/idp-partners-logos.png"
+            alt="شعارات وزارة البيئة والمياه والزراعة والجهات الشقيقة ضمن منظومة برنامج نشر الابتكار"
+            width="920"
+            height="720"
+            loading="lazy"
+          />
+        </div>
+      </section>
+
+    </article>
+  </div>
+  <script>
+    (function () {
+      var embedded = window.self !== window.top;
+      if (embedded) {
+        document.documentElement.classList.add("is-platform-embed");
+        var backBtn = document.getElementById("drivingBackToServices");
+        if (backBtn) {
+          backBtn.addEventListener("click", function () {
+            if (window.parent) {
+              window.parent.postMessage({ type: "driving-embed-back" }, "*");
+            }
+          });
+        }
+      }
+
+      function postHeight() {
+        if (!embedded || !window.parent) return;
+        var height = Math.max(
+          document.body ? document.body.scrollHeight : 0,
+          document.documentElement ? document.documentElement.scrollHeight : 0
+        );
+        window.parent.postMessage({ type: "driving-embed-height", height: height }, "*");
+      }
+
+      window.addEventListener("load", postHeight);
+      window.addEventListener("resize", postHeight);
+      window.addEventListener("message", function (event) {
+        if (event.data && event.data.type === "driving-embed-request-height") postHeight();
+      });
+      if (window.ResizeObserver) {
+        var ro = new ResizeObserver(postHeight);
+        ro.observe(document.documentElement);
+      }
+      setTimeout(postHeight, 120);
+      setTimeout(postHeight, 500);
+      setTimeout(postHeight, 1200);
+    })();
+  </script>
+</body>
+</html>

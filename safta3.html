@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-title-ar="حيث تُغذّي التقنية المستقبل | التحالف السعودي لتقنيات الزراعة والغذاء" data-title-en="Where technology feeds the future | Saudi AgriFood Tech Alliance">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>حيث تُغذّي التقنية المستقبل | التحالف السعودي لتقنيات الزراعة والغذاء</title>
+  <meta name="description" content="SAFTA — التحالف السعودي لتقنيات الزراعة والغذاء. منصة وطنية لتسريع تبني تقنيات الزراعة والغذاء في المملكة." />
+  <meta name="theme-color" content="#015C44" />
+  <link rel="icon" type="image/png" href="agency-reports/assets/safta/img/logo-mark.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="agency-reports/assets/safta/css/style.css" />
+  <style>
+    /* الشريط العلوي ثابت (fixed) — ننزّل شريط الرجوع أسفله مباشرة */
+    .safta3-back-bar {
+      position: relative;
+      z-index: 250;
+      margin-top: var(--header-h, 88px);
+      background: #f5f3ef;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 14px 0;
+    }
+    .safta3-back-bar .wrap {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .safta3-back-services {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-family: "IBM Plex Sans Arabic", sans-serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      line-height: 1.2;
+      border: 1.5px solid #d6d9d7;
+      background: #fff;
+      color: #015c44;
+      text-decoration: none;
+      box-shadow: 0 1px 3px rgba(16, 40, 30, 0.06);
+      white-space: nowrap;
+    }
+    .safta3-back-services:hover {
+      border-color: #015c44;
+      color: #014a37;
+    }
+    .safta3-back-services svg {
+      flex-shrink: 0;
+    }
+
+    /* Platform site footer (منصة البحث والابتكار) */
+    :root {
+      --naama-primary: #003957;
+      --naama-accent: #49aa8b;
+      --naama-accent-dark: #378a6f;
+      --naama-gold: #e8a34f;
+      --naama-muted: #62717d;
+      --naama-border: #e4ecef;
+    }
+    .site-footer {
+      background: #fff;
+      border-top: 1px solid var(--naama-border);
+      margin-top: 0;
+      padding: 2.2rem 0 2.4rem;
+      font-family: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+      direction: rtl;
+      text-align: right;
+    }
+    .site-footer .container {
+      width: min(1140px, calc(100% - 2rem));
+      margin-inline: auto;
+    }
+    .site-footer__grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1.1fr 0.9fr;
+      gap: 1.75rem 1.5rem;
+    }
+    .site-footer .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .site-footer .brand-mark {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      position: relative;
+      background:
+        radial-gradient(circle at 30% 30%, var(--naama-gold) 0 22%, transparent 23%),
+        linear-gradient(145deg, var(--naama-accent) 0%, var(--naama-primary) 100%);
+      flex-shrink: 0;
+    }
+    .site-footer .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: 55% 18% 18% 18%;
+      border-radius: 2px 2px 6px 6px;
+      background: rgba(255, 255, 255, 0.35);
+    }
+    .site-footer strong {
+      color: var(--naama-primary);
+      font-size: 1rem;
+    }
+    .site-footer .desc {
+      margin: 0;
+      color: var(--naama-muted);
+      font-size: 0.92rem;
+      line-height: 1.75;
+      max-width: 34rem;
+    }
+    .site-footer h6 {
+      margin: 0 0 0.75rem;
+      color: var(--naama-primary);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .site-footer .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.15rem;
+    }
+    .site-footer .footer-links a {
+      color: var(--naama-primary);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .site-footer .footer-links a:hover { color: var(--naama-accent-dark); }
+    .site-footer .support-line {
+      margin: 0 0 0.45rem;
+      color: var(--naama-muted);
+      font-size: 0.92rem;
+    }
+    .site-footer .support-line strong { color: var(--naama-primary); font-size: inherit; }
+    .site-footer hr {
+      border: 0;
+      border-top: 1px solid var(--naama-border);
+      margin: 1.5rem 0 1rem;
+    }
+    .site-footer__bottom {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--naama-muted);
+      font-size: 0.82rem;
+    }
+    @media (max-width: 767.98px) {
+      .site-footer__grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<!-- =============== SCROLL PROGRESS =============== --><div id="scroll-progress"></div><!-- =============== HEADER =============== --><header class="site-head site-head--solid" id="siteHead"><nav class="navbar"><div class="wrap"><a aria-label="SAFTA — التحالف السعودي لتقنيات الزراعة والغذاء" class="brand" href="safta.html"><img alt="SAFTA — Saudi AgriFood Tech Alliance" src="agency-reports/assets/safta/img/logo-safta-light.png"></a><div class="nav-actions"><a class="btn-pill btn-pill--solid" href="register-interest.html"><span data-ar="سجّل اهتمامك">Register interest</span></a><a class="lang-switch" href="#" role="button">EN</a><button aria-controls="drawer" aria-expanded="false" aria-label="Menu" class="nav-toggle" id="navToggle" type="button"><svg fill="none" height="26" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24" width="26"><path d="M3 6h18M3 12h18M3 18h18"></path></svg></button></div></div></nav></header>
+<div class="safta3-back-bar">
+  <div class="wrap">
+    <a class="safta3-back-services" href="Index.html?view=our-service&id=7">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"></path></svg>
+      رجوع
+    </a>
+  </div>
+</div>
+<div aria-hidden="true" class="drawer" id="drawer"><button aria-label="Close" class="drawer__close" id="drawerClose" type="button">×</button><nav class="drawer__nav"><a class="is-current" data-ar="الرئيسية" href="safta.html">Home</a><a data-ar="عن التحالف" href="https://www.safta.sa/ar/about">About</a><a data-ar="مجموعات العمل" href="https://www.safta.sa/ar/technologies">Working Groups</a><a data-ar="المتحالفون" href="https://www.safta.sa/ar/members">Our Members</a><a class="is-soon" aria-disabled="true" tabindex="-1" href="#"><span data-ar="جوائز سافتا للتميّز">SAFTA Excellence Awards</span><em class="soon-tag" data-ar="قريبًا">Soon</em></a><a data-ar="الأخبار والفعاليات" href="https://www.safta.sa/ar/media">News &amp; Events</a><a data-ar="تواصل معنا" href="https://www.safta.sa/ar/contact">Contact Us</a></nav><div class="drawer-cta"><a class="is-solid" data-ar="سجّل اهتمامك" href="register-interest.html">Register interest</a></div></div><main><!-- =============== 1. HERO CAROUSEL =============== --><section class="hero" id="hero"><div class="hero__stage"><div class="hero__slide is-active" data-slide="0"><img data-cms-img="i001-gd02bedshero" src="agency-reports/assets/safta/img/green-dunes/gd-02-beds-hero.webp" alt></div><div class="hero__slide" data-slide="1"><img data-cms-img="i002-gd03rowshero" src="agency-reports/assets/safta/img/green-dunes/gd-03-rows-hero.webp" alt></div><div class="hero__slide" data-slide="2"><img data-cms-img="i003-gd09rackshero" src="agency-reports/assets/safta/img/green-dunes/gd-09-racks-hero.webp" alt></div><div class="hero__scrim"></div><div class="wrap hero__copy"><div class="hero__panel is-active" data-panel="0"><p data-cms="t004-رؤى-سافتا" data-ar="رؤى سافتا" class="eyebrow eyebrow--light">SAFTA Insights</p><h1 data-cms="t005-معرفة-تطبيقية-تدعم-قرارات-" data-ar="معرفة تطبيقية تدعم قرارات تبنّي تقنيات الزراعة والغذاء في المملكة." class="h-display">Applied knowledge that supports technology-adoption decisions across the Kingdom's agrifood sector.</h1><div class="hero__actions"><a class="cta-circle cta-circle--light" href="https://www.safta.sa/ar/about"><span data-cms="t006-استعرض-الرؤى" data-ar="استعرض الرؤى">Explore Insights</span><span class="circ"><svg fill="none" height="16" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" width="16"><path d="M5 12h13M13 6l6 6-6 6"></path></svg></span></a></div></div><div class="hero__panel" data-panel="1"><p data-cms="t007-الشراكات" data-ar="الشراكات" class="eyebrow eyebrow--light">Partnerships</p><h2 data-cms="t008-الجهات-الحكومية-والبحثية-و" data-ar="الجهات الحكومية والبحثية والقطاع الخاص — تحالف واحد." class="h-display">Government, research and industry, working as one alliance.</h2><div class="hero__actions"><a class="cta-circle cta-circle--light" href="https://www.safta.sa/ar/members"><span data-cms="t009-تعرّف-على-المتحالفين" data-ar="تعرّف على المتحالفين">Our members</span><span class="circ"><svg fill="none" height="16" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" width="16"><path d="M5 12h13M13 6l6 6-6 6"></path></svg></span></a></div></div><div class="hero__panel" data-panel="2"><p data-cms="t010-الإعلانات" data-ar="الإعلانات" class="eyebrow eyebrow--light">Announcements</p><h2 data-cms="t011-التحالف-يفتح-باب-العضوية-ف" data-ar="التحالف يفتح باب العضوية في مجموعات عمله للجهات المهتمة بتقنيات الزراعة والغذاء." class="h-display">SAFTA is attending WAFI2026 from September 17 to 19, 2026, in Pinggu, Beijing, China</h2><div class="hero__actions"><a class="cta-circle cta-circle--light" href="https://www.safta.sa/ar/media"><span data-cms="t012-سجّل-اهتمامك" data-ar="اعرف المزيد">Learn more</span><span class="circ"><svg fill="none" height="16" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" width="16"><path d="M5 12h13M13 6l6 6-6 6"></path></svg></span></a></div></div></div></div><div class="hero__tabs"><div class="wrap"><button class="hero-tab is-active" data-tab="0" type="button"><span data-cms="t013-رؤى-سافتا" data-ar="رؤى سافتا">SAFTA Insights</span><i></i></button><button class="hero-tab" data-tab="1" type="button"><span data-cms="t014-الشراكات" data-ar="الشراكات">Partnerships</span><i></i></button><button class="hero-tab" data-tab="2" type="button"><span data-cms="t015-الإعلانات" data-ar="الإعلانات">Announcements</span><i></i></button></div></div></section><!-- =============== 2. DISCOVER SAFTA =============== --><section class="ribbon ribbon--grey discover"><div class="wrap"><div class="discover__intro reveal"><p data-cms="t016-تعرّف-على-التحالف" data-ar="تعرّف على التحالف" class="eyebrow">Discover SAFTA</p><h2 data-cms="t017-نحن-التحالف-الوطني-السعودي" data-ar="نحن التحالف الوطني السعودي لتقنيات الزراعة والغذاء — نجمع الجهات الحكومية والمؤسسات البحثية والقطاع الخاص لتعزيز الأمن الغذائي." class="h-intro">We are Saudi Arabia’s national alliance for agrifood technology, bringing together government entities, research institutions and the private sector to strengthen food security.</h2></div><div class="card-row bleed reveal" style="margin-top:66px"><a class="tile" href="https://www.safta.sa/ar/technologies"><img data-cms-img="i018-kaust1thumb" src="agency-reports/assets/safta/img/gallery/kaust-1-thumb.jpg" alt="Open raceway ponds for algae cultivation at KAUST"><div class="tile__txt"><p data-cms="t019-مجموعات-العمل" data-ar="مجموعات العمل" class="eyebrow eyebrow--light">Working groups</p><h3 data-cms="t020-9-مجموعات-عمل-تعالج-تحديات" data-ar="9 مجموعات عمل تعالج تحديات الزراعة والغذاء في المملكة">9 working groups tackling the Kingdom’s agrifood challenges</h3></div><span class="tile__arrow"><svg fill="none" height="14" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" width="14"><path d="M5 12h13M13 6l6 6-6 6"></path></svg></span></a><a class="tile" href="https://www.safta.sa/ar/about"><img data-cms-img="i021-kaust4thumb" src="agency-reports/assets/safta/img/gallery/kaust-4-thumb.jpg" alt="What we do"><div class="tile__txt"><p data-cms="t022-ما-نقوم-به" data-ar="ما نقوم به" class="eyebrow eyebrow--light">What we do</p><h3 data-cms="t023-من-الري-الذكي-إلى-خفض-الفا" data-ar="من الري الذكي إلى خفض الفاقد الغذائي — الابتكار هو المفتاح">From smart irrigation to food-loss reduction, innovation is key</h3></div><span class="tile__arrow"><svg fill="none" height="14" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" width="14"><path d="M5 12h13M13 6l6 6-6 6"></path></svg></span></a></div></div></section><!-- =============== 3. CHALLENGES =============== --><section class="ribbon believe challenges" id="challenges"><div class="wrap"><div class="believe__intro reveal"><p data-cms="t024-التحديات" data-ar="التحديات" class="eyebrow">Challenges</p><h2 data-cms="t025-خمسة-تحديات-وطنية-تُوجّه-ع" data-ar="يواجه قطاع الزراعة والغذاء مجموعة من التحديات المترابطة التي تؤثّر في الإنتاجية والاستدامة والأمن الغذائي والمرونة الاقتصادية." class="h-intro">The agrifood sector is facing a range of interconnected challenges that are affecting productivity, sustainability, food security, and economic resilience.</h2><div class="slider-nav" id="believeNav"><button aria-label="Previous" class="slider-nav__btn" data-dir="prev" type="button"><svg fill="none" height="16" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24" width="16"><path d="M19 12H6M13 6l-6 6 6 6"></path></svg></button><button aria-label="Next" class="slider-nav__btn" data-dir="next" type="button"><svg fill="none" height="16" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24" width="16"><path d="M5 12h13M13 6l6 6-6 6"></path></svg></button></div></div><div class="slider bleed reveal" id="believeSlider" role="group" style="margin-top:64px" tabindex="0"><div class="slider__track"><article class="slide"><figure><img data-cms-img="i026-phwaterscarcity" src="agency-reports/assets/safta/img/placeholders/ph-water-scarcity.svg" alt="Water scarcity"></figure><h4 data-cms="t027-شُح-الموارد-المائية" data-ar="شُح الموارد المائية">Water scarcity</h4></article><article class="slide"><figure><img data-cms-img="i029-phclimate" src="agency-reports/assets/safta/img/placeholders/ph-climate.svg" alt="Harsh climate conditions"></figure><h4 data-cms="t030-قسوة-الظروف-المناخية" data-ar="قسوة الظروف المناخية">Harsh climate conditions</h4></article><article class="slide"><figure><img data-cms-img="i032-phpests" src="agency-reports/assets/safta/img/placeholders/ph-pests.svg" alt="Pest risks"></figure><h4 data-cms="t033-مخاطر-الآفات-الزراعية" data-ar="مخاطر الآفات الزراعية">Pest risks</h4></article><article class="slide"><figure><img data-cms-img="i035-phsoil" src="agency-reports/assets/safta/img/placeholders/ph-soil.svg" alt="Soil degradation"></figure><h4 data-cms="t036-تدهور-التربة" data-ar="تدهور التربة">Soil degradation</h4></article><article class="slide"><figure><img data-cms-img="i038-phfoodwaste" src="agency-reports/assets/safta/img/placeholders/ph-food-waste.svg" alt="Food waste"></figure><h4 data-cms="t039-هدر-الغذاء" data-ar="هدر الغذاء">Food waste</h4></article><article class="slide"><figure><img data-cms-img="i061-phimportdependency" src="agency-reports/assets/safta/img/placeholders/ph-what-we-do.svg" alt="Import dependency and food security exposure"></figure><h4 data-cms="t062-الاعتماد-على-الاستيراد" data-ar="الاعتماد على الاستيراد وانكشاف الأمن الغذائي">Import dependency and food security exposure</h4></article><article class="slide"><figure><img data-cms-img="i063-phtechgaps" src="agency-reports/assets/safta/img/placeholders/ph-insight-01.svg" alt="Technology and extension gaps"></figure><h4 data-cms="t064-فجوات-التقنية-والإرشاد" data-ar="فجوات التقنية والإرشاد الزراعي">Technology and extension gaps</h4></article></div></div><div class="scrollbar" id="believeBar"><i></i></div></div></section><!-- =============== 9b. SAFTA EXCELLENCE AWARDS =============== --><section class="ribbon awards" id="awards"><div class="wrap"><div class="awards__panel reveal"><div class="awards__head"><span class="soon-pill" role="status"><i class="soon-pill__dot" aria-hidden="true"></i><span data-cms="t041-قريبًا" data-ar="قريبًا">Launching Soon</span></span><p data-cms="t045-التميّز" data-ar="التميّز" class="eyebrow eyebrow--light">Excellence</p><h2 data-cms="t046-جوائز-سافتا-للتميّز" data-ar="جوائز سافتا للتميّز" class="h-section">SAFTA Excellence Awards</h2><p data-cms="t047-جائزة-سنوية-تكرّم-الجهات-و" data-ar="جائزة سنوية تكرّم الجهات والفرق التي حقّقت أثرًا ملموسًا في تقنيات الزراعة والغذاء بالمملكة — يرشّحها الأعضاء وتقيّمها لجنة تحكيم مستقلة." class="lede">An annual award recognising the entities and teams delivering measurable impact in the Kingdom’s agrifood technology — nominated by members and assessed by an independent panel.</p><a class="btn-brand" href="register-interest.html"><span data-cms="t048-سجّل-اهتمامك-بالترشّح" data-ar="سجّل اهتمامك بالترشّح">Register your interest to nominate</span><svg fill="none" height="15" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24" width="15"><path d="M5 12h13M13 6l6 6-6 6"></path></svg></a></div><!-- TODO(محتوى): أكّد فئات الجائزة ومواعيد الترشيح مع الأمانة قبل النشر --><ol class="awards__cats"><li class="award"><span class="award__no" aria-hidden="true">01</span><h3 data-cms="t049-ابتكار-العام" data-ar="ابتكار العام">Innovation of the Year</h3><p data-cms="t050-حل-تقني-أثبت-أثره-في-الإنت" data-ar="حل تقني أثبت أثره في الإنتاجية أو كفاءة الموارد.">A technology solution with proven impact on productivity or resource efficiency.</p><i class="award__rule"></i></li><li class="award"><span class="award__no" aria-hidden="true">02</span><h3 data-cms="t051-كفاءة-الموارد-المائية" data-ar="كفاءة الموارد المائية">Water Stewardship</h3><p data-cms="t052-أفضل-خفض-موثّق-في-استهلاك-" data-ar="أفضل خفض موثّق في استهلاك مياه الري.">The best documented reduction in irrigation water use.</p><i class="award__rule"></i></li><li class="award"><span class="award__no" aria-hidden="true">03</span><h3 data-cms="t053-مجموعة-العمل-المتميزة" data-ar="مجموعة العمل المتميزة">Working Group of the Year</h3><p data-cms="t054-المجموعة-الأعلى-إنتاجية-في" data-ar="المجموعة الأعلى إنتاجية في مخرجاتها البحثية والتطبيقية.">The group with the strongest research and applied output.</p><i class="award__rule"></i></li><li class="award"><span class="award__no" aria-hidden="true">04</span><h3 data-cms="t055-الشركة-الناشئة-الواعدة" data-ar="الشركة الناشئة الواعدة">Emerging AgriFood Startup</h3><p data-cms="t056-شركة-ناشئة-سعودية-ذات-حل-ق" data-ar="شركة ناشئة سعودية ذات حل قابل للتوسّع.">A Saudi startup with a scalable solution.</p><i class="award__rule"></i></li><li class="award"><span class="award__no" aria-hidden="true">05</span><h3 data-cms="t057-أثر-الكوادر-الوطنية" data-ar="أثر الكوادر الوطنية">National Talent Impact</h3><p data-cms="t058-برنامج-بنى-قدرات-وطنية-في-" data-ar="برنامج بنى قدرات وطنية في القطاع.">A programme that built national capability in the sector.</p><i class="award__rule"></i></li></ol></div></div></section></main><section class="partners" aria-label="Alliance partners"><div class="wrap"><p class="partners__label" data-ar="الشراكات الاستراتيجية">Strategic partnerships</p><div class="partners__viewport"><div class="partners__track"><a class="partner" href="https://www.safta.sa/ar/members" title="Ministry of Environment, Water &amp; Agriculture"><img alt="Ministry of Environment, Water &amp; Agriculture" loading="lazy" src="agency-reports/assets/safta/img/partners/mewa.png"></a><a class="partner" href="https://www.safta.sa/ar/members" title="King Abdullah University of Science &amp; Technology"><img alt="King Abdullah University of Science &amp; Technology" loading="lazy" src="agency-reports/assets/safta/img/partners/kaust.png"></a><a class="partner" href="https://www.safta.sa/ar/members" title="National Research &amp; Development Center for Sustainable Agriculture (Estidamah)"><img alt="National Research &amp; Development Center for Sustainable Agriculture" loading="lazy" src="agency-reports/assets/safta/img/partners/estidamah.png"></a><a class="partner" href="https://www.safta.sa/ar/members" title="ARASCO"><img alt="ARASCO" loading="lazy" src="agency-reports/assets/safta/img/partners/arasco.png"></a><a class="partner" href="https://www.safta.sa/ar/members" title="Almarai"><img alt="Almarai" loading="lazy" src="agency-reports/assets/safta/img/partners/almarai.png"></a><a class="partner" href="https://www.safta.sa/ar/members" title="Tanmiah Food Group"><img alt="Tanmiah Food Group" loading="lazy" src="agency-reports/assets/safta/img/partners/tanmiah.png"></a><a class="partner" href="https://www.safta.sa/ar/members" title="NPRAS — National Platform of R&amp;I Analytics for Sustainability"><img alt="NPRAS — National Platform of R&amp;I Analytics for Sustainability" loading="lazy" src="agency-reports/assets/safta/img/partners/npras.png"></a></div></div><p class="partners__note" data-ar="الجهات الشريكة استراتيجيًا في تأسيس التحالف وتفعيل مجموعات عمله.">The strategic partners behind the Alliance's establishment and the activation of its working groups.</p></div></section><section class="about-banner"><img alt="" loading="lazy" src="agency-reports/assets/safta/img/green-dunes/gd-03-rows-hero.webp"><div class="about-banner__in"><p class="eyebrow eyebrow--light" data-ar="العضوية">Membership</p><h2 data-ar="انضم إلى التحالف">Join the Alliance</h2><p class="about-banner__lede" data-ar="شارك في تشكيل مستقبل تقنيات الزراعة والغذاء في المملكة.">Help shape the future of agrifood technology in the Kingdom.</p><a class="btn-brand" href="register-interest.html"><span data-ar="سجّل اهتمامك">Register your interest</span><svg fill="none" height="15" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24" width="15"><path d="M5 12h13M13 6l6 6-6 6"></path></svg></a></div></section><footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <div class="brand-row">
+            <span class="brand-mark" aria-hidden="true"></span>
+            <strong>منصة البحث والابتكار</strong>
+          </div>
+          <p class="desc">المحور المركزي لأنشطة البحث والابتكار في قطاعات البيئة والمياه والزراعة، ضمن منظومة منصة نما وأهداف رؤية 2030.</p>
+        </div>
+        <div>
+          <h6>روابط سريعة</h6>
+          <div class="footer-links">
+            <a href="Index.html">الرئيسية</a>
+            <a href="Index.html?view=services">برامج الابتكار</a>
+            <a href="Index.html?view=our-services">خدماتنا</a>
+            <a href="Index.html?view=publications">منشورات وتقارير</a>
+            <a href="Index.html?view=my-requests">طلباتي</a>
+            <a href="https://naama.sa/" target="_blank" rel="noreferrer">منصة نما</a>
+          </div>
+        </div>
+        <div>
+          <h6>الدعم</h6>
+          <p class="support-line"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" style="vertical-align:-2px;margin-left:4px"><path d="M8 1a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v6a2.5 2.5 0 0 1-2.5 2.5H9.366a1 1 0 0 1-.866.5h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 .866.5H11.5A1.5 1.5 0 0 0 13 12h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1V6a5 5 0 0 0-5-5z"/></svg> الرقم الموحد <strong>939</strong></p>
+          <p class="support-line"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" style="vertical-align:-2px;margin-left:4px"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/></svg> ri-support@mewa.gov.sa</p>
+        </div>
+      </div>
+      <hr />
+      <div class="site-footer__bottom">
+        <span>© جميع الحقوق محفوظة · وزارة البيئة والمياه والزراعة</span>
+        <span>الإصدار التجريبي · متوافق مع النفاذ الموحد</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+    <script>try { localStorage.setItem("safta.lang", "ar"); } catch (e) {}</script>
+  <script src="agency-reports/assets/safta/js/i18n.js"></script>
+  <script src="agency-reports/assets/safta/js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (typeof window.SAFTA_setLang === "function") window.SAFTA_setLang("ar");
+      var sw = document.querySelector(".lang-switch");
+      if (sw) {
+        sw.addEventListener("click", function (e) {
+          e.preventDefault();
+          if (typeof window.SAFTA_setLang === "function") {
+            window.SAFTA_setLang(document.documentElement.lang === "ar" ? "en" : "ar");
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

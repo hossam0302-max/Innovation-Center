@@ -1,0 +1,791 @@
+/* Experimental3 chrome + container fixes */
+:root {
+  --mewa-green: #1b8354;
+  --mewa-dark-green: #074d31;
+  --mewa-forest: #14573a;
+  --mewa-light-green: #88d8ad;
+  --mewa-mint: #f3fcf6;
+  --mewa-accent: #dba102;
+  --mewa-govbar: #00283e;
+  --mewa-text: #161616;
+  --mewa-muted: #384250;
+  --mewa-border: #d2d6db;
+  --mewa-border-soft: #e5e7eb;
+  --mewa-white: #ffffff;
+  --header-h: 88px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+.exp3-body {
+  margin: 0;
+  font-family: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+  color: var(--mewa-text);
+  background: var(--mewa-white);
+  line-height: 1.7;
+  overflow-x: clip;
+}
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; height: auto; }
+
+.exp3-body .container {
+  display: block;
+  height: auto;
+  align-items: initial;
+  position: relative;
+  max-width: 1140px;
+}
+@media (min-width: 576px) { .exp3-body .container { max-width: 540px; } }
+@media (min-width: 768px) { .exp3-body .container { max-width: 720px; } }
+@media (min-width: 992px) { .exp3-body .container { max-width: 960px; } }
+@media (min-width: 1200px) { .exp3-body .container { max-width: 1140px; } }
+
+/* عزل ترويسة المنصة عن قيود .container الخاصة بالصفحة */
+.exp3-body .platform-top .container {
+  max-width: 1140px !important;
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 12px;
+  display: block !important;
+  height: auto !important;
+  align-items: initial !important;
+}
+.exp3-body .platform-top .gov-bar > .container {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 0.5rem;
+}
+@media (min-width: 1400px) {
+  .exp3-body .platform-top .container {
+    max-width: 1320px !important;
+  }
+}
+.exp3-body .platform-top a {
+  text-decoration: none;
+}
+.exp3-body .platform-top .site-header {
+  background: #fff !important;
+  border-bottom: 1px solid #e4ecef !important;
+}
+
+.regulatorySandbox .hero > .container {
+  display: flex !important;
+  height: 100% !important;
+  align-items: center !important;
+}
+
+.exp3-govbar {
+  background: var(--mewa-govbar);
+  color: #fff;
+  font-size: 0.8125rem;
+  padding: 0.55rem 0;
+}
+.exp3-govbar__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.25rem;
+}
+.exp3-govbar__right, .exp3-govbar__left {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+}
+.exp3-govbar__badge {
+  display: inline-flex;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  background: var(--mewa-green);
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+}
+.exp3-govbar a { color: #88d8ad; }
+
+.exp3-utility {
+  background: #fff;
+  border-bottom: 1px solid var(--mewa-border-soft);
+  font-size: 0.8125rem;
+}
+.exp3-utility__inner {
+  min-height: 44px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+.exp3-utility__tools {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.85rem;
+  color: var(--mewa-dark-green);
+}
+.exp3-utility__tools a,
+.exp3-utility__tools button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.exp3-utility__tools a:hover,
+.exp3-utility__tools button:hover { color: var(--mewa-green); }
+.exp3-utility__hotline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--mewa-muted);
+}
+.exp3-utility__hotline strong {
+  color: var(--mewa-green);
+  font-size: 1.05rem;
+}
+
+.exp3-page-title {
+  --ps-green-deep: #0B5D42;
+  --ps-green: #12805A;
+  --ps-ink-soft: #4B5C54;
+  --ps-paper-alt: #F4F1E9;
+  --ps-line: #E3E0D2;
+  --ps-white: #FFFFFF;
+  background: var(--ps-paper-alt);
+  border-bottom: 1px solid var(--ps-line);
+  padding: 44px 0 34px;
+  min-height: 220px;
+  box-sizing: border-box;
+}
+.exp3-page-title .container {
+  max-width: 1180px;
+}
+.exp3-page-hero-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  margin-bottom: 10px;
+}
+.exp3-breadcrumb {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--ps-ink-soft);
+}
+.exp3-breadcrumb a {
+  color: var(--ps-green-deep);
+  font-weight: 700;
+  text-decoration: none;
+}
+.exp3-breadcrumb a:hover { text-decoration: underline; }
+.exp3-page-title h1 {
+  margin: 0;
+  color: var(--ps-green-deep);
+  font-size: 1.9rem;
+  line-height: 1.35;
+  font-weight: 800;
+  text-align: start;
+}
+.exp3-page-intro {
+  color: var(--ps-ink-soft);
+  margin: 8px 0 0;
+  max-width: 60ch;
+  line-height: 1.75;
+  font-size: 0.98rem;
+}
+.exp3-page-intro--spacer {
+  visibility: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+.exp3-back-services {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-shrink: 0;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.82rem;
+  border: 1.5px solid var(--ps-line);
+  background: var(--ps-white);
+  color: var(--ps-green-deep);
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(16, 40, 30, 0.06);
+  white-space: nowrap;
+}
+.exp3-back-services:hover {
+  border-color: var(--ps-green);
+  color: var(--ps-green);
+}
+@media (max-width: 767.98px) {
+  .exp3-page-title {
+    padding: 28px 0 24px;
+    min-height: 0;
+  }
+  .exp3-page-title h1 { font-size: 1.35rem; }
+  .exp3-back-services { font-size: 0.78rem; padding: 7px 12px; }
+}
+
+.exp3-header {
+  background: #fff;
+  border-bottom: 1px solid var(--mewa-border-soft);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+}
+.exp3-header__inner {
+  min-height: var(--header-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+.exp3-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  color: var(--mewa-dark-green);
+  flex-shrink: 0;
+}
+.exp3-brand img { width: 64px; height: 64px; object-fit: contain; }
+.exp3-brand strong { display: block; font-size: 1rem; font-weight: 700; line-height: 1.35; }
+.exp3-brand small { display: block; color: var(--mewa-muted); font-size: 0.8rem; margin-top: 0.15rem; }
+.exp3-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.2rem 1.4rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--mewa-dark-green);
+}
+.exp3-nav a { padding: 0.4rem 0; border-bottom: 2px solid transparent; }
+.exp3-nav a:hover,
+.exp3-nav a.is-active { color: var(--mewa-green); border-bottom-color: var(--mewa-green); }
+.exp3-header__actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-shrink: 0;
+}
+.exp3-icon-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--mewa-border-soft);
+  border-radius: 0.5rem;
+  background: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mewa-dark-green);
+}
+.exp3-icon-btn:hover { border-color: var(--mewa-green); color: var(--mewa-green); }
+.exp3-icon-btn svg { width: 1.15rem; height: 1.15rem; }
+.exp3-lang {
+  font-weight: 700;
+  color: var(--mewa-dark-green);
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.4rem;
+}
+.exp3-lang:hover { background: var(--mewa-mint); color: var(--mewa-green); }
+.exp3-menu-btn {
+  display: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--mewa-border-soft);
+  border-radius: 0.5rem;
+  background: #fff;
+  padding: 0.55rem;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.exp3-menu-btn span {
+  display: block;
+  height: 2px;
+  background: var(--mewa-dark-green);
+  border-radius: 2px;
+}
+
+a.card-objectives {
+  display: block;
+  color: inherit;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+a.card-objectives:hover { border-color: var(--mewa-green); }
+
+.regulatorySandbox .faq .title-section span { color: #1b8354; }
+
+.exp3-feedback {
+  background: #f9fafb;
+  padding: 2.5rem 0 3rem;
+  border-top: 1px solid var(--mewa-border-soft);
+}
+.exp3-feedback__box {
+  background: #fff;
+  border: 1px solid var(--mewa-border);
+  border-radius: 1rem;
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.exp3-feedback__box h2 {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--mewa-text);
+}
+.exp3-feedback__actions {
+  display: inline-flex;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+.exp3-feedback__actions button {
+  min-width: 5.5rem;
+  height: 40px;
+  border-radius: 0.5rem;
+  border: 1px solid var(--mewa-border);
+  background: #fff;
+  font-weight: 700;
+  color: var(--mewa-dark-green);
+  cursor: pointer;
+}
+.exp3-feedback__actions button.is-active,
+.exp3-feedback__actions button:hover {
+  background: var(--mewa-green);
+  border-color: var(--mewa-green);
+  color: #fff;
+}
+.exp3-feedback__meta {
+  margin: 0;
+  color: var(--mewa-muted);
+  font-size: 0.85rem;
+}
+.exp3-feedback__form {
+  display: none;
+  text-align: start;
+  margin-top: 1.25rem;
+  border-top: 1px solid var(--mewa-border-soft);
+  padding-top: 1.25rem;
+}
+.exp3-feedback__form.is-open { display: block; }
+.exp3-feedback__form label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.55rem;
+  font-size: 0.9rem;
+  color: var(--mewa-muted);
+}
+.exp3-feedback__form textarea {
+  width: 100%;
+  min-height: 90px;
+  border: 1px solid var(--mewa-border);
+  border-radius: 0.5rem;
+  padding: 0.65rem 0.75rem;
+  font: inherit;
+  margin: 0.75rem 0;
+}
+.exp3-feedback__gender {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Old MEWA dark footer replaced by .site-footer in Experimental3.html */
+
+@media (max-width: 991px) {
+  .exp3-menu-btn { display: inline-flex; }
+  .exp3-nav {
+    display: none;
+    position: absolute;
+    inset-inline: 0;
+    top: 100%;
+    background: #fff;
+    border-bottom: 1px solid var(--mewa-border-soft);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.75rem 1rem 1rem;
+    gap: 0;
+  }
+  .exp3-nav.is-open { display: flex; }
+  .exp3-nav a { padding: 0.7rem 0; border-bottom: 1px solid var(--mewa-border-soft); }
+  .exp3-header__inner { min-height: 72px; position: relative; }
+}
+@media (max-width: 575px) {
+  .exp3-brand small { display: none; }
+}
+
+
+/* Hero: user-provided aerial background + sizes matching reference */
+.regulatorySandbox .hero {
+  background: url("./hero-user.jpg") center / cover no-repeat !important;
+  height: 438px !important;
+  min-height: 438px !important;
+  max-height: 438px !important;
+  padding-block: 0 !important;
+}
+.regulatorySandbox .hero > .container {
+  justify-content: center !important;
+  height: 100% !important;
+}
+.regulatorySandbox .hero .hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 960px;
+  margin-inline: auto;
+  text-align: center;
+}
+.regulatorySandbox .hero > .container .hero-content .title {
+  font-size: 2.5rem !important;
+  line-height: 1.4 !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+}
+.regulatorySandbox .hero > .container .hero-content p {
+  font-size: 1.125rem !important;
+  line-height: 1.7 !important;
+  font-weight: 400 !important;
+  color: #fff !important;
+  margin-block-start: 0.85rem;
+  margin-block-end: 1.25rem;
+}
+@media (max-width: 992px) {
+  .regulatorySandbox .hero > .container .hero-content .title {
+    font-size: 1.5rem !important;
+    line-height: 1.45 !important;
+  }
+  .regulatorySandbox .hero > .container .hero-content p {
+    font-size: 1rem !important;
+  }
+}
+
+/* Section titles centered like MEWA */
+.regulatorySandbox .title-section,
+.regulatorySandbox .title-section .title,
+.regulatorySandbox .title-section p,
+.regulatorySandbox .title-section-iner,
+.regulatorySandbox .title-section-iner .title,
+.regulatorySandbox .title-section-iner p {
+  text-align: center;
+}
+
+/* About (abut): compact typography matching reference */
+.regulatorySandbox .abut {
+  padding-block: 2rem !important;
+}
+.regulatorySandbox .abut .brief {
+  font-size: 1.35rem !important;
+  line-height: 1.5 !important;
+  font-weight: 700 !important;
+  margin-block-start: 0 !important;
+  margin-block-end: 0.85rem !important;
+  padding-inline: 8% !important;
+}
+.regulatorySandbox .abut .brief-short {
+  font-size: 0.95rem !important;
+  line-height: 1.7 !important;
+  font-weight: 400 !important;
+  margin-block-end: 0.55rem !important;
+  padding-inline: 10% !important;
+  max-width: 900px;
+}
+.regulatorySandbox .abut .brief-short + .brief-short {
+  margin-block-end: 0 !important;
+}
+.regulatorySandbox .abut .brief-short a {
+  color: #fff !important;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+@media (max-width: 768px) {
+  .regulatorySandbox .abut .brief {
+    font-size: 1.15rem !important;
+    padding-inline: 12px !important;
+  }
+  .regulatorySandbox .abut .brief-short {
+    font-size: 0.875rem !important;
+    padding-inline: 12px !important;
+  }
+}
+
+/* FAQ — official .faq styles (not scoped under regulatorySandbox in MEWA CSS) */
+.faq {
+  padding-block: 81px;
+  background: #fff;
+}
+.faq .title-section {
+  margin-block-end: 2.5rem !important;
+  text-align: center;
+  font-size: 1.875rem;
+  font-weight: 600;
+  line-height: 38px;
+  color: #1f2a37;
+}
+.faq .title-section span { color: #1b8354; }
+.faq .accordion .accordion-item {
+  border: 0;
+  border-bottom: 0;
+}
+.faq .accordion .accordion-item .accordion-header { margin-bottom: 0; }
+.faq .accordion .accordion-item .accordion-button {
+  border-radius: 0;
+  padding: 1rem;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+  color: #161616;
+  border-bottom: 1px solid #d2d6db;
+  box-shadow: none;
+  text-align: start;
+}
+.faq .accordion .accordion-item .accordion-button:not(.collapsed) {
+  color: #161616;
+  background-color: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.faq .accordion .accordion-item .accordion-button:hover { background: #f3f4f6; }
+.faq .accordion .accordion-item .accordion-button:active { background: #e5e7eb; }
+.faq .accordion .accordion-item .accordion-button:focus {
+  box-shadow: none;
+  border-color: transparent;
+}
+.faq .accordion .accordion-item .accordion-body {
+  text-align: start;
+  color: #384250;
+  font-size: 1rem;
+  line-height: 1.7;
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+/* News cards sit start-aligned in MEWA; keep row natural */
+.regulatorySandbox .latestNews .card-objectives .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* ===== Process section: match MEWA reference exactly ===== */
+.regulatorySandbox .process .row {
+  --bs-gutter-x: 1rem;
+}
+.regulatorySandbox .process .row > [class*="col-"] {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Timeline icons + green segment + gray connector */
+.regulatorySandbox .process .steps-icon {
+  position: relative;
+  margin-block-end: 1.25rem;
+  padding-block-end: 1.75rem;
+  overflow: visible;
+}
+.regulatorySandbox .process .steps-icon img {
+  width: 50px;
+  height: 50px;
+  display: block;
+  object-fit: contain;
+}
+.regulatorySandbox .process .steps-icon:before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  bottom: 0;
+  width: 58px;
+  height: 6px;
+  background: #61b97d;
+  z-index: 2;
+  border-radius: 0;
+}
+.regulatorySandbox .process .steps-icon:after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  bottom: 1px;
+  width: auto;
+  height: 3px;
+  background: #d2d6db;
+  z-index: 1;
+}
+/* Bridge the Bootstrap gutter so the gray timeline reads continuous */
+.regulatorySandbox .process .row > [class*="col-"]:not(:last-child) .steps-icon:after {
+  inset-inline-end: auto;
+  width: calc(100% + 1rem);
+}
+
+/* End chevron (<<) on last step */
+.regulatorySandbox .process img.Completion2 {
+  position: absolute;
+  top: 58px;
+  inset-inline-end: -2px;
+  width: auto;
+  height: auto;
+  z-index: 3;
+  pointer-events: none;
+}
+html[dir="rtl"] .regulatorySandbox .process img.Completion2 {
+  transform: rotate(180deg);
+}
+
+/* Title + duration badge on one row */
+.regulatorySandbox .process .stes-title {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  justify-content: flex-start;
+  gap: 0.4rem !important;
+  margin-block: 0 1rem !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: 1.35 !important;
+  color: inherit !important;
+  min-width: 0;
+  min-height: 2.25rem;
+  flex: 0 0 auto;
+}
+.regulatorySandbox .process .stes-title .step-name {
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  color: #1f2a37 !important;
+  line-height: 1.35 !important;
+  white-space: nowrap !important;
+  flex: 0 0 auto;
+}
+.regulatorySandbox .process .stes-title .tag,
+.regulatorySandbox .process .tag.tag-neutral.tag-small {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  margin: 0 !important;
+  width: fit-content !important;
+  max-width: none;
+  flex: 0 0 auto;
+  background: #fff !important;
+  color: #6c737f !important;
+  border: 1px solid #d2d6db !important;
+  border-radius: 0.35rem !important;
+  padding: 0.25rem 0.45rem !important;
+  font-size: 0.7rem !important;
+  font-weight: 400 !important;
+  line-height: 1.3 !important;
+  white-space: nowrap !important;
+}
+
+/* Description cards — equal height via column flex stretch */
+.regulatorySandbox .process .row > [class*="col-"] > .card-objectives {
+  flex: 1 1 auto;
+  align-self: stretch;
+  width: 100%;
+  height: auto !important;
+  min-height: 0 !important;
+  margin-block-start: 0;
+  display: flex;
+  flex-direction: column;
+  background: #fff !important;
+  border: 1px solid #d2d6db !important;
+  border-radius: 1rem !important;
+  box-shadow: none !important;
+  padding: 1rem 1.1rem !important;
+}
+.regulatorySandbox .process .card-objectives p {
+  margin: 0 !important;
+  flex: 1 1 auto;
+  font-size: 0.95rem !important;
+  font-weight: 400 !important;
+  line-height: 1.7 !important;
+  color: #384250 !important;
+  text-align: start;
+}
+
+@media (max-width: 991px) {
+  .regulatorySandbox .process .stes-title {
+    flex-wrap: wrap !important;
+  }
+  .regulatorySandbox .process .stes-title .tag {
+    white-space: normal !important;
+  }
+  .regulatorySandbox .process .steps-icon:after {
+    display: none;
+  }
+  .regulatorySandbox .process img.Completion2 {
+    display: none;
+  }
+  .regulatorySandbox .process .card-objectives {
+    flex: 0 1 auto;
+  }
+}
+
+/* Apply now card icons sizing */
+.regulatorySandbox .applyNow .card-objectives {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 120px;
+}
+
+/* Who can apply: compact card height (icon + title only) */
+.regulatorySandbox .eligibility .row.mb-5 .card-objectives {
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 0.85rem 1rem 0.95rem !important;
+}
+.regulatorySandbox .eligibility .row.mb-5 .card-objectives .icons {
+  width: 40px;
+  height: 40px;
+  padding: 0.55rem;
+}
+.regulatorySandbox .eligibility .row.mb-5 .card-objectives .title {
+  margin-block: 0.65rem 0 !important;
+  font-size: 1rem !important;
+  line-height: 1.4 !important;
+}
+
+/* Eligibility criteria (6 cards): equal height */
+.regulatorySandbox .eligibility .row.g-3:not(.mb-5) > [class*="col-"] {
+  display: flex;
+}
+.regulatorySandbox .eligibility .row.g-3:not(.mb-5) .card-objectives {
+  height: 100% !important;
+  width: 100%;
+  padding: 0.85rem 1rem 1rem !important;
+  display: flex;
+  flex-direction: column;
+}
+.regulatorySandbox .eligibility .row.g-3:not(.mb-5) .card-objectives .icons {
+  width: 40px;
+  height: 40px;
+  padding: 0.55rem;
+  flex-shrink: 0;
+}
+.regulatorySandbox .eligibility .row.g-3:not(.mb-5) .card-objectives .title {
+  margin-block: 0.55rem 0.35rem !important;
+  font-size: 1rem !important;
+  line-height: 1.35 !important;
+}
+.regulatorySandbox .eligibility .row.g-3:not(.mb-5) .card-objectives p {
+  margin: 0 !important;
+  font-size: 0.875rem !important;
+  line-height: 1.55 !important;
+  color: #384250;
+  flex: 1 1 auto;
+}

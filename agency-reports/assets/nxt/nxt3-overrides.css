@@ -1,0 +1,364 @@
+/* NXT3 standalone overrides — visual fidelity layer */
+:root {
+  --primary-color: #1b8354;
+  --secondary-color: #074d31;
+  --accent-color: #88d8ad;
+  --mint-soft: #b8eacb;
+  --mint-bg: #f3fcf6;
+  --text-primary: #161616;
+  --text-secondary: #4b5563;
+  --background: #ffffff;
+  --surface: #ffffff;
+  --border-color: #e5e7eb;
+  --header-h: 72px;
+}
+
+* { box-sizing: border-box; }
+
+.nxt3-body {
+  margin: 0;
+  font-family: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+  color: var(--text-primary);
+  background: var(--background);
+  line-height: 1.7;
+  overflow-x: clip;
+}
+
+.container {
+  width: min(1140px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+/* عزل ترويسة المنصة عن قيود .container الخاصة بالصفحة */
+.nxt3-body .platform-top .container {
+  max-width: 1140px !important;
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 12px;
+  display: block !important;
+  height: auto !important;
+  align-items: initial !important;
+}
+@media (min-width: 1400px) {
+  .nxt3-body .platform-top .container {
+    max-width: 1320px !important;
+  }
+}
+.nxt3-body .platform-top a {
+  text-decoration: none;
+}
+.nxt3-body .platform-top .site-header {
+  background: #fff !important;
+  border-bottom: 1px solid #e4ecef !important;
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+/* Legacy NXT chrome (removed from markup; kept for safety) */
+.nxt3-govbar {
+  background: #00283e;
+  color: #fff;
+  font-size: 0.82rem;
+  padding: 0.45rem 0;
+}
+.nxt3-govbar__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: center;
+}
+.nxt3-govbar__right {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+.nxt3-govbar__badge {
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 999px;
+  background: #1b8354;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+}
+
+/* Header */
+.nxt3-header {
+  background: #fff;
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.nxt3-header__inner {
+  min-height: var(--header-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.nxt3-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--secondary-color);
+}
+.nxt3-brand img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+.nxt3-brand strong {
+  display: block;
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+.nxt3-brand small {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+}
+.nxt3-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+.nxt3-nav a:hover,
+.nxt3-nav a.is-active {
+  color: var(--primary-color);
+}
+.nxt3-header__actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.nxt3-lang {
+  font-weight: 700;
+  color: var(--secondary-color);
+}
+.nxt3-header-cta {
+  background: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: #fff !important;
+  border-radius: 0.5rem;
+  padding: 0.45rem 0.95rem;
+  font-weight: 700;
+}
+
+/* Direction helpers from MEWA */
+.d-none-ar { display: none !important; }
+[dir="rtl"] .d-none-en { display: none !important; }
+[dir="rtl"] .d-none-ar { display: inline-block !important; }
+
+/* Buttons fallback */
+.nxt-InnovationForum .btn-secondary-solid,
+.btn-secondary-solid {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #fff;
+  color: var(--secondary-color);
+  border: 0;
+  border-radius: 0.5rem;
+  padding: 0.7rem 1.2rem;
+  font-weight: 700;
+  width: fit-content;
+}
+.nxt-InnovationForum .btn-primary,
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--primary-color);
+  color: #fff;
+  border: 0;
+  border-radius: 0.5rem;
+  padding: 0.7rem 1.2rem;
+  font-weight: 700;
+}
+.btn .icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Ensure title hierarchy when portal CSS is incomplete */
+.nxt-InnovationForum .title-section,
+.NonProfitAdministration .title-section,
+.damChallenge .title-section {
+  color: #161616;
+  font-weight: 600;
+  margin-block-end: 56px;
+  position: relative;
+  text-align: center;
+}
+.nxt-InnovationForum .title-section span,
+.NonProfitAdministration .title-section span {
+  color: var(--primary-color);
+}
+.nxt-InnovationForum .title-section p,
+.NonProfitAdministration .title-section p,
+.damChallenge .title-section p {
+  margin-block-start: 32px;
+  font-size: 18px;
+  color: #384250;
+  font-weight: 400;
+  line-height: 28px;
+  text-align: center;
+}
+@media (min-width: 992px) {
+  .nxt-InnovationForum .title-section,
+  .NonProfitAdministration .title-section {
+    font-size: 36px;
+    line-height: 44px;
+  }
+}
+@media (max-width: 991px) {
+  .nxt-InnovationForum .title-section,
+  .NonProfitAdministration .title-section {
+    font-size: 20px;
+    line-height: 34px;
+    margin-block-end: 24px;
+  }
+}
+
+/* Section rhythm from MEWA custom-pages */
+.nxt-InnovationForum .section {
+  padding-block: 81px;
+}
+.mb-40 {
+  margin-block-end: 2.5rem;
+}
+
+/* Cards: match official NXT forum card look */
+.nxt-InnovationForum .card {
+  text-align: center;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: none;
+}
+.nxt-InnovationForum .card .card-body.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.nxt-InnovationForum .card .icons {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.nxt-InnovationForum .card .icons i {
+  font-size: 24px;
+  color: #098557;
+}
+.nxt-InnovationForum .card-title {
+  color: #074d31;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+/* FAQ accordion */
+.NonProfitAdministration .faq {
+  padding-block: 4rem;
+}
+.NonProfitAdministration .accordion-item {
+  border: 0;
+  border-bottom: 1px solid #e5e7eb;
+  background: transparent;
+  border-radius: 0;
+  margin-bottom: 0;
+  overflow: hidden;
+}
+.NonProfitAdministration .accordion-button {
+  font-weight: 700;
+  color: var(--secondary-color);
+  box-shadow: none;
+  background: transparent;
+}
+.NonProfitAdministration .accordion-button:not(.collapsed) {
+  background: transparent;
+  color: var(--primary-color);
+}
+.NonProfitAdministration .accordion-button::after {
+  margin-right: auto;
+  margin-left: 0;
+}
+
+/* Contact CTA: title + button side-by-side like reference */
+.nxt-InnovationForum .forms {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.nxt-InnovationForum .forms .title-section {
+  margin-block-end: 0 !important;
+  flex: 1 1 280px;
+}
+.nxt-InnovationForum .forms > .btn-primary {
+  margin-inline-start: auto;
+  flex: 0 0 auto;
+}
+.nxt-InnovationForum .forms img.maskLogo {
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+/* Old NXT dark footer replaced by .site-footer in NXT3.html */
+
+.nxt3-menu-btn {
+  display: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  background: #fff;
+  padding: 0.55rem;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.nxt3-menu-btn span {
+  display: block;
+  height: 2px;
+  background: var(--secondary-color);
+  border-radius: 2px;
+}
+
+@media (max-width: 992px) {
+  .nxt3-menu-btn { display: inline-flex; }
+  .nxt3-nav {
+    display: none;
+    position: absolute;
+    top: calc(var(--header-h) + 2.1rem);
+    inset-inline: 0;
+    background: #fff;
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 1.25rem 1.25rem;
+    flex-direction: column;
+    gap: 0.85rem;
+    z-index: 60;
+  }
+  .nxt3-nav.is-open { display: flex; }
+  .nxt3-header { position: sticky; }
+  .nxt3-header__inner {
+    min-height: 64px;
+    position: relative;
+  }
+  .nxt-InnovationForum .forms {
+    padding-inline: 1.25rem !important;
+    padding-block: 2rem !important;
+  }
+}
+@media (max-width: 768px) {
+  .nxt3-govbar__left { display: none; }
+  .nxt3-brand small { display: none; }
+  .nxt3-header-cta { display: none !important; }
+}

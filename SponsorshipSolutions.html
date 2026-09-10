@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>نموذج طلب الرعاية والتوعية للحلول الابتكارية | MEWA</title>
+  <meta name="description" content="نموذج طلب الرعاية والتوعية للحلول الابتكارية — وكالة البحث والابتكار بوزارة البيئة والمياه والزراعة" />
+  <meta name="theme-color" content="#074d31" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+  <style>
+    :root {
+      --primary-green: #1b8354;
+      --dark-green: #074d31;
+      --mint-soft: #f3fcf6;
+      --mint-border: #d1fae5;
+      --text-color: #1f2a37;
+      --text-muted: #384250;
+      --background-color: #f7f8f9;
+      --border-color: #d2d6db;
+      --danger: #b42318;
+      --naama-primary: #003957;
+      --naama-primary-dark: #00283e;
+      --naama-accent: #49aa8b;
+      --naama-accent-dark: #378a6f;
+      --naama-accent-soft: #e8f6f1;
+      --naama-gold: #e8a34f;
+      --naama-muted: #62717d;
+      --naama-border: #e4ecef;
+      --ps-green-deep: #0B5D42;
+      --ps-line: #d8d2c4;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body.spon-page {
+      margin: 0;
+      font-family: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+      color: var(--text-color);
+      background: var(--background-color);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    body.spon-page a { color: inherit; text-decoration: none; }
+
+    .platform-top { position: relative; z-index: 100; }
+    .gov-bar { background: var(--naama-primary-dark); color: #fff; font-size: 0.82rem; padding: 0.45rem 0; }
+    .gov-bar .verified { color: #7dd3a8; }
+    .site-header { background: #fff; border-bottom: 1px solid var(--naama-border); box-shadow: 0 1px 0 rgba(16,24,40,.04); }
+    .brand-link { display: inline-flex; align-items: center; gap: 0.75rem; }
+    .brand-mark {
+      width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0; position: relative;
+      background: radial-gradient(circle at 30% 30%, var(--naama-gold) 0 22%, transparent 23%),
+        linear-gradient(145deg, var(--naama-accent) 0%, var(--naama-primary) 100%);
+    }
+    .brand-mark::after {
+      content: ""; position: absolute; inset: 55% 18% 18% 18%;
+      border-radius: 2px 2px 6px 6px; background: rgba(255,255,255,.35);
+    }
+    .brand-text { display: flex; flex-direction: column; line-height: 1.25; }
+    .brand-text strong { font-size: 0.98rem; color: var(--naama-primary); }
+    .brand-text small { font-size: 0.75rem; color: #62717d; }
+    .nav-pill {
+      display: inline-flex; align-items: center; padding: 0.4rem 0.75rem; border-radius: 999px;
+      font-size: 0.86rem; font-weight: 600; color: var(--naama-primary); white-space: nowrap;
+    }
+    .nav-pill:hover, .nav-pill.active { background: var(--naama-accent-soft); color: var(--dark-green); }
+    .btn-login {
+      display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 0.9rem;
+      border-radius: 999px; background: var(--naama-primary); color: #fff !important; font-size: 0.86rem; font-weight: 600;
+    }
+    .btn-login:hover { background: var(--naama-primary-dark); color: #fff !important; }
+    .btn-menu-toggle {
+      display: none; border: 1px solid var(--naama-border); background: #fff; width: 42px; height: 42px;
+      border-radius: 10px; align-items: center; justify-content: center; font-size: 1.35rem; color: var(--naama-primary);
+    }
+    #mobileNav { display: none; flex-wrap: wrap; gap: 0.35rem; padding-top: 0.75rem; }
+    #mobileNav.is-open { display: flex; }
+    .header-search { display: none; align-items: center; gap: 0.4rem; flex: 1; min-width: 220px; max-width: 420px; }
+    .h-search-input {
+      flex: 1; display: flex; align-items: center; gap: 0.4rem; border: 1px solid var(--naama-border);
+      border-radius: 999px; padding: 0.35rem 0.75rem; background: #fff;
+    }
+    .h-search-input input { border: 0; outline: 0; width: 100%; font: inherit; background: transparent; }
+    .h-search-select, .h-search-reset {
+      border: 1px solid var(--naama-border); border-radius: 999px; background: #fff;
+      padding: 0.35rem 0.7rem; font: inherit; font-size: 0.8rem; color: var(--naama-primary);
+    }
+    @media (min-width: 992px) { .header-search { display: flex; } .btn-menu-toggle { display: none !important; } }
+    @media (max-width: 991.98px) { .btn-menu-toggle { display: inline-flex; } #mainNav { display: none !important; } }
+
+    .exp3-page-title {
+      background: linear-gradient(180deg, #eef7f2 0%, #f7f8f9 100%);
+      border-bottom: 1px solid var(--naama-border); padding: 1.15rem 0 1.25rem;
+    }
+    .exp3-page-hero-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.75rem; margin-bottom: 0.65rem; }
+    .exp3-breadcrumb { font-size: 0.88rem; color: var(--text-muted); }
+    .exp3-breadcrumb a { color: var(--ps-green-deep); font-weight: 600; }
+    .exp3-back-services {
+      display: inline-flex; align-items: center; gap: 0.35rem; padding: 7px 14px;
+      border: 1.5px solid var(--ps-line); border-radius: 999px; background: #fff;
+      color: var(--ps-green-deep); font-size: 0.82rem; font-weight: 600;
+    }
+    .exp3-page-title h1 {
+      margin: 0; font-size: clamp(1.35rem, 2.4vw, 1.75rem); font-weight: 700; color: var(--ps-green-deep);
+    }
+
+    .spon-main { padding: 2rem 0 3.5rem; }
+    .spon-wrapper {
+      background: #fff; padding: 1.5rem 1.35rem 1.75rem; border-radius: 1rem;
+      border: 1px solid var(--border-color); box-shadow: 0 4px 16px rgba(16,24,40,.06);
+    }
+    .form-page-title {
+      margin: 0 0 0.85rem; font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 700;
+      color: var(--dark-green); text-align: center;
+    }
+    .form-intro { margin: 0 0 0.85rem; font-size: 0.98rem; color: var(--text-muted); line-height: 1.85; text-align: center; }
+    .form-note {
+      margin: 0 0 1.35rem; padding: 0.75rem 1rem; background: var(--mint-soft);
+      border: 1px solid var(--mint-border); border-radius: 0.5rem; color: var(--dark-green);
+      font-size: 0.92rem; font-weight: 600; text-align: center;
+    }
+
+    .spon-draft-banner {
+      display: none; margin: 0 0 1.25rem; padding: 1rem 1.1rem; border-radius: 0.65rem;
+      background: #fff8eb; border: 1px solid #f0d9a8; color: #7a4e0c;
+    }
+    .spon-draft-banner.is-visible { display: block; }
+    .spon-draft-banner p { margin: 0 0 0.75rem; font-weight: 600; }
+    .spon-draft-banner .actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+    .spon-stepper {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; margin-bottom: 1.5rem;
+      list-style: none; padding: 0;
+    }
+    .spon-stepper li {
+      text-align: center; padding: 0.75rem 0.4rem; border: 1px solid var(--border-color);
+      border-radius: 0.65rem; background: #fafbfc; font-size: 0.78rem; font-weight: 600;
+      color: var(--text-muted); cursor: pointer;
+    }
+    .spon-step-num {
+      display: inline-flex; width: 1.7rem; height: 1.7rem; border-radius: 50%;
+      align-items: center; justify-content: center; margin-bottom: 0.35rem;
+      background: #e8edf1; color: var(--naama-primary); font-weight: 700;
+    }
+    .spon-stepper li.is-active { border-color: var(--primary-green); background: var(--mint-soft); color: var(--dark-green); }
+    .spon-stepper li.is-active .spon-step-num { background: var(--primary-green); color: #fff; }
+    .spon-stepper li.is-done { border-color: #b8eacb; color: var(--dark-green); }
+    .spon-stepper li.is-done .spon-step-num { background: #b8eacb; color: var(--dark-green); }
+    @media (max-width: 767.98px) { .spon-stepper { grid-template-columns: 1fr 1fr; } }
+
+    .spon-panel { display: none; }
+    .spon-panel.is-active { display: block; }
+    .form-section__head {
+      background: var(--mint-soft); border: 1px solid var(--mint-border); border-radius: 0.5rem;
+      padding: 0.75rem 1rem; margin-bottom: 1.1rem; font-size: 1.05rem; font-weight: 700; color: var(--dark-green);
+    }
+    .field { margin-bottom: 1rem; }
+    .field label, .field .field-label {
+      display: block; font-size: 0.95rem; font-weight: 600; color: #1f2a37; margin-bottom: 0.4rem;
+    }
+    .field .req { color: var(--danger); }
+    .field-desc { display: block; margin: -0.15rem 0 0.55rem; font-size: 0.86rem; color: var(--naama-muted); font-weight: 500; line-height: 1.6; }
+    .field input[type="text"], .field input[type="email"], .field input[type="tel"],
+    .field input[type="url"], .field textarea, .field select {
+      width: 100%; min-height: 44px; padding: 0.55rem 0.85rem; border: 1px solid var(--border-color);
+      border-radius: 0.375rem; background: #fff; font-family: inherit; font-size: 0.95rem; color: var(--text-color);
+    }
+    .field select {
+      appearance: none;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='%23003957' d='M8 11L3 6h10z'/></svg>");
+      background-repeat: no-repeat; background-position: left 0.75rem center; background-size: 12px; padding-left: 2rem;
+    }
+    .field textarea { min-height: 120px; resize: vertical; }
+    .field textarea.tall { min-height: 160px; }
+    .field input:focus, .field textarea:focus, .field select:focus {
+      outline: 0; border-color: var(--primary-green); box-shadow: 0 0 0 0.2rem rgba(27,131,84,.18);
+    }
+    .field-error { display: none; color: var(--danger); font-size: 0.82rem; margin-top: 0.3rem; }
+    .field.is-invalid input, .field.is-invalid textarea, .field.is-invalid select { border-color: var(--danger); }
+    .field.is-invalid .field-error { display: block; }
+    .field.is-invalid .choice-grid, .field.is-invalid .check-row, .field.is-invalid .spon-ms,
+    .field.is-invalid .file-upload-card {
+      outline: 1px solid rgba(180,35,24,.35); border-radius: 8px; padding: 0.35rem;
+    }
+
+    .choice-grid { display: grid; gap: 0.55rem; }
+    @media (min-width: 768px) { .choice-grid.cols-2 { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 768px) { .choice-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; } }
+    .choice-item {
+      display: flex; align-items: flex-start; gap: 0.55rem; margin: 0; padding: 0.75rem 0.9rem;
+      border: 1.5px solid var(--border-color); border-radius: 0.55rem; background: #fff; cursor: pointer;
+      font-weight: 500; font-size: 0.92rem; line-height: 1.55;
+    }
+    .choice-item:hover { border-color: #b8eacb; background: #fbfefc; }
+    .choice-item:has(input:checked) {
+      border-color: var(--primary-green); background: var(--mint-soft);
+    }
+    .choice-item input { margin-top: 0.2rem; accent-color: var(--primary-green); width: 1.05rem; height: 1.05rem; flex-shrink: 0; }
+
+    .check-row {
+      display: flex; align-items: flex-start; gap: 0.65rem; margin-bottom: 0.85rem;
+      padding: 0.85rem 1rem; border: 1px solid var(--border-color); border-radius: 0.5rem; background: #fff;
+    }
+    .check-row input { margin-top: 0.3rem; accent-color: var(--primary-green); width: 1.1rem; height: 1.1rem; flex-shrink: 0; }
+    .check-row label { margin: 0; font-weight: 500; font-size: 0.95rem; line-height: 1.7; cursor: pointer; }
+    .consent-tag {
+      display: inline-block; margin-left: 0.35rem; padding: 0.1rem 0.55rem;
+      border-radius: 999px; background: var(--mint-soft); border: 1px solid var(--mint-border);
+      color: var(--dark-green); font-size: 0.78rem; font-weight: 700;
+    }
+
+    .conditional-field { display: none; margin-top: 0.75rem; }
+    .conditional-field.is-open { display: block; }
+
+    .spon-ms {
+      border: 1px solid var(--border-color); border-radius: 0.55rem; background: #fafbfc; padding: 0.75rem;
+    }
+    .spon-ms-search {
+      width: 100%; min-height: 42px; margin-bottom: 0.65rem; padding: 0.5rem 0.85rem;
+      border: 1px solid var(--border-color); border-radius: 0.375rem; font-family: inherit; font-size: 0.92rem;
+      background: #fff;
+    }
+    .spon-ms-search:focus {
+      outline: 0; border-color: var(--primary-green); box-shadow: 0 0 0 0.2rem rgba(27,131,84,.18);
+    }
+    .spon-ms-list {
+      max-height: 220px; overflow-y: auto; display: grid; gap: 0.35rem;
+      padding: 0.15rem; margin-bottom: 0.65rem;
+    }
+    .spon-ms-item {
+      display: flex; align-items: flex-start; gap: 0.55rem; margin: 0; padding: 0.55rem 0.7rem;
+      border: 1px solid transparent; border-radius: 0.4rem; background: #fff; cursor: pointer;
+      font-size: 0.9rem; font-weight: 500; line-height: 1.5;
+    }
+    .spon-ms-item:hover { border-color: #b8eacb; background: #fbfefc; }
+    .spon-ms-item:has(input:checked) { border-color: var(--primary-green); background: var(--mint-soft); }
+    .spon-ms-item input { margin-top: 0.15rem; accent-color: var(--primary-green); flex-shrink: 0; }
+    .spon-ms-item.is-hidden { display: none; }
+    .spon-ms-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; min-height: 1.5rem; }
+    .spon-ms-chip {
+      display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.25rem 0.55rem;
+      border-radius: 999px; background: var(--mint-soft); border: 1px solid var(--mint-border);
+      color: var(--dark-green); font-size: 0.78rem; font-weight: 600;
+    }
+    .spon-ms-chip button {
+      border: 0; background: transparent; color: var(--text-muted); cursor: pointer;
+      padding: 0; line-height: 1; font-size: 0.95rem;
+    }
+    .spon-ms-empty { font-size: 0.82rem; color: var(--naama-muted); }
+
+    .file-upload-card {
+      border: 1.5px dashed var(--border-color); background: #fafbfc; border-radius: 0.65rem; padding: 1.15rem;
+      transition: border-color .15s ease, background .15s ease;
+    }
+    .file-upload-card.is-dragover {
+      border-color: var(--primary-green); background: var(--mint-soft);
+    }
+    .file-drop-zone {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 0.45rem; text-align: center; padding: 0.75rem 0.5rem;
+    }
+    .file-drop-zone .drop-icon { font-size: 1.75rem; color: var(--primary-green); }
+    .file-drop-zone .drop-title { margin: 0; font-weight: 700; color: var(--dark-green); font-size: 0.95rem; }
+    .file-drop-zone .drop-sub { margin: 0; font-size: 0.84rem; color: var(--naama-muted); }
+    .file-upload-card .browse-btn {
+      display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.55rem 1.1rem;
+      border: 1px solid var(--border-color); border-radius: 0.375rem; background: var(--mint-soft);
+      color: var(--dark-green); font-weight: 600; cursor: pointer; font-family: inherit; font-size: 0.92rem;
+    }
+    .file-upload-card input[type="file"] { display: none; }
+    .file-list { margin: 0.65rem 0 0; padding: 0; list-style: none; display: grid; gap: 0.4rem; }
+    .file-list li {
+      display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; padding: 0.55rem 0.7rem;
+      border-radius: 0.4rem; background: #fff; border: 1px solid var(--naama-border); font-size: 0.86rem; color: var(--text-muted);
+    }
+    .file-list .fname { color: var(--naama-primary); font-weight: 600; word-break: break-word; }
+    .file-list .fmeta { display: flex; align-items: center; gap: 0.55rem; flex-shrink: 0; }
+    .file-list .remove-file {
+      border: 1px solid var(--border-color); background: #fff; color: var(--danger);
+      border-radius: 0.35rem; padding: 0.2rem 0.55rem; font-size: 0.78rem; font-weight: 700;
+      cursor: pointer; font-family: inherit;
+    }
+    .file-list .remove-file:hover { background: #fef3f2; }
+    .file-hint { display: block; margin-top: 0.5rem; font-size: 0.8rem; color: var(--naama-muted); text-align: center; }
+
+    .privacy-box {
+      margin: 1rem 0 1.25rem; padding: 1rem 1.1rem; border-radius: 0.65rem;
+      background: #f3f7fa; border: 1px solid var(--naama-border); color: var(--text-muted); font-size: 0.95rem;
+    }
+
+    .form-actions {
+      display: flex; flex-wrap: wrap; gap: 0.65rem; justify-content: space-between; align-items: center;
+      margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--naama-border);
+    }
+    .form-actions__left, .form-actions__right { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+    .btn-spon {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.35rem;
+      min-height: 44px; padding: 0.55rem 1.15rem; border-radius: 0.5rem; font-family: inherit;
+      font-size: 0.95rem; font-weight: 700; border: 1.5px solid transparent; cursor: pointer;
+    }
+    .btn-spon-primary { background: var(--primary-green); color: #fff; }
+    .btn-spon-primary:hover { background: var(--dark-green); }
+    .btn-spon-secondary { background: #fff; color: var(--dark-green); border-color: var(--border-color); }
+    .btn-spon-secondary:hover { background: var(--mint-soft); border-color: var(--primary-green); }
+    .btn-spon-ghost { background: transparent; color: var(--text-muted); border-color: var(--border-color); }
+    .btn-spon-ghost:hover { color: var(--danger); border-color: #f0b4ae; background: #fff5f5; }
+
+    .form-success {
+      display: none; align-items: flex-start; gap: 0.75rem; margin-bottom: 1.25rem;
+      padding: 1rem 1.1rem; border-radius: 0.65rem; background: var(--mint-soft);
+      border: 1px solid #b8eacb; color: var(--dark-green);
+    }
+    .form-success.is-visible { display: flex; }
+    .form-success p { margin: 0; color: var(--text-muted); }
+
+    .site-footer { background: #fff; border-top: 1px solid var(--naama-border); padding: 2.2rem 0 2.4rem; }
+    .site-footer .footer-links a { color: var(--naama-primary); font-weight: 600; }
+    .site-footer .text-muted { color: var(--naama-muted) !important; }
+    @media (max-width: 575.98px) {
+      .form-actions { flex-direction: column; align-items: stretch; }
+      .btn-spon { width: 100%; }
+    }
+  </style>
+</head>
+<body class="spon-page">
+  <div class="platform-top">
+    <div class="gov-bar">
+      <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <span><i class="bi bi-shield-check verified me-1"></i> موقع حكومي تابع لوزارة البيئة والمياه والزراعة</span>
+        <span class="d-none d-md-inline">متوافق مع هوية منصة نما · الرقم الموحد <strong>939</strong></span>
+      </div>
+    </div>
+    <header class="site-header">
+      <div class="container py-3">
+        <div class="d-flex flex-wrap align-items-center gap-3">
+          <a class="brand-link" href="Index.html" aria-label="الصفحة الرئيسية">
+            <span class="brand-mark" aria-hidden="true"></span>
+            <span class="brand-text text-start">
+              <strong>منصة البحث والابتكار</strong>
+              <small>وزارة البيئة والمياه والزراعة</small>
+            </span>
+          </a>
+          <nav id="mainNav" class="d-none d-lg-flex gap-1" aria-label="التنقل الرئيسي">
+            <a class="nav-pill" href="Index.html"><i class="bi bi-house me-1"></i>الرئيسية</a>
+            <a class="nav-pill active" href="Index.html?view=our-services" aria-current="page"><i class="bi bi-briefcase me-1"></i>خدماتنا</a>
+            <a class="nav-pill" href="Index.html?view=news"><i class="bi bi-megaphone me-1"></i>الأخبار</a>
+            <a class="nav-pill" href="Index.html?view=publications"><i class="bi bi-journal-richtext me-1"></i>منشورات وتقارير</a>
+            <a class="nav-pill" href="Index.html?view=my-requests"><i class="bi bi-file-earmark-text me-1"></i>طلباتي</a>
+          </nav>
+          <div class="header-search" aria-label="بحث سريع">
+            <div class="h-search-input">
+              <i class="bi bi-search" aria-hidden="true"></i>
+              <input type="search" placeholder="البحث عن خدمة..." aria-label="البحث عن خدمة" autocomplete="off" />
+            </div>
+            <select class="h-search-select" aria-label="نوع المستفيد">
+              <option selected>نوع المستفيد: الكل</option>
+              <option>باحث</option>
+              <option>مبتكر</option>
+              <option>جهة حكومية</option>
+              <option>قطاع خاص</option>
+            </select>
+            <button type="button" class="h-search-reset" aria-label="إعادة تعيين الفلتر"><i class="bi bi-arrow-counterclockwise"></i></button>
+          </div>
+          <div class="ms-auto d-flex align-items-center gap-2">
+            <a class="btn-login" href="https://naama.sa/Account/Login" target="_blank" rel="noopener"><i class="bi bi-box-arrow-in-left"></i><span>تسجيل الدخول</span></a>
+            <button type="button" class="btn-menu-toggle" id="sponMenuToggle" aria-label="القائمة" aria-expanded="false" aria-controls="mobileNav"><i class="bi bi-list"></i></button>
+          </div>
+        </div>
+        <nav id="mobileNav" aria-label="قائمة الجوال">
+          <a class="nav-pill" href="Index.html"><i class="bi bi-house me-1"></i>الرئيسية</a>
+          <a class="nav-pill active" href="Index.html?view=our-services"><i class="bi bi-briefcase me-1"></i>خدماتنا</a>
+          <a class="nav-pill" href="Index.html?view=news"><i class="bi bi-megaphone me-1"></i>الأخبار</a>
+          <a class="nav-pill" href="Index.html?view=publications"><i class="bi bi-journal-richtext me-1"></i>منشورات وتقارير</a>
+          <a class="nav-pill" href="Index.html?view=my-requests"><i class="bi bi-file-earmark-text me-1"></i>طلباتي</a>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <div class="exp3-page-title">
+    <div class="container">
+      <div class="exp3-page-hero-top">
+        <nav class="exp3-breadcrumb" aria-label="مسار التنقل">
+          <a href="Index.html?view=our-services">الخدمات</a>
+          <span aria-hidden="true"> — </span>
+          <a href="driving3.html">قيادة الابتكار</a>
+          <span aria-hidden="true"> — </span>
+          <span>الرعاية والتوعية</span>
+        </nav>
+        <a class="exp3-back-services" id="sponBackBtn" href="driving3.html"><i class="bi bi-arrow-right"></i> رجوع إلى صفحة البرنامج</a>
+      </div>
+      <h1>الرعاية والتوعية للحلول الابتكارية</h1>
+    </div>
+  </div>
+
+  <main class="spon-main">
+    <div class="container" style="max-width:960px">
+      <div class="spon-wrapper">
+        <h2 class="form-page-title">نموذج طلب الرعاية والتوعية للحلول الابتكارية</h2>
+        <p class="form-intro">هدف هذا النموذج إلى استقبال وتقييم طلبات دعم التسويق والنشر الإعلامي للحلول الابتكارية، بهدف التعريف بالحلول والمشاريع الابتكارية، وإبراز أثرها وقصص نجاحها، وتعزيز وصولها إلى الفئات المستهدفة والجهات المستفيدة والشركاء المحتملين، ودعم انتشارها عبر القنوات والمنصات المناسبة.</p>
+        <p class="form-note">ملاحظة: الحقول المشار إليها بـ (*) إلزامية.</p>
+
+        <div id="sponDraftBanner" class="spon-draft-banner" role="region" aria-label="مسودة محفوظة">
+          <p>تم العثور على مسودة محفوظة، هل ترغب في استكمالها؟</p>
+          <div class="actions">
+            <button type="button" class="btn-spon btn-spon-primary" id="sponResumeDraft">استكمال المسودة</button>
+            <button type="button" class="btn-spon btn-spon-ghost" id="sponDiscardDraft">بدء طلب جديد</button>
+          </div>
+        </div>
+
+        <div id="sponSuccess" class="form-success" role="status" aria-live="polite">
+          <i class="bi bi-check-circle-fill" style="font-size:1.35rem;flex-shrink:0"></i>
+          <div>
+            <strong>تم إرسال طلب الرعاية والتوعية بنجاح</strong>
+            <p>شكراً لتقديم الطلب. سيتم مراجعة البيانات والتواصل معكم عند الحاجة لاستكمال إجراءات التقييم.</p>
+          </div>
+        </div>
+
+        <ol class="spon-stepper" id="sponStepper" aria-label="خطوات النموذج">
+          <li class="is-active" data-step="1" tabindex="0"><span class="spon-step-num">1</span>بيانات مقدم الطلب</li>
+          <li data-step="2" tabindex="0"><span class="spon-step-num">2</span>معلومات الحل الابتكاري</li>
+          <li data-step="3" tabindex="0"><span class="spon-step-num">3</span>الدعم التسويقي والإعلامي</li>
+          <li data-step="4" tabindex="0"><span class="spon-step-num">4</span>الإقرار</li>
+        </ol>
+
+        <form id="sponForm" novalidate>
+
+          <div class="spon-panel is-active" data-panel="1">
+            <div class="form-section__head">أولاً: بيانات مقدم الطلب</div>
+            <div class="row g-3">
+              <div class="col-lg-6">
+                <div class="field" data-field="fullName">
+                  <label for="fullName"><span class="req">*</span> الاسم الكامل</label>
+                  <input type="text" id="fullName" name="fullName" required autocomplete="name" placeholder="أدخل الاسم الكامل" />
+                  <div class="field-error">هذا الحقل مطلوب</div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="field" data-field="orgName">
+                  <label for="orgName"><span class="req">*</span> اسم الجهة / الفريق</label>
+                  <input type="text" id="orgName" name="orgName" required placeholder="اسم الجهة أو الفريق" />
+                  <div class="field-error">هذا الحقل مطلوب</div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="field" data-field="crNumber">
+                  <label for="crNumber">السجل التجاري</label>
+                  <input type="text" id="crNumber" name="crNumber" placeholder="اختياري" />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="field" data-field="applicantRole">
+                  <label for="applicantRole"><span class="req">*</span> صفة مقدم الطلب</label>
+                  <select id="applicantRole" name="applicantRole" required>
+                    <option value="">اختر الصفة</option>
+                    <option value="مبتكر">مبتكر</option>
+                    <option value="شركة ناشئة (متوسطة وناشئة)">شركة ناشئة (متوسطة وناشئة)</option>
+                    <option value="شركات كبرى">شركات كبرى</option>
+                    <option value="جهة حكومية">جهة حكومية</option>
+                    <option value="جهة أكاديمية أو بحثية">جهة أكاديمية أو بحثية</option>
+                    <option value="جهات خارجية كبرى">جهات خارجية كبرى</option>
+                    <option value="أخرى">أخرى</option>
+                  </select>
+                  <div class="field-error">يرجى اختيار أحد الخيارات</div>
+                  <div id="applicantRoleOtherWrap" class="conditional-field">
+                    <label for="applicantRoleOther">يرجى تحديد الصفة</label>
+                    <input type="text" id="applicantRoleOther" name="applicantRoleOther" />
+                    <div class="field-error">هذا الحقل مطلوب</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="field" data-field="productAvailable">
+                  <div class="field-label">المنتج الابتكاري متوفر</div>
+                  <div class="choice-grid cols-2" role="radiogroup">
+                    <label class="choice-item"><input type="radio" name="productAvailable" value="خارج المملكة" /> خارج المملكة</label>
+                    <label class="choice-item"><input type="radio" name="productAvailable" value="داخل المملكة" /> داخل المملكة</label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="field" data-field="email">
+                  <label for="email"><span class="req">*</span> البريد الإلكتروني</label>
+                  <input type="email" id="email" name="email" required autocomplete="email" dir="ltr" placeholder="name@example.com" />
+                  <div class="field-error">يرجى إدخال بريد إلكتروني صحيح</div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="field" data-field="phone">
+                  <label for="phone"><span class="req">*</span> رقم التواصل</label>
+                  <input type="tel" id="phone" name="phone" required autocomplete="tel" dir="ltr" placeholder="+9665xxxxxxxx أو 05xxxxxxxx" />
+                  <div class="field-error">هذا الحقل مطلوب</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="spon-panel" data-panel="2">
+            <div class="form-section__head">ثانياً: معلومات الحل الابتكاري</div>
+
+            <div class="field" data-field="solutionName">
+              <label for="solutionName"><span class="req">*</span> اسم الحل الابتكاري</label>
+              <input type="text" id="solutionName" name="solutionName" required />
+              <div class="field-error">هذا الحقل مطلوب</div>
+            </div>
+
+            <div class="field" data-field="solutionDesc">
+              <label for="solutionDesc"><span class="req">*</span> وصف مختصر للحل الابتكاري</label>
+              <textarea class="tall" id="solutionDesc" name="solutionDesc" required></textarea>
+              <div class="field-error">هذا الحقل مطلوب</div>
+            </div>
+
+            <div class="field" data-field="problemChallenge">
+              <label for="problemChallenge"><span class="req">*</span> ما المشكلة أو التحدي الذي يعالجه الحل؟</label>
+              <textarea class="tall" id="problemChallenge" name="problemChallenge" required></textarea>
+              <div class="field-error">هذا الحقل مطلوب</div>
+            </div>
+
+            <div class="field" data-field="targetAudience">
+              <label for="targetAudience">الفئة المستهدفة من الحل الابتكاري؟</label>
+              <textarea id="targetAudience" name="targetAudience"></textarea>
+            </div>
+
+            <div class="field" data-field="sector">
+              <label for="sector"><span class="req">*</span> القطاع الذي ينتمي إليه الحل الابتكاري</label>
+              <select id="sector" name="sector" required>
+                <option value="">اختر القطاع</option>
+                <option value="قطاع البيئة">قطاع البيئة</option>
+                <option value="قطاع المياه">قطاع المياه</option>
+                <option value="قطاع الزراعة">قطاع الزراعة</option>
+                <option value="حل تكاملي يخدم أكثر من قطاع">حل تكاملي يخدم أكثر من قطاع</option>
+              </select>
+              <div class="field-error">يرجى اختيار أحد الخيارات</div>
+            </div>
+
+            <div class="field" data-field="strategicGoal">
+              <label for="strategicGoal"><span class="req">*</span> الهدف الاستراتيجي الذي يسهم الحل في تحقيقه</label>
+              <select id="strategicGoal" name="strategicGoal" required>
+                <option value="">اختر الهدف الاستراتيجي</option>
+                <option value="المحافظة على البيئة والموارد الطبيعية وتنميتها المستدامة">المحافظة على البيئة والموارد الطبيعية وتنميتها المستدامة</option>
+                <option value="تحقيق الأمن المائي">تحقيق الأمن المائي</option>
+                <option value="المساهمة في تحقيق الأمن الغذائي المستدام">المساهمة في تحقيق الأمن الغذائي المستدام</option>
+                <option value="التنمية المستدامة للقطاعات ذات الميزات النسبية">التنمية المستدامة للقطاعات ذات الميزات النسبية</option>
+                <option value="تقديم خدمات ومنتجات مستدامة ذات جودة عالية">تقديم خدمات ومنتجات مستدامة ذات جودة عالية</option>
+                <option value="تعزيز مشاركة القطاع الخاص والقطاع غير الربحي">تعزيز مشاركة القطاع الخاص والقطاع غير الربحي</option>
+                <option value="أكثر من هدف استراتيجي">أكثر من هدف استراتيجي</option>
+              </select>
+              <div class="field-error">يرجى اختيار أحد الخيارات</div>
+            </div>
+
+            <div class="field" data-field="marketReady">
+              <div class="field-label">هل الحل الابتكاري جاهز للسوق؟</div>
+              <div class="choice-grid cols-3" role="radiogroup">
+                <label class="choice-item"><input type="radio" name="marketReady" value="نعم" /> نعم</label>
+                <label class="choice-item"><input type="radio" name="marketReady" value="لا" /> لا</label>
+                <label class="choice-item"><input type="radio" name="marketReady" value="غير متأكد" /> غير متأكد</label>
+              </div>
+            </div>
+
+            <div class="field" data-field="previouslyTested">
+              <div class="field-label"><span class="req">*</span> هل سبق اختبار الحل؟</div>
+              <div class="choice-grid cols-2" role="radiogroup">
+                <label class="choice-item"><input type="radio" name="previouslyTested" value="نعم" /> نعم</label>
+                <label class="choice-item"><input type="radio" name="previouslyTested" value="لا" /> لا</label>
+              </div>
+              <div class="field-error">يرجى اختيار أحد الخيارات</div>
+              <div id="prevTestWrap" class="conditional-field">
+                <label for="prevTestDetails">اذكر مكان ونطاق الاختبار السابق والنتائج الرئيسية التي تم التوصل إليها.</label>
+                <textarea class="tall" id="prevTestDetails" name="prevTestDetails"></textarea>
+                <div class="field-error">هذا الحقل مطلوب</div>
+              </div>
+            </div>
+
+            <div class="field" data-field="hasFunding">
+              <div class="field-label">هل يوجد للحل الابتكاري تمويل أو شريك مستثمر في الحل الابتكاري؟</div>
+              <div class="choice-grid cols-2" role="radiogroup">
+                <label class="choice-item"><input type="radio" name="hasFunding" value="نعم" /> نعم</label>
+                <label class="choice-item"><input type="radio" name="hasFunding" value="لا" /> لا</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="spon-panel" data-panel="3">
+            <div class="form-section__head">ثالثاً: الدعم التسويقي والإعلامي</div>
+
+            <div class="field" data-field="marketingGoals">
+              <div class="field-label"><span class="req">*</span> 15- الهدف من الدعم التسويقي والإعلامي</div>
+              <div class="spon-ms" data-ms="marketingGoals">
+                <input type="search" class="spon-ms-search" id="marketingGoalsSearch" placeholder="ابحث في الأهداف..." aria-label="بحث في أهداف التسويق" autocomplete="off" />
+                <div class="spon-ms-list" role="group" aria-label="أهداف التسويق والإعلام">
+                  <label class="spon-ms-item"><input type="checkbox" name="marketingGoals" value="التعريف بالحل الابتكاري" /> التعريف بالحل الابتكاري</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="marketingGoals" value="إطلاق أو الإعلان عن الحل الابتكاري" /> إطلاق أو الإعلان عن الحل الابتكاري</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="marketingGoals" value="إبراز نتائج تجربة ابتكارية ناجحة" /> إبراز نتائج تجربة ابتكارية ناجحة</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="marketingGoals" value="نشر قصة نجاح" /> نشر قصة نجاح</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="marketingGoals" value="الوصول إلى جهات مستفيدة" /> الوصول إلى جهات مستفيدة</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="marketingGoals" value="رفع الوعي" /> رفع الوعي</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="marketingGoals" value="استقطاب شركاء محتملين" /> استقطاب شركاء محتملين</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="marketingGoals" value="الوصول إلى مستثمرين" /> الوصول إلى مستثمرين</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="marketingGoals" value="الوصول إلى عملاء أو مستخدمين" /> الوصول إلى عملاء أو مستخدمين</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="marketingGoals" value="دعم المشاركة في فعالية أو معرض أو مؤتمر" /> دعم المشاركة في فعالية أو معرض أو مؤتمر</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="marketingGoals" value="تغطية إنجاز أو مناسبة" /> تغطية إنجاز أو مناسبة</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="marketingGoals" value="رعاية اتفاقية" /> رعاية اتفاقية</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="marketingGoals" value="أخرى" /> أخرى</label>
+                </div>
+                <div class="spon-ms-chips" id="marketingGoalsChips" aria-live="polite"></div>
+              </div>
+              <div class="field-error">يرجى اختيار خيار واحد على الأقل</div>
+              <div id="marketingGoalsOtherWrap" class="conditional-field">
+                <label for="marketingGoalsOther">يرجى تحديد الهدف الآخر</label>
+                <input type="text" id="marketingGoalsOther" name="marketingGoalsOther" />
+                <div class="field-error">هذا الحقل مطلوب</div>
+              </div>
+            </div>
+
+            <div class="field" data-field="valueAdds">
+              <div class="field-label"><span class="req">*</span> 16- أبرز ما يمكن إبرازه إعلاميًا في الحل</div>
+              <div class="spon-ms" data-ms="valueAdds">
+                <div class="spon-ms-list" role="group" aria-label="عناصر الإبراز الإعلامي">
+                  <label class="spon-ms-item"><input type="checkbox" name="valueAdds" value="فكرة أو تقنية مبتكرة" /> فكرة أو تقنية مبتكرة</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="valueAdds" value="نتائج مثبتة" /> نتائج مثبتة</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="valueAdds" value="أثر بيئي أو مائي أو زراعي" /> أثر بيئي أو مائي أو زراعي</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="valueAdds" value="قصة نجاح" /> قصة نجاح</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="valueAdds" value="إنجاز أو جائزة" /> إنجاز أو جائزة</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="valueAdds" value="تطبيق ناجح" /> تطبيق ناجح</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="valueAdds" value="شراكة مميزة" /> شراكة مميزة</label>
+                </div>
+                <div class="spon-ms-chips" id="valueAddsChips" aria-live="polite"></div>
+              </div>
+              <div class="field-error">يرجى اختيار خيار واحد على الأقل</div>
+            </div>
+
+            <div class="field" data-field="mediaSupportTypes">
+              <div class="field-label"><span class="req">*</span> 17- نوع الدعم الإعلامي المطلوب</div>
+              <div class="spon-ms" data-ms="mediaSupportTypes">
+                <input type="search" class="spon-ms-search" id="mediaSupportTypesSearch" placeholder="ابحث في أنواع الدعم..." aria-label="بحث في أنواع الدعم الإعلامي" autocomplete="off" />
+                <div class="spon-ms-list" role="group" aria-label="أنواع الدعم الإعلامي">
+                  <label class="spon-ms-item"><input type="checkbox" name="mediaSupportTypes" value="ترشيح الحل ضمن قصص النجاح وإبرازه في تقارير ومنشورات الوزارة." /> ترشيح الحل ضمن قصص النجاح وإبرازه في تقارير ومنشورات الوزارة.</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="mediaSupportTypes" value="تضمين الحل ضمن فعاليات ومبادرات الوزارة ذات العلاقة." /> تضمين الحل ضمن فعاليات ومبادرات الوزارة ذات العلاقة.</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="mediaSupportTypes" value="رعاية الحل ودعمه ضمن البرامج والمبادرات المناسبة." /> رعاية الحل ودعمه ضمن البرامج والمبادرات المناسبة.</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="mediaSupportTypes" value="التسويق والترويج للحل في الفعاليات والمعارض والمؤتمرات." /> التسويق والترويج للحل في الفعاليات والمعارض والمؤتمرات.</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="mediaSupportTypes" value="إبراز الحل عبر القنوات والمنصات الإعلامية والرقمية." /> إبراز الحل عبر القنوات والمنصات الإعلامية والرقمية.</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="mediaSupportTypes" value="أخرى" /> أخرى</label>
+                </div>
+                <div class="spon-ms-chips" id="mediaSupportTypesChips" aria-live="polite"></div>
+              </div>
+              <div class="field-error">يرجى اختيار خيار واحد على الأقل</div>
+              <div id="mediaSupportTypesOtherWrap" class="conditional-field">
+                <label for="mediaSupportTypesOther">يرجى تحديد نوع الدعم الآخر</label>
+                <input type="text" id="mediaSupportTypesOther" name="mediaSupportTypesOther" />
+                <div class="field-error">هذا الحقل مطلوب</div>
+              </div>
+            </div>
+
+            <div class="field" data-field="targetAudiences">
+              <div class="field-label"><span class="req">*</span> 18- الفئات المستهدفة من الدعم الإعلامي</div>
+              <div class="spon-ms" data-ms="targetAudiences">
+                <div class="spon-ms-list" role="group" aria-label="الفئات المستهدفة إعلاميًا">
+                  <label class="spon-ms-item"><input type="checkbox" name="targetAudiences" value="جهات منظومة البيئة والمياه والزراعة." /> جهات منظومة البيئة والمياه والزراعة.</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="targetAudiences" value="الجهات الحكومية الأخرى." /> الجهات الحكومية الأخرى.</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="targetAudiences" value="القطاع الخاص والشركات." /> القطاع الخاص والشركات.</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="targetAudiences" value="المستثمرون والجهات التمويلية." /> المستثمرون والجهات التمويلية.</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="targetAudiences" value="المستفيدون من خدمات وحلول المنظومة." /> المستفيدون من خدمات وحلول المنظومة.</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="targetAudiences" value="الباحثون والمختصون والجهات الأكاديمية." /> الباحثون والمختصون والجهات الأكاديمية.</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="targetAudiences" value="رواد الأعمال والمبتكرون." /> رواد الأعمال والمبتكرون.</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="targetAudiences" value="المجتمع والجمهور العام." /> المجتمع والجمهور العام.</label>
+                </div>
+                <div class="spon-ms-chips" id="targetAudiencesChips" aria-live="polite"></div>
+              </div>
+              <div class="field-error">يرجى اختيار خيار واحد على الأقل</div>
+            </div>
+
+            <div class="field" data-field="mediaFormats">
+              <div class="field-label"><span class="req">*</span> 19- الصيغ أو القوالب الإعلامية المطلوبة</div>
+              <div class="spon-ms" data-ms="mediaFormats">
+                <div class="spon-ms-list" role="group" aria-label="الصيغ الإعلامية">
+                  <label class="spon-ms-item"><input type="checkbox" name="mediaFormats" value="خبر إعلامي" /> خبر إعلامي</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="mediaFormats" value="إبراز الحل ضمن الفعاليات والمعارض" /> إبراز الحل ضمن الفعاليات والمعارض</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="mediaFormats" value="رعاية إعلامية" /> رعاية إعلامية</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="mediaFormats" value="قصة نجاح" /> قصة نجاح</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="mediaFormats" value="مقال" /> مقال</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="mediaFormats" value="إنفوجرافيك" /> إنفوجرافيك</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="mediaFormats" value="فيديو قصير" /> فيديو قصير</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="mediaFormats" value="تقرير" /> تقرير</label>
+                  <label class="spon-ms-item"><input type="checkbox" name="mediaFormats" value="أخرى" /> أخرى</label>
+                </div>
+                <div class="spon-ms-chips" id="mediaFormatsChips" aria-live="polite"></div>
+              </div>
+              <div class="field-error">يرجى اختيار خيار واحد على الأقل</div>
+              <div id="mediaFormatsOtherWrap" class="conditional-field">
+                <label for="mediaFormatsOther">يرجى تحديد الصيغة الأخرى</label>
+                <input type="text" id="mediaFormatsOther" name="mediaFormatsOther" />
+                <div class="field-error">هذا الحقل مطلوب</div>
+              </div>
+            </div>
+
+            <div class="field" data-field="mediaReady">
+              <div class="field-label">20- جاهزية الحل للنشر الإعلامي</div>
+              <div class="choice-grid" role="radiogroup">
+                <label class="choice-item"><input type="radio" name="mediaReady" value="نعم، جاهز للنشر إعلاميًا." /> نعم، جاهز للنشر إعلاميًا.</label>
+                <label class="choice-item"><input type="radio" name="mediaReady" value="جاهز، ويحتاج إلى إعداد وصياغة المحتوى الإعلامي." /> جاهز، ويحتاج إلى إعداد وصياغة المحتوى الإعلامي.</label>
+                <label class="choice-item"><input type="radio" name="mediaReady" value="يحتاج إلى مراجعة أو استكمال بعض المعلومات قبل النشر." /> يحتاج إلى مراجعة أو استكمال بعض المعلومات قبل النشر.</label>
+                <label class="choice-item"><input type="radio" name="mediaReady" value="لا، غير جاهز حاليًا للنشر الإعلامي." /> لا، غير جاهز حاليًا للنشر الإعلامي.</label>
+                <label class="choice-item"><input type="radio" name="mediaReady" value="غير متأكد، وأحتاج إلى تقييم الجاهزية." /> غير متأكد، وأحتاج إلى تقييم الجاهزية.</label>
+              </div>
+            </div>
+
+            <div class="field" data-field="attachments">
+              <div class="field-label">21- المرفقات</div>
+              <span class="field-desc">إرفاق سجل حافل بأبرز النجاحات والإنجازات، مع الوثائق والشواهد الداعمة ذات الصلة.</span>
+              <div class="file-upload-card" id="attachmentsDrop">
+                <div class="file-drop-zone">
+                  <i class="bi bi-cloud-arrow-up drop-icon" aria-hidden="true"></i>
+                  <p class="drop-title">اسحب الملفات وأفلتها هنا</p>
+                  <p class="drop-sub">أو</p>
+                  <button type="button" class="browse-btn" id="attachmentsBtn"><i class="bi bi-paperclip"></i> اختيار ملفات</button>
+                </div>
+                <input type="file" id="attachments" name="attachments" multiple accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation,image/jpeg,image/png" />
+                <ul class="file-list" id="attachmentsList" aria-live="polite"></ul>
+                <span class="file-hint">الصيغ المسموحة: PDF, DOC, DOCX, PPT, PPTX, JPG, PNG — يمكن رفع أكثر من ملف</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="spon-panel" data-panel="4">
+            <div class="form-section__head">الإقرار</div>
+
+            <div class="field" data-field="declaration">
+              <div class="check-row">
+                <input type="checkbox" id="declaration" name="declaration" required />
+                <label for="declaration"><span class="consent-tag">موافقة</span> <span class="req">*</span> أقر بأن المعلومات المقدمة في هذا الطلب صحيحة، وأوافق على استخدامها لغرض دراسة وتقييم طلب الرعاية والتوعية، والتواصل معي بشأن الطلب.</label>
+              </div>
+              <div class="field-error">هذا الحقل مطلوب</div>
+            </div>
+
+            <div class="field" data-field="contactConsent">
+              <div class="check-row">
+                <input type="checkbox" id="contactConsent" name="contactConsent" required />
+                <label for="contactConsent"><span class="consent-tag">موافقة</span> <span class="req">*</span> أوافق على التواصل معي لاستكمال المعلومات أو مناقشة متطلبات الدعم التسويقي والإعلامي.</label>
+              </div>
+              <div class="field-error">هذا الحقل مطلوب</div>
+            </div>
+
+            <div class="privacy-box" role="note">
+              يحرص برنامج نشر الابتكار على التعامل مع المعلومات والبيانات المتعلقة بالحل الابتكاري المقدمة من خلال هذا النموذج بسرية، واستخدامها في نطاق دراسة الطلب وتقييمه وتحديد متطلبات الدعم التسويقي والإعلامي، لدراسة وتقييم الدعم المطلوب.
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <div class="form-actions__left">
+              <button type="button" class="btn-spon btn-spon-secondary" id="sponSaveDraft"><i class="bi bi-save"></i> حفظ كمسودة</button>
+              <button type="button" class="btn-spon btn-spon-secondary" id="sponReset">بدء طلب جديد</button>
+            </div>
+            <div class="form-actions__right">
+              <button type="button" class="btn-spon btn-spon-secondary" id="sponPrev" hidden><i class="bi bi-arrow-right"></i> السابق</button>
+              <button type="button" class="btn-spon btn-spon-primary" id="sponNext">التالي <i class="bi bi-arrow-left"></i></button>
+              <button type="submit" class="btn-spon btn-spon-primary" id="sponSubmit" hidden><i class="bi bi-send"></i> إرسال الطلب</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-5">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <span class="brand-mark" style="width:36px;height:36px;border-radius:10px" aria-hidden="true"></span>
+            <strong style="color:var(--naama-primary)">منصة البحث والابتكار</strong>
+          </div>
+          <p class="text-muted mb-0" style="max-width:34rem">المحور المركزي لأنشطة البحث والابتكار في قطاعات البيئة والمياه والزراعة، ضمن منظومة منصة نما وأهداف رؤية 2030.</p>
+        </div>
+        <div class="col-md-4">
+          <h6 style="color:var(--naama-primary);font-weight:700">روابط سريعة</h6>
+          <div class="footer-links d-flex flex-wrap gap-3">
+            <a href="Index.html">الرئيسية</a>
+            <a href="Index.html?view=our-services">خدماتنا</a>
+            <a href="Index.html?view=publications">منشورات وتقارير</a>
+            <a href="Index.html?view=my-requests">طلباتي</a>
+            <a href="https://naama.sa/" target="_blank" rel="noreferrer">منصة نما</a>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <h6 style="color:var(--naama-primary);font-weight:700">الدعم</h6>
+          <p class="text-muted mb-1"><i class="bi bi-headset me-1"></i> الرقم الموحد <strong>939</strong></p>
+          <p class="text-muted mb-0"><i class="bi bi-envelope me-1"></i> ri-support@mewa.gov.sa</p>
+        </div>
+      </div>
+      <hr class="my-4" />
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 text-muted small">
+        <span>© جميع الحقوق محفوظة · وزارة البيئة والمياه والزراعة</span>
+        <span>الإصدار التجريبي · متوافق مع النفاذ الموحد</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+  (function () {
+    var DRAFT_KEY = "sponsorship-solutions-draft";
+    var form = document.getElementById("sponForm");
+    var success = document.getElementById("sponSuccess");
+    var draftBanner = document.getElementById("sponDraftBanner");
+    if (!form) return;
+
+    var menuToggle = document.getElementById("sponMenuToggle");
+    var mobileNav = document.getElementById("mobileNav");
+    if (menuToggle && mobileNav) {
+      menuToggle.addEventListener("click", function () {
+        var open = mobileNav.classList.toggle("is-open");
+        menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    }
+
+    var backBtn = document.getElementById("sponBackBtn");
+    if (backBtn) {
+      backBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        var ref = document.referrer || "";
+        if (ref && /driving3\.html/i.test(ref) && window.history.length > 1) {
+          window.history.back();
+        } else {
+          window.location.href = "driving3.html#services";
+        }
+      });
+    }
+
+    function clearInvalid(el) {
+      var field = el && el.closest ? el.closest(".field") : null;
+      if (field) field.classList.remove("is-invalid");
+    }
+    function setInvalid(name) {
+      var field = form.querySelector('[data-field="' + name + '"]');
+      if (field) field.classList.add("is-invalid");
+    }
+    function clearAllInvalid() {
+      Array.prototype.forEach.call(form.querySelectorAll(".field.is-invalid"), function (f) {
+        f.classList.remove("is-invalid");
+      });
+    }
+    function radioValue(name) {
+      var checked = form.querySelector('input[name="' + name + '"]:checked');
+      return checked ? checked.value : "";
+    }
+    function checkedValues(name) {
+      return Array.prototype.map.call(form.querySelectorAll('input[name="' + name + '"]:checked'), function (el) {
+        return el.value;
+      });
+    }
+    function isEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v || "").trim()); }
+    function isFlexiblePhone(v) {
+      var n = String(v || "").trim();
+      if (!n) return false;
+      return /^\+?\d{8,15}$/.test(n.replace(/[\s\-()]/g, ""));
+    }
+    function requireText(id) {
+      var el = document.getElementById(id);
+      var ok = el && String(el.value || "").trim().length > 0;
+      if (!ok) setInvalid(id);
+      return ok;
+    }
+    function requireSelect(id) {
+      var el = document.getElementById(id);
+      var ok = !!(el && el.value);
+      if (!ok) setInvalid(id);
+      return ok;
+    }
+    function requireRadio(name) {
+      var ok = !!radioValue(name);
+      if (!ok) setInvalid(name);
+      return ok;
+    }
+    function requireChecks(name) {
+      var ok = checkedValues(name).length > 0;
+      if (!ok) setInvalid(name);
+      return ok;
+    }
+    function toggleWrap(wrapId, show, clearIds) {
+      var wrap = document.getElementById(wrapId);
+      if (!wrap) return;
+      if (show) wrap.classList.add("is-open");
+      else {
+        wrap.classList.remove("is-open");
+        (clearIds || []).forEach(function (id) {
+          var el = document.getElementById(id);
+          if (el) { el.value = ""; clearInvalid(el); }
+        });
+      }
+    }
+    function syncConditionals() {
+      toggleWrap("applicantRoleOtherWrap", document.getElementById("applicantRole").value === "أخرى", ["applicantRoleOther"]);
+      toggleWrap("prevTestWrap", radioValue("previouslyTested") === "نعم", ["prevTestDetails"]);
+      toggleWrap("marketingGoalsOtherWrap", checkedValues("marketingGoals").indexOf("أخرى") !== -1, ["marketingGoalsOther"]);
+      toggleWrap("mediaSupportTypesOtherWrap", checkedValues("mediaSupportTypes").indexOf("أخرى") !== -1, ["mediaSupportTypesOther"]);
+      toggleWrap("mediaFormatsOtherWrap", checkedValues("mediaFormats").indexOf("أخرى") !== -1, ["mediaFormatsOther"]);
+    }
+
+    var ALLOWED_EXT = ["pdf", "doc", "docx", "ppt", "pptx", "jpg", "jpeg", "png"];
+    var attachmentFiles = [];
+
+    function formatSize(bytes) {
+      if (bytes < 1024) return bytes + " بايت";
+      if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " كيلوبايت";
+      return (bytes / (1024 * 1024)).toFixed(1) + " ميجابايت";
+    }
+    function fileExt(name) {
+      var parts = String(name || "").toLowerCase().split(".");
+      return parts.length > 1 ? parts.pop() : "";
+    }
+    function syncFileInput() {
+      var input = document.getElementById("attachments");
+      var dt = new DataTransfer();
+      attachmentFiles.forEach(function (f) { dt.items.add(f); });
+      input.files = dt.files;
+    }
+    function renderAttachments() {
+      var list = document.getElementById("attachmentsList");
+      list.innerHTML = "";
+      attachmentFiles.forEach(function (f, idx) {
+        var li = document.createElement("li");
+        var info = document.createElement("span");
+        info.className = "fname";
+        info.textContent = f.name;
+        var meta = document.createElement("span");
+        meta.className = "fmeta";
+        var size = document.createElement("span");
+        size.textContent = formatSize(f.size);
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "remove-file";
+        btn.setAttribute("aria-label", "إزالة " + f.name);
+        btn.textContent = "إزالة";
+        btn.addEventListener("click", function () {
+          attachmentFiles.splice(idx, 1);
+          syncFileInput();
+          renderAttachments();
+        });
+        meta.appendChild(size);
+        meta.appendChild(btn);
+        li.appendChild(info);
+        li.appendChild(meta);
+        list.appendChild(li);
+      });
+    }
+    function addFiles(fileList) {
+      Array.prototype.forEach.call(fileList || [], function (f) {
+        var ext = fileExt(f.name);
+        if (ALLOWED_EXT.indexOf(ext) === -1) return;
+        var exists = attachmentFiles.some(function (x) {
+          return x.name === f.name && x.size === f.size && x.lastModified === f.lastModified;
+        });
+        if (!exists) attachmentFiles.push(f);
+      });
+      syncFileInput();
+      renderAttachments();
+      clearInvalid(document.getElementById("attachments"));
+    }
+
+    document.getElementById("attachmentsBtn").addEventListener("click", function () {
+      document.getElementById("attachments").click();
+    });
+    document.getElementById("attachments").addEventListener("change", function () {
+      addFiles(this.files);
+      // Re-sync so the input reflects the accumulated list after native replace
+      syncFileInput();
+    });
+
+    var drop = document.getElementById("attachmentsDrop");
+    ["dragenter", "dragover"].forEach(function (evt) {
+      drop.addEventListener(evt, function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        drop.classList.add("is-dragover");
+      });
+    });
+    ["dragleave", "drop"].forEach(function (evt) {
+      drop.addEventListener(evt, function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        drop.classList.remove("is-dragover");
+      });
+    });
+    drop.addEventListener("drop", function (e) {
+      if (e.dataTransfer && e.dataTransfer.files) addFiles(e.dataTransfer.files);
+    });
+
+    function bindMultiSelect(name, searchId, chipsId) {
+      var root = form.querySelector('[data-ms="' + name + '"]');
+      var search = searchId ? document.getElementById(searchId) : null;
+      var chips = document.getElementById(chipsId);
+      if (!root || !chips) return;
+
+      function renderChips() {
+        var selected = checkedValues(name);
+        chips.innerHTML = "";
+        if (!selected.length) {
+          var empty = document.createElement("span");
+          empty.className = "spon-ms-empty";
+          empty.textContent = "لم يتم اختيار عناصر بعد";
+          chips.appendChild(empty);
+          return;
+        }
+        selected.forEach(function (val) {
+          var chip = document.createElement("span");
+          chip.className = "spon-ms-chip";
+          var label = document.createElement("span");
+          label.textContent = val.length > 48 ? val.slice(0, 48) + "…" : val;
+          label.title = val;
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.setAttribute("aria-label", "إزالة " + val);
+          btn.innerHTML = "&times;";
+          btn.addEventListener("click", function () {
+            var cb = null;
+            Array.prototype.forEach.call(form.querySelectorAll('input[name="' + name + '"]'), function (el) {
+              if (el.value === val) cb = el;
+            });
+            if (cb) {
+              cb.checked = false;
+              cb.dispatchEvent(new Event("change", { bubbles: true }));
+            }
+          });
+          chip.appendChild(label);
+          chip.appendChild(btn);
+          chips.appendChild(chip);
+        });
+      }
+
+      if (search) {
+        search.addEventListener("input", function () {
+          var q = String(search.value || "").trim().toLowerCase();
+          Array.prototype.forEach.call(root.querySelectorAll(".spon-ms-item"), function (item) {
+            var text = (item.textContent || "").toLowerCase();
+            item.classList.toggle("is-hidden", q && text.indexOf(q) === -1);
+          });
+        });
+      }
+
+      root.addEventListener("change", function (e) {
+        if (e.target && e.target.name === name) {
+          clearInvalid(e.target);
+          syncConditionals();
+          renderChips();
+        }
+      });
+
+      renderChips();
+      return renderChips;
+    }
+
+    var chipRenderers = [
+      bindMultiSelect("marketingGoals", "marketingGoalsSearch", "marketingGoalsChips"),
+      bindMultiSelect("valueAdds", null, "valueAddsChips"),
+      bindMultiSelect("mediaSupportTypes", "mediaSupportTypesSearch", "mediaSupportTypesChips"),
+      bindMultiSelect("targetAudiences", null, "targetAudiencesChips"),
+      bindMultiSelect("mediaFormats", null, "mediaFormatsChips")
+    ];
+
+    form.addEventListener("input", function (e) {
+      if (e.target) clearInvalid(e.target);
+    });
+    form.addEventListener("change", function (e) {
+      if (e.target) {
+        clearInvalid(e.target);
+        syncConditionals();
+      }
+    });
+    syncConditionals();
+
+    var stepper = document.getElementById("sponStepper");
+    var currentStep = 1;
+    var totalSteps = 4;
+
+    function showStep(step, skipScroll) {
+      currentStep = step;
+      Array.prototype.forEach.call(form.querySelectorAll(".spon-panel"), function (p) {
+        p.classList.toggle("is-active", Number(p.getAttribute("data-panel")) === step);
+      });
+      Array.prototype.forEach.call(stepper.querySelectorAll("li"), function (li) {
+        var n = Number(li.getAttribute("data-step"));
+        li.classList.toggle("is-active", n === step);
+        li.classList.toggle("is-done", n < step);
+      });
+      document.getElementById("sponPrev").hidden = step === 1;
+      document.getElementById("sponNext").hidden = step === totalSteps;
+      document.getElementById("sponSubmit").hidden = step !== totalSteps;
+      if (!skipScroll) {
+        var panel = form.querySelector('.spon-panel[data-panel="' + step + '"]');
+        if (panel) panel.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    function validateStep(step) {
+      clearAllInvalid();
+      var ok = true;
+      function fail() { ok = false; }
+
+      if (step === 1) {
+        if (!requireText("fullName")) fail();
+        if (!requireText("orgName")) fail();
+        if (!requireSelect("applicantRole")) fail();
+        if (document.getElementById("applicantRole").value === "أخرى" && !requireText("applicantRoleOther")) fail();
+        var email = document.getElementById("email");
+        if (!String(email.value || "").trim() || !isEmail(email.value)) {
+          setInvalid("email");
+          fail();
+        }
+        var phone = document.getElementById("phone");
+        if (!isFlexiblePhone(phone.value)) {
+          setInvalid("phone");
+          fail();
+        }
+      }
+
+      if (step === 2) {
+        if (!requireText("solutionName")) fail();
+        if (!requireText("solutionDesc")) fail();
+        if (!requireText("problemChallenge")) fail();
+        if (!requireSelect("sector")) fail();
+        if (!requireSelect("strategicGoal")) fail();
+        if (!requireRadio("previouslyTested")) fail();
+        if (radioValue("previouslyTested") === "نعم" && !requireText("prevTestDetails")) fail();
+      }
+
+      if (step === 3) {
+        if (!requireChecks("marketingGoals")) fail();
+        if (checkedValues("marketingGoals").indexOf("أخرى") !== -1 && !requireText("marketingGoalsOther")) fail();
+        if (!requireChecks("valueAdds")) fail();
+        if (!requireChecks("mediaSupportTypes")) fail();
+        if (checkedValues("mediaSupportTypes").indexOf("أخرى") !== -1 && !requireText("mediaSupportTypesOther")) fail();
+        if (!requireChecks("targetAudiences")) fail();
+        if (!requireChecks("mediaFormats")) fail();
+        if (checkedValues("mediaFormats").indexOf("أخرى") !== -1 && !requireText("mediaFormatsOther")) fail();
+      }
+
+      if (step === 4) {
+        if (!document.getElementById("declaration").checked) {
+          setInvalid("declaration");
+          fail();
+        }
+        if (!document.getElementById("contactConsent").checked) {
+          setInvalid("contactConsent");
+          fail();
+        }
+      }
+
+      if (!ok) {
+        var firstInvalid = form.querySelector(".field.is-invalid");
+        if (firstInvalid) firstInvalid.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+      return ok;
+    }
+
+    function refreshMultiSelects() {
+      ["marketingGoalsSearch", "mediaSupportTypesSearch"].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.value = "";
+      });
+      Array.prototype.forEach.call(form.querySelectorAll(".spon-ms-item.is-hidden"), function (item) {
+        item.classList.remove("is-hidden");
+      });
+      chipRenderers.forEach(function (fn) { if (typeof fn === "function") fn(); });
+    }
+
+    function collectDraft() {
+      var data = { step: currentStep, fields: {}, checks: {}, radios: {} };
+      Array.prototype.forEach.call(form.querySelectorAll("input[type='text'], input[type='email'], input[type='tel'], input[type='url'], textarea, select"), function (el) {
+        if (el.name) data.fields[el.name] = el.value;
+      });
+      Array.prototype.forEach.call(form.querySelectorAll("input[type='checkbox']"), function (el) {
+        if (!el.name) return;
+        if (el.id === "declaration" || el.id === "contactConsent") {
+          data.checks[el.id] = !!el.checked;
+          return;
+        }
+        if (!data.checks[el.name]) data.checks[el.name] = [];
+        if (el.checked) data.checks[el.name].push(el.value);
+      });
+      Array.prototype.forEach.call(form.querySelectorAll("input[type='radio']:checked"), function (el) {
+        data.radios[el.name] = el.value;
+      });
+      return data;
+    }
+    function applyDraft(data) {
+      if (!data) return;
+      Object.keys(data.fields || {}).forEach(function (name) {
+        var el = form.elements[name];
+        if (el && el.type !== "file") el.value = data.fields[name];
+      });
+      Object.keys(data.radios || {}).forEach(function (name) {
+        var el = form.querySelector('input[name="' + name + '"][value="' + CSS.escape(data.radios[name]) + '"]');
+        if (el) el.checked = true;
+      });
+      Object.keys(data.checks || {}).forEach(function (name) {
+        if (name === "declaration" || name === "contactConsent") {
+          var box = document.getElementById(name);
+          if (box) box.checked = !!data.checks[name];
+          return;
+        }
+        var values = data.checks[name] || [];
+        Array.prototype.forEach.call(form.querySelectorAll('input[name="' + name + '"]'), function (el) {
+          el.checked = values.indexOf(el.value) !== -1;
+        });
+      });
+      syncConditionals();
+      refreshMultiSelects();
+      showStep(Number(data.step) || 1);
+    }
+    function saveDraft(silent) {
+      try {
+        localStorage.setItem(DRAFT_KEY, JSON.stringify(collectDraft()));
+        if (!silent) alert("تم حفظ المسودة محلياً في هذا المتصفح.");
+      } catch (e) {
+        if (!silent) alert("تعذر حفظ المسودة في هذا المتصفح.");
+      }
+    }
+    function clearDraft() { try { localStorage.removeItem(DRAFT_KEY); } catch (e) {} }
+    function loadDraftRaw() {
+      try {
+        var raw = localStorage.getItem(DRAFT_KEY);
+        return raw ? JSON.parse(raw) : null;
+      } catch (e) { return null; }
+    }
+
+    function resetFormUi() {
+      clearAllInvalid();
+      success.classList.remove("is-visible");
+      attachmentFiles = [];
+      syncFileInput();
+      renderAttachments();
+      syncConditionals();
+      refreshMultiSelects();
+      showStep(1, true);
+      window.scrollTo(0, 0);
+    }
+
+    document.getElementById("sponNext").addEventListener("click", function () {
+      if (!validateStep(currentStep)) return;
+      saveDraft(true);
+      showStep(Math.min(totalSteps, currentStep + 1));
+    });
+    document.getElementById("sponPrev").addEventListener("click", function () {
+      showStep(Math.max(1, currentStep - 1));
+    });
+    Array.prototype.forEach.call(stepper.querySelectorAll("li"), function (li) {
+      function go() {
+        var target = Number(li.getAttribute("data-step"));
+        if (target === currentStep) return;
+        if (target > currentStep && !validateStep(currentStep)) return;
+        if (target > currentStep) saveDraft(true);
+        showStep(target);
+      }
+      li.addEventListener("click", go);
+      li.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); }
+      });
+    });
+
+    document.getElementById("sponSaveDraft").addEventListener("click", function () { saveDraft(false); });
+    document.getElementById("sponReset").addEventListener("click", function () {
+      if (!confirm("هل أنت متأكد من بدء طلب جديد؟ سيتم حذف المسودة المحفوظة.")) return;
+      form.reset();
+      clearDraft();
+      if (draftBanner) draftBanner.classList.remove("is-visible");
+      resetFormUi();
+    });
+    document.getElementById("sponResumeDraft").addEventListener("click", function () {
+      applyDraft(loadDraftRaw());
+      if (draftBanner) draftBanner.classList.remove("is-visible");
+    });
+    document.getElementById("sponDiscardDraft").addEventListener("click", function () {
+      if (!confirm("هل تريد بدء طلب جديد وحذف المسودة؟")) return;
+      clearDraft();
+      form.reset();
+      resetFormUi();
+      if (draftBanner) draftBanner.classList.remove("is-visible");
+    });
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      success.classList.remove("is-visible");
+      for (var s = 1; s <= totalSteps; s++) {
+        if (!validateStep(s)) { showStep(s); return; }
+      }
+      success.classList.add("is-visible");
+      clearDraft();
+      success.scrollIntoView({ behavior: "smooth", block: "center" });
+      var btn = document.getElementById("sponSubmit");
+      btn.disabled = true;
+      setTimeout(function () { btn.disabled = false; }, 1500);
+    });
+
+    showStep(1, true);
+    if (loadDraftRaw() && draftBanner) draftBanner.classList.add("is-visible");
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    window.scrollTo(0, 0);
+    requestAnimationFrame(function () { window.scrollTo(0, 0); });
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>نموذج طلب دعم الاختبارات التجريبية للحلول الابتكارية | MEWA</title>
+  <meta name="description" content="نموذج طلب دعم الاختبارات التجريبية للحلول الابتكارية — وكالة البحث والابتكار بوزارة البيئة والمياه والزراعة" />
+  <meta name="theme-color" content="#074d31" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+  <style>
+    :root {
+      --primary-green: #1b8354;
+      --dark-green: #074d31;
+      --mint-soft: #f3fcf6;
+      --mint-border: #d1fae5;
+      --text-color: #1f2a37;
+      --text-muted: #384250;
+      --background-color: #f7f8f9;
+      --border-color: #d2d6db;
+      --danger: #b42318;
+      --naama-primary: #003957;
+      --naama-primary-dark: #00283e;
+      --naama-accent: #49aa8b;
+      --naama-accent-dark: #378a6f;
+      --naama-accent-soft: #e8f6f1;
+      --naama-gold: #e8a34f;
+      --naama-muted: #62717d;
+      --naama-border: #e4ecef;
+      --ps-green-deep: #0B5D42;
+      --ps-line: #d8d2c4;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body.spt-page {
+      margin: 0;
+      font-family: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+      color: var(--text-color);
+      background: var(--background-color);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    body.spt-page a { color: inherit; text-decoration: none; }
+
+    .platform-top { position: relative; z-index: 100; }
+    .gov-bar { background: var(--naama-primary-dark); color: #fff; font-size: 0.82rem; padding: 0.45rem 0; }
+    .gov-bar .verified { color: #7dd3a8; }
+    .site-header { background: #fff; border-bottom: 1px solid var(--naama-border); box-shadow: 0 1px 0 rgba(16,24,40,.04); }
+    .brand-link { display: inline-flex; align-items: center; gap: 0.75rem; }
+    .brand-mark {
+      width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0; position: relative;
+      background: radial-gradient(circle at 30% 30%, var(--naama-gold) 0 22%, transparent 23%),
+        linear-gradient(145deg, var(--naama-accent) 0%, var(--naama-primary) 100%);
+    }
+    .brand-mark::after {
+      content: ""; position: absolute; inset: 55% 18% 18% 18%;
+      border-radius: 2px 2px 6px 6px; background: rgba(255,255,255,.35);
+    }
+    .brand-text { display: flex; flex-direction: column; line-height: 1.25; }
+    .brand-text strong { font-size: 0.98rem; color: var(--naama-primary); }
+    .brand-text small { font-size: 0.75rem; color: #62717d; }
+    .nav-pill {
+      display: inline-flex; align-items: center; padding: 0.4rem 0.75rem; border-radius: 999px;
+      font-size: 0.86rem; font-weight: 600; color: var(--naama-primary); white-space: nowrap;
+    }
+    .nav-pill:hover, .nav-pill.active { background: var(--naama-accent-soft); color: var(--dark-green); }
+    .btn-login {
+      display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 0.9rem;
+      border-radius: 999px; background: var(--naama-primary); color: #fff !important; font-size: 0.86rem; font-weight: 600;
+    }
+    .btn-login:hover { background: var(--naama-primary-dark); color: #fff !important; }
+    .btn-menu-toggle {
+      display: none; border: 1px solid var(--naama-border); background: #fff; width: 42px; height: 42px;
+      border-radius: 10px; align-items: center; justify-content: center; font-size: 1.35rem; color: var(--naama-primary);
+    }
+    #mobileNav { display: none; flex-wrap: wrap; gap: 0.35rem; padding-top: 0.75rem; }
+    #mobileNav.is-open { display: flex; }
+    .header-search { display: none; align-items: center; gap: 0.4rem; flex: 1; min-width: 220px; max-width: 420px; }
+    .h-search-input {
+      flex: 1; display: flex; align-items: center; gap: 0.4rem; border: 1px solid var(--naama-border);
+      border-radius: 999px; padding: 0.35rem 0.75rem; background: #fff;
+    }
+    .h-search-input input { border: 0; outline: 0; width: 100%; font: inherit; background: transparent; }
+    .h-search-select, .h-search-reset {
+      border: 1px solid var(--naama-border); border-radius: 999px; background: #fff;
+      padding: 0.35rem 0.7rem; font: inherit; font-size: 0.8rem; color: var(--naama-primary);
+    }
+    @media (min-width: 992px) { .header-search { display: flex; } .btn-menu-toggle { display: none !important; } }
+    @media (max-width: 991.98px) { .btn-menu-toggle { display: inline-flex; } #mainNav { display: none !important; } }
+
+    .exp3-page-title {
+      background: linear-gradient(180deg, #eef7f2 0%, #f7f8f9 100%);
+      border-bottom: 1px solid var(--naama-border); padding: 1.15rem 0 1.25rem;
+    }
+    .exp3-page-hero-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.75rem; margin-bottom: 0.65rem; }
+    .exp3-breadcrumb { font-size: 0.88rem; color: var(--text-muted); }
+    .exp3-breadcrumb a { color: var(--ps-green-deep); font-weight: 600; }
+    .exp3-back-services {
+      display: inline-flex; align-items: center; gap: 0.35rem; padding: 7px 14px;
+      border: 1.5px solid var(--ps-line); border-radius: 999px; background: #fff;
+      color: var(--ps-green-deep); font-size: 0.82rem; font-weight: 600;
+    }
+    .exp3-page-title h1 {
+      margin: 0; font-size: clamp(1.35rem, 2.4vw, 1.75rem); font-weight: 700; color: var(--ps-green-deep);
+    }
+
+    .spt-main { padding: 2rem 0 3.5rem; }
+    .spt-wrapper {
+      background: #fff; padding: 1.5rem 1.35rem 1.75rem; border-radius: 1rem;
+      border: 1px solid var(--border-color); box-shadow: 0 4px 16px rgba(16,24,40,.06);
+    }
+    .form-page-title {
+      margin: 0 0 0.85rem; font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 700;
+      color: var(--dark-green); text-align: center;
+    }
+    .form-intro { margin: 0 0 0.85rem; font-size: 0.98rem; color: var(--text-muted); line-height: 1.85; text-align: center; }
+    .form-note {
+      margin: 0 0 1.35rem; padding: 0.75rem 1rem; background: var(--mint-soft);
+      border: 1px solid var(--mint-border); border-radius: 0.5rem; color: var(--dark-green);
+      font-size: 0.92rem; font-weight: 600; text-align: center;
+    }
+    .spt-draft-banner {
+      display: none; margin: 0 0 1.25rem; padding: 1rem 1.1rem; border-radius: 0.65rem;
+      background: #fff8eb; border: 1px solid #f0d9a8; color: #7a4e0c;
+    }
+    .spt-draft-banner.is-visible { display: block; }
+    .spt-draft-banner p { margin: 0 0 0.75rem; font-weight: 600; }
+    .spt-draft-banner .actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+    .spt-stepper {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; margin-bottom: 1.5rem;
+      list-style: none; padding: 0;
+    }
+    .spt-stepper li {
+      text-align: center; padding: 0.75rem 0.4rem; border: 1px solid var(--border-color);
+      border-radius: 0.65rem; background: #fafbfc; font-size: 0.78rem; font-weight: 600;
+      color: var(--text-muted); cursor: pointer;
+    }
+    .spt-step-num {
+      display: inline-flex; width: 1.7rem; height: 1.7rem; border-radius: 50%;
+      align-items: center; justify-content: center; margin-bottom: 0.35rem;
+      background: #e8edf1; color: var(--naama-primary); font-weight: 700;
+    }
+    .spt-stepper li.is-active { border-color: var(--primary-green); background: var(--mint-soft); color: var(--dark-green); }
+    .spt-stepper li.is-active .spt-step-num { background: var(--primary-green); color: #fff; }
+    .spt-stepper li.is-done { border-color: #b8eacb; color: var(--dark-green); }
+    .spt-stepper li.is-done .spt-step-num { background: #b8eacb; color: var(--dark-green); }
+    @media (max-width: 767.98px) { .spt-stepper { grid-template-columns: 1fr 1fr; } }
+
+    .spt-panel { display: none; }
+    .spt-panel.is-active { display: block; }
+    .form-section__head {
+      background: var(--mint-soft); border: 1px solid var(--mint-border); border-radius: 0.5rem;
+      padding: 0.75rem 1rem; margin-bottom: 1.1rem; font-size: 1.05rem; font-weight: 700; color: var(--dark-green);
+    }
+    .field { margin-bottom: 1rem; }
+    .field label, .field .field-label {
+      display: block; font-size: 0.95rem; font-weight: 600; color: #1f2a37; margin-bottom: 0.4rem;
+    }
+    .field .req { color: var(--danger); }
+    .field input[type="text"], .field input[type="email"], .field input[type="tel"],
+    .field input[type="url"], .field textarea, .field select {
+      width: 100%; min-height: 44px; padding: 0.55rem 0.85rem; border: 1px solid var(--border-color);
+      border-radius: 0.375rem; background: #fff; font-family: inherit; font-size: 0.95rem; color: var(--text-color);
+    }
+    .field select {
+      appearance: none;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='%23003957' d='M8 11L3 6h10z'/></svg>");
+      background-repeat: no-repeat; background-position: left 0.75rem center; background-size: 12px; padding-left: 2rem;
+    }
+    .field textarea { min-height: 120px; resize: vertical; }
+    .field textarea.tall { min-height: 160px; }
+    .field input:focus, .field textarea:focus, .field select:focus {
+      outline: 0; border-color: var(--primary-green); box-shadow: 0 0 0 0.2rem rgba(27,131,84,.18);
+    }
+    .field-error { display: none; color: var(--danger); font-size: 0.82rem; margin-top: 0.3rem; }
+    .field.is-invalid input, .field.is-invalid textarea, .field.is-invalid select { border-color: var(--danger); }
+    .field.is-invalid .field-error { display: block; }
+    .field.is-invalid .choice-grid, .field.is-invalid .check-row {
+      outline: 1px solid rgba(180,35,24,.35); border-radius: 8px; padding: 0.35rem;
+    }
+
+    .choice-grid { display: grid; gap: 0.55rem; }
+    @media (min-width: 768px) { .choice-grid.cols-2 { grid-template-columns: 1fr 1fr; } }
+    .choice-item {
+      display: flex; align-items: flex-start; gap: 0.55rem; margin: 0; padding: 0.75rem 0.9rem;
+      border: 1.5px solid var(--border-color); border-radius: 0.55rem; background: #fff; cursor: pointer;
+      font-weight: 500; font-size: 0.92rem; line-height: 1.55;
+    }
+    .choice-item:hover { border-color: #b8eacb; background: #fbfefc; }
+    .choice-item:has(input:checked) {
+      border-color: var(--primary-green); background: var(--mint-soft);
+    }
+    .choice-item input { margin-top: 0.2rem; accent-color: var(--primary-green); width: 1.05rem; height: 1.05rem; flex-shrink: 0; }
+
+    .check-row {
+      display: flex; align-items: flex-start; gap: 0.65rem; margin-bottom: 0.85rem;
+      padding: 0.85rem 1rem; border: 1px solid var(--border-color); border-radius: 0.5rem; background: #fff;
+    }
+    .check-row input { margin-top: 0.3rem; accent-color: var(--primary-green); width: 1.1rem; height: 1.1rem; flex-shrink: 0; }
+    .check-row label { margin: 0; font-weight: 500; font-size: 0.95rem; line-height: 1.7; cursor: pointer; }
+
+    .conditional-field { display: none; margin-top: 0.75rem; }
+    .conditional-field.is-open { display: block; }
+
+    .file-upload-card {
+      border: 1px dashed var(--border-color); background: #fafbfc; border-radius: 0.5rem; padding: 1rem;
+    }
+    .file-upload-card .browse-btn {
+      display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.55rem 1.1rem;
+      border: 1px solid var(--border-color); border-radius: 0.375rem; background: var(--mint-soft);
+      color: var(--dark-green); font-weight: 600; cursor: pointer; font-family: inherit; font-size: 0.92rem;
+    }
+    .file-upload-card input[type="file"] { display: none; }
+    .file-list { margin: 0.65rem 0 0; padding: 0; list-style: none; display: grid; gap: 0.4rem; }
+    .file-list li {
+      display: flex; justify-content: space-between; gap: 0.75rem; padding: 0.45rem 0.65rem;
+      border-radius: 0.4rem; background: #fff; border: 1px solid var(--naama-border); font-size: 0.86rem; color: var(--text-muted);
+    }
+    .file-list .fname { color: var(--naama-primary); font-weight: 600; word-break: break-word; }
+
+    .privacy-box {
+      margin: 1rem 0 1.25rem; padding: 1rem 1.1rem; border-radius: 0.65rem;
+      background: #f3f7fa; border: 1px solid var(--naama-border); color: var(--text-muted); font-size: 0.95rem;
+    }
+    .privacy-box strong { display: block; margin-top: 0.65rem; color: var(--naama-primary); }
+
+    .form-actions {
+      display: flex; flex-wrap: wrap; gap: 0.65rem; justify-content: space-between;
+      margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--naama-border);
+    }
+    .form-actions__left, .form-actions__right { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+    .btn-spt {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.35rem;
+      min-height: 44px; padding: 0.55rem 1.15rem; border-radius: 0.5rem; font-family: inherit;
+      font-size: 0.95rem; font-weight: 700; border: 1.5px solid transparent; cursor: pointer;
+    }
+    .btn-spt-primary { background: var(--primary-green); color: #fff; }
+    .btn-spt-primary:hover { background: var(--dark-green); }
+    .btn-spt-primary:disabled { opacity: .55; cursor: not-allowed; }
+    .btn-spt-secondary { background: #fff; color: var(--dark-green); border-color: var(--border-color); }
+    .btn-spt-ghost { background: transparent; color: var(--text-muted); border-color: var(--border-color); }
+
+    .form-success {
+      display: none; align-items: flex-start; gap: 0.75rem; margin-bottom: 1.25rem;
+      padding: 1rem 1.1rem; border-radius: 0.65rem; background: var(--mint-soft);
+      border: 1px solid #b8eacb; color: var(--dark-green);
+    }
+    .form-success.is-visible { display: flex; }
+    .form-success p { margin: 0; color: var(--text-muted); }
+
+    .site-footer { background: #fff; border-top: 1px solid var(--naama-border); padding: 2.2rem 0 2.4rem; }
+    .site-footer .footer-links a { color: var(--naama-primary); font-weight: 600; }
+    .site-footer .text-muted { color: var(--naama-muted) !important; }
+    @media (max-width: 575.98px) {
+      .form-actions { flex-direction: column; align-items: stretch; }
+      .btn-spt { width: 100%; }
+    }
+  </style>
+</head>
+<body class="spt-page">
+  <div class="platform-top">
+    <div class="gov-bar">
+      <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <span><i class="bi bi-shield-check verified me-1"></i> موقع حكومي تابع لوزارة البيئة والمياه والزراعة</span>
+        <span class="d-none d-md-inline">متوافق مع هوية منصة نما · الرقم الموحد <strong>939</strong></span>
+      </div>
+    </div>
+    <header class="site-header">
+      <div class="container py-3">
+        <div class="d-flex flex-wrap align-items-center gap-3">
+          <a class="brand-link" href="Index.html" aria-label="الصفحة الرئيسية">
+            <span class="brand-mark" aria-hidden="true"></span>
+            <span class="brand-text text-start">
+              <strong>منصة البحث والابتكار</strong>
+              <small>وزارة البيئة والمياه والزراعة</small>
+            </span>
+          </a>
+          <nav id="mainNav" class="d-none d-lg-flex gap-1" aria-label="التنقل الرئيسي">
+            <a class="nav-pill" href="Index.html"><i class="bi bi-house me-1"></i>الرئيسية</a>
+            <a class="nav-pill active" href="Index.html?view=our-services" aria-current="page"><i class="bi bi-briefcase me-1"></i>خدماتنا</a>
+            <a class="nav-pill" href="Index.html?view=news"><i class="bi bi-megaphone me-1"></i>الأخبار</a>
+            <a class="nav-pill" href="Index.html?view=publications"><i class="bi bi-journal-richtext me-1"></i>منشورات وتقارير</a>
+            <a class="nav-pill" href="Index.html?view=my-requests"><i class="bi bi-file-earmark-text me-1"></i>طلباتي</a>
+          </nav>
+          <div class="header-search" aria-label="بحث سريع">
+            <div class="h-search-input">
+              <i class="bi bi-search" aria-hidden="true"></i>
+              <input type="search" placeholder="البحث عن خدمة..." aria-label="البحث عن خدمة" autocomplete="off" />
+            </div>
+            <select class="h-search-select" aria-label="نوع المستفيد">
+              <option selected>نوع المستفيد: الكل</option>
+              <option>باحث</option>
+              <option>مبتكر</option>
+              <option>جهة حكومية</option>
+              <option>قطاع خاص</option>
+            </select>
+            <button type="button" class="h-search-reset" aria-label="إعادة تعيين الفلتر"><i class="bi bi-arrow-counterclockwise"></i></button>
+          </div>
+          <div class="ms-auto d-flex align-items-center gap-2">
+            <a class="btn-login" href="https://naama.sa/Account/Login" target="_blank" rel="noopener"><i class="bi bi-box-arrow-in-left"></i><span>تسجيل الدخول</span></a>
+            <button type="button" class="btn-menu-toggle" id="sptMenuToggle" aria-label="القائمة" aria-expanded="false" aria-controls="mobileNav"><i class="bi bi-list"></i></button>
+          </div>
+        </div>
+        <nav id="mobileNav" aria-label="قائمة الجوال">
+          <a class="nav-pill" href="Index.html"><i class="bi bi-house me-1"></i>الرئيسية</a>
+          <a class="nav-pill active" href="Index.html?view=our-services"><i class="bi bi-briefcase me-1"></i>خدماتنا</a>
+          <a class="nav-pill" href="Index.html?view=news"><i class="bi bi-megaphone me-1"></i>الأخبار</a>
+          <a class="nav-pill" href="Index.html?view=publications"><i class="bi bi-journal-richtext me-1"></i>منشورات وتقارير</a>
+          <a class="nav-pill" href="Index.html?view=my-requests"><i class="bi bi-file-earmark-text me-1"></i>طلباتي</a>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <div class="exp3-page-title">
+    <div class="container">
+      <div class="exp3-page-hero-top">
+        <nav class="exp3-breadcrumb" aria-label="مسار التنقل">
+          <a href="Index.html?view=our-services">الخدمات</a>
+          <span aria-hidden="true"> — </span>
+          <a href="driving3.html">قيادة الابتكار</a>
+          <span aria-hidden="true"> — </span>
+          <span>دعم الاختبارات التجريبية</span>
+        </nav>
+        <a class="exp3-back-services" id="sptBackBtn" href="driving3.html#services"><i class="bi bi-arrow-right"></i> رجوع إلى صفحة البرنامج</a>
+      </div>
+      <h1>دعم الاختبارات التجريبية للحلول الابتكارية</h1>
+    </div>
+  </div>
+
+  <main class="spt-main">
+    <div class="container" style="max-width:960px">
+      <div class="spt-wrapper">
+        <h2 class="form-page-title">نموذج طلب دعم الاختبارات التجريبية للحلول الابتكارية</h2>
+        <p class="form-intro">يهدف هذا النموذج إلى استقبال وتقييم طلبات دعم الاختبارات التجريبية للحلول الابتكارية، بما يمكّن أصحاب الحلول من اختبار حلولهم في بيئة مناسبة، والتحقق من فعاليتها وجدواها وقابليتها للتطبيق والتوسع.</p>
+        <p class="form-note">ملاحظة: الحقول المشار إليها بـ (*) إلزامية.</p>
+
+        <div id="sptDraftBanner" class="spt-draft-banner" role="region" aria-label="مسودة محفوظة">
+          <p>تم العثور على مسودة محفوظة، هل ترغب في استكمالها؟</p>
+          <div class="actions">
+            <button type="button" class="btn-spt btn-spt-primary" id="sptResumeDraft">استكمال المسودة</button>
+            <button type="button" class="btn-spt btn-spt-ghost" id="sptDiscardDraft">بدء طلب جديد</button>
+          </div>
+        </div>
+
+        <div id="sptSuccess" class="form-success" role="status" aria-live="polite">
+          <i class="bi bi-check-circle-fill" style="font-size:1.35rem;flex-shrink:0"></i>
+          <div>
+            <strong>تم إرسال طلب دعم الاختبار التجريبي بنجاح</strong>
+            <p>شكراً لتقديم الطلب. سيتم مراجعة البيانات والتواصل معكم عند الحاجة لاستكمال إجراءات التقييم.</p>
+          </div>
+        </div>
+
+        <ol class="spt-stepper" id="sptStepper" aria-label="خطوات النموذج">
+          <li class="is-active" data-step="1" tabindex="0"><span class="spt-step-num">1</span>بيانات مقدم الطلب</li>
+          <li data-step="2" tabindex="0"><span class="spt-step-num">2</span>معلومات الحل الابتكاري</li>
+          <li data-step="3" tabindex="0"><span class="spt-step-num">3</span>طلب الاختبار التجريبي</li>
+          <li data-step="4" tabindex="0"><span class="spt-step-num">4</span>الإقرار</li>
+        </ol>
+
+        <form id="sptForm" novalidate>
+          <!-- STEP 1 -->
+          <div class="spt-panel is-active" data-panel="1">
+            <div class="form-section__head">أولاً: بيانات مقدم الطلب</div>
+            <div class="row g-3">
+              <div class="col-lg-6">
+                <div class="field" data-field="fullName">
+                  <label for="fullName"><span class="req">*</span> الاسم الكامل</label>
+                  <input type="text" id="fullName" name="fullName" required autocomplete="name" placeholder="أدخل الاسم الكامل" />
+                  <div class="field-error">يرجى إدخال الاسم الكامل</div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="field" data-field="orgName">
+                  <label for="orgName"><span class="req">*</span> اسم الجهة / الفريق</label>
+                  <input type="text" id="orgName" name="orgName" required placeholder="اسم الجهة أو الفريق" />
+                  <div class="field-error">يرجى إدخال اسم الجهة / الفريق</div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="field" data-field="crNumber">
+                  <label for="crNumber">السجل التجاري</label>
+                  <input type="text" id="crNumber" name="crNumber" placeholder="اختياري" />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="field" data-field="applicantRole">
+                  <label for="applicantRole"><span class="req">*</span> صفة مقدم الطلب</label>
+                  <select id="applicantRole" name="applicantRole" required>
+                    <option value="">اختر الصفة</option>
+                    <option>مبتكر</option>
+                    <option>شركة ناشئة (متوسطة وناشئة)</option>
+                    <option>شركات كبرى</option>
+                    <option>جهة حكومية</option>
+                    <option>جهة أكاديمية أو بحثية</option>
+                    <option>جهات خارجية كبرى</option>
+                    <option value="أخرى">أخرى</option>
+                  </select>
+                  <div class="field-error">يرجى اختيار صفة مقدم الطلب</div>
+                  <div id="applicantRoleOtherWrap" class="conditional-field">
+                    <label for="applicantRoleOther">يرجى تحديد الصفة</label>
+                    <input type="text" id="applicantRoleOther" name="applicantRoleOther" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="field" data-field="productAvailable">
+                  <div class="field-label">المنتج الابتكاري متوفر</div>
+                  <div class="choice-grid cols-2" role="radiogroup">
+                    <label class="choice-item"><input type="radio" name="productAvailable" value="خارج المملكة" /> خارج المملكة</label>
+                    <label class="choice-item"><input type="radio" name="productAvailable" value="داخل المملكة" /> داخل المملكة</label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="field" data-field="email">
+                  <label for="email"><span class="req">*</span> البريد الإلكتروني</label>
+                  <input type="email" id="email" name="email" required autocomplete="email" dir="ltr" placeholder="name@example.com" />
+                  <div class="field-error">يرجى إدخال بريد إلكتروني صحيح</div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="field" data-field="phone">
+                  <label for="phone"><span class="req">*</span> رقم التواصل</label>
+                  <input type="tel" id="phone" name="phone" required autocomplete="tel" dir="ltr" placeholder="05xxxxxxxx" />
+                  <div class="field-error">يرجى إدخال رقم جوال سعودي صحيح</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 2 -->
+          <div class="spt-panel" data-panel="2">
+            <div class="form-section__head">ثانياً: معلومات الحل الابتكاري</div>
+            <div class="field" data-field="solutionName">
+              <label for="solutionName"><span class="req">*</span> اسم الحل الابتكاري</label>
+              <input type="text" id="solutionName" name="solutionName" required />
+              <div class="field-error">يرجى إدخال اسم الحل الابتكاري</div>
+            </div>
+            <div class="field" data-field="solutionDesc">
+              <label for="solutionDesc"><span class="req">*</span> وصف مختصر للحل الابتكاري</label>
+              <textarea class="tall" id="solutionDesc" name="solutionDesc" required></textarea>
+              <div class="field-error">يرجى إدخال وصف الحل</div>
+            </div>
+            <div class="field" data-field="problemChallenge">
+              <label for="problemChallenge"><span class="req">*</span> ما المشكلة أو التحدي الذي يعالجه الحل؟</label>
+              <textarea class="tall" id="problemChallenge" name="problemChallenge" required></textarea>
+              <div class="field-error">يرجى توضيح المشكلة أو التحدي</div>
+            </div>
+            <div class="field" data-field="targetAudience">
+              <label for="targetAudience">الفئة المستهدفة من الحل الابتكاري؟</label>
+              <textarea id="targetAudience" name="targetAudience"></textarea>
+            </div>
+            <div class="field" data-field="sector">
+              <div class="field-label"><span class="req">*</span> القطاع الذي ينتمي إليه الحل الابتكاري</div>
+              <div class="choice-grid" role="radiogroup">
+                <label class="choice-item"><input type="radio" name="sector" value="قطاع البيئة" /> قطاع البيئة</label>
+                <label class="choice-item"><input type="radio" name="sector" value="قطاع المياه" /> قطاع المياه</label>
+                <label class="choice-item"><input type="radio" name="sector" value="قطاع الزراعة" /> قطاع الزراعة</label>
+                <label class="choice-item"><input type="radio" name="sector" value="حل تكاملي يخدم أكثر من قطاع." /> حل تكاملي يخدم أكثر من قطاع.</label>
+              </div>
+              <div class="field-error">يرجى اختيار القطاع</div>
+            </div>
+            <div class="field" data-field="strategicGoals">
+              <div class="field-label"><span class="req">*</span> الهدف الاستراتيجي الذي يسهم الحل في تحقيقه</div>
+              <div class="choice-grid" role="group">
+                <label class="choice-item"><input type="checkbox" name="strategicGoals" value="المحافظة على البيئة والموارد الطبيعية وتنميتها المستدامة" /> المحافظة على البيئة والموارد الطبيعية وتنميتها المستدامة</label>
+                <label class="choice-item"><input type="checkbox" name="strategicGoals" value="تحقيق الأمن المائي" /> تحقيق الأمن المائي</label>
+                <label class="choice-item"><input type="checkbox" name="strategicGoals" value="المساهمة في تحقيق الأمن الغذائي المستدام" /> المساهمة في تحقيق الأمن الغذائي المستدام</label>
+                <label class="choice-item"><input type="checkbox" name="strategicGoals" value="التنمية المستدامة للقطاعات ذات الميزات النسبية" /> التنمية المستدامة للقطاعات ذات الميزات النسبية</label>
+                <label class="choice-item"><input type="checkbox" name="strategicGoals" value="تقديم خدمات ومنتجات مستدامة ذات جودة عالية" /> تقديم خدمات ومنتجات مستدامة ذات جودة عالية</label>
+                <label class="choice-item"><input type="checkbox" name="strategicGoals" value="تعزيز مشاركة القطاع الخاص والقطاع غير الربحي" /> تعزيز مشاركة القطاع الخاص والقطاع غير الربحي</label>
+                <label class="choice-item"><input type="checkbox" name="strategicGoals" value="أكثر من هدف استراتيجي." /> أكثر من هدف استراتيجي.</label>
+              </div>
+              <div class="field-error">يرجى اختيار هدف واحد على الأقل</div>
+            </div>
+            <div class="field" data-field="marketReady">
+              <div class="field-label">هل الحل الابتكاري جاهز للسوق؟</div>
+              <div class="choice-grid cols-2" role="radiogroup">
+                <label class="choice-item"><input type="radio" name="marketReady" value="نعم" /> نعم</label>
+                <label class="choice-item"><input type="radio" name="marketReady" value="لا" /> لا</label>
+                <label class="choice-item"><input type="radio" name="marketReady" value="غير متأكد" /> غير متأكد</label>
+              </div>
+            </div>
+            <div class="field" data-field="previouslyTested">
+              <div class="field-label"><span class="req">*</span> هل سبق اختبار الحل؟</div>
+              <div class="choice-grid cols-2" role="radiogroup">
+                <label class="choice-item"><input type="radio" name="previouslyTested" value="نعم" /> نعم</label>
+                <label class="choice-item"><input type="radio" name="previouslyTested" value="لا" /> لا</label>
+              </div>
+              <div class="field-error">يرجى التحديد</div>
+              <div id="prevTestWrap" class="conditional-field">
+                <label for="prevTestDetails">اذكر مكان ونطاق الاختبار السابق والنتائج الرئيسية التي تم التوصل إليها.</label>
+                <textarea class="tall" id="prevTestDetails" name="prevTestDetails"></textarea>
+              </div>
+            </div>
+            <div class="field" data-field="hasFunding">
+              <div class="field-label">هل يوجد للحل الابتكاري تمويل أو شريك مستثمر في الحل الابتكاري؟</div>
+              <div class="choice-grid cols-2" role="radiogroup">
+                <label class="choice-item"><input type="radio" name="hasFunding" value="نعم" /> نعم</label>
+                <label class="choice-item"><input type="radio" name="hasFunding" value="لا" /> لا</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 3 -->
+          <div class="spt-panel" data-panel="3">
+            <div class="form-section__head">ثالثاً: طلب الاختبار التجريبي</div>
+            <div class="field" data-field="testGoal">
+              <label for="testGoal"><span class="req">*</span> ما الذي ترغب في اختباره أو التحقق منه في الحل الابتكاري؟</label>
+              <textarea class="tall" id="testGoal" name="testGoal" required></textarea>
+              <div class="field-error">يرجى التوضيح</div>
+            </div>
+            <div class="field" data-field="testTypes">
+              <div class="field-label"><span class="req">*</span> ما نوع الاختبار المطلوب؟</div>
+              <div class="choice-grid" role="group">
+                <label class="choice-item"><input type="checkbox" name="testTypes" value="اختبار في بيئة واقعية" /> اختبار في بيئة واقعية</label>
+                <label class="choice-item"><input type="checkbox" name="testTypes" value="مشروع تجريبي (Pilot)" /> مشروع تجريبي (Pilot)</label>
+                <label class="choice-item"><input type="checkbox" name="testTypes" value="اختبار أداء والطاقة الاستيعابية" /> اختبار أداء والطاقة الاستيعابية</label>
+                <label class="choice-item"><input type="checkbox" name="testTypes" value="اختبار التشغيلي التجاري" /> اختبار التشغيلي التجاري</label>
+                <label class="choice-item"><input type="checkbox" name="testTypes" value="أخرى" /> أخرى</label>
+              </div>
+              <div class="field-error">يرجى اختيار نوع واحد على الأقل</div>
+              <div id="testTypesOtherWrap" class="conditional-field">
+                <label for="testTypesOther">يرجى تحديد نوع الاختبار</label>
+                <input type="text" id="testTypesOther" name="testTypesOther" />
+              </div>
+            </div>
+            <div class="field" data-field="testEnvironments">
+              <div class="field-label"><span class="req">*</span> ما البيئة المناسبة لتنفيذ الاختبار؟</div>
+              <div class="choice-grid cols-2" role="group">
+                <label class="choice-item"><input type="checkbox" name="testEnvironments" value="مختبر أو بيئة تجريبية" /> مختبر أو بيئة تجريبية</label>
+                <label class="choice-item"><input type="checkbox" name="testEnvironments" value="مزرعة أو حقل زراعي" /> مزرعة أو حقل زراعي</label>
+                <label class="choice-item"><input type="checkbox" name="testEnvironments" value="بيت محمي" /> بيت محمي</label>
+                <label class="choice-item"><input type="checkbox" name="testEnvironments" value="منشأة أو موقع مائي" /> منشأة أو موقع مائي</label>
+                <label class="choice-item"><input type="checkbox" name="testEnvironments" value="محطة معالجة أو تحلية مياه" /> محطة معالجة أو تحلية مياه</label>
+                <label class="choice-item"><input type="checkbox" name="testEnvironments" value="موقع بيئي أو محمية طبيعية" /> موقع بيئي أو محمية طبيعية</label>
+                <label class="choice-item"><input type="checkbox" name="testEnvironments" value="بيئة رقمية" /> بيئة رقمية</label>
+                <label class="choice-item"><input type="checkbox" name="testEnvironments" value="بيئة محاكاة" /> بيئة محاكاة</label>
+                <label class="choice-item"><input type="checkbox" name="testEnvironments" value="أخرى" /> أخرى، يرجى التحديد</label>
+              </div>
+              <div class="field-error">يرجى اختيار بيئة واحدة على الأقل</div>
+              <div id="envOtherWrap" class="conditional-field">
+                <label for="envOther">يرجى تحديد البيئة المناسبة</label>
+                <input type="text" id="envOther" name="envOther" />
+              </div>
+            </div>
+            <div class="field" data-field="preferredSite">
+              <label for="preferredSite">هل توجد جهة أو موقع محدد ترغب في إجراء الاختبار فيه؟</label>
+              <textarea id="preferredSite" name="preferredSite"></textarea>
+            </div>
+            <div class="field" data-field="testDuration">
+              <div class="field-label"><span class="req">*</span> ما المدة المتوقعة لتنفيذ الاختبار؟</div>
+              <div class="choice-grid" role="radiogroup">
+                <label class="choice-item"><input type="radio" name="testDuration" value="من شهر إلى 3 أشهر" /> من شهر إلى 3 أشهر</label>
+                <label class="choice-item"><input type="radio" name="testDuration" value="من 3 إلى 6 أشهر" /> من 3 إلى 6 أشهر</label>
+                <label class="choice-item"><input type="radio" name="testDuration" value="أكثر من 6 أشهر" /> أكثر من 6 أشهر</label>
+              </div>
+              <div class="field-error">يرجى اختيار المدة</div>
+            </div>
+            <div class="field" data-field="partners">
+              <label for="partners">الشركاء المحتملين المستفيدين للحل الابتكاري؟</label>
+              <textarea id="partners" name="partners"></textarea>
+            </div>
+            <div class="field" data-field="supportTypes">
+              <div class="field-label"><span class="req">*</span> ما نوع الدعم المطلوب للحل الابتكاري؟</div>
+              <div class="choice-grid cols-2" role="group">
+                <label class="choice-item"><input type="checkbox" name="supportTypes" value="توفير بيئة أو موقع للاختبار" /> توفير بيئة أو موقع للاختبار</label>
+                <label class="choice-item"><input type="checkbox" name="supportTypes" value="الوصول للمستفيدين" /> الوصول للمستفيدين</label>
+                <label class="choice-item"><input type="checkbox" name="supportTypes" value="التنسيق مع الجهات ذات العلاقة" /> التنسيق مع الجهات ذات العلاقة</label>
+                <label class="choice-item"><input type="checkbox" name="supportTypes" value="دعم تصميم وتنفيذ الاختبار" /> دعم تصميم وتنفيذ الاختبار</label>
+                <label class="choice-item"><input type="checkbox" name="supportTypes" value="توفير أو إتاحة بيانات" /> توفير أو إتاحة بيانات</label>
+                <label class="choice-item"><input type="checkbox" name="supportTypes" value="دعم قياس وتقييم النتائج" /> دعم قياس وتقييم النتائج</label>
+                <label class="choice-item"><input type="checkbox" name="supportTypes" value="دعم لوجستي" /> دعم لوجستي</label>
+                <label class="choice-item"><input type="checkbox" name="supportTypes" value="خبراء ومستشارون" /> خبراء ومستشارون</label>
+                <label class="choice-item"><input type="checkbox" name="supportTypes" value="أخرى" /> أخرى</label>
+              </div>
+              <div class="field-error">يرجى اختيار نوع دعم واحد على الأقل</div>
+              <div id="supportOtherWrap" class="conditional-field">
+                <label for="supportOther">يرجى تحديد نوع الدعم</label>
+                <input type="text" id="supportOther" name="supportOther" />
+              </div>
+            </div>
+            <div class="field" data-field="expectedResults">
+              <label for="expectedResults"><span class="req">*</span> ما النتائج التي تتوقع الوصول إليها من الاختبار؟</label>
+              <textarea class="tall" id="expectedResults" name="expectedResults" required></textarea>
+              <div class="field-error">يرجى توضيح النتائج المتوقعة</div>
+            </div>
+            <div class="field" data-field="nationalContribution">
+              <label for="nationalContribution">ما مدى مساهمة المنتج الابتكاري في المستهدفات الوطنية القطاعية؟</label>
+              <textarea class="tall" id="nationalContribution" name="nationalContribution"></textarea>
+            </div>
+            <div class="field" data-field="nextStep">
+              <div class="field-label"><span class="req">*</span> ما الخطوة التالية في حال نجاح التجربة؟</div>
+              <div class="choice-grid" role="radiogroup">
+                <label class="choice-item"><input type="radio" name="nextStep" value="التوسع على الاختبار" /> التوسع على الاختبار</label>
+                <label class="choice-item"><input type="radio" name="nextStep" value="تطبيق الحل لدى جهة مستفيدة" /> تطبيق الحل لدى جهة مستفيدة</label>
+                <label class="choice-item"><input type="radio" name="nextStep" value="إطلاق الحل" /> إطلاق الحل</label>
+                <label class="choice-item"><input type="radio" name="nextStep" value="الربط مع مستفيدين" /> الربط مع مستفيدين</label>
+                <label class="choice-item"><input type="radio" name="nextStep" value="الحصول على تأييد دخول للسوق" /> الحصول على تأييد دخول للسوق</label>
+                <label class="choice-item"><input type="radio" name="nextStep" value="أخرى" /> أخرى</label>
+              </div>
+              <div class="field-error">يرجى اختيار الخطوة التالية</div>
+              <div id="nextStepOtherWrap" class="conditional-field">
+                <label for="nextStepOther">يرجى التحديد</label>
+                <input type="text" id="nextStepOther" name="nextStepOther" />
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 4 -->
+          <div class="spt-panel" data-panel="4">
+            <div class="form-section__head">المرفقات والروابط</div>
+            <div class="field" data-field="projectFiles">
+              <div class="field-label">المرفقات صور / فيديو / عرض / رابط للمشروع الابتكاري / موقع إلكتروني؟</div>
+              <div class="file-upload-card">
+                <button type="button" class="browse-btn" id="projectFilesBtn"><i class="bi bi-cloud-upload"></i> اختيار ملفات</button>
+                <input type="file" id="projectFiles" name="projectFiles" multiple accept=".jpg,.jpeg,.png,.gif,.webp,.pdf,.ppt,.pptx,.doc,.docx,.mp4,.mov,.avi,.webm" />
+                <ul class="file-list" id="projectFilesList" aria-live="polite"></ul>
+              </div>
+            </div>
+            <div class="field" data-field="projectUrl">
+              <label for="projectUrl">رابط المشروع الابتكاري / الموقع الإلكتروني</label>
+              <input type="url" id="projectUrl" name="projectUrl" placeholder="https://..." dir="ltr" />
+              <div class="field-error">يرجى إدخال رابط صحيح يبدأ بـ http:// أو https://</div>
+            </div>
+            <div class="field" data-field="extraFiles">
+              <div class="field-label">إرفاق مستندات إضافية داعمة وروابط</div>
+              <div class="file-upload-card">
+                <button type="button" class="browse-btn" id="extraFilesBtn"><i class="bi bi-paperclip"></i> إرفاق مستندات إضافية</button>
+                <input type="file" id="extraFiles" name="extraFiles" multiple accept=".jpg,.jpeg,.png,.gif,.webp,.pdf,.ppt,.pptx,.doc,.docx,.mp4,.mov,.avi,.webm" />
+                <ul class="file-list" id="extraFilesList" aria-live="polite"></ul>
+              </div>
+            </div>
+            <div class="field" data-field="extraLinks">
+              <label for="extraLinks">روابط إضافية داعمة</label>
+              <textarea id="extraLinks" name="extraLinks" placeholder="ضع كل رابط في سطر مستقل"></textarea>
+            </div>
+
+            <div class="form-section__head">الإقرار</div>
+            <div class="field" data-field="declaration">
+              <div class="check-row">
+                <input type="checkbox" id="declaration" name="declaration" required />
+                <label for="declaration"><span class="req">*</span> أقر بأن المعلومات المقدمة في هذا الطلب صحيحة، وأوافق على استخدامها لغرض دراسة وتقييم طلب دعم الاختبار التجريبي، والتواصل معي بشأن الطلب.</label>
+              </div>
+              <div class="field-error">يجب الموافقة على الإقرار قبل الإرسال</div>
+            </div>
+
+            <div class="form-section__head">الموافقة على التواصل (<span class="req">*</span>)</div>
+            <div class="field" data-field="contactConsent">
+              <div class="check-row">
+                <input type="checkbox" id="contactConsent" name="contactConsent" required />
+                <label for="contactConsent">أوافق على التواصل معي لاستكمال المعلومات أو مناقشة متطلبات تنفيذ الاختبار.</label>
+              </div>
+              <div class="field-error">يجب الموافقة على التواصل قبل الإرسال</div>
+            </div>
+
+            <div class="privacy-box" role="note">
+              يحرص برنامج نشر الابتكار على التعامل مع المعلومات والبيانات المتعلقة بالحل الابتكاري المقدمة من خلال هذا النموذج بسرية، واستخدامها في نطاق دراسة الطلب وتقييمه وتحديد متطلبات الاختبار التجريبي وتنفيذه.
+              <strong>لدراسة وتقييم الدعم المطلوب</strong>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <div class="form-actions__left">
+              <button type="button" class="btn-spt btn-spt-secondary" id="sptSaveDraft"><i class="bi bi-save"></i> حفظ كمسودة</button>
+              <button type="button" class="btn-spt btn-spt-ghost" id="sptReset">بدء طلب جديد</button>
+            </div>
+            <div class="form-actions__right">
+              <button type="button" class="btn-spt btn-spt-secondary" id="sptPrev" hidden><i class="bi bi-arrow-right"></i> السابق</button>
+              <button type="button" class="btn-spt btn-spt-primary" id="sptNext">التالي <i class="bi bi-arrow-left"></i></button>
+              <button type="submit" class="btn-spt btn-spt-primary" id="sptSubmit" hidden><i class="bi bi-send"></i> إرسال الطلب</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-5">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <span class="brand-mark" style="width:36px;height:36px;border-radius:10px" aria-hidden="true"></span>
+            <strong style="color:var(--naama-primary)">منصة البحث والابتكار</strong>
+          </div>
+          <p class="text-muted mb-0" style="max-width:34rem">المحور المركزي لأنشطة البحث والابتكار في قطاعات البيئة والمياه والزراعة، ضمن منظومة منصة نما وأهداف رؤية 2030.</p>
+        </div>
+        <div class="col-md-4">
+          <h6 style="color:var(--naama-primary);font-weight:700">روابط سريعة</h6>
+          <div class="footer-links d-flex flex-wrap gap-3">
+            <a href="Index.html">الرئيسية</a>
+            <a href="Index.html?view=our-services">خدماتنا</a>
+            <a href="Index.html?view=publications">منشورات وتقارير</a>
+            <a href="Index.html?view=my-requests">طلباتي</a>
+            <a href="https://naama.sa/" target="_blank" rel="noreferrer">منصة نما</a>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <h6 style="color:var(--naama-primary);font-weight:700">الدعم</h6>
+          <p class="text-muted mb-1"><i class="bi bi-headset me-1"></i> الرقم الموحد <strong>939</strong></p>
+          <p class="text-muted mb-0"><i class="bi bi-envelope me-1"></i> ri-support@mewa.gov.sa</p>
+        </div>
+      </div>
+      <hr class="my-4" />
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 text-muted small">
+        <span>© جميع الحقوق محفوظة · وزارة البيئة والمياه والزراعة</span>
+        <span>الإصدار التجريبي · متوافق مع النفاذ الموحد</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+  (function () {
+    var DRAFT_KEY = "supporting-pilot-tests-draft";
+    var form = document.getElementById("sptForm");
+    var success = document.getElementById("sptSuccess");
+    var stepper = document.getElementById("sptStepper");
+    var draftBanner = document.getElementById("sptDraftBanner");
+    var currentStep = 1;
+    var totalSteps = 4;
+
+    var menuToggle = document.getElementById("sptMenuToggle");
+    var mobileNav = document.getElementById("mobileNav");
+    if (menuToggle && mobileNav) {
+      menuToggle.addEventListener("click", function () {
+        var open = mobileNav.classList.toggle("is-open");
+        menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    }
+
+    var backBtn = document.getElementById("sptBackBtn");
+    if (backBtn) {
+      backBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        var ref = document.referrer || "";
+        if (ref && /driving3\.html/i.test(ref) && window.history.length > 1) {
+          window.history.back();
+        } else {
+          window.location.href = "driving3.html#services";
+        }
+      });
+    }
+
+    function clearInvalid(el) {
+      var field = el && el.closest ? el.closest(".field") : null;
+      if (field) field.classList.remove("is-invalid");
+    }
+    function setInvalid(name) {
+      var field = form.querySelector('[data-field="' + name + '"]');
+      if (field) field.classList.add("is-invalid");
+    }
+    function radioValue(name) {
+      var checked = form.querySelector('input[name="' + name + '"]:checked');
+      return checked ? checked.value : "";
+    }
+    function checkedValues(name) {
+      return Array.prototype.map.call(form.querySelectorAll('input[name="' + name + '"]:checked'), function (el) {
+        return el.value;
+      });
+    }
+    function isEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+    function isSaudiPhone(v) {
+      var n = String(v || "").replace(/[\s\-()]/g, "");
+      return /^(05\d{8}|5\d{8}|\+9665\d{8}|9665\d{8})$/.test(n);
+    }
+    function isUrl(v) {
+      if (!v) return true;
+      try {
+        var u = new URL(v);
+        return u.protocol === "http:" || u.protocol === "https:";
+      } catch (e) { return false; }
+    }
+    function requireText(id) {
+      var el = document.getElementById(id);
+      var ok = el && String(el.value || "").trim().length > 0;
+      if (!ok) setInvalid(id);
+      return ok;
+    }
+    function requireSelect(id) {
+      var el = document.getElementById(id);
+      var ok = !!(el && el.value);
+      if (!ok) setInvalid(id);
+      return ok;
+    }
+    function requireRadio(name) {
+      var ok = !!radioValue(name);
+      if (!ok) setInvalid(name);
+      return ok;
+    }
+    function requireChecks(name) {
+      var ok = checkedValues(name).length > 0;
+      if (!ok) setInvalid(name);
+      return ok;
+    }
+    function toggleWrap(wrapId, show, clearIds) {
+      var wrap = document.getElementById(wrapId);
+      if (!wrap) return;
+      if (show) wrap.classList.add("is-open");
+      else {
+        wrap.classList.remove("is-open");
+        (clearIds || []).forEach(function (id) {
+          var el = document.getElementById(id);
+          if (el) { el.value = ""; clearInvalid(el); }
+        });
+      }
+    }
+    function syncConditionals() {
+      toggleWrap("applicantRoleOtherWrap", document.getElementById("applicantRole").value === "أخرى", ["applicantRoleOther"]);
+      toggleWrap("prevTestWrap", radioValue("previouslyTested") === "نعم", ["prevTestDetails"]);
+      toggleWrap("testTypesOtherWrap", checkedValues("testTypes").indexOf("أخرى") !== -1, ["testTypesOther"]);
+      toggleWrap("envOtherWrap", checkedValues("testEnvironments").indexOf("أخرى") !== -1, ["envOther"]);
+      toggleWrap("supportOtherWrap", checkedValues("supportTypes").indexOf("أخرى") !== -1, ["supportOther"]);
+      toggleWrap("nextStepOtherWrap", radioValue("nextStep") === "أخرى", ["nextStepOther"]);
+    }
+
+    function formatSize(bytes) {
+      if (bytes < 1024) return bytes + " بايت";
+      if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " كيلوبايت";
+      return (bytes / (1024 * 1024)).toFixed(1) + " ميجابايت";
+    }
+    function bindFileList(inputId, listId, btnId) {
+      var input = document.getElementById(inputId);
+      var list = document.getElementById(listId);
+      var btn = document.getElementById(btnId);
+      btn.addEventListener("click", function () { input.click(); });
+      input.addEventListener("change", function () {
+        list.innerHTML = "";
+        Array.prototype.forEach.call(input.files || [], function (f) {
+          var li = document.createElement("li");
+          li.innerHTML = '<span class="fname"></span><span></span>';
+          li.querySelector(".fname").textContent = f.name;
+          li.querySelector("span:last-child").textContent = formatSize(f.size);
+          list.appendChild(li);
+        });
+      });
+    }
+    bindFileList("projectFiles", "projectFilesList", "projectFilesBtn");
+    bindFileList("extraFiles", "extraFilesList", "extraFilesBtn");
+
+    function showStep(step, skipScroll) {
+      currentStep = step;
+      Array.prototype.forEach.call(form.querySelectorAll(".spt-panel"), function (p) {
+        p.classList.toggle("is-active", Number(p.getAttribute("data-panel")) === step);
+      });
+      Array.prototype.forEach.call(stepper.querySelectorAll("li"), function (li) {
+        var n = Number(li.getAttribute("data-step"));
+        li.classList.toggle("is-active", n === step);
+        li.classList.toggle("is-done", n < step);
+      });
+      document.getElementById("sptPrev").hidden = step === 1;
+      document.getElementById("sptNext").hidden = step === totalSteps;
+      document.getElementById("sptSubmit").hidden = step !== totalSteps;
+      if (!skipScroll) {
+        var panel = form.querySelector('.spt-panel[data-panel="' + step + '"]');
+        if (panel) panel.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    function validateStep(step) {
+      Array.prototype.forEach.call(form.querySelectorAll(".field.is-invalid"), function (f) {
+        f.classList.remove("is-invalid");
+      });
+      var ok = true;
+      if (step === 1) {
+        ok = [requireText("fullName"), requireText("orgName"), requireSelect("applicantRole"), requireText("email"), requireText("phone")].every(Boolean);
+        var email = document.getElementById("email").value.trim();
+        var phone = document.getElementById("phone").value.trim();
+        if (email && !isEmail(email)) { setInvalid("email"); ok = false; }
+        if (phone && !isSaudiPhone(phone)) { setInvalid("phone"); ok = false; }
+        if (document.getElementById("applicantRole").value === "أخرى" && !String(document.getElementById("applicantRoleOther").value || "").trim()) {
+          setInvalid("applicantRole"); ok = false;
+        }
+      }
+      if (step === 2) {
+        ok = [
+          requireText("solutionName"), requireText("solutionDesc"), requireText("problemChallenge"),
+          requireRadio("sector"), requireChecks("strategicGoals"), requireRadio("previouslyTested")
+        ].every(Boolean);
+        if (radioValue("previouslyTested") === "نعم" && !String(document.getElementById("prevTestDetails").value || "").trim()) {
+          setInvalid("previouslyTested"); ok = false;
+        }
+      }
+      if (step === 3) {
+        ok = [
+          requireText("testGoal"), requireChecks("testTypes"), requireChecks("testEnvironments"),
+          requireRadio("testDuration"), requireChecks("supportTypes"), requireText("expectedResults"), requireRadio("nextStep")
+        ].every(Boolean);
+        if (checkedValues("testTypes").indexOf("أخرى") !== -1 && !String(document.getElementById("testTypesOther").value || "").trim()) {
+          setInvalid("testTypes"); ok = false;
+        }
+        if (checkedValues("testEnvironments").indexOf("أخرى") !== -1 && !String(document.getElementById("envOther").value || "").trim()) {
+          setInvalid("testEnvironments"); ok = false;
+        }
+        if (checkedValues("supportTypes").indexOf("أخرى") !== -1 && !String(document.getElementById("supportOther").value || "").trim()) {
+          setInvalid("supportTypes"); ok = false;
+        }
+        if (radioValue("nextStep") === "أخرى" && !String(document.getElementById("nextStepOther").value || "").trim()) {
+          setInvalid("nextStep"); ok = false;
+        }
+      }
+      if (step === 4) {
+        var url = document.getElementById("projectUrl").value.trim();
+        if (url && !isUrl(url)) { setInvalid("projectUrl"); ok = false; }
+        if (!document.getElementById("declaration").checked) { setInvalid("declaration"); ok = false; }
+        if (!document.getElementById("contactConsent").checked) { setInvalid("contactConsent"); ok = false; }
+      }
+      if (!ok) {
+        var first = form.querySelector(".field.is-invalid");
+        if (first) {
+          first.scrollIntoView({ behavior: "smooth", block: "center" });
+          var focusable = first.querySelector("input, textarea, select");
+          if (focusable) focusable.focus({ preventScroll: true });
+        }
+      }
+      return !!ok;
+    }
+
+    function collectDraft() {
+      var data = { step: currentStep, fields: {}, checks: {}, radios: {} };
+      Array.prototype.forEach.call(form.querySelectorAll("input[type='text'], input[type='email'], input[type='tel'], input[type='url'], textarea, select"), function (el) {
+        if (el.name) data.fields[el.name] = el.value;
+      });
+      Array.prototype.forEach.call(form.querySelectorAll("input[type='checkbox']"), function (el) {
+        if (!el.name) return;
+        if (el.id === "declaration" || el.id === "contactConsent") {
+          data.checks[el.id] = !!el.checked;
+          return;
+        }
+        if (!data.checks[el.name]) data.checks[el.name] = [];
+        if (el.checked) data.checks[el.name].push(el.value);
+      });
+      Array.prototype.forEach.call(form.querySelectorAll("input[type='radio']:checked"), function (el) {
+        data.radios[el.name] = el.value;
+      });
+      return data;
+    }
+    function applyDraft(data) {
+      if (!data) return;
+      Object.keys(data.fields || {}).forEach(function (name) {
+        var el = form.elements[name];
+        if (el && el.type !== "file") el.value = data.fields[name];
+      });
+      Object.keys(data.radios || {}).forEach(function (name) {
+        var el = form.querySelector('input[name="' + name + '"][value="' + CSS.escape(data.radios[name]) + '"]');
+        if (el) el.checked = true;
+      });
+      Object.keys(data.checks || {}).forEach(function (name) {
+        if (name === "declaration" || name === "contactConsent") {
+          var box = document.getElementById(name);
+          if (box) box.checked = !!data.checks[name];
+          return;
+        }
+        var values = data.checks[name] || [];
+        Array.prototype.forEach.call(form.querySelectorAll('input[name="' + name + '"]'), function (el) {
+          el.checked = values.indexOf(el.value) !== -1;
+        });
+      });
+      syncConditionals();
+      showStep(Number(data.step) || 1);
+    }
+    function saveDraft(silent) {
+      try {
+        localStorage.setItem(DRAFT_KEY, JSON.stringify(collectDraft()));
+        if (!silent) alert("تم حفظ المسودة محلياً في هذا المتصفح.");
+      } catch (e) {
+        if (!silent) alert("تعذر حفظ المسودة في هذا المتصفح.");
+      }
+    }
+    function clearDraft() { try { localStorage.removeItem(DRAFT_KEY); } catch (e) {} }
+    function loadDraftRaw() {
+      try {
+        var raw = localStorage.getItem(DRAFT_KEY);
+        return raw ? JSON.parse(raw) : null;
+      } catch (e) { return null; }
+    }
+
+    form.addEventListener("change", syncConditionals);
+    form.addEventListener("input", function (e) { clearInvalid(e.target); });
+
+    document.getElementById("sptNext").addEventListener("click", function () {
+      if (!validateStep(currentStep)) return;
+      saveDraft(true);
+      showStep(Math.min(totalSteps, currentStep + 1));
+    });
+    document.getElementById("sptPrev").addEventListener("click", function () {
+      showStep(Math.max(1, currentStep - 1));
+    });
+    Array.prototype.forEach.call(stepper.querySelectorAll("li"), function (li) {
+      function go() {
+        var target = Number(li.getAttribute("data-step"));
+        if (target === currentStep) return;
+        if (target > currentStep && !validateStep(currentStep)) return;
+        if (target > currentStep) saveDraft(true);
+        showStep(target);
+      }
+      li.addEventListener("click", go);
+      li.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); }
+      });
+    });
+
+    document.getElementById("sptSaveDraft").addEventListener("click", function () { saveDraft(false); });
+    document.getElementById("sptReset").addEventListener("click", function () {
+      if (!confirm("هل أنت متأكد من بدء طلب جديد؟ سيتم حذف المسودة المحفوظة.")) return;
+      form.reset();
+      clearDraft();
+      document.getElementById("projectFilesList").innerHTML = "";
+      document.getElementById("extraFilesList").innerHTML = "";
+      Array.prototype.forEach.call(form.querySelectorAll(".field.is-invalid"), function (f) { f.classList.remove("is-invalid"); });
+      success.classList.remove("is-visible");
+      draftBanner.classList.remove("is-visible");
+      syncConditionals();
+      showStep(1);
+    });
+    document.getElementById("sptResumeDraft").addEventListener("click", function () {
+      applyDraft(loadDraftRaw());
+      draftBanner.classList.remove("is-visible");
+    });
+    document.getElementById("sptDiscardDraft").addEventListener("click", function () {
+      if (!confirm("هل تريد بدء طلب جديد وحذف المسودة؟")) return;
+      clearDraft();
+      form.reset();
+      syncConditionals();
+      showStep(1);
+      draftBanner.classList.remove("is-visible");
+    });
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      for (var s = 1; s <= totalSteps; s++) {
+        if (!validateStep(s)) { showStep(s); return; }
+      }
+      success.classList.add("is-visible");
+      clearDraft();
+      success.scrollIntoView({ behavior: "smooth", block: "center" });
+      var btn = document.getElementById("sptSubmit");
+      btn.disabled = true;
+      setTimeout(function () { btn.disabled = false; }, 1500);
+    });
+
+    syncConditionals();
+    showStep(1, true);
+    if (loadDraftRaw()) draftBanner.classList.add("is-visible");
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    window.scrollTo(0, 0);
+    requestAnimationFrame(function () { window.scrollTo(0, 0); });
+  })();
+  </script>
+</body>
+</html>

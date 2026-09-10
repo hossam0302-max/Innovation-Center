@@ -1,0 +1,881 @@
+/* Dam3 chrome + non-conflicting helpers. Official damChallenge CSS owns content. */
+:root {
+  --mewa-green: #1b8354;
+  --mewa-dark-green: #074d31;
+  --mewa-forest: #14573a;
+  --mewa-light-green: #88d8ad;
+  --mewa-mint: #f3fcf6;
+  --mewa-mint-strong: #b8eacb;
+  --mewa-accent: #dba102;
+  --mewa-govbar: #00283e;
+  --mewa-text: #161616;
+  --mewa-muted: #384250;
+  --mewa-border: #d2d6db;
+  --mewa-border-soft: #e5e7eb;
+  --mewa-white: #ffffff;
+  --header-h: 88px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+
+/* CRITICAL: neutralize MEWA bundle .container flex rules that break Bootstrap grids */
+.dam3-body .container {
+  display: block;
+  height: auto;
+  align-items: initial;
+  position: relative;
+  max-width: 1140px;
+}
+@media (min-width: 576px) {
+  .dam3-body .container { max-width: 540px; }
+}
+@media (min-width: 768px) {
+  .dam3-body .container { max-width: 720px; }
+}
+@media (min-width: 992px) {
+  .dam3-body .container { max-width: 960px; }
+}
+@media (min-width: 1200px) {
+  .dam3-body .container { max-width: 1140px; }
+}
+/* Hero container must remain flex per official MEWA damChallenge CSS */
+.damChallenge .hero .container {
+  display: flex !important;
+  height: 100% !important;
+  align-items: initial;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dam3-body {
+  margin: 0;
+  font-family: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+  color: var(--mewa-text);
+  background: var(--mewa-white);
+  line-height: 1.7;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+/* عزل ترويسة المنصة عن قواعد MEWA bundle لـ .container */
+.dam3-body .platform-top {
+  font-family: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif !important;
+  line-height: 1.75 !important;
+  color: #14263a;
+  width: 100%;
+  max-width: 100vw;
+  zoom: 1 !important;
+}
+.dam3-body .platform-top *,
+.dam3-body .platform-top *::before,
+.dam3-body .platform-top *::after {
+  zoom: 1 !important;
+}
+.dam3-body .platform-top .container {
+  max-width: 1140px !important;
+  width: 100% !important;
+  margin-inline: auto !important;
+  padding-inline: 12px !important;
+  height: auto !important;
+  position: relative !important;
+  z-index: 1 !important;
+  border: 0 !important;
+  border-bottom: 0 !important;
+  border-top: 0 !important;
+  padding-block-end: 0 !important;
+  padding-block-start: 0 !important;
+  margin-block-start: 0 !important;
+  margin-block-end: 0 !important;
+  zoom: 1 !important;
+}
+@media (min-width: 1400px) {
+  .dam3-body .platform-top .container {
+    max-width: 1320px !important;
+  }
+}
+@media (min-width: 1650px) {
+  .dam3-body .platform-top .container {
+    max-width: 1320px !important;
+    padding-inline: 12px !important;
+  }
+}
+.dam3-body .platform-top .gov-bar .container {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
+.dam3-body .platform-top .site-header .container {
+  display: block !important;
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+.dam3-body .platform-top .header-row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 1rem !important;
+}
+@media (min-width: 992px) {
+  .dam3-body .platform-top .header-row {
+    flex-wrap: nowrap !important;
+    gap: 0.6rem !important;
+  }
+}
+.dam3-body .platform-top a {
+  text-decoration: none !important;
+}
+.dam3-body .platform-top .site-header {
+  background: #fff !important;
+  border-bottom: 1px solid #e4ecef !important;
+  box-shadow: none !important;
+}
+
+/* قفل مقاسات شريط التنقل كما في Index / الصورة */
+.dam3-body .platform-top .brand-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.7rem !important;
+  flex: 0 0 auto !important;
+  background: none !important;
+  border: 0 !important;
+  padding: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  color: inherit !important;
+}
+.dam3-body .platform-top .brand-mark {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 12px !important;
+  flex-shrink: 0 !important;
+}
+.dam3-body .platform-top .brand-text strong {
+  color: #003957 !important;
+  font-size: 1.02rem !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  display: block !important;
+}
+.dam3-body .platform-top .brand-text small {
+  color: #62717d !important;
+  font-size: 0.78rem !important;
+  display: block !important;
+  line-height: 1.35 !important;
+}
+.dam3-body .platform-top .nav-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 999px !important;
+  color: #003957 !important;
+  font-weight: 500 !important;
+  font-size: inherit !important;
+  line-height: 1.4 !important;
+  background: transparent !important;
+  border: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  white-space: nowrap !important;
+}
+.dam3-body .platform-top .nav-pill:hover,
+.dam3-body .platform-top .nav-pill.active {
+  background: #e8f6f1 !important;
+  color: #378a6f !important;
+}
+.dam3-body .platform-top .btn-login {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  background: #003957 !important;
+  color: #fff !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  padding: 0.55rem 1.3rem !important;
+  font-weight: 600 !important;
+  width: auto !important;
+  height: auto !important;
+  min-width: 0 !important;
+  white-space: nowrap !important;
+}
+.dam3-body .platform-top .header-search {
+  align-items: center !important;
+  gap: 0.4rem !important;
+  flex-wrap: nowrap !important;
+  padding: 0.35rem 0.45rem !important;
+  background: #f4f7f9 !important;
+  border: 1px solid #e4ecef !important;
+  border-radius: 12px !important;
+  margin-inline-start: 0.5rem !important;
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  max-width: 560px !important;
+  width: auto !important;
+  height: auto !important;
+}
+.dam3-body .platform-top .header-search .h-search-input {
+  position: relative !important;
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  width: auto !important;
+}
+.dam3-body .platform-top .header-search .h-search-input input {
+  width: 100% !important;
+  padding: 0.4rem 0.6rem !important;
+  padding-inline-start: 2rem !important;
+  border: 1px solid #e4ecef !important;
+  border-radius: 8px !important;
+  background: #fff !important;
+  font-size: 0.85rem !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  color: #003957 !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+.dam3-body .platform-top .header-search .h-search-select {
+  flex: 0 1 auto !important;
+  min-width: 0 !important;
+  width: auto !important;
+  padding: 0.4rem 0.6rem !important;
+  padding-inline-end: 1.9rem !important;
+  border: 1px solid #e4ecef !important;
+  border-radius: 8px !important;
+  background-color: #fff !important;
+  font-size: 0.85rem !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  color: #003957 !important;
+  height: auto !important;
+}
+.dam3-body .platform-top .header-search .h-search-reset {
+  flex: 0 0 auto !important;
+  width: auto !important;
+  height: auto !important;
+  min-width: 0 !important;
+  padding: 0.4rem 0.65rem !important;
+  border: 1px solid #e4ecef !important;
+  border-radius: 8px !important;
+  background: #fff !important;
+  color: #003957 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.3rem !important;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  white-space: nowrap !important;
+}
+.dam3-body .platform-top .ms-auto {
+  margin-inline-start: auto !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  flex: 0 0 auto !important;
+}
+@media (min-width: 992px) {
+  .dam3-body .platform-top .header-search {
+    display: flex !important;
+  }
+  .dam3-body .platform-top #mainNav {
+    display: flex !important;
+    flex: 0 0 auto !important;
+    flex-wrap: nowrap !important;
+    white-space: nowrap !important;
+    gap: 0.25rem !important;
+  }
+  .dam3-body .platform-top #mainNav .nav-pill {
+    padding: 0.4rem 0.7rem !important;
+    font-size: 0.88rem !important;
+  }
+  .dam3-body .platform-top .btn-login {
+    padding: 0.45rem 0.9rem !important;
+    font-size: 0.88rem !important;
+  }
+  .dam3-body .platform-top .brand-text small {
+    display: none !important;
+  }
+  .dam3-body .platform-top .brand-text strong {
+    font-size: 0.98rem !important;
+  }
+}
+@media (min-width: 1280px) {
+  .dam3-body .platform-top .brand-text small {
+    display: block !important;
+  }
+}
+@media (max-width: 991.98px) {
+  .dam3-body .platform-top #mainNav {
+    display: none !important;
+  }
+  .dam3-body .platform-top .header-search {
+    display: none !important;
+  }
+}
+.dam3-body .dam3-page-hero .container {
+  max-width: 1180px !important;
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 28px !important;
+  display: block !important;
+  height: auto !important;
+  align-items: initial !important;
+  border: 0 !important;
+  padding-block: 0 !important;
+  margin-block: 0 !important;
+  zoom: 1 !important;
+}
+@media (max-width: 768px) {
+  .dam3-body .dam3-page-hero .container {
+    padding-inline: 16px !important;
+  }
+}
+.dam3-body .dam3-page-hero a {
+  text-decoration: none;
+}
+.dam3-body img,
+.dam3-body svg,
+.dam3-body table,
+.dam3-body .ul-head,
+.dam3-body .ul-body {
+  max-width: 100%;
+}
+
+/* Page hero styles live in Dam3.html (.dam3-page-hero) */
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; height: auto; }
+
+/* ===== GOV BAR ===== */
+.dam3-govbar {
+  background: var(--mewa-govbar);
+  color: #fff;
+  font-size: 0.8125rem;
+  padding: 0.55rem 0;
+}
+.dam3-govbar__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem 1.25rem;
+  align-items: center;
+}
+.dam3-govbar__right {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.dam3-govbar__badge {
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 999px;
+  background: var(--mewa-green);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  flex-shrink: 0;
+}
+.dam3-govbar__left {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0.92;
+  flex-wrap: wrap;
+}
+.dam3-govbar a { color: #88d8ad; }
+
+/* ===== UTILITY ===== */
+.dam3-utility {
+  background: #f3f4f6;
+  border-bottom: 1px solid var(--mewa-border-soft);
+  font-size: 0.8125rem;
+  color: var(--mewa-muted);
+}
+.dam3-utility__inner {
+  min-height: 46px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+.dam3-utility__links {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.1rem;
+}
+.dam3-utility__links a {
+  color: var(--mewa-dark-green);
+  font-weight: 500;
+}
+.dam3-utility__links a:hover { color: var(--mewa-green); }
+.dam3-utility__tools {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+.dam3-tool {
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  background: transparent;
+  color: var(--mewa-dark-green);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.35rem;
+  padding: 0;
+  cursor: pointer;
+}
+.dam3-tool:hover {
+  background: #e8eef2;
+  color: var(--mewa-green);
+}
+.dam3-tool svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+.dam3-utility__hotline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 600;
+  color: var(--mewa-dark-green);
+}
+.dam3-utility__hotline strong {
+  color: var(--mewa-green);
+  font-size: 1.05rem;
+}
+
+/* ===== HEADER ===== */
+.dam3-header {
+  background: #fff;
+  border-bottom: 1px solid var(--mewa-border-soft);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+}
+.dam3-header__inner {
+  min-height: var(--header-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+.dam3-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  color: var(--mewa-dark-green);
+  flex-shrink: 0;
+}
+.dam3-brand img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+.dam3-brand strong {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.dam3-brand small {
+  display: block;
+  color: var(--mewa-muted);
+  font-size: 0.8rem;
+  margin-top: 0.15rem;
+}
+.dam3-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.2rem 1.4rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--mewa-dark-green);
+}
+.dam3-nav a {
+  padding: 0.4rem 0;
+  border-bottom: 2px solid transparent;
+}
+.dam3-nav a:hover,
+.dam3-nav a.is-active {
+  color: var(--mewa-green);
+  border-bottom-color: var(--mewa-green);
+}
+.dam3-header__actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-shrink: 0;
+}
+.dam3-icon-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--mewa-border-soft);
+  border-radius: 0.5rem;
+  background: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mewa-dark-green);
+}
+.dam3-icon-btn:hover {
+  border-color: var(--mewa-green);
+  color: var(--mewa-green);
+}
+.dam3-icon-btn svg { width: 1.15rem; height: 1.15rem; }
+.dam3-lang {
+  font-weight: 700;
+  color: var(--mewa-dark-green);
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.4rem;
+}
+.dam3-lang:hover { background: var(--mewa-mint); color: var(--mewa-green); }
+.dam3-header-cta {
+  background: var(--mewa-green) !important;
+  border: 0 !important;
+  color: #fff !important;
+  border-radius: 0.5rem !important;
+  padding: 0.55rem 1.15rem !important;
+  font-weight: 700 !important;
+  font-size: 0.92rem !important;
+  display: inline-flex !important;
+  align-items: center;
+  height: 40px !important;
+  min-height: 40px !important;
+  max-height: 40px !important;
+  margin: 0 !important;
+}
+.dam3-header-cta:hover { background: #166a45 !important; }
+
+.dam3-menu-btn {
+  display: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--mewa-border-soft);
+  border-radius: 0.5rem;
+  background: #fff;
+  padding: 0.55rem;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.dam3-menu-btn span {
+  display: block;
+  height: 2px;
+  background: var(--mewa-dark-green);
+  border-radius: 2px;
+}
+
+/* ===== Soft Bootstrap resets ONLY where they break MEWA cards ===== */
+.damChallenge .card {
+  --bs-card-border-color: #d2d6db;
+  --bs-card-border-radius: 1rem;
+  box-shadow: none;
+}
+.damChallenge .challengeTracks .row > [class*="col-"] {
+  display: flex;
+}
+.damChallenge .card-challengeTracks {
+  width: 100%;
+  height: 100%;
+}
+
+/* Hero partner logos sizing (match MEWA) */
+.damChallenge .hero .btnn .tags img {
+  height: 56px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+}
+.damChallenge .hero .btnn .tags {
+  gap: 1.5rem !important;
+  align-items: center;
+}
+
+/* Organizers logos */
+.damChallenge .challengeOrganizers .logo span img {
+  max-height: 64px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* SVG icons inside content */
+.damChallenge svg.icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+.damChallenge .btn svg.icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Feedback */
+.dam3-feedback {
+  background: #fff;
+  border-top: 1px solid var(--mewa-border-soft);
+  padding: 2.75rem 0 3rem;
+}
+.dam3-feedback__box {
+  border: 1px solid var(--mewa-border);
+  border-radius: 1rem;
+  padding: 1.6rem 1.75rem;
+  background: #fafcfa;
+}
+.dam3-feedback__box h2 {
+  font-size: 1.25rem;
+  color: var(--mewa-dark-green);
+  margin: 0 0 0.85rem;
+  font-weight: 700;
+}
+.dam3-feedback__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.dam3-feedback__actions button {
+  border: 1px solid var(--mewa-border);
+  background: #fff;
+  color: var(--mewa-dark-green);
+  border-radius: 0.5rem;
+  padding: 0.55rem 1.35rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+}
+.dam3-feedback__actions button:hover,
+.dam3-feedback__actions button.is-active {
+  background: var(--mewa-mint);
+  border-color: var(--mewa-green);
+  color: var(--mewa-green);
+}
+.dam3-feedback__meta {
+  margin-top: 0.9rem;
+  color: var(--mewa-muted);
+  font-size: 0.875rem;
+}
+
+/* ===== FOOTER (old MEWA dark footer replaced by .site-footer in Dam3.html) ===== */
+
+@media (max-width: 992px) {
+  .dam3-menu-btn { display: inline-flex; }
+  .dam3-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    inset-inline: 0;
+    background: #fff;
+    border-bottom: 1px solid var(--mewa-border-soft);
+    padding: 1rem 1.25rem 1.35rem;
+    flex-direction: column;
+    gap: 0.85rem;
+    z-index: 60;
+    box-shadow: 0 10px 28px rgba(16,24,40,.1);
+  }
+  .dam3-nav.is-open { display: flex; }
+  .dam3-header__inner { min-height: 72px; position: relative; }
+  .dam3-brand img { width: 52px; height: 52px; }
+}
+@media (max-width: 768px) {
+  .dam3-govbar__left { display: none; }
+  .dam3-utility__links { display: none; }
+  .dam3-brand small { display: none; }
+  .dam3-header-cta { display: none !important; }
+  .damChallenge .hero .btnn .tags img { height: 36px; }
+}
+
+.dam3-govbar img {
+  display: inline-block;
+  vertical-align: middle;
+}
+/* Prevent MEWA bundle from forcing unwanted full-site chrome layout */
+.dam3-body .ms-SPZone,
+.dam3-body #s4-workspace {
+  width: auto !important;
+  height: auto !important;
+}
+
+/* bundle containment */
+.dam3-body {
+  position: relative;
+}
+.damChallenge {
+  isolation: isolate;
+}
+
+
+/* CRITICAL: neutralize MEWA bundle .container flex rules that break Bootstrap grids */
+.dam3-body .container {
+  display: block;
+  height: auto;
+  align-items: initial;
+  position: relative;
+  max-width: 1140px;
+}
+@media (min-width: 576px) {
+  .dam3-body .container { max-width: 540px; }
+}
+@media (min-width: 768px) {
+  .dam3-body .container { max-width: 720px; }
+}
+@media (min-width: 992px) {
+  .dam3-body .container { max-width: 960px; }
+}
+@media (min-width: 1200px) {
+  .dam3-body .container { max-width: 1140px; }
+}
+/* Hero container must remain flex per official MEWA damChallenge CSS */
+.damChallenge .hero .container {
+  display: flex !important;
+  height: 100% !important;
+  align-items: initial;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Section titles: overview / outcomes / tracks — match MEWA screenshot */
+.damChallenge .title-section {
+  color: #161616;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 40px;
+  text-align: center;
+  margin-block-end: 2.5rem;
+}
+.damChallenge .title-section span {
+  color: #1b8354;
+}
+.damChallenge .title-section p {
+  margin-top: 32px;
+  margin-block-start: 32px;
+  margin-block-end: 0;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  color: #161616;
+  text-align: center;
+}
+.damChallenge .eligibilityRequirements .title-section {
+  color: #fff;
+}
+.damChallenge .eligibilityRequirements .title-section p {
+  color: rgba(255, 255, 255, 0.8);
+}
+@media (max-width: 991px) {
+  .damChallenge .title-section {
+    font-size: 20px;
+    line-height: 34px;
+    margin-block-end: 24px;
+  }
+  .damChallenge .title-section p {
+    font-size: 16px;
+    line-height: 26px;
+    margin-top: 20px;
+    margin-block-start: 20px;
+  }
+}
+
+/* Restore track header accent colors overridden by bundle !important */
+.damChallenge .card-challengeTracks.green .top .title span:first-child,
+.damChallenge .card-challengeTracks.green .top .trl {
+  color: #1b8354 !important;
+}
+.damChallenge .card-challengeTracks.tertiary .top .title span:first-child,
+.damChallenge .card-challengeTracks.tertiary .top .trl {
+  color: #80519f !important;
+}
+.damChallenge .card-challengeTracks.gold .top .title span:first-child,
+.damChallenge .card-challengeTracks.gold .top .trl {
+  color: #dba102 !important;
+}
+
+/* Outcomes cards on mint section */
+.damChallenge .targetOutcomes .wrapper .card {
+  background: #fff;
+  border: 1px solid #d2d6db;
+  border-radius: 1rem;
+}
+.damChallenge .targetOutcomes .wrapper .card .icons {
+  background: #f3fcf6;
+}
+
+/* Prevent horizontal overflow without hiding content */
+.dam3-body .damChallenge,
+.dam3-body .dam3-header,
+.dam3-body .site-footer,
+.dam3-body .dam3-govbar,
+.dam3-body .dam3-utility {
+  width: 100%;
+  max-width: 100vw;
+}
+.damChallenge .evaluationCriteria .ul-responsive,
+.damChallenge .table-responsive {
+  max-width: 100%;
+}
+
+/* Overview cards: full text on a single line (no ellipsis) */
+.damChallenge .challengeOverview .flex-2column {
+  gap: 0.75rem;
+}
+.damChallenge .challengeOverview .flex-2column > .card {
+  width: calc(50% - 0.4rem);
+  container-type: inline-size;
+  container-name: overview-card;
+}
+.damChallenge .challengeOverview .flex-2column > .card .card-body {
+  gap: 0.65rem;
+  padding: 12px 14px;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.damChallenge .challengeOverview .flex-2column > .card .card-title {
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: clip;
+  /* Scale with card width so the full Arabic sentence stays on one line */
+  font-size: clamp(0.62rem, 3.15cqi, 0.9rem);
+  line-height: 1.35;
+  font-weight: 600;
+  max-width: none;
+  margin: 0;
+}
+.damChallenge .challengeOverview .flex-2column > .card .content-flex {
+  min-width: 0;
+  flex: 1 1 auto;
+  overflow: visible;
+}
+.damChallenge .challengeOverview .flex-2column > .card .icons {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  padding: 0.55rem;
+}
+@media (max-width: 991px) {
+  .damChallenge .challengeOverview .flex-2column > .card {
+    width: 100%;
+  }
+  .damChallenge .challengeOverview .flex-2column > .card .card-title {
+    font-size: clamp(0.78rem, 2.2cqi, 1rem);
+  }
+}
+
+/* Hero background: user-provided dam image */
+.damChallenge .hero {
+  background-image: url("./hero_section_user.png");
+  background-size: cover;
+  background-position: center;
+}
+.damChallenge .hero:before {
+  background: rgba(7, 77, 49, 0.45);
+}

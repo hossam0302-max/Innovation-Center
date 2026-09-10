@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تحدي الابتكار الجامعي | منصة البحث والابتكار</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green: #1b8354;
+      --green-dark: #0f6a42;
+      --ink: #161616;
+      --muted: #6b7280;
+      --card: #ffffff;
+      --mint: #eef7f2;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+      background: #e8eef0;
+      color: var(--ink);
+    }
+    .top {
+      background: #104631;
+      color: #fff;
+      font-size: 0.82rem;
+      padding: 0.45rem 1rem;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      width: min(1100px, calc(100% - 2rem));
+      margin: 1rem auto 0;
+    }
+    .btn-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 0.5rem 1rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: 1px solid #e5e7eb;
+      background: #fff;
+      color: #104631;
+      cursor: pointer;
+    }
+    .btn-nav-primary {
+      background: var(--green);
+      border-color: var(--green);
+      color: #fff;
+    }
+
+    .uic-hero {
+      width: min(1100px, calc(100% - 2rem));
+      margin: 1.25rem auto 2rem;
+      border-radius: 28px;
+      overflow: hidden;
+      position: relative;
+      isolation: isolate;
+      padding: clamp(1.25rem, 3vw, 2rem);
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.85rem;
+      background:
+        linear-gradient(120deg, rgba(12, 90, 110, 0.55), rgba(20, 120, 130, 0.35)),
+        url("assets/uic-banner.webp") center / cover no-repeat;
+      box-shadow: 0 12px 40px rgba(16, 70, 49, 0.12);
+    }
+    .uic-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 40%, rgba(255,255,255,0.18), transparent 45%),
+        radial-gradient(circle at 80% 60%, rgba(80, 220, 230, 0.2), transparent 40%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .uic-card {
+      position: relative;
+      z-index: 1;
+      background: var(--card);
+      border-radius: 22px;
+      box-shadow: 0 8px 28px rgba(16, 24, 40, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: clamp(1rem, 2.4vw, 1.45rem) clamp(1.1rem, 2.8vw, 1.75rem);
+    }
+
+    .uic-card-title {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+    .uic-card-title h2 {
+      margin: 0;
+      color: var(--green);
+      font-size: clamp(1.35rem, 2.8vw, 2rem);
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .uic-logo {
+      flex: 0 0 auto;
+      width: clamp(150px, 22vw, 220px);
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .uic-deadline {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: #4b5563;
+    }
+    .uic-deadline img {
+      width: 42px;
+      height: 42px;
+      flex: 0 0 auto;
+    }
+    .uic-deadline p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    .uic-deadline strong {
+      display: block;
+      margin-top: 0.15rem;
+      color: #374151;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .uic-apply {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 9.5rem;
+      padding: 0.7rem 1.6rem;
+      border-radius: 10px;
+      background: var(--green);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.05rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      box-shadow: 0 4px 14px rgba(27, 131, 84, 0.28);
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+    .uic-apply:hover {
+      background: var(--green-dark);
+      transform: translateY(-1px);
+      color: #fff;
+    }
+
+    /* Application intro (تقديم الطلب) */
+    .apply-view {
+      display: none;
+      background: #f7faf8;
+      min-height: 100vh;
+    }
+    .apply-view.is-active { display: block; }
+    .hero-view.is-hidden { display: none; }
+
+    .apply-head {
+      background: var(--mint);
+      padding: 1.35rem clamp(1rem, 4vw, 2.5rem);
+      border-bottom: 1px solid #dceee4;
+    }
+    .apply-head h1 {
+      margin: 0;
+      color: #111827;
+      font-size: clamp(1.45rem, 2.5vw, 1.85rem);
+      font-weight: 800;
+      line-height: 1.4;
+    }
+
+    .apply-body {
+      padding: 1.5rem clamp(1rem, 4vw, 2.5rem) 2.5rem;
+    }
+
+    .apply-panel {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 1.5rem 1.4rem 1.55rem;
+      max-width: 920px;
+    }
+    .apply-panel p {
+      margin: 0 0 1.25rem;
+      color: #111827;
+      font-size: 1.05rem;
+      line-height: 1.85;
+    }
+    .apply-start {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.65rem 1.45rem;
+      border-radius: 8px;
+      background: var(--green);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.15s ease;
+    }
+    .apply-start:hover {
+      background: var(--green-dark);
+      color: #fff;
+    }
+    .apply-back {
+      margin-top: 1.25rem;
+      background: transparent;
+      border: none;
+      color: var(--green);
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      font-family: inherit;
+      padding: 0;
+    }
+    .apply-back:hover { text-decoration: underline; }
+
+    html.is-platform-embed .top,
+    html.is-platform-embed .actions {
+      display: none;
+    }
+    html.is-platform-embed body {
+      background: transparent;
+    }
+    html.is-platform-embed .uic-hero {
+      width: 100%;
+      margin: 0;
+      border-radius: 20px;
+      min-height: 260px;
+    }
+    html.is-platform-embed .apply-view {
+      min-height: auto;
+      background: #f7faf8;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    @media (max-width: 720px) {
+      .uic-card {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+      }
+      .uic-logo {
+        margin-inline: auto;
+        width: min(200px, 70%);
+      }
+      .uic-deadline {
+        justify-content: center;
+      }
+      .uic-apply {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top">نسخة محلية للمعاينة داخل منصة البحث والابتكار — المحتوى مستند إلى صفحة الوزارة</div>
+  <div class="actions" id="standaloneActions">
+    <a class="btn-nav" href="../منصة-البحث-والابتكار.html?view=publications">العودة للمنشورات والتقارير</a>
+    <a class="btn-nav btn-nav-primary" href="https://www.mewa.gov.sa/ar/Ministry/Agencies/AgencyForInnovation/Topics/UniversityInnovationChallenge/Pages/default.aspx" target="_blank" rel="noopener noreferrer">الصفحة الرسمية</a>
+  </div>
+
+  <div class="hero-view" id="heroView">
+    <section class="uic-hero" aria-label="تحدي الابتكار الجامعي 2026">
+      <div class="uic-card">
+        <img
+          class="uic-logo"
+          src="assets/uic-logo.png"
+          alt="تحدي الابتكار الجامعي — University Innovation Challenge"
+          width="220"
+          height="120"
+        />
+        <div class="uic-card-title">
+          <h2>النسخة الثانية:<br />تحدي الابتكار الجامعي 2026</h2>
+        </div>
+      </div>
+
+      <div class="uic-card">
+        <div class="uic-deadline">
+          <img src="assets/uic-calendar.svg" alt="" aria-hidden="true" width="42" height="42" />
+          <div>
+            <p>التسجيل متاح حتى</p>
+            <strong>October 1, 2026</strong>
+          </div>
+        </div>
+        <button type="button" class="uic-apply" id="openApplyBtn">قدّم هنا</button>
+      </div>
+    </section>
+  </div>
+
+  <section class="apply-view" id="applyView" aria-label="تقديم الطلب" hidden>
+    <div class="apply-head">
+      <h1>تقديم الطلب</h1>
+    </div>
+    <div class="apply-body">
+      <div class="apply-panel">
+        <p>نموذج من خلاله يتم التقديم على تحدي الابتكار للاستدامة. لبدأ الخدمة</p>
+        <button type="button" class="apply-start" id="startServiceBtn">انقر هنا</button>
+      </div>
+      <button type="button" class="apply-back" id="backToHeroBtn">← الرجوع إلى صفحة التحدي</button>
+    </div>
+  </section>
+
+  <script>
+    if (window.self !== window.top) {
+      document.documentElement.classList.add("is-platform-embed");
+    }
+
+    const heroView = document.getElementById("heroView");
+    const applyView = document.getElementById("applyView");
+
+    function showApplyView() {
+      heroView.classList.add("is-hidden");
+      applyView.hidden = false;
+      applyView.classList.add("is-active");
+      applyView.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function showHeroView() {
+      applyView.classList.remove("is-active");
+      applyView.hidden = true;
+      heroView.classList.remove("is-hidden");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function startService() {
+      const parentNav = window.parent && window.parent !== window && typeof window.parent.navigate === "function"
+        ? window.parent.navigate.bind(window.parent)
+        : null;
+
+      if (parentNav) {
+        parentNav("submit", { service: "منصة نبراس" });
+        return;
+      }
+
+      window.location.href = "../منصة-البحث-والابتكار.html?view=submit&service=" + encodeURIComponent("منصة نبراس");
+    }
+
+    document.getElementById("openApplyBtn").addEventListener("click", showApplyView);
+    document.getElementById("backToHeroBtn").addEventListener("click", showHeroView);
+    document.getElementById("startServiceBtn").addEventListener("click", startService);
+  </script>
+</body>
+</html>

@@ -742,6 +742,20 @@ html[dir="rtl"] .regulatorySandbox .process img.Completion2 {
   align-items: flex-start;
   min-height: 120px;
 }
+.regulatorySandbox .applyNow .applyNow-form-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 10rem;
+  min-height: 2.75rem;
+  padding: 0.65rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.4;
+  border-radius: 0.75rem;
+  margin: 0;
+  margin-inline-start: 0;
+}
 
 /* Who can apply: compact card height (icon + title only) */
 .regulatorySandbox .eligibility .row.mb-5 .card-objectives {

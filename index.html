@@ -535,8 +535,8 @@
       margin-inline-start: 0.05em;
     }
     .achievement-label {
-      color: var(--naama-muted); font-size: 0.68rem; font-weight: 500;
-      line-height: 1.35;
+      color: var(--naama-muted); font-size: 0.9rem; font-weight: 600;
+      line-height: 1.4;
     }
 
     /* ============ News section ============ */
@@ -4202,7 +4202,6 @@
           <h6 style="color:var(--naama-primary);font-weight:700">روابط سريعة</h6>
           <div class="footer-links d-flex flex-wrap gap-3">
             <button type="button" onclick="navigate('home')">الرئيسية</button>
-            <button type="button" onclick="openInnovationProgramsTab()">برامج الابتكار</button>
             <button type="button" onclick="navigate('our-services')">خدماتنا</button>
             <button type="button" onclick="navigate('publications')">منشورات وتقارير</button>
             <button type="button" onclick="navigate('my-requests')">طلباتي</button>
@@ -4840,7 +4839,8 @@
     ];
 
     const achievements = [
-      { icon: "bi-megaphone-fill",    value: 100, suffix: "+", label: "مبادرة توعوية ونشر 9 تقارير", color: "#1b8354", colorDark: "#0f6b45" },
+      { icon: "bi-megaphone-fill",    value: 100, suffix: "+", label: "مبادرة توعوية", color: "#1b8354", colorDark: "#0f6b45" },
+      { icon: "bi-journal-richtext",  value: 10,  suffix: "+", label: "تقارير", color: "#0f6b45", colorDark: "#074d31" },
       { icon: "bi-mortarboard-fill",  value: 700, suffix: "+", label: "طالب مُمكَّن في التعليم العام والجامعي", color: "#c62828", colorDark: "#8e1b1b" },
       { icon: "bi-building",          value: 27,  suffix: "+", label: "شركة بدعم تنظيمي ومعالجة 7 تحديات", color: "#003957", colorDark: "#00283e" },
       { icon: "bi-lightbulb-fill",    value: 200, suffix: "+", label: "طلب ابتكاري مُقيَّم ومدعوم", color: "#e8a34f", colorDark: "#9a5e14" },
@@ -5352,7 +5352,6 @@
         : [
             { label: "الرئيسية", name: "home", icon: "bi-house" },
             { label: "خدماتنا", name: "our-services", icon: "bi-briefcase", matches: ["our-services", "our-service", "our-service-node", "our-service-request", "our-service-pdf", "our-service-ip-form", "our-service-ip-consulting-form", "our-service-water-strip", "our-service-driving", "our-service-experimental"] },
-            { label: "برامج الابتكار", name: "services", icon: "bi-lightbulb", matches: ["services"] },
             { label: "الأخبار", name: "news", icon: "bi-megaphone", matches: ["news", "news-detail"] },
             { label: "منشورات وتقارير", name: "publications", icon: "bi-journal-richtext", matches: ["publications", "publication-detail", "agency-report"] },
             { label: "طلباتي", name: "my-requests", icon: "bi-file-earmark-text" }
@@ -6910,7 +6909,7 @@
       },
       {
         id: 8,
-        title: "الفعاليات العلمية وبناء القدرات والمسؤولية المجتمعية",
+        title: "الفعاليات وبناء القدرات والمسؤولية المجتمعية",
         desc: "فعاليات ومؤتمرات وتحديات لبناء القدرات الابتكارية، مثل تحدي الابتكار الجامعي والمؤتمر السنوي للابتكار.",
         note: "تضم: بناء القدرات، تحديات البحث والابتكار، مؤتمر NXT، الابتكار المؤسسي",
         intro: "فعاليات وتحديات وبرامج تدريبية تعزز القدرات الابتكارية وتُشرك المجتمع البحثي والجامعي.",
@@ -6924,7 +6923,7 @@
             children: [
               { code: "8.1.1", title: "الاشتراك للوصول لمنصات علمية", desc: "إتاحة الوصول لقواعد بيانات ومنصات بحثية متخصصة", cta: "تفاصيل الخدمة", headingFromSelf: true },
               { code: "8.1.2", title: "البرامج والتدريب", desc: "برامج تدريبية متخصصة لبناء القدرات", cta: "تفاصيل الخدمة", headingFromSelf: true },
-              { code: "8.1.3", title: "الفعاليات العلمية", desc: "ورش وفعاليات علمية دورية", cta: "تفاصيل الخدمة", headingFromSelf: true }
+              { code: "8.1.3", title: "الفعاليات", desc: "ورش وفعاليات دورية", cta: "تفاصيل الخدمة", headingFromSelf: true }
             ]
           },
           {

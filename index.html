@@ -1304,10 +1304,6 @@
       max-width: 920px;
     }
     .ip-training-form-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 1rem;
       margin-bottom: 0.35rem;
     }
     .ip-training-form-header h2 {
@@ -1316,20 +1312,6 @@
       font-size: clamp(1.2rem, 2vw, 1.45rem);
       font-weight: 800;
       line-height: 1.45;
-    }
-    .ip-training-form-mark {
-      flex: 0 0 auto;
-      width: 52px;
-      height: 52px;
-      border-radius: 10px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: #0f5132;
-      color: #fff;
-      font-weight: 800;
-      font-size: 1.05rem;
-      letter-spacing: 0.04em;
     }
     .ip-training-form-rule {
       height: 4px;
@@ -2013,6 +1995,65 @@
     .badge-sector.sector-partnerships { background: rgba(73, 170, 139, 0.18); color: #2f6b55; }
     .badge-sector.sector-general { background: rgba(0, 57, 87, 0.08); color: var(--naama-primary); }
 
+    .beneficiaries-more {
+      position: relative;
+      cursor: default;
+      z-index: 6;
+      overflow: visible;
+    }
+    .beneficiaries-more-tip {
+      position: absolute;
+      bottom: calc(100% + 8px);
+      top: auto;
+      inset-inline-end: 0;
+      min-width: 230px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 6px;
+      padding: 8px;
+      background: #fff;
+      border: 1px solid var(--naama-border, #dce6e1);
+      border-radius: 12px;
+      box-shadow: 0 10px 24px rgba(15, 40, 32, 0.14);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: auto;
+      transform: translateY(4px);
+      transition: opacity 0.16s ease, transform 0.16s ease, visibility 0.16s ease;
+      z-index: 40;
+      white-space: nowrap;
+    }
+    .beneficiaries-more-tip::after {
+      content: "";
+      position: absolute;
+      inset-inline: 0;
+      top: 100%;
+      height: 10px;
+    }
+    .beneficiaries-more:hover,
+    .beneficiaries-more.is-open,
+    .beneficiaries-more:focus-visible {
+      z-index: 8;
+    }
+    .beneficiaries-more:hover .beneficiaries-more-tip,
+    .beneficiaries-more.is-open .beneficiaries-more-tip,
+    .beneficiaries-more:focus-visible .beneficiaries-more-tip {
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+    }
+    .beneficiaries-more-tip span {
+      display: block;
+      background: rgba(0, 57, 87, 0.08);
+      color: var(--naama-primary);
+      font-weight: 600;
+      font-size: 0.72rem;
+      padding: 0.28rem 0.7rem;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
     /* ============ Naama-like login page ============ */
     body.login-mode .gov-bar,
     body.login-mode .site-header,
@@ -2230,25 +2271,55 @@
     }
     .section-sub { color: var(--naama-muted); margin: 0; }
 
-    /* ============ Page intro title (below navbar) ============ */
-    .page-intro {
-      padding: 1.75rem 0 0.25rem;
+    /* ============ Unified page hero (home + services) ============ */
+    .page-hero {
+      background: #F4F1E9;
+      padding: 44px 0 34px;
+      border-bottom: 1px solid #E3E0D2;
+      min-height: 220px;
+      box-sizing: border-box;
     }
-    .page-intro-title {
-      color: var(--naama-primary);
-      font-weight: 700;
-      font-size: clamp(1.85rem, 3.2vw, 2.6rem);
-      line-height: 1.3;
-      margin: 0 0 0.75rem;
-      text-align: center;
+    .page-hero .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 28px;
     }
-    .page-intro-desc {
-      color: var(--naama-muted);
-      font-size: clamp(1.1rem, 1.9vw, 1.35rem);
-      line-height: 1.8;
-      margin: 0 0 1rem;
+    .page-hero h1,
+    .page-hero .page-intro-title,
+    .page-hero .page-title-agency {
+      font-size: 1.9rem;
+      color: #0B5D42;
+      font-weight: 800;
+      margin: 0;
+      line-height: 1.35;
+      text-align: start;
+    }
+    .page-hero > .container > p,
+    .page-hero .page-intro-desc,
+    .page-hero .block-head-sub {
+      color: #4B5C54;
+      margin: 8px 0 0;
       max-width: 100%;
-      text-align: right;
+      line-height: 1.75;
+      font-size: inherit;
+      text-align: start;
+    }
+    .page-intro {
+      padding: 0;
+    }
+    @media (max-width: 767.98px) {
+      .page-hero,
+      .portal-svc .page-hero,
+      .portal-svc .page-hero.page-hero--sub {
+        padding: 28px 0 24px;
+        min-height: 180px;
+      }
+      .page-hero h1,
+      .page-hero .page-intro-title,
+      .page-hero .page-title-agency,
+      .portal-svc .page-hero h1 {
+        font-size: 1.35rem;
+      }
     }
 
     .innovation-programs-view {
@@ -2671,17 +2742,13 @@
       color: var(--ps-ink);
       min-height: 60vh;
     }
-    .portal-svc .page-hero {
+    .portal-svc .page-hero,
+    .portal-svc .page-hero.page-hero--sub {
       background: var(--ps-paper-alt);
       padding: 44px 0 34px;
       border-bottom: 1px solid var(--ps-line);
       min-height: 220px;
       box-sizing: border-box;
-    }
-    .portal-svc .page-hero.page-hero--sub {
-      background: var(--ps-white);
-      min-height: 0;
-      padding: 28px 0 24px;
     }
     .portal-svc .page-hero .container,
     .portal-svc .services-section .container {
@@ -2709,6 +2776,12 @@
       flex-shrink: 0;
       font-weight: 700;
     }
+    .portal-svc .ps-page-actions {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+    }
     .portal-svc .portal-crumb-link {
       background: none;
       border: 0;
@@ -2728,8 +2801,9 @@
     .portal-svc .page-hero p {
       color: var(--ps-ink-soft);
       margin-top: 8px;
-      max-width: 60ch;
+      max-width: 100%;
       line-height: 1.75;
+      white-space: normal;
     }
     .portal-svc .portal-pdf-hero-desc {
       margin-top: 8px;
@@ -2749,6 +2823,30 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
     }
+    .portal-svc .ps-empty-filter {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 2.6rem 1.2rem;
+      color: var(--ps-ink-soft);
+      background: var(--ps-white);
+      border: 1px dashed var(--ps-line);
+      border-radius: 16px;
+    }
+    .portal-svc .ps-empty-filter i {
+      display: block;
+      font-size: 2.2rem;
+      color: var(--ps-green);
+      margin-bottom: 0.7rem;
+    }
+    .portal-svc .ps-empty-filter p {
+      margin: 0 0 1rem;
+    }
+    .portal-svc .ps-filter-hint {
+      margin-top: 10px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--ps-green-deep);
+    }
     .portal-svc .ps-service-card {
       background: var(--ps-white);
       border: 1px solid var(--ps-line);
@@ -2756,11 +2854,34 @@
       padding: 26px;
       display: flex;
       gap: 18px;
+      height: 100%;
       transition: transform .18s ease, box-shadow .18s ease;
     }
-    .portal-svc .ps-service-card:hover {
+    .portal-svc .ps-service-card-body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+      width: 100%;
+    }
+    .portal-svc .ps-service-card-top {
+      flex: 1;
+    }
+    .portal-svc .ps-service-card-foot {
+      margin-top: auto;
+      overflow: visible;
+      position: relative;
+      z-index: 2;
+    }
+    .portal-svc .ps-service-card:has(.beneficiaries-more:hover),
+    .portal-svc .ps-service-card:has(.beneficiaries-more.is-open) {
+      z-index: 8;
+    }
+    .portal-svc .ps-service-card:hover,
+    .portal-svc .ps-service-card:focus-within {
       transform: translateY(-3px);
       box-shadow: var(--ps-shadow);
+      z-index: 3;
     }
     .portal-svc .ps-service-card.is-clickable {
       cursor: pointer;
@@ -2802,6 +2923,43 @@
       color: var(--ps-teal);
       font-weight: 700;
       margin-bottom: 12px;
+    }
+    .portal-svc .service-beneficiaries {
+      display: grid;
+      grid-template-columns: 5.7rem minmax(0, 1fr) minmax(0, 1fr) 2.15rem;
+      align-items: center;
+      column-gap: 0.28rem;
+      width: 100%;
+      height: 30px;
+      margin: 0 0 12px;
+      overflow: visible;
+    }
+    .portal-svc .service-beneficiaries-label {
+      color: var(--ps-ink-soft);
+      font-size: 0.78rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .portal-svc .service-beneficiaries .badge-sector {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 28px;
+      font-size: 0.7rem;
+      padding: 0 0.45rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .portal-svc .service-beneficiaries .beneficiaries-more {
+      width: 2.15rem;
+      min-width: 2.15rem;
+      padding: 0;
+      overflow: visible;
+    }
+    .portal-svc .service-beneficiaries .badge-sector.is-single {
+      grid-column: 2 / -1;
+      justify-content: flex-start;
     }
     .portal-svc .row-actions {
       display: flex;
@@ -2896,6 +3054,66 @@
       color: var(--ps-green-deep);
     }
     /* الخدمات الفرعية لخدمات مركز البحث والابتكار */
+    .portal-svc .ps-pillar-block {
+      margin-bottom: 22px;
+      background: var(--ps-white);
+      border: 1.5px solid color-mix(in srgb, var(--ps-green) 22%, var(--ps-line));
+      border-radius: 18px;
+      padding: 0 0 18px;
+      overflow: hidden;
+    }
+    .portal-svc .ps-pillar-block + .ps-pillar-block {
+      margin-top: 3.5rem;
+    }
+    .portal-svc .ps-pillar-bar {
+      display: block;
+      width: 100%;
+      max-width: none;
+      margin: 0;
+      background: var(--ps-green-soft);
+      color: var(--ps-green-deep);
+      font-weight: 800;
+      font-size: 1.15rem;
+      line-height: 1.5;
+      text-align: center;
+      padding: 0.9rem 1.35rem;
+      border-radius: 0;
+    }
+    .portal-svc .ps-pillar-bar--gray {
+      background: #EEF0F2;
+      color: var(--ps-green-deep);
+    }
+    .portal-svc .ps-pillar-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin: 16px 18px 0;
+    }
+    .portal-svc .ps-pillar-block .ps-subservice-grid {
+      margin: 16px 18px 0;
+    }
+    .portal-svc .ps-pillar-card {
+      background: var(--ps-white);
+      border: 1px solid var(--ps-line);
+      border-radius: 14px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      text-align: start;
+    }
+    .portal-svc .ps-pillar-card h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--ps-green-deep);
+      margin: 0 0 12px;
+      line-height: 1.45;
+    }
+    .portal-svc .ps-pillar-card .ps-list-label {
+      margin-bottom: 8px;
+    }
+    .portal-svc .ps-pillar-card .ps-service-list {
+      margin-bottom: 0;
+    }
     .portal-svc .ps-subservice-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -2927,6 +3145,9 @@
       color: var(--ps-green-deep);
       margin: 0 0 8px;
       line-height: 1.5;
+    }
+    .portal-svc .ps-subservice-card h4.is-large-title {
+      font-size: 1.18rem;
     }
     .portal-svc .ps-subservice-card h4 a.ps-external-title-link {
       color: inherit;
@@ -3022,8 +3243,8 @@
     .portal-svc .ps-def-label,
     .portal-svc .ps-list-label {
       display: block;
-      font-size: .78rem;
-      font-weight: 800;
+      font-size: 0.98rem;
+      font-weight: 700;
       color: var(--ps-green-deep);
       margin: 0 0 6px;
     }
@@ -3032,6 +3253,13 @@
       color: var(--ps-ink-soft);
       line-height: 1.75;
       margin: 0 0 14px;
+    }
+    .portal-svc .ps-def-text.is-two-lines {
+      font-size: clamp(0.72rem, 1.05vw, 0.8rem);
+      line-height: 1.6;
+    }
+    .portal-svc .ps-def-text.is-two-lines .ps-def-line {
+      display: block;
     }
     .portal-svc .ps-service-list {
       list-style: none;
@@ -3053,6 +3281,86 @@
       inset-inline-start: 0;
       color: var(--ps-green);
       font-weight: 800;
+    }
+    .portal-svc .ps-list-block--boxed {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .portal-svc .ps-list-block--boxed .ps-service-list {
+      border: 0;
+      border-radius: 10px;
+      background: var(--ps-green-deep);
+      padding: 12px 14px;
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+    .portal-svc .ps-list-block--boxed .ps-service-list li {
+      padding-inline-start: 0;
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+    .portal-svc .ps-list-block--boxed .ps-service-list li::before {
+      content: none;
+    }
+    .portal-svc .ps-mini-cards-wrap {
+      margin: 0;
+      height: 100%;
+    }
+    @supports (grid-template-rows: subgrid) {
+      .portal-svc .ps-subservice-grid--align-labels > .ps-subservice-card.has-section-align {
+        display: grid;
+        grid-template-rows: subgrid;
+        grid-row: span 3;
+      }
+    }
+    .portal-svc .ps-mini-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin: 0;
+    }
+    .portal-svc .ps-mini-card {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 54px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: var(--ps-green-deep);
+      color: #fff;
+    }
+    .portal-svc .ps-mini-card__plus {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--ps-green-deep);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .portal-svc .ps-mini-card__text {
+      min-width: 0;
+      font-size: 0.82rem;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+    .portal-svc .ps-mini-card__hint {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 500;
+      opacity: 0.88;
+    }
+    @media (max-width: 575.98px) {
+      .portal-svc .ps-mini-cards { grid-template-columns: 1fr; }
     }
     .portal-svc .ps-platform-footer {
       margin-top: 22px;
@@ -3325,7 +3633,14 @@
     }
     @media (max-width: 900px) {
       .portal-svc .service-grid,
+      .portal-svc .ps-pillar-grid,
       .portal-svc .ps-subservice-grid { grid-template-columns: 1fr; }
+      .portal-svc .ps-subservice-grid--align-labels > .ps-subservice-card.has-section-align {
+        display: flex;
+        grid-row: auto;
+      }
+      .portal-svc .ps-list-block--boxed { flex: none; height: auto; }
+      .portal-svc .ps-list-block--boxed .ps-service-list { margin-top: 0; margin-bottom: 14px; }
       .portal-svc .ps-form-layout { grid-template-columns: 1fr; }
       .portal-svc .ps-stepper { position: static; flex-direction: row; overflow-x: auto; gap: 20px; }
       .portal-svc .ps-step-item { padding-bottom: 0; }
@@ -3346,7 +3661,7 @@
       padding-bottom: 0.5rem;
     }
     .page-intro {
-      padding-top: 1.25rem;
+      padding-top: 0;
     }
     .block-head {
       display: flex;
@@ -3634,16 +3949,29 @@
       display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem;
       padding: 1.25rem 1.5rem 1rem;
       border-bottom: 1px solid var(--naama-border);
-      background: linear-gradient(180deg, #f8fbf9 0%, #fff 100%);
+      background: #fff;
     }
-    .ip-form-logos { display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0; }
+    .ip-form-logos {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      flex-shrink: 0;
+    }
     .ip-form-logo {
-      width: 52px; height: 52px; border-radius: 12px;
-      background: var(--naama-primary);
-      display: grid; place-items: center;
-      color: #fff; font-size: 0.72rem; font-weight: 700; text-align: center; line-height: 1.2;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: #0B1F3A;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-align: center;
+      line-height: 1.15;
+      box-shadow: 0 6px 14px rgba(11, 31, 58, 0.16);
     }
-    .ip-form-logo.is-ip { background: #1f6b4f; }
+    .ip-form-logo.is-ip { background: #1B7A4C; }
     .ip-form-title-block { flex: 1; text-align: center; }
     .ip-form-title-block h1 {
       margin: 0; font-size: 1.35rem; font-weight: 800; color: var(--naama-primary);
@@ -4148,79 +4476,15 @@
   </style>
 </head>
 <body>
-  <div class="gov-bar">
-    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
-      <span><i class="bi bi-shield-check verified me-1"></i> موقع حكومي تابع لوزارة البيئة والمياه والزراعة</span>
-      <span class="d-none d-md-inline">متوافق مع هوية منصة نما · الرقم الموحد <strong>939</strong></span>
-    </div>
-  </div>
+  <div id="platform-header-root"></div>
+<script src="platform-header.js" data-mode="spa" data-active="home"></script>
 
-  <header class="site-header">
-    <div class="container py-3">
-      <div class="header-row d-flex flex-wrap align-items-center gap-3">
-        <button type="button" class="brand-link btn p-0 border-0" onclick="navigate('home')" aria-label="الصفحة الرئيسية">
-          <span class="brand-mark" aria-hidden="true"></span>
-          <span class="brand-text text-start">
-            <strong>منصة البحث والابتكار</strong>
-            <small>وزارة البيئة والمياه والزراعة</small>
-          </span>
-        </button>
-
-        <nav id="mainNav" class="d-none d-lg-flex gap-1" aria-label="التنقل الرئيسي"></nav>
-
-        <div id="headerSearchBox" class="header-search d-none d-lg-flex" aria-label="بحث سريع"></div>
-
-        <div class="ms-auto d-flex align-items-center gap-2">
-          <a class="btn-login" href="https://naama.sa/Account/Login" target="_blank" rel="noopener">
-            <i class="bi bi-box-arrow-in-left"></i>
-            <span>تسجيل الدخول</span>
-          </a>
-          <button type="button" class="btn btn-naama-outline d-lg-none" onclick="toggleMobileNav()" aria-label="القائمة">
-            <i class="bi bi-list"></i>
-          </button>
-        </div>
-      </div>
-
-      <nav id="mobileNav" class="d-lg-none flex-wrap gap-1 pt-3 border-top mt-3" style="display:none" aria-label="قائمة الجوال"></nav>
-      <div id="mobileHeaderSearchBox" class="header-search d-lg-none w-100 mt-3" style="display:none"></div>
-    </div>
-  </header>
 
   <main id="app" class="pb-4"></main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-md-5">
-          <div class="d-flex align-items-center gap-2 mb-2">
-            <span class="brand-mark" style="width:36px;height:36px;border-radius:10px" aria-hidden="true"></span>
-            <strong style="color:var(--naama-primary)">منصة البحث والابتكار</strong>
-          </div>
-          <p class="text-muted mb-0" style="max-width: 34rem">المحور المركزي لأنشطة البحث والابتكار في قطاعات البيئة والمياه والزراعة، ضمن منظومة منصة نما وأهداف رؤية 2030.</p>
-        </div>
-        <div class="col-md-4">
-          <h6 style="color:var(--naama-primary);font-weight:700">روابط سريعة</h6>
-          <div class="footer-links d-flex flex-wrap gap-3">
-            <button type="button" onclick="navigate('home')">الرئيسية</button>
-            <button type="button" onclick="navigate('our-services')">خدماتنا</button>
-            <button type="button" onclick="navigate('publications')">منشورات وتقارير</button>
-            <button type="button" onclick="navigate('my-requests')">طلباتي</button>
-            <a href="https://naama.sa/" target="_blank" rel="noreferrer">منصة نما</a>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <h6 style="color:var(--naama-primary);font-weight:700">الدعم</h6>
-          <p class="text-muted mb-1"><i class="bi bi-headset me-1"></i> الرقم الموحد <strong>939</strong></p>
-          <p class="text-muted mb-0"><i class="bi bi-envelope me-1"></i> ri-support@mewa.gov.sa</p>
-        </div>
-      </div>
-      <hr class="my-4" />
-      <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 text-muted small">
-        <span>© جميع الحقوق محفوظة · وزارة البيئة والمياه والزراعة</span>
-        <span>الإصدار التجريبي · متوافق مع النفاذ الموحد</span>
-      </div>
-    </div>
-  </footer>
+  <div id="platform-footer-root"></div>
+<script src="platform-footer.js" data-mode="spa"></script>
+
 
   <!-- Request details modal -->
   <div class="modal fade" id="requestModal" tabindex="-1" aria-labelledby="requestModalLabel" aria-hidden="true">
@@ -4444,19 +4708,50 @@
 
     /* ============ Filter configuration (extensible) ============ */
     const canonicalBeneficiaryTypes = [
-      "طلبة الجامعات والمبتكرون الأفراد",
-      "الشركات الناشئة",
-      "المؤسسات الأكاديمية والبحثية",
+      "الجهات والبرامج الحكومية",
       "القطاع الخاص",
-      "القطاع غير الربحي",
       "المستثمرون والمؤسسات التمويلية",
-      "الجهات والبرامج الحكومية"
+      "الشركات الناشئة",
+      "القطاع غير الربحي",
+      "المؤسسات الأكاديمية والبحثية",
+      "طلبة الجامعات والمبتكرون الأفراد",
+      "لجميع المستفيدين زوار المنصة"
     ];
 
+    function collectBeneficiaryTypes(list, set) {
+      (list || []).forEach((item) => {
+        (item.beneficiaries || []).forEach((b) => {
+          if (b) set.add(b);
+        });
+      });
+    }
+
     function getAllBeneficiaryTypes() {
-      const set = new Set(canonicalBeneficiaryTypes);
-      services.forEach((s) => (s.beneficiaries || []).forEach((b) => set.add(b)));
-      return Array.from(set);
+      const set = new Set();
+      collectBeneficiaryTypes(typeof services !== "undefined" ? services : [], set);
+      collectBeneficiaryTypes(typeof PORTAL_SERVICES !== "undefined" ? PORTAL_SERVICES : [], set);
+      const extras = Array.from(set).filter((item) => !canonicalBeneficiaryTypes.includes(item));
+      const ordered = canonicalBeneficiaryTypes.filter((item) => set.has(item));
+      return (ordered.length ? ordered : canonicalBeneficiaryTypes.slice()).concat(extras);
+    }
+
+    function getActiveBeneficiaryFilter() {
+      const filter = filterRegistry.find((item) => item.id === "beneficiaryFilter");
+      return filter ? filter.getValue() : "الكل";
+    }
+
+    function matchesBeneficiaryFilter(item) {
+      const value = getActiveBeneficiaryFilter();
+      if (!value || value === "الكل") return true;
+      return (item.beneficiaries || []).includes(value);
+    }
+
+    function applyBeneficiaryFilterToOurServices() {
+      if (route.name === "our-services") {
+        render();
+        return;
+      }
+      navigate("our-services");
     }
 
     /**
@@ -5017,6 +5312,7 @@
     let homeServicesShowAll = false;
     let savedHomeViewState = null;
     let savedOurServicesViewState = null;
+    let savedPortalServiceViewState = null;
     let currentBannerIndex = 0;
     let bannerTimer = null;
 
@@ -5118,12 +5414,8 @@
     }
     function toggleMobileNav() {
       const el = document.getElementById("mobileNav");
-      const sb = document.getElementById("mobileHeaderSearchBox");
-      const next = el.style.display === "none" ? "flex" : "none";
-      el.style.display = next;
-      if (sb && !["staff", "queue", "criteria", "review"].includes(route.name)) {
-        sb.style.display = next;
-      }
+      if (!el) return;
+      el.style.display = el.style.display === "none" || !el.style.display ? "flex" : "none";
     }
     function scrollToServices() {
       navigate("services");
@@ -5242,7 +5534,7 @@
       "publications", "publication-detail", "agency-report", "staff", "queue", "criteria", "review"
     ]);
 
-    const ROUTE_PARAMS_SKIP = new Set(["preserveServicesState", "restoreHomeView", "restoreOurServicesView", "from"]);
+    const ROUTE_PARAMS_SKIP = new Set(["preserveServicesState", "restoreHomeView", "restoreOurServicesView", "restorePortalServiceView", "from"]);
 
     function getRouteParamsForUrl(params = {}) {
       const out = {};
@@ -5302,9 +5594,20 @@
           scrollY: window.scrollY || window.pageYOffset || 0
         };
       }
+      if (route.name === "our-service" && name !== "our-service") {
+        savedPortalServiceViewState = {
+          scrollY: window.scrollY || window.pageYOffset || 0,
+          id: route.params.id
+        };
+      }
       const restoreOurServices = name === "our-services" && params.restoreOurServicesView && savedOurServicesViewState;
       if (name === "our-services" && !params.restoreOurServicesView) {
         savedOurServicesViewState = null;
+      }
+      const restorePortalService = name === "our-service" && params.restorePortalServiceView && savedPortalServiceViewState
+        && String(savedPortalServiceViewState.id) === String(params.id);
+      if (name === "our-service" && !params.restorePortalServiceView) {
+        savedPortalServiceViewState = null;
       }
 
       if (name === "home" && !params.preserveServicesState) {
@@ -5317,6 +5620,17 @@
 
       if (restoreOurServices) {
         const targetY = savedOurServicesViewState.scrollY || 0;
+        window.scrollTo(0, targetY);
+        requestAnimationFrame(() => {
+          setTimeout(() => {
+            window.scrollTo({ top: targetY, behavior: "auto" });
+          }, 100);
+        });
+        return;
+      }
+
+      if (restorePortalService) {
+        const targetY = savedPortalServiceViewState.scrollY || 0;
         window.scrollTo(0, targetY);
         requestAnimationFrame(() => {
           setTimeout(() => {
@@ -5381,20 +5695,17 @@
     function renderHeaderSearch() {
       const isStaff = ["staff", "queue", "criteria", "review"].includes(route.name);
       const desktopBox = document.getElementById("headerSearchBox");
-      const mobileBox = document.getElementById("mobileHeaderSearchBox");
-      if (!desktopBox || !mobileBox) return;
+      if (!desktopBox) return;
 
       if (isStaff) {
         desktopBox.style.display = "none";
-        mobileBox.style.display = "none";
         return;
       }
       desktopBox.style.display = "";
-      mobileBox.style.display = "none";
 
       const bFilter = filterRegistry.find((f) => f.id === "beneficiaryFilter");
       const bValue = bFilter ? bFilter.getValue() : "الكل";
-      const options = ["الكل", ...canonicalBeneficiaryTypes];
+      const options = ["الكل", ...getAllBeneficiaryTypes()];
 
       const optionsHtml = options.map((o) => `
         <option value="${escapeHtml(o)}" ${o === bValue ? "selected" : ""}>
@@ -5423,7 +5734,6 @@
         </button>
       `;
       desktopBox.innerHTML = html;
-      mobileBox.innerHTML = html;
     }
 
     function onHeaderSearchInput(value) {
@@ -5445,10 +5755,8 @@
       homeServicesShowAll = false;
       if (document.getElementById("serviceGrid")) {
         refreshServiceGrid();
-        syncFilterUIs();
-      } else {
-        navigate("services");
       }
+      applyBeneficiaryFilterToOurServices();
     }
 
     function onHeaderReset() {
@@ -5461,13 +5769,9 @@
           el.classList.toggle("active", false);
         });
         refreshServiceGrid();
-        syncFilterUIs();
-        showToast("تم إعادة تعيين الفلاتر", "bi-arrow-counterclockwise");
-      } else {
-        syncFilterUIs();
-        showToast("تم إعادة تعيين الفلاتر", "bi-arrow-counterclockwise");
-        navigate("services");
       }
+      showToast("تم إعادة تعيين الفلاتر", "bi-arrow-counterclockwise");
+      applyBeneficiaryFilterToOurServices();
     }
 
     /** Keep all filter UIs (header + in-page) in sync with current state. */
@@ -5631,9 +5935,11 @@
           </div>
         </section>
 
-        <section class="container page-intro fade-up" aria-label="نبذة عن مركز الابتكار للإستدامة">
-          <h1 class="page-intro-title">مركز الابتكار للإستدامة</h1>
-          <p class="page-intro-desc">منصة متخصصة تعمل كنقطة وصول موحدة لخدمات البحث والابتكار، وتوفر حزمة متكاملة من الممكنات والخدمات التي تدعم تطوير الحلول الابتكارية واختبارها وتبنيها وتسريع أثرها في قطاعات البيئة والمياه والزراعة.</p>
+        <section class="page-hero fade-up" aria-label="نبذة عن مركز الابتكار للإستدامة">
+          <div class="container">
+            <h1 class="page-intro-title">مركز الابتكار للإستدامة</h1>
+            <p class="page-intro-desc">منصة متخصصة تعمل كنقطة وصول موحدة لخدمات البحث والابتكار، وتوفر حزمة متكاملة من الممكنات والخدمات التي تدعم تطوير الحلول الابتكارية واختبارها وتبنيها وتسريع أثرها في قطاعات البيئة والمياه والزراعة.</p>
+          </div>
         </section>
 
         ${renderBeneficiaries()}
@@ -6097,31 +6403,34 @@
       `).join("");
 
       return `
-        <section class="container py-4 fade-up agency-reports-view">
-          <div class="agency-page-hero-top">
-            <nav class="breadcrumb-nav" aria-label="فتات الخبز">
-              <a onclick="navigate('home')"><i class="bi bi-house-door"></i> الرئيسية</a>
-              <span class="sep">/</span>
-              <a onclick="navigate('our-services')">خدماتنا</a>
-              <span class="sep">/</span>
-              <span class="current">المنشورات والتقارير</span>
-            </nav>
-            <button type="button" class="agency-back-services-btn" onclick="navigateBackToOurServices()">
-              <i class="bi bi-arrow-right" aria-hidden="true"></i> رجوع إلى الخدمات الرئيسية
-            </button>
+        <section class="fade-up agency-reports-view">
+          <div class="page-hero">
+            <div class="container">
+              <div class="agency-page-hero-top">
+                <nav class="breadcrumb-nav" aria-label="فتات الخبز">
+                  <a onclick="navigate('home')"><i class="bi bi-house-door"></i> الرئيسية</a>
+                  <span class="sep">/</span>
+                  <a onclick="navigate('our-services')">خدماتنا</a>
+                  <span class="sep">/</span>
+                  <span class="current">المنشورات والتقارير</span>
+                </nav>
+                <button type="button" class="agency-back-services-btn" onclick="navigateBackToOurServices()">
+                  <i class="bi bi-arrow-right" aria-hidden="true"></i> رجوع إلى الخدمات الرئيسية
+                </button>
+              </div>
+              <h1 class="page-title-agency">مواضيع الوكالة</h1>
+              <p class="block-head-sub">إصدارات وتقارير ومبادرات وكالة البحث والابتكار.</p>
+            </div>
           </div>
-
-          <h1 class="page-title-agency">مواضيع الوكالة</h1>
-          <p class="block-head-sub mb-4">إصدارات وتقارير ومبادرات وكالة البحث والابتكار.</p>
-
-          <div class="row" id="agencyReportsGrid">${cardsHtml}</div>
-
-          <p class="meta-row">
-            المصدر:
-            <a href="https://www.mewa.gov.sa/ar/Ministry/Agencies/AgencyForInnovation/Topics/Pages/default.aspx" target="_blank" rel="noopener noreferrer">
-              مواضيع الوكالة كافة | MEWA
-            </a>
-          </p>
+          <div class="container py-4">
+            <div class="row" id="agencyReportsGrid">${cardsHtml}</div>
+            <p class="meta-row">
+              المصدر:
+              <a href="https://www.mewa.gov.sa/ar/Ministry/Agencies/AgencyForInnovation/Topics/Pages/default.aspx" target="_blank" rel="noopener noreferrer">
+                مواضيع الوكالة كافة | MEWA
+              </a>
+            </p>
+          </div>
         </section>
       `;
     }
@@ -6152,33 +6461,37 @@
             </div>
           ` : "";
       return `
-        <section class="container py-4 fade-up agency-reports-view">
-          <div class="agency-page-hero-top">
-            <nav class="breadcrumb-nav" aria-label="فتات الخبز">
-              <a onclick="navigate('home')"><i class="bi bi-house-door"></i> الرئيسية</a>
-              <span class="sep">/</span>
-              <a onclick="navigate('our-services')">خدماتنا</a>
-              <span class="sep">/</span>
-              <a onclick="navigate('publications')">المنشورات والتقارير</a>
-              <span class="sep">/</span>
-              <span class="current">${escapeHtml(topic.title)}</span>
-            </nav>
-            <button type="button" class="agency-back-services-btn" onclick="navigate('publications')">
-              <i class="bi bi-arrow-right" aria-hidden="true"></i> رجوع إلى مواضيع الوكالة
-            </button>
+        <section class="fade-up agency-reports-view">
+          <div class="page-hero">
+            <div class="container">
+              <div class="agency-page-hero-top">
+                <nav class="breadcrumb-nav" aria-label="فتات الخبز">
+                  <a onclick="navigate('home')"><i class="bi bi-house-door"></i> الرئيسية</a>
+                  <span class="sep">/</span>
+                  <a onclick="navigate('our-services')">خدماتنا</a>
+                  <span class="sep">/</span>
+                  <a onclick="navigate('publications')">المنشورات والتقارير</a>
+                  <span class="sep">/</span>
+                  <span class="current">${escapeHtml(topic.title)}</span>
+                </nav>
+                <button type="button" class="agency-back-services-btn" onclick="navigate('publications')">
+                  <i class="bi bi-arrow-right" aria-hidden="true"></i> رجوع إلى مواضيع الوكالة
+                </button>
+              </div>
+              <h1 class="page-title-agency">${escapeHtml(topic.title)}</h1>
+              ${descHtml}
+            </div>
           </div>
-
-          <h1 class="page-title-agency">${escapeHtml(topic.title)}</h1>
-          ${descHtml}
-          ${pdfActions}
-
-          <div class="agency-report-embed-wrap">
-            <iframe
-              class="agency-report-embed"
-              src="${iframeSrc}"
-              title="${escapeHtml(topic.title)}"
-              loading="lazy"
-            ></iframe>
+          <div class="container py-4">
+            ${pdfActions}
+            <div class="agency-report-embed-wrap">
+              <iframe
+                class="agency-report-embed"
+                src="${iframeSrc}"
+                title="${escapeHtml(topic.title)}"
+                loading="lazy"
+              ></iframe>
+            </div>
           </div>
         </section>
       `;
@@ -6711,7 +7024,7 @@
                   <div class="service-beneficiaries" aria-label="فئات المستفيدين">
                     <span class="service-beneficiaries-label"><i class="bi bi-people"></i> المستفيدون:</span>
                     ${(s.beneficiaries || []).slice(0, 3).map((b) => `<span class="badge-sector sector-general">${escapeHtml(b)}</span>`).join("")}
-                    ${(s.beneficiaries || []).length > 3 ? `<span class="badge-sector sector-general">+${(s.beneficiaries || []).length - 3}</span>` : ""}
+                    ${(s.beneficiaries || []).length > 3 ? `<span class="badge-sector sector-general beneficiaries-more" tabindex="0" onclick="event.stopPropagation()">+${(s.beneficiaries || []).length - 3}<span class="beneficiaries-more-tip" role="tooltip">${(s.beneficiaries || []).slice(3).map((b) => `<span>${escapeHtml(b)}</span>`).join("")}</span></span>` : ""}
                   </div>
                 ` : ""}
                 ${s.referenceUrl ? `
@@ -6751,7 +7064,16 @@
         id: 1,
         title: "الدعم الاستشاري والاستشراف التقني",
         desc: "استشارات تقنية ودراسات استشراف لأحدث الاتجاهات التقنية في قطاعات البيئة والمياه والزراعة لدعم القرارات المبكرة.",
-        note: "تضم خدمات منصة نبراس: الوصول، الرصد والاستشراف",
+        note: "تضم خدمات منصة نبراس: الوصول، خدمات نبراس الاستشارية",
+        beneficiaries: [
+          "الجهات والبرامج الحكومية",
+          "القطاع الخاص",
+          "المستثمرون والمؤسسات التمويلية",
+          "الشركات الناشئة",
+          "القطاع غير الربحي",
+          "المؤسسات الأكاديمية والبحثية",
+          "طلبة الجامعات والمبتكرون الأفراد"
+        ],
         intro: "استشارات تقنية ودراسات استشراف لأحدث الاتجاهات التقنية في قطاعات البيئة والمياه والزراعة لدعم القرارات المبكرة.",
         platform: {
           eyebrow: "أدناه خدمات منصة نبراس:",
@@ -6767,47 +7089,66 @@
           {
             code: "01",
             title: "الوصول لمنصة نبراس",
-            desc: "إتاحة حساب مستقل بصلاحية وصول شاملة، يوفّر وصولًا كاملاً إلى جميع خدمات المنصة ضمن اشتراك شهري أو سنوي.",
-            definition: "إتاحة حساب مستقل بصلاحية وصول شاملة، يوفّر وصولًا كاملاً إلى جميع خدمات المنصة ضمن اشتراك شهري أو سنوي.",
+            largeTitle: true,
+            hideDefinitionLabel: true,
+            desc: "نبراس هو المنصة الوطنية لاستشراف البحث والابتكار، تجمع وتحلل أكثر من 10,000 مصدر و+100 مليون نقطة بيانات باستخدام الذكاء الاصطناعي، لرصد توجهات التقنيات، السياسات، والاستثمارات في الابتكار.",
+            definition: "نبراس هو المنصة الوطنية لاستشراف البحث والابتكار، تجمع وتحلل أكثر من 10,000 مصدر و+100 مليون نقطة بيانات باستخدام الذكاء الاصطناعي، لرصد توجهات التقنيات، السياسات، والاستثمارات في الابتكار.",
+            definitionTwoLines: true,
+            definitionBreakAfter: "مصدر ",
+            servicesLabel: "الخدمة",
+            servicesBoxed: true,
             services: [
-              "الوصول الكامل إلى منصة نبراس",
-              "الرصد والاستشراف الذكي",
-              "البحث والتحليل بالذكاء الاصطناعي",
-              "التقارير ولوحات المعلومات"
+              "اشتراك شهري للوصول المباشر إلى منصة نبراس ولوحاتها التحليلية المبنية على 10,000+ مصدر بيانات، لرصد توجهات التقنيات والابتكار بشكل مستمر."
             ],
-            hideCta: true
+            hideCta: true,
+            externalUrl: "nebrassubscriptionform.html"
           },
           {
             code: "02",
-            title: "الرصد والاستشراف",
-            desc: "توفر خدمات استشرافية وتحليلية لرصد الاتجاهات والتقنيات الناشئة، وتحويل البيانات إلى رؤى استراتيجية تدعم التخطيط وصناعة القرار.",
-            definition: "توفر خدمات استشرافية وتحليلية لرصد الاتجاهات والتقنيات الناشئة، وتحويل البيانات إلى رؤى استراتيجية تدعم التخطيط وصناعة القرار.",
-            services: [
-              "استشراف التقنيات",
-              "رصد التقنيات الناشئة",
-              "السيناريوهات المستقبلية",
-              "الدراسات السريعة",
-              "الدراسات القطاعية",
-              "الدراسات المعيارية",
-              "الدراسات المخصصة",
-              "أفضل الممارسات",
-              "التقارير الذكية",
-              "التقارير التحليلية"
+            title: "خدمات نبراس الاستشارية",
+            largeTitle: true,
+            hideDefinitionLabel: true,
+            desc: "خدمات معرفية مخصصة يقدّمها فريق نبراس حسب احتياج الجهة، من تقارير ودراسات وخرائط تقنية تدعم القرار، وتعتمد على أكثر من 10,000 مصدر بيانات و100+ مليون نقطة بيانات وشبكة من الخبراء.",
+            definition: "خدمات معرفية مخصصة يقدّمها فريق نبراس حسب احتياج الجهة، من تقارير ودراسات وخرائط تقنية تدعم القرار، وتعتمد على أكثر من 10,000 مصدر بيانات و100+ مليون نقطة بيانات وشبكة من الخبراء.",
+            miniCards: [
+              { title: "تطوير خارطة نضج التقنيات" },
+              { title: "إنتاج تقارير", hint: "التقنيات والسياسات والاستثمار" },
+              { title: "إنتاج نشرات ابتكار دورية", hint: "موجز ابتكار شهري" },
+              { title: "تطوير موجز تنفيذي", hint: "موجز لدعم صناعة القرار" },
+              { title: "تطوير دراسات معيارية" },
+              { title: "تطوير دراسات استشرافية" }
             ],
-            hideCta: true
+            hideCta: true,
+            externalUrl: "nebrasserviceform.html"
           }
         ]
       },
       {
         id: 2,
         title: "إدارة المحافظ التقنية ومشاريع البحث والابتكار",
-        desc: "متابعة وإدارة محافظ المشاريع البحثية والابتكارية بدءًا من الفكرة وحتى التنفيذ والقياس."
+        desc: "متابعة وإدارة محافظ المشاريع البحثية والابتكارية بدءًا من الفكرة وحتى التنفيذ والقياس.",
+        beneficiaries: [
+          "الجهات والبرامج الحكومية",
+          "القطاع الخاص",
+          "المستثمرون والمؤسسات التمويلية",
+          "الشركات الناشئة",
+          "القطاع غير الربحي"
+        ]
       },
       {
         id: 3,
         title: "التجارب والاختبارات التجريبية ونشر الابتكار",
         desc: "دعم اختبار الحلول الابتكارية ميدانيًا وتسريع نشرها عبر مسارات دعم متعددة.",
         note: "تضم ٦ خدمات فرعية: استشاري وشراكات، مالي وتوسع، بيانات ومحاكاة، تمكين تنظيمي، تسويق ونشر",
+        beneficiaries: [
+          "الجهات والبرامج الحكومية",
+          "القطاع الخاص",
+          "المستثمرون والمؤسسات التمويلية",
+          "الشركات الناشئة",
+          "القطاع غير الربحي",
+          "المؤسسات الأكاديمية والبحثية",
+          "طلبة الجامعات والمبتكرون الأفراد"
+        ],
         intro: "مسارات دعم متكاملة لاختبار الحلول الابتكارية ميدانيًا وتسريع نشرها، من الدعم الاستشاري وحتى التسويق.",
         listCta: "عرض الخدمات",
         externalUrl: "driving3.html",
@@ -6825,9 +7166,18 @@
         title: "التمكين التنظيمي والبيئة التنظيمية التجريبية",
         desc: "تسهيل التجارب التنظيمية والتصاريح المشروطة والاستشارات التنظيمية لتمكين تطبيق الحلول الابتكارية.",
         note: "تضم: التمكين التنظيمي، الاستشارات التنظيمية، التصاريح المشروطة",
+        beneficiaries: [
+          "الجهات والبرامج الحكومية",
+          "القطاع الخاص",
+          "المستثمرون والمؤسسات التمويلية",
+          "الشركات الناشئة",
+          "القطاع غير الربحي",
+          "المؤسسات الأكاديمية والبحثية",
+          "طلبة الجامعات والمبتكرون الأفراد"
+        ],
         intro: "خدمات تسهّل التجارب التنظيمية والاستشارات والتصاريح المشروطة اللازمة لتطبيق الحلول الابتكارية.",
         listCta: "عرض الخدمات",
-        externalUrl: "Experimental3.html",
+        externalUrl: "experimental3.html",
         children: [
           { code: "4.1", title: "خدمة التمكين التنظيمي", desc: "تمكين اختبار الحلول ضمن بيئة تنظيمية تجريبية مرنة قبل التطبيق الكامل." },
           {
@@ -6845,7 +7195,46 @@
         title: "إدارة الملكية الفكرية والتجارية والوصول إلى السوق",
         desc: "دعم تسجيل وحماية الملكية الفكرية، وتقديم الاستشارات اللازمة لتمكين الوصول إلى الأسواق.",
         note: "تضم: دعم الحماية والتسجيل، تتجير الملكية الفكرية، الاستشارات، التدريب",
-        intro: "خدمات متخصصة لدعم حماية الملكية الفكرية وتسجيلها وتتجيرها وتقديم الاستشارات والتدريب اللازم للوصول إلى السوق.",
+        beneficiaries: [
+          "الجهات والبرامج الحكومية",
+          "القطاع الخاص",
+          "المستثمرون والمؤسسات التمويلية",
+          "الشركات الناشئة",
+          "القطاع غير الربحي",
+          "المؤسسات الأكاديمية والبحثية",
+          "طلبة الجامعات والمبتكرون الأفراد"
+        ],
+        intro: "يعد برنامج الملكية الفكرية في منظومة وزارة البيئة والمياه والزراعة ممكنًا استراتيجيًا؛ لحماية الأصول المعرفية وتعظيم قيمتها الاقتصادية، وذلك من خلال سياسات موحّدة وإجراءات تشغيلية متكاملة ترتبط بالتوجّهات الوطنية وتستجيب لأولويات القطاعات",
+        pillarsTitle: "مسارات إدارة الملكية الفكرية",
+        servicesGroupTitle: "خدمات",
+        pillars: [
+          {
+            title: "الحوكمة",
+            roleLabel: "دورها",
+            items: [
+              "وضع السياسات والإجراءات والهياكل التنظيمية",
+              "تحديد الأدوار والمسؤوليات",
+              "تحديد آليات إنفاذ الملكية الفكرية"
+            ]
+          },
+          {
+            title: "الحماية",
+            roleLabel: "دورها",
+            items: [
+              "عمليات تسجيل وحماية حقوق الملكية الفكرية لكافة مجالات الملكية الفكرية",
+              "إدارة محفظة الأصول الفكرية"
+            ]
+          },
+          {
+            title: "التمكين",
+            roleLabel: "دورها",
+            items: [
+              "المساهمة في نشر الوعي بأهمية وأدوار الملكية الفكرية",
+              "تقديم الاستشارات في مجال الملكية الفكرية",
+              "تأهيل وتطوير الكوادر البشرية"
+            ]
+          }
+        ],
         children: [
           { code: "5.1", title: "دعم الحماية وتسجيل الملكية", hideCta: true, formType: "ip-registration" },
           {
@@ -6881,13 +7270,28 @@
       {
         id: 6,
         title: "الاستثمار والتمويل والشراكات الاستثمارية",
-        desc: "ربط المبتكرين والمشاريع الواعدة بفرص التمويل والشراكات الاستثمارية المناسبة."
+        desc: "ربط المبتكرين والمشاريع الواعدة بفرص التمويل والشراكات الاستثمارية المناسبة.",
+        beneficiaries: [
+          "الجهات والبرامج الحكومية",
+          "القطاع الخاص",
+          "المستثمرون والمؤسسات التمويلية",
+          "الشركات الناشئة",
+          "القطاع غير الربحي"
+        ]
       },
       {
         id: 7,
         title: "بناء المنظومة والشراكات والتحالفات",
         desc: "برامج تحالفات وشراكات قطاعية، منها برنامج التحالف السعودي لتقنيات الزراعة والغذاء وبرنامج الشريط المائي والشراكات الأكاديمية.",
         note: "تضم: تحالف الزراعة والغذاء، برنامج الشريط المائي، الشراكات الأكاديمية",
+        beneficiaries: [
+          "الجهات والبرامج الحكومية",
+          "القطاع الخاص",
+          "المستثمرون والمؤسسات التمويلية",
+          "الشركات الناشئة",
+          "القطاع غير الربحي",
+          "المؤسسات الأكاديمية والبحثية"
+        ],
         intro: "برامج تحالفات وشراكات قطاعية تجمع الجهات ذات العلاقة لتسريع الابتكار في القطاعات الثلاثة.",
         children: [
           {
@@ -6912,6 +7316,12 @@
         title: "الفعاليات وبناء القدرات والمسؤولية المجتمعية",
         desc: "فعاليات ومؤتمرات وتحديات لبناء القدرات الابتكارية، مثل تحدي الابتكار الجامعي والمؤتمر السنوي للابتكار.",
         note: "تضم: بناء القدرات، تحديات البحث والابتكار، مؤتمر NXT، الابتكار المؤسسي",
+        beneficiaries: [
+          "الجهات والبرامج الحكومية",
+          "المستثمرون والمؤسسات التمويلية",
+          "المؤسسات الأكاديمية والبحثية",
+          "طلبة الجامعات والمبتكرون الأفراد"
+        ],
         intro: "فعاليات وتحديات وبرامج تدريبية تعزز القدرات الابتكارية وتُشرك المجتمع البحثي والجامعي.",
         children: [
           {
@@ -6922,8 +7332,26 @@
             hideChildrenPreview: true,
             children: [
               { code: "8.1.1", title: "الاشتراك للوصول لمنصات علمية", desc: "إتاحة الوصول لقواعد بيانات ومنصات بحثية متخصصة", cta: "تفاصيل الخدمة", headingFromSelf: true },
-              { code: "8.1.2", title: "البرامج والتدريب", desc: "برامج تدريبية متخصصة لبناء القدرات", cta: "تفاصيل الخدمة", headingFromSelf: true },
-              { code: "8.1.3", title: "الفعاليات", desc: "ورش وفعاليات دورية", cta: "تفاصيل الخدمة", headingFromSelf: true }
+              { code: "8.1.2", title: "البرامج والتدريب", desc: "برامج تدريبية متخصصة لبناء القدرات", listCta: "نموذج", headingFromSelf: true, externalUrl: "trainingform.html" },
+              {
+                code: "8.1.3",
+                title: "الفعاليات",
+                desc: "ورش وفعاليات دورية",
+                listCta: "تفاصيل الخدمة",
+                headingFromSelf: true,
+                hideChildrenPreview: true,
+                children: [
+                  {
+                    code: "8.1.3.1",
+                    title: "المؤتمر السنوي للابتكار NXT",
+                    desc: "المؤتمر السنوي الذي يجمع المبتكرين والباحثين والشركاء لعرض أحدث نتاجات الابتكار.",
+                    listCta: "تفاصيل الخدمة",
+                    headingFromSelf: true,
+                    externalUrl: "nXT3.html"
+                  },
+                  { code: "8.1.3.2", title: "التسجيل في الفعاليات وطلب تنفيذ البرامج التوعوية", listCta: "نموذج", headingFromSelf: true, externalUrl: "registeringeventform.html" }
+                ]
+              }
             ]
           },
           {
@@ -6945,7 +7373,7 @@
                 title: "تحدي ابتكار رسوبيات السدود",
                 desc: "تحدٍّ متخصص في حلول إدارة رسوبيات السدود",
                 listCta: "تفاصيل الخدمة",
-                externalUrl: "Dam3.html"
+                externalUrl: "dam3.html"
               }
             ]
           },
@@ -6954,14 +7382,14 @@
             title: "المؤتمر السنوي للابتكار NXT",
             desc: "المؤتمر السنوي الذي يجمع المبتكرين والباحثين والشركاء لعرض أحدث نتاجات الابتكار.",
             listCta: "تفاصيل الخدمة",
-            externalUrl: "NXT3.html"
+            externalUrl: "nXT3.html"
           },
           {
             code: "8.4",
             title: "الابتكار المؤسسي",
             desc: "برامج تُعنى بتعزيز ثقافة الابتكار داخل الجهات والمؤسسات الحكومية والخاصة.",
             listCta: "تفاصيل الخدمة",
-            externalUrl: "InstitutionalInnovation3.html"
+            externalUrl: "institutionalInnovation3.html"
           }
         ]
       },
@@ -6969,12 +7397,10 @@
         id: 9,
         title: "المنشورات والتقارير للبحث والابتكار",
         desc: "إصدارات وتقارير دورية تعرض نتائج وإنجازات منظومة البحث والابتكار بالوزارة.",
+        beneficiaries: [
+          "لجميع المستفيدين زوار المنصة"
+        ],
         portalRoute: "publications"
-      },
-      {
-        id: 10,
-        title: "الرقمنة والذكاء الاصطناعي",
-        desc: "حلول رقمية وتقنيات ذكاء اصطناعي داعمة لعمليات البحث والابتكار وتحسين تجربة المستفيدين."
       }
     ];
 
@@ -7081,6 +7507,22 @@
       navigate(routeName, { code: node.code || String(code) });
     }
 
+    function isInsideBeneficiariesMore(event) {
+      return Boolean(event && event.target && event.target.closest && event.target.closest(".beneficiaries-more"));
+    }
+
+    function stopBeneficiariesMoreEvent(event) {
+      if (!event) return;
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    function renderBeneficiariesOverflow(hiddenItems) {
+      if (!hiddenItems || !hiddenItems.length) return "";
+      const tip = hiddenItems.map((item) => `<span>${escapeHtml(item)}</span>`).join("");
+      return `<span class="badge-sector sector-general beneficiaries-more" role="presentation" onmouseenter="this.classList.add('is-open')" onmouseleave="this.classList.remove('is-open')" onclick="stopBeneficiariesMoreEvent(event)" onmousedown="stopBeneficiariesMoreEvent(event)" onmouseup="stopBeneficiariesMoreEvent(event)">+${hiddenItems.length}<span class="beneficiaries-more-tip" role="tooltip">${tip}</span></span>`;
+    }
+
     function getPortalExternalUrlAction(url) {
       if (!url) return "";
       if (isPortalExternalSameTab(url)) {
@@ -7104,7 +7546,7 @@
       const parent = path.length > 1 ? path[path.length - 2] : null;
       return parent
         ? (parent.id && !parent.code
-          ? `navigate('our-service', { id: ${parent.id} })`
+          ? `navigate('our-service', { id: ${parent.id}, restorePortalServiceView: true })`
           : `openPortalServiceNode('${escapeHtml(parent.code)}')`)
         : `navigate('our-services')`;
     }
@@ -7194,13 +7636,21 @@
       return crumbs.join(" ← ");
     }
 
-    function renderPortalPageHeroTop(breadcrumbHtml, backOnclick = "navigateBackToOurServices()", backLabel = "رجوع إلى الخدمات الرئيسية") {
+    function renderPortalPageHeroTop(breadcrumbHtml, backOnclick = "navigateBackToOurServices()", backLabel = "رجوع إلى الخدمات الرئيسية", parentBack = null) {
+      const parentBtn = parentBack && parentBack.onclick
+        ? `<button type="button" class="ps-btn ps-btn-sm ps-btn-ghost ps-back-services-btn" onclick="${parentBack.onclick}">
+            <i class="bi bi-arrow-right" aria-hidden="true"></i> ${escapeHtml(parentBack.label || "رجوع")}
+          </button>`
+        : "";
       return `
         <div class="page-hero-top">
           <div class="breadcrumb">${breadcrumbHtml}</div>
-          <button type="button" class="ps-btn ps-btn-sm ps-btn-ghost ps-back-services-btn" onclick="${backOnclick}">
-            <i class="bi bi-arrow-right" aria-hidden="true"></i> ${escapeHtml(backLabel)}
-          </button>
+          <div class="ps-page-actions">
+            ${parentBtn}
+            <button type="button" class="ps-btn ps-btn-sm ps-btn-ghost ps-back-services-btn" onclick="${backOnclick}">
+              <i class="bi bi-arrow-right" aria-hidden="true"></i> ${escapeHtml(backLabel)}
+            </button>
+          </div>
         </div>
       `;
     }
@@ -7212,6 +7662,45 @@
         return `navigate('our-service', { id: ${parent.id} })`;
       }
       return `openPortalServiceNode('${escapeHtml(parent.code)}')`;
+    }
+
+    function renderPortalPillarCards(service) {
+      if (!service || !Array.isArray(service.pillars) || !service.pillars.length) return "";
+      const heading = service.pillarsTitle || "مسارات إدارة الملكية الفكرية";
+      return `
+        <div class="ps-pillar-block">
+          <h2 class="ps-pillar-bar ps-pillar-bar--gray">${escapeHtml(heading)}</h2>
+          <div class="ps-pillar-grid">
+          ${service.pillars.map((pillar) => `
+            <article class="ps-pillar-card">
+              <h3>${escapeHtml(pillar.title)}</h3>
+              ${pillar.roleLabel ? `<span class="ps-list-label">${escapeHtml(pillar.roleLabel)}:</span>` : ""}
+              ${Array.isArray(pillar.items) && pillar.items.length
+                ? `<ul class="ps-service-list">
+                     ${pillar.items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+                   </ul>`
+                : ""}
+            </article>
+          `).join("")}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderPortalSubserviceGroup(service, children) {
+      const alignLabels = children.some((child) => child.miniCards) && children.some((child) => child.servicesBoxed);
+      const cardsHtml = `
+        <div class="ps-subservice-grid${alignLabels ? " ps-subservice-grid--align-labels" : ""}">
+          ${children.map(renderPortalNodeCard).join("")}
+        </div>
+      `;
+      if (!service || !service.servicesGroupTitle) return cardsHtml;
+      return `
+        <div class="ps-pillar-block">
+          <h2 class="ps-pillar-bar">${escapeHtml(service.servicesGroupTitle)}</h2>
+          ${cardsHtml}
+        </div>
+      `;
     }
 
     function renderPortalPlatformIntro(platform) {
@@ -7270,19 +7759,45 @@
            </div>`
         : "";
 
+      const definitionTextHtml = (() => {
+        const text = node.definition || "";
+        const breakAfter = node.definitionBreakAfter;
+        const at = breakAfter ? text.indexOf(breakAfter) : -1;
+        if (node.definitionTwoLines && at !== -1) {
+          const cut = at + breakAfter.length;
+          return `<span class="ps-def-line">${escapeHtml(text.slice(0, cut).trimEnd())}</span><span class="ps-def-line">${escapeHtml(text.slice(cut).trimStart())}</span>`;
+        }
+        return escapeHtml(text);
+      })();
       const definitionHtml = node.definition
         ? `<div class="ps-def-block">
-             <span class="ps-def-label">تعريف الباقة:</span>
-             <p class="ps-def-text">${escapeHtml(node.definition)}</p>
+             ${node.hideDefinitionLabel ? "" : `<strong class="ps-def-label">تعريف الباقة:</strong>`}
+             <p class="ps-def-text${node.definitionTwoLines ? " is-two-lines" : ""}">${definitionTextHtml}</p>
            </div>`
         : (node.desc ? `<p>${escapeHtml(node.desc)}</p>` : "");
 
       const servicesHtml = Array.isArray(node.services) && node.services.length
-        ? `<div class="ps-list-block">
-             <span class="ps-list-label">الخدمات:</span>
+        ? `<div class="ps-list-block${node.servicesBoxed ? " ps-list-block--boxed" : ""}">
+             <strong class="ps-list-label">${escapeHtml(node.servicesLabel || "الخدمات")}:</strong>
              <ul class="ps-service-list">
                ${node.services.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
              </ul>
+           </div>`
+        : "";
+      const miniCardsHtml = Array.isArray(node.miniCards) && node.miniCards.length
+        ? `<div class="ps-mini-cards-wrap">
+             <strong class="ps-list-label">${escapeHtml(node.miniCardsLabel || "خدمات")}:</strong>
+             <div class="ps-mini-cards">
+             ${node.miniCards.map((item) => `
+               <div class="ps-mini-card">
+                 <span class="ps-mini-card__plus" aria-hidden="true">+</span>
+                 <span class="ps-mini-card__text">
+                   ${escapeHtml(item.title || item)}
+                   ${item.hint ? `<span class="ps-mini-card__hint">(${escapeHtml(item.hint)})</span>` : ""}
+                 </span>
+               </div>
+             `).join("")}
+             </div>
            </div>`
         : "";
 
@@ -7297,7 +7812,7 @@
           : `<span class="ps-btn ps-btn-sm ps-btn-primary">${escapeHtml(node.listCta || `عرض النقاط الفرعية (${toArabicDigits(children.length)})`)}</span>`;
       }
 
-      const isTitleOnly = !node.definition && !node.desc && !servicesHtml && !previewHtml && !node.formNote;
+      const isTitleOnly = !node.definition && !node.desc && !servicesHtml && !miniCardsHtml && !previewHtml && !node.formNote;
       const hasPdf = Boolean(node.pdfUrl);
       const hasForm = Boolean(node.formType && PORTAL_FORM_ROUTES[node.formType]);
       const hasExternal = Boolean(node.externalUrl);
@@ -7320,19 +7835,19 @@
       const cardAttrs = isClickableCard
         ? ` role="button" tabindex="0" onclick="${cardClickAction}" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();${cardClickAction};}"`
         : "";
-      const pdfHint = hasForm
-        ? `<span class="ps-pdf-hint"><i class="bi bi-ui-checks" aria-hidden="true"></i> فتح النموذج</span>`
-        : hasPdf && !node.hideCta
-          ? `<span class="ps-pdf-hint"><i class="bi bi-file-earmark-pdf" aria-hidden="true"></i> عرض الملف</span>`
-          : "";
+      const pdfHint = hasPdf && !node.hideCta
+        ? `<span class="ps-pdf-hint"><i class="bi bi-file-earmark-pdf" aria-hidden="true"></i> عرض الملف</span>`
+        : "";
 
-      const titleHtml = `<h4>${escapeHtml(node.title)}</h4>`;
+      const titleHtml = `<h4${node.largeTitle ? ' class="is-large-title"' : ""}>${escapeHtml(node.title)}</h4>`;
+      const hasSectionAlign = Boolean(node.servicesBoxed || (Array.isArray(node.miniCards) && node.miniCards.length));
 
       return `
-        <article class="ps-subservice-card${isTitleOnly ? " is-title-only" : ""}${isClickableCard ? " is-clickable-pdf" : ""}"${cardAttrs}>
+        <article class="ps-subservice-card${isTitleOnly ? " is-title-only" : ""}${isClickableCard ? " is-clickable-pdf" : ""}${hasSectionAlign ? " has-section-align" : ""}"${cardAttrs}>
           ${titleHtml}
           ${definitionHtml}
           ${servicesHtml}
+          ${miniCardsHtml}
           ${node.formNote ? `<div class="ps-form-tag"><i class="bi bi-file-earmark-text"></i> ${escapeHtml(node.formNote)}</div>` : ""}
           ${previewHtml}
           ${pdfHint}
@@ -7343,7 +7858,15 @@
 
     function viewOurServices() {
       /* محتوى «خدماتنا» من Elwan1.html — قسم الخدمات في شريط التنقّل */
-      const cardsHtml = PORTAL_SERVICES.map((s) => {
+      const beneficiaryValue = getActiveBeneficiaryFilter();
+      const visibleServices = PORTAL_SERVICES.filter(matchesBeneficiaryFilter);
+      const cardsHtml = visibleServices.length === 0
+        ? `<div class="ps-empty-filter" role="status">
+             <i class="bi bi-funnel" aria-hidden="true"></i>
+             <p>لا توجد خدمات مطابقة لنوع المستفيد المحدد.</p>
+             <button type="button" class="ps-btn ps-btn-primary" onclick="onHeaderReset()">إعادة تعيين الفلتر</button>
+           </div>`
+        : visibleServices.map((s) => {
         const children = getPortalChildren(s);
         const hasChildren = children.length > 0;
         let actionsHtml;
@@ -7364,15 +7887,26 @@
             : "";
         const cardClass = `ps-service-card${cardAction ? " is-clickable" : ""}`;
         const cardAttrs = cardAction
-          ? ` class="${cardClass}" role="button" tabindex="0" onclick="${cardAction}" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();${cardAction};}"`
+          ? ` class="${cardClass}" role="button" tabindex="0" onclick="if(isInsideBeneficiariesMore(event)){stopBeneficiariesMoreEvent(event);return;} ${cardAction}" onkeydown="if(isInsideBeneficiariesMore(event)){stopBeneficiariesMoreEvent(event);return;} if(event.key==='Enter'||event.key===' '){event.preventDefault();${cardAction};}"`
           : ` class="${cardClass}"`;
         return `
         <article${cardAttrs}>
-          <div>
-            <h3>${escapeHtml(s.title)}</h3>
-            <p>${escapeHtml(s.desc)}</p>
-            ${s.note ? `<div class="service-sub-note">${escapeHtml(s.note)}</div>` : ""}
-            <div class="row-actions">${actionsHtml}</div>
+          <div class="ps-service-card-body">
+            <div class="ps-service-card-top">
+              <h3>${escapeHtml(s.title)}</h3>
+              <p>${escapeHtml(s.desc)}</p>
+              ${s.note ? `<div class="service-sub-note">${escapeHtml(s.note)}</div>` : ""}
+            </div>
+            <div class="ps-service-card-foot">
+              ${Array.isArray(s.beneficiaries) && s.beneficiaries.length ? `
+                <div class="service-beneficiaries" aria-label="فئات المستفيدين">
+                  <span class="service-beneficiaries-label"><i class="bi bi-people"></i> المستفيدون:</span>
+                  ${s.beneficiaries.slice(0, 2).map((b) => `<span class="badge-sector sector-general${s.beneficiaries.length === 1 ? " is-single" : ""}">${escapeHtml(b)}</span>`).join("")}
+                  ${renderBeneficiariesOverflow(s.beneficiaries.slice(2))}
+                </div>
+              ` : ""}
+              <div class="row-actions">${actionsHtml}</div>
+            </div>
           </div>
         </article>
       `;
@@ -7388,6 +7922,7 @@
               </div>
               <h1>خدمات مركز البحث والابتكار</h1>
               <p>مجموعة الخدمات التي يقدمها المركز لدعم الباحثين والمبتكرين ورواد الأعمال، من الاستشارات المبكرة وحتى التمويل والوصول إلى السوق.</p>
+              ${beneficiaryValue && beneficiaryValue !== "الكل" ? `<div class="ps-filter-hint">عرض الخدمات المتاحة لـ: ${escapeHtml(beneficiaryValue)}</div>` : ""}
             </div>
           </div>
           <section class="services-section">
@@ -7427,9 +7962,8 @@
           <section class="services-section">
             <div class="container">
               ${renderPortalPlatformIntro(service.platform)}
-              <div class="ps-subservice-grid">
-                ${children.map(renderPortalNodeCard).join("")}
-              </div>
+              ${renderPortalPillarCards(service)}
+              ${renderPortalSubserviceGroup(service, children)}
               ${renderPortalPlatformFooter(service.platform)}
               <div class="ps-cta-band">
                 <div class="ps-cta-inner">
@@ -7517,7 +8051,7 @@
               id="experimentalEmbed"
               class="experimental-embed"
               title="${escapeHtml(pageTitle)}"
-              src="Experimental.html?embed=1"
+              src="experimental.html?embed=1"
               scrolling="no"
             ></iframe>
           </div>
@@ -7772,7 +8306,6 @@
 
           <div class="ip-training-form-header">
             <h2>نموذج تسجيل في دورة تدريبية</h2>
-            <span class="ip-training-form-mark" aria-hidden="true">IP</span>
           </div>
           <div class="ip-training-form-rule" aria-hidden="true"></div>
           <div class="ip-training-form-rule-thin" aria-hidden="true"></div>
@@ -7808,34 +8341,22 @@
       if (!node || !node.pdfUrl) return viewOurServices();
 
       const path = findPortalNodePath(node.code) || [node];
-      const parent = path.length > 1 ? path[path.length - 2] : null;
-      const parentService = path.find((item) => item && item.id && !item.code) || null;
-      const showParentIpHero = Boolean(parentService && (node.code === "5.2" || node.code === "5.4"));
       const pdfSrc = escapeHtml(node.pdfUrl);
       const isIpTraining = node.code === "5.4";
       const isIpCommercialization = node.code === "5.2";
       const showFormPlaceholder = !isIpTraining && !isIpCommercialization && Boolean(node.showFormPlaceholder);
       const hideCodeInTitle = showFormPlaceholder || isIpTraining || isIpCommercialization || node.code === "5.4";
-      const backAction = parent
-        ? (parent.id && !parent.code
-          ? `navigate('our-service', { id: ${parent.id} })`
-          : `openPortalServiceNode('${escapeHtml(parent.code)}')`)
-        : `navigate('our-services')`;
+      const backAction = getPortalFormBackAction(node.code);
 
       const contentHtml = isIpTraining
         ? renderIpTrainingForm(node, backAction)
         : isIpCommercialization
           ? `<div class="portal-form-placeholder-wrap">
-                <div class="portal-form-back-row">
-                  <button type="button" class="ps-btn ps-btn-sm ps-btn-ghost" onclick="${backAction}">
-                    <i class="bi bi-arrow-right" aria-hidden="true"></i> رجوع
-                  </button>
-                </div>
                 <iframe
                   id="commercializationEmbed"
                   class="commercialization-embed"
                   title="${escapeHtml(node.title)}"
-                  src="Commercialization.html?embed=1"
+                  src="commercialization.html?embed=1"
                   scrolling="no"
                   loading="lazy"
                 ></iframe>
@@ -7858,13 +8379,9 @@
                 ></iframe>
               </div>`;
 
-      const actionsHtml = (showFormPlaceholder || isIpCommercialization)
+      const actionsHtml = (showFormPlaceholder || isIpCommercialization || isIpTraining)
         ? ""
-        : isIpTraining
-          ? `<button type="button" class="ps-btn ps-btn-ghost" onclick="${backAction}">
-                    <i class="bi bi-arrow-right"></i> رجوع
-                  </button>`
-          : `<button type="button" class="ps-btn ps-btn-ghost" onclick="${backAction}">
+        : `<button type="button" class="ps-btn ps-btn-ghost" onclick="${backAction}">
                     <i class="bi bi-arrow-right"></i> رجوع
                   </button>
                   <a class="ps-btn ps-btn-primary" href="${pdfSrc}" target="_blank" rel="noopener noreferrer">
@@ -7883,28 +8400,23 @@
         ? escapeHtml(node.title)
         : `${escapeHtml(node.code)} — ${escapeHtml(node.title)}`;
 
-      const parentHeroHtml = showParentIpHero
-        ? `<div class="page-hero">
-            <div class="container">
-              ${renderPortalPageHeroTop(renderPortalBreadcrumb([parentService]))}
-              <h1>${escapeHtml(parentService.title)}</h1>
-              <p>${escapeHtml(parentService.intro || parentService.desc || "")}</p>
-            </div>
-          </div>`
-        : "";
-
       return `
         <div class="portal-svc" id="portalServicePdfRoot">
-          ${parentHeroHtml}
-          <div class="page-hero${showParentIpHero ? " page-hero--sub" : ""}">
+          <div class="page-hero">
             <div class="container">
-              <div class="breadcrumb">${renderPortalBreadcrumb(path)}</div>
+              ${renderPortalPageHeroTop(
+                renderPortalBreadcrumb(path),
+                "navigateBackToOurServices()",
+                "رجوع إلى الخدمات الرئيسية",
+                { onclick: backAction, label: "رجوع" }
+              )}
               <h1>${escapeHtml(node.title)}</h1>
               ${renderPortalPdfHeroDesc(node)}
             </div>
           </div>
           <section class="services-section">
             <div class="container">
+              ${isIpTraining || isIpCommercialization ? "" : `
               <div class="block-head mb-3">
                 <div class="block-head-main">
                   <h2 class="block-head-title"><i class="bi ${titleIcon}"></i> ${headingTitle}</h2>
@@ -7912,6 +8424,7 @@
                 </div>
                 ${actionsHtml ? `<div class="d-flex flex-wrap gap-2">${actionsHtml}</div>` : ""}
               </div>
+              `}
               ${contentHtml}
             </div>
           </section>
@@ -7953,14 +8466,19 @@
       const heroTitle = parentService ? parentService.title : "إدارة الملكية الفكرية والتجارية والوصول إلى السوق";
       const heroIntro = parentService
         ? (parentService.intro || parentService.desc)
-        : "خدمات متخصصة لدعم حماية الملكية الفكرية وتسجيلها وتتجيرها وتقديم الاستشارات والتدريب اللازم للوصول إلى السوق.";
+        : "يعد برنامج الملكية الفكرية في منظومة وزارة البيئة والمياه والزراعة ممكنًا استراتيجيًا؛ لحماية الأصول المعرفية وتعظيم قيمتها الاقتصادية، وذلك من خلال سياسات موحّدة وإجراءات تشغيلية متكاملة ترتبط بالتوجّهات الوطنية وتستجيب لأولويات القطاعات";
       const heroCrumb = parentService || { title: heroTitle };
 
       return `
         <div class="portal-svc">
           <div class="page-hero">
             <div class="container">
-              ${renderPortalPageHeroTop(renderPortalBreadcrumb([heroCrumb]))}
+              ${renderPortalPageHeroTop(
+                renderPortalBreadcrumb([heroCrumb]),
+                "navigateBackToOurServices()",
+                "رجوع إلى الخدمات الرئيسية",
+                { onclick: backAction, label: "رجوع" }
+              )}
               <h1>${escapeHtml(heroTitle)}</h1>
               <p>${escapeHtml(heroIntro)}</p>
             </div>
@@ -7968,10 +8486,6 @@
           <section class="container py-4 ip-form-wrap">
             <div class="ip-form-sheet">
               <header class="ip-form-header">
-                <div class="ip-form-logos" aria-hidden="true">
-                  <span class="ip-form-logo">وزارة<br>البيئة</span>
-                  <span class="ip-form-logo is-ip">برنامج<br>الملكية</span>
-                </div>
                 <div class="ip-form-title-block">
                   <h1>نموذج طلب تسجيل ملكية فكرية</h1>
                   <div class="ip-form-meta">
@@ -7979,7 +8493,6 @@
                     <span><strong>تصنيف القالب:</strong> --</span>
                   </div>
                 </div>
-                <span class="ip-form-ref">IP</span>
               </header>
 
               <div class="ip-form-body">
@@ -8065,14 +8578,19 @@
       const heroTitle = parentService ? parentService.title : "إدارة الملكية الفكرية والتجارية والوصول إلى السوق";
       const heroIntro = parentService
         ? (parentService.intro || parentService.desc)
-        : "خدمات متخصصة لدعم حماية الملكية الفكرية وتسجيلها وتتجيرها وتقديم الاستشارات والتدريب اللازم للوصول إلى السوق.";
+        : "يعد برنامج الملكية الفكرية في منظومة وزارة البيئة والمياه والزراعة ممكنًا استراتيجيًا؛ لحماية الأصول المعرفية وتعظيم قيمتها الاقتصادية، وذلك من خلال سياسات موحّدة وإجراءات تشغيلية متكاملة ترتبط بالتوجّهات الوطنية وتستجيب لأولويات القطاعات";
       const heroCrumb = parentService || { title: heroTitle };
 
       return `
         <div class="portal-svc">
           <div class="page-hero">
             <div class="container">
-              ${renderPortalPageHeroTop(renderPortalBreadcrumb([heroCrumb]))}
+              ${renderPortalPageHeroTop(
+                renderPortalBreadcrumb([heroCrumb]),
+                "navigateBackToOurServices()",
+                "رجوع إلى الخدمات الرئيسية",
+                { onclick: backAction, label: "رجوع" }
+              )}
               <h1>${escapeHtml(heroTitle)}</h1>
               <p>${escapeHtml(heroIntro)}</p>
             </div>
@@ -8080,14 +8598,9 @@
           <section class="container py-4 ip-form-wrap">
             <div class="ip-form-sheet">
               <header class="ip-form-header">
-                <div class="ip-form-logos" aria-hidden="true">
-                  <span class="ip-form-logo is-ip">برنامج<br>الملكية</span>
-                  <span class="ip-form-logo">وزارة<br>البيئة</span>
-                </div>
                 <div class="ip-form-title-block">
                   <h1>نموذج استشارة ملكية فكرية</h1>
                 </div>
-                <span class="ip-form-ref">IP</span>
               </header>
 
               <div class="ip-form-body">

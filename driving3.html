@@ -273,7 +273,7 @@
       .platform-top .header-search .h-search-reset { padding: 0.4rem 0.5rem; }
     }
     @media (min-width: 992px) {
-      .platform-top .header-search { display: flex; }
+      .platform-top .header-row .header-search { display: flex; }
       .platform-top .header-row {
         flex-wrap: nowrap !important;
         gap: 0.6rem !important;
@@ -303,72 +303,9 @@
 </head>
 <body class="drv3-body">
 
-  <div class="platform-top">
-  <div class="gov-bar">
-    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
-      <span><i class="bi bi-shield-check verified me-1"></i> موقع حكومي تابع لوزارة البيئة والمياه والزراعة</span>
-      <span class="d-none d-md-inline">متوافق مع هوية منصة نما · الرقم الموحد <strong>939</strong></span>
-    </div>
-  </div>
+  <div id="platform-header-root"></div>
+<script src="platform-header.js" data-active="services"></script>
 
-  <header class="site-header">
-    <div class="container py-3">
-      <div class="header-row d-flex flex-wrap align-items-center gap-3">
-        <a class="brand-link" href="index.html" aria-label="الصفحة الرئيسية">
-          <span class="brand-mark" aria-hidden="true"></span>
-          <span class="brand-text text-start">
-            <strong>منصة البحث والابتكار</strong>
-            <small>وزارة البيئة والمياه والزراعة</small>
-          </span>
-        </a>
-
-        <nav id="mainNav" class="d-none d-lg-flex gap-1" aria-label="التنقل الرئيسي">
-          <a class="nav-pill" href="index.html"><i class="bi bi-house me-1"></i>الرئيسية</a>
-          <a class="nav-pill active" href="index.html?view=our-services" aria-current="page"><i class="bi bi-briefcase me-1"></i>خدماتنا</a>
-          <a class="nav-pill" href="index.html?view=news"><i class="bi bi-megaphone me-1"></i>الأخبار</a>
-          <a class="nav-pill" href="index.html?view=publications"><i class="bi bi-journal-richtext me-1"></i>منشورات وتقارير</a>
-          <a class="nav-pill" href="index.html?view=my-requests"><i class="bi bi-file-earmark-text me-1"></i>طلباتي</a>
-        </nav>
-
-        <div class="header-search" aria-label="بحث سريع">
-          <div class="h-search-input">
-            <i class="bi bi-search icon" aria-hidden="true"></i>
-            <input type="search" placeholder="البحث عن خدمة..." aria-label="البحث عن خدمة" />
-          </div>
-          <select class="h-search-select" aria-label="نوع المستفيد">
-            <option selected>نوع المستفيد: الكل</option>
-            <option>باحث</option>
-            <option>مبتكر</option>
-            <option>جهة حكومية</option>
-            <option>قطاع خاص</option>
-          </select>
-          <button type="button" class="h-search-reset" title="إعادة تعيين الفلتر" aria-label="إعادة تعيين الفلتر">
-            <i class="bi bi-arrow-counterclockwise"></i>
-            <span class="h-reset-label">إعادة تعيين</span>
-          </button>
-        </div>
-
-        <div class="ms-auto d-flex align-items-center gap-2">
-          <a class="btn-login" href="https://naama.sa/Account/Login" target="_blank" rel="noopener">
-            <i class="bi bi-box-arrow-in-left"></i>
-            <span>تسجيل الدخول</span>
-          </a>
-          <button type="button" class="btn-menu-toggle" id="drv3MenuToggle" aria-label="القائمة" aria-expanded="false" aria-controls="mobileNav">
-            <i class="bi bi-list"></i>
-          </button>
-        </div>
-      </div>
-
-      <nav id="mobileNav" aria-label="قائمة الجوال">
-        <a class="nav-pill" href="index.html"><i class="bi bi-house me-1"></i>الرئيسية</a>
-        <a class="nav-pill active" href="index.html?view=our-services"><i class="bi bi-briefcase me-1"></i>خدماتنا</a>
-        <a class="nav-pill" href="index.html?view=news"><i class="bi bi-megaphone me-1"></i>الأخبار</a>
-        <a class="nav-pill" href="index.html?view=publications"><i class="bi bi-journal-richtext me-1"></i>منشورات وتقارير</a>
-        <a class="nav-pill" href="index.html?view=my-requests"><i class="bi bi-file-earmark-text me-1"></i>طلباتي</a>
-      </nav>
-    </div>
-  </header>
-  </div>
 
   <div class="drv3-page-title">
     <div class="drv-container">
@@ -519,7 +456,7 @@
       <div class="drv-container">
         <h2 class="drv-section-title" id="servicesTitle">خدمات البرنامج</h2>
         <div class="drv-cards-6">
-          <a class="drv-card drv-card--service" href="Supportingpilottests.html">
+          <a class="drv-card drv-card--service" href="supportingpilottests.html">
             <span class="drv-badge">01</span>
             <span class="drv-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M8 4h8a2 2 0 0 1 2 2v14l-6-3-6 3V6a2 2 0 0 1 2-2z"/><path d="M9.5 11.2l1.7 1.7 3.3-3.4"/></svg>
@@ -535,7 +472,7 @@
             <h3>الدعم الاستشاري والشراكات</h3>
             <p>توفير البيئة التقنية والتشغيلية اللازمة لدعم تطوير الحلول، بما يشمل الأدوات والمنصات والتقنيات المساندة لتنفيذ المشاريع بكفاءة.</p>
           </a>
-          <a class="drv-card drv-card--service" href="Supportingexpansion.html">
+          <a class="drv-card drv-card--service" href="supportingexpansion.html">
             <span class="drv-badge">03</span>
             <span class="drv-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M12 3c2.5 3 5.5 7.2 5.5 11.2A5.5 5.5 0 0 1 6.5 14.2C6.5 10.2 9.5 6 12 3z"/><path d="M9.2 17.5L7 21l2.8-1.2"/><path d="M14.8 17.5L17 21l-2.8-1.2"/></svg>
@@ -551,7 +488,7 @@
             <h3>دعم البيانات والمحاكاة</h3>
             <p>تمكين الجهات المبتكرة من الوصول إلى الأسواق المستهدفة من خلال تسهيل إجراءات التبني، وبناء الشراكات، ودعم جاهزية الحلول للتطبيق.</p>
           </a>
-          <a class="drv-card drv-card--service" href="Experimental3.html">
+          <a class="drv-card drv-card--service" href="experimental3.html">
             <span class="drv-badge">05</span>
             <span class="drv-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v4c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 10v4c0 1.7 3.1 3 7 3s7-1.3 7-3v-4"/><path d="M5 14v4c0 1.7 3.1 3 7 3s7-1.3 7-3v-4"/></svg>
@@ -559,7 +496,7 @@
             <h3>دعم التمكين التنظيمي</h3>
             <p>إتاحة البيانات اللازمة للمشاريع الابتكارية، وتعزيز الاستفادة منها في التحليل، وبناء النماذج، واتخاذ القرارات المبنية على البيانات.</p>
           </a>
-          <a class="drv-card drv-card--service" href="SponsorshipSolutions.html">
+          <a class="drv-card drv-card--service" href="sponsorshipSolutions.html">
             <span class="drv-badge">06</span>
             <span class="drv-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M4 8.5h16v10.5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8.5z"/><path d="M4 8.5C4 6.5 7.6 5 12 5s8 1.5 8 3.5"/><path d="M12 12.5v2"/><circle cx="12" cy="12.5" r="0.2"/></svg>
@@ -669,39 +606,9 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-md-5">
-          <div class="d-flex align-items-center gap-2 mb-2">
-            <span class="brand-mark" style="width:36px;height:36px;border-radius:10px" aria-hidden="true"></span>
-            <strong style="color:var(--naama-primary)">منصة البحث والابتكار</strong>
-          </div>
-          <p class="text-muted mb-0" style="max-width: 34rem">المحور المركزي لأنشطة البحث والابتكار في قطاعات البيئة والمياه والزراعة، ضمن منظومة منصة نما وأهداف رؤية 2030.</p>
-        </div>
-        <div class="col-md-4">
-          <h6 style="color:var(--naama-primary);font-weight:700">روابط سريعة</h6>
-          <div class="footer-links d-flex flex-wrap gap-3">
-            <a href="index.html">الرئيسية</a>
-            <a href="index.html?view=our-services">خدماتنا</a>
-            <a href="index.html?view=publications">منشورات وتقارير</a>
-            <a href="index.html?view=my-requests">طلباتي</a>
-            <a href="https://naama.sa/" target="_blank" rel="noreferrer">منصة نما</a>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <h6 style="color:var(--naama-primary);font-weight:700">الدعم</h6>
-          <p class="text-muted mb-1"><i class="bi bi-headset me-1"></i> الرقم الموحد <strong>939</strong></p>
-          <p class="text-muted mb-0"><i class="bi bi-envelope me-1"></i> ri-support@mewa.gov.sa</p>
-        </div>
-      </div>
-      <hr class="my-4" />
-      <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 text-muted small">
-        <span>© جميع الحقوق محفوظة · وزارة البيئة والمياه والزراعة</span>
-        <span>الإصدار التجريبي · متوافق مع النفاذ الموحد</span>
-      </div>
-    </div>
-  </footer>
+  <div id="platform-footer-root"></div>
+<script src="platform-footer.js"></script>
+
 
   <script>
     (function () {
@@ -716,7 +623,7 @@
       }
 
       document.querySelectorAll(
-        'a.drv-card[href="Supportingpilottests.html"], a.drv-card[href="Supportingexpansion.html"], a.drv-card[href="SponsorshipSolutions.html"], a.drv-card[href="index.html?view=our-service&id=1"], a.drv-card[href="index.html?view=our-service&id=7"], a.drv-card[href="Experimental3.html"]'
+        'a.drv-card[href="supportingpilottests.html"], a.drv-card[href="supportingexpansion.html"], a.drv-card[href="sponsorshipSolutions.html"], a.drv-card[href="index.html?view=our-service&id=1"], a.drv-card[href="index.html?view=our-service&id=7"], a.drv-card[href="experimental3.html"]'
       ).forEach(function (link) {
         link.addEventListener("click", function () {
           try {

@@ -293,7 +293,7 @@
       .dam3-body .platform-top .header-search .h-search-reset { padding: 0.4rem 0.5rem !important; }
     }
     @media (min-width: 992px) {
-      .platform-top .header-search { display: flex !important; }
+      .platform-top .header-row .header-search { display: flex !important; }
       .platform-top .header-row {
         flex-wrap: nowrap !important;
         gap: 0.6rem !important;
@@ -444,72 +444,9 @@
 </head>
 <body class="dam3-body">
 
-  <div class="platform-top">
-    <div class="gov-bar">
-      <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
-        <span><i class="bi bi-shield-check verified me-1"></i> موقع حكومي تابع لوزارة البيئة والمياه والزراعة</span>
-        <span class="d-none d-md-inline">متوافق مع هوية منصة نما · الرقم الموحد <strong>939</strong></span>
-      </div>
-    </div>
+  <div id="platform-header-root"></div>
+<script src="platform-header.js" data-active="services"></script>
 
-    <header class="site-header">
-      <div class="container py-3">
-        <div class="header-row d-flex flex-wrap align-items-center gap-3">
-          <a class="brand-link" href="index.html" aria-label="الصفحة الرئيسية">
-            <span class="brand-mark" aria-hidden="true"></span>
-            <span class="brand-text text-start">
-              <strong>منصة البحث والابتكار</strong>
-              <small>وزارة البيئة والمياه والزراعة</small>
-            </span>
-          </a>
-
-          <nav id="mainNav" class="d-none d-lg-flex gap-1" aria-label="التنقل الرئيسي">
-            <a class="nav-pill" href="index.html"><i class="bi bi-house me-1"></i>الرئيسية</a>
-            <a class="nav-pill active" href="index.html?view=our-services" aria-current="page"><i class="bi bi-briefcase me-1"></i>خدماتنا</a>
-            <a class="nav-pill" href="index.html?view=news"><i class="bi bi-megaphone me-1"></i>الأخبار</a>
-            <a class="nav-pill" href="index.html?view=publications"><i class="bi bi-journal-richtext me-1"></i>منشورات وتقارير</a>
-            <a class="nav-pill" href="index.html?view=my-requests"><i class="bi bi-file-earmark-text me-1"></i>طلباتي</a>
-          </nav>
-
-          <div class="header-search d-none d-lg-flex" aria-label="بحث سريع">
-            <div class="h-search-input">
-              <i class="bi bi-search icon" aria-hidden="true"></i>
-              <input type="search" class="h-search-input-el" placeholder="البحث عن خدمة" aria-label="البحث عن خدمة" autocomplete="off" />
-            </div>
-            <select class="h-search-select" aria-label="نوع المستفيد">
-              <option value="الكل" selected>نوع المستفيد: الكل</option>
-              <option value="باحث">باحث</option>
-              <option value="مبتكر">مبتكر</option>
-              <option value="جهة حكومية">جهة حكومية</option>
-              <option value="قطاع خاص">قطاع خاص</option>
-            </select>
-            <button type="button" class="h-search-reset" title="إعادة تعيين الفلتر" aria-label="إعادة تعيين الفلتر">
-              <i class="bi bi-arrow-counterclockwise"></i>
-              <span class="h-reset-label">إعادة تعيين</span>
-            </button>
-          </div>
-
-          <div class="ms-auto d-flex align-items-center gap-2">
-            <a class="btn-login" href="https://naama.sa/Account/Login" target="_blank" rel="noopener">
-              <i class="bi bi-box-arrow-in-left"></i>
-              <span>تسجيل الدخول</span>
-            </a>
-            <button type="button" class="btn-menu-toggle" id="dam3MenuToggle" aria-label="القائمة" aria-expanded="false" aria-controls="mobileNav">
-              <i class="bi bi-list"></i>
-            </button>
-          </div>
-        </div>
-
-        <nav id="mobileNav" aria-label="قائمة الجوال">
-          <a class="nav-pill" href="index.html"><i class="bi bi-house me-1"></i>الرئيسية</a>
-          <a class="nav-pill active" href="index.html?view=our-services"><i class="bi bi-briefcase me-1"></i>خدماتنا</a>
-          <a class="nav-pill" href="index.html?view=news"><i class="bi bi-megaphone me-1"></i>الأخبار</a>
-          <a class="nav-pill" href="index.html?view=publications"><i class="bi bi-journal-richtext me-1"></i>منشورات وتقارير</a>
-          <a class="nav-pill" href="index.html?view=my-requests"><i class="bi bi-file-earmark-text me-1"></i>طلباتي</a>
-        </nav>
-      </div>
-    </header>
-  </div>
 
   <section class="dam3-page-hero" aria-label="عنوان الصفحة">
     <div class="container">
@@ -1088,7 +1025,7 @@
 
                 <div>
 
-                    <a href="DamApplication.html" class="btn btn-secondary-solid" data-same-behavior="true">قدّم الآن
+                    <a href="damApplication.html" class="btn btn-secondary-solid" data-same-behavior="true">قدّم الآن
 
                         <svg class="icon" role="img" aria-hidden="true">
 
@@ -1650,7 +1587,7 @@
 
                         <div class="action">
 
-                            <a class="link" href="DamApplication.html">تقدم لهذا المسار
+                            <a class="link" href="damApplication.html">تقدم لهذا المسار
 
                                 <svg class="icon" role="img" aria-hidden="true">
 
@@ -1738,7 +1675,7 @@
 
                         <div class="action">
 
-                            <a class="link" href="DamApplication.html">تقدم لهذا المسار
+                            <a class="link" href="damApplication.html">تقدم لهذا المسار
 
                                 <svg class="icon" role="img" aria-hidden="true">
 
@@ -1826,7 +1763,7 @@
 
                         <div class="action">
 
-                            <a class="link" href="DamApplication.html">تقدم لهذا المسار
+                            <a class="link" href="damApplication.html">تقدم لهذا المسار
 
                                 <svg class="icon" role="img" aria-hidden="true">
 
@@ -1926,7 +1863,7 @@
 
                         </a>
 
-                        <a href="DamApplication.html" class="btn btn-secondary-outline">قدم الآن
+                        <a href="damApplication.html" class="btn btn-secondary-outline">قدم الآن
 
                             <svg class="icon" role="img" aria-hidden="true">
 
@@ -2871,39 +2808,9 @@
 </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-md-5">
-          <div class="d-flex align-items-center gap-2 mb-2">
-            <span class="brand-mark" style="width:36px;height:36px;border-radius:10px" aria-hidden="true"></span>
-            <strong style="color:var(--naama-primary)">منصة البحث والابتكار</strong>
-          </div>
-          <p class="text-muted mb-0" style="max-width: 34rem">المحور المركزي لأنشطة البحث والابتكار في قطاعات البيئة والمياه والزراعة، ضمن منظومة منصة نما وأهداف رؤية 2030.</p>
-        </div>
-        <div class="col-md-4">
-          <h6 style="color:var(--naama-primary);font-weight:700">روابط سريعة</h6>
-          <div class="footer-links d-flex flex-wrap gap-3">
-            <a href="index.html">الرئيسية</a>
-            <a href="index.html?view=our-services">خدماتنا</a>
-            <a href="index.html?view=publications">منشورات وتقارير</a>
-            <a href="index.html?view=my-requests">طلباتي</a>
-            <a href="https://naama.sa/" target="_blank" rel="noreferrer">منصة نما</a>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <h6 style="color:var(--naama-primary);font-weight:700">الدعم</h6>
-          <p class="text-muted mb-1"><i class="bi bi-headset me-1"></i> الرقم الموحد <strong>939</strong></p>
-          <p class="text-muted mb-0"><i class="bi bi-envelope me-1"></i> ri-support@mewa.gov.sa</p>
-        </div>
-      </div>
-      <hr class="my-4" />
-      <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 text-muted small">
-        <span>© جميع الحقوق محفوظة · وزارة البيئة والمياه والزراعة</span>
-        <span>الإصدار التجريبي · متوافق مع النفاذ الموحد</span>
-      </div>
-    </div>
-  </footer>
+  <div id="platform-footer-root"></div>
+<script src="platform-footer.js"></script>
+
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

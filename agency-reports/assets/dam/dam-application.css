@@ -337,7 +337,7 @@ html {
   .platform-top .header-search .h-search-reset { padding: 0.4rem 0.5rem; }
 }
 @media (min-width: 992px) {
-  .platform-top .header-search { display: flex !important; }
+  .platform-top .header-row .header-search { display: flex !important; }
   .platform-top .header-row {
     flex-wrap: nowrap !important;
     gap: 0.6rem !important;

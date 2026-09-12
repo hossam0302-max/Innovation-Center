@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>نموذج طلب الاشتراك في منصة نبراس | MEWA</title>
+  <meta name="description" content="نموذج طلب الاشتراك في منصة نبراس — وكالة البحث والابتكار بوزارة البيئة والمياه والزراعة">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <style>
+    :root {
+      --primary-green: #1b8354;
+      --dark-green: #074d31;
+      --mint-soft: #f3fcf6;
+      --mint-border: #d1fae5;
+      --text-color: #1f2a37;
+      --text-muted: #384250;
+      --background-color: #f7f8f9;
+      --border-color: #d2d6db;
+      --danger: #b42318;
+      --naama-primary: #003957;
+      --naama-primary-dark: #00283e;
+      --naama-accent: #49aa8b;
+      --naama-accent-dark: #378a6f;
+      --naama-accent-soft: #e8f6f1;
+      --naama-gold: #e8a34f;
+      --naama-muted: #62717d;
+      --naama-border: #e4ecef;
+      --ps-paper-alt: #F4F1E9;
+      --ps-green-deep: #0B5D42;
+      --ps-line: #d8d2c4;
+      --ps-white: #fff;
+    }
+    * { box-sizing: border-box; }
+    html, body { overflow-x: hidden; max-width: 100%; }
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans Arabic", "TheSans", "Arial", "Tahoma", sans-serif;
+      color: var(--text-color);
+      background: var(--background-color);
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .gov-bar { background: var(--naama-primary-dark); color: #fff; font-size: 0.82rem; padding: 0.45rem 0; }
+    .gov-bar .verified { color: #7dd3a8; }
+    .site-header { background: #fff; border-bottom: 1px solid var(--naama-border); }
+    .brand-link { display: inline-flex; align-items: center; gap: 0.7rem; }
+    .brand-mark {
+      width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0; position: relative;
+      background:
+        radial-gradient(circle at 30% 30%, var(--naama-gold) 0 22%, transparent 23%),
+        linear-gradient(145deg, var(--naama-accent) 0%, var(--naama-primary) 100%);
+      box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.18);
+    }
+    .brand-mark::after {
+      content: ""; position: absolute; inset: 16px 8px 10px;
+      border-top: 2px solid rgba(255, 255, 255, 0.75); border-radius: 40%;
+    }
+    .brand-text { display: flex; flex-direction: column; line-height: 1.25; }
+    .brand-text strong { font-size: 1.02rem; color: var(--naama-primary); display: block; line-height: 1.2; }
+    .brand-text small { font-size: 0.78rem; color: var(--naama-muted); }
+    .nav-pill {
+      display: inline-flex; align-items: center; padding: 0.5rem 1rem; border-radius: 999px;
+      font-size: 0.92rem; font-weight: 500; color: var(--naama-primary);
+      background: transparent; border: 0;
+    }
+    .nav-pill:hover, .nav-pill.active { background: var(--naama-accent-soft); color: var(--naama-accent-dark); }
+    .btn-login {
+      display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.55rem 1.3rem;
+      border-radius: 999px; background: var(--naama-primary); color: #fff !important; font-weight: 600;
+      border: 0; transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-login:hover { background: var(--naama-primary-dark); color: #fff !important; transform: translateY(-1px); box-shadow: 0 10px 22px rgba(0, 40, 62, 0.22); }
+    .btn-menu-toggle {
+      display: none; border: 1px solid var(--naama-border); background: #fff; width: 42px; height: 42px;
+      border-radius: 12px; align-items: center; justify-content: center; color: var(--naama-primary);
+    }
+    .header-search {
+      display: flex; align-items: center; gap: 0.4rem; flex-wrap: nowrap;
+      padding: 0.35rem 0.45rem; background: #f4f7f9; border: 1px solid var(--naama-border);
+      border-radius: 12px; margin-inline-start: 0.5rem; flex: 1 1 auto; min-width: 0; max-width: 560px;
+    }
+    .h-search-input { position: relative; flex: 1 1 auto; min-width: 0; }
+    .h-search-input .icon {
+      position: absolute; top: 50%; transform: translateY(-50%); inset-inline-start: 0.7rem;
+      color: var(--naama-muted); pointer-events: none; font-size: 0.9rem;
+    }
+    .h-search-input input {
+      width: 100%; padding: 0.4rem 0.6rem; padding-inline-start: 2rem;
+      border: 1px solid var(--naama-border); border-radius: 8px; background: #fff;
+      font-family: inherit; font-size: 0.85rem; color: var(--naama-primary); outline: none;
+    }
+    .h-search-input input:focus { border-color: var(--naama-accent); box-shadow: 0 0 0 3px rgba(73, 170, 139, 0.15); }
+    .h-search-select {
+      flex: 0 1 auto; min-width: 0; padding: 0.4rem 0.6rem; padding-inline-end: 1.9rem;
+      border: 1px solid var(--naama-border); border-radius: 8px; background-color: #fff;
+      font-family: inherit; font-size: 0.85rem; color: var(--naama-primary); cursor: pointer;
+      appearance: none; -webkit-appearance: none;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='%23003957' d='M8 11L3 6h10z'/></svg>");
+      background-repeat: no-repeat; background-position: left 0.55rem center; background-size: 12px;
+    }
+    .h-search-select:focus { outline: none; border-color: var(--naama-accent); box-shadow: 0 0 0 3px rgba(73, 170, 139, 0.15); }
+    .h-search-reset {
+      flex: 0 0 auto; display: inline-flex; align-items: center; gap: 0.3rem;
+      padding: 0.4rem 0.65rem; border: 1px solid var(--naama-border); border-radius: 8px;
+      background: #fff; font-family: inherit; font-size: 0.82rem; font-weight: 600;
+      color: var(--naama-primary); white-space: nowrap; cursor: pointer;
+    }
+    .h-search-reset:hover { border-color: var(--naama-accent); color: var(--naama-accent-dark); background: var(--naama-accent-soft); }
+    #mobileNav { display: none; flex-wrap: wrap; gap: 0.35rem; padding-top: 0.85rem; margin-top: 0.85rem; border-top: 1px solid var(--naama-border); }
+    #mobileNav.is-open { display: flex; }
+    @media (min-width: 992px) {
+      .header-row { flex-wrap: nowrap !important; gap: 0.6rem !important; }
+      .header-row .brand-link { flex: 0 0 auto; }
+      .header-row #mainNav { flex: 0 0 auto; flex-wrap: nowrap; white-space: nowrap; }
+      .header-row #mainNav .nav-pill { padding: 0.4rem 0.7rem; font-size: 0.88rem; white-space: nowrap; }
+      .header-row .btn-login { padding: 0.45rem 0.9rem; font-size: 0.88rem; white-space: nowrap; }
+      .header-row .brand-text small { display: none; }
+      .header-row .brand-text strong { font-size: 0.98rem; }
+    }
+    @media (min-width: 1280px) {
+      .header-row .brand-text small { display: block; }
+    }
+    @media (min-width: 992px) and (max-width: 1279.98px) {
+      .h-reset-label { display: none; }
+      .h-search-reset { padding: 0.4rem 0.5rem; }
+    }
+
+    .exp3-page-title { background: var(--ps-paper-alt); border-bottom: 1px solid var(--ps-line); padding: 1.25rem 0 1.5rem; }
+    .exp3-page-hero-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.85rem; margin-bottom: 0.85rem; }
+    .exp3-breadcrumb { font-size: 0.88rem; color: #5b6470; }
+    .exp3-breadcrumb a { color: var(--ps-green-deep); font-weight: 600; }
+    .exp3-breadcrumb a:hover { text-decoration: underline; }
+    .exp3-page-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .exp3-back-services {
+      display: inline-flex; align-items: center; gap: 0.35rem; padding: 7px 14px;
+      border: 1.5px solid var(--ps-line); border-radius: 999px; background: var(--ps-white);
+      color: var(--ps-green-deep); font-size: 0.82rem; font-weight: 600;
+    }
+    .exp3-back-services:hover { background: #eef7f2; border-color: var(--primary-green); }
+    .exp3-page-title h1 { margin: 0; font-size: clamp(1.45rem, 2.4vw, 1.85rem); font-weight: 700; color: var(--ps-green-deep); }
+
+    .comm-main { padding: 2rem 0 3.5rem; }
+    .wrapper-form {
+      background: #fff; padding: 1.5rem 1.35rem 1.75rem; border-radius: 1rem;
+      border: 1px solid var(--border-color); box-shadow: 0 4px 16px rgba(16, 24, 40, 0.06);
+    }
+    .form-page-title { margin: 0 0 0.85rem; font-size: clamp(1.25rem, 2vw, 1.55rem); font-weight: 700; color: var(--dark-green); text-align: center; }
+    .form-intro { margin: 0 0 0.85rem; font-size: 0.98rem; color: var(--text-muted); line-height: 1.85; text-align: center; }
+    .form-note {
+      margin: 0 0 1.5rem; padding: 0.75rem 1rem; background: var(--mint-soft); border: 1px solid var(--mint-border);
+      border-radius: 0.5rem; color: var(--dark-green); font-size: 0.92rem; font-weight: 600; text-align: center;
+    }
+    .form-section { margin-bottom: 1.5rem; }
+    .form-section__head {
+      background: var(--mint-soft); border: 1px solid var(--mint-border); border-radius: 0.5rem;
+      padding: 0.75rem 1rem; margin-bottom: 1.1rem; font-size: 1.05rem; font-weight: 700; color: var(--dark-green);
+    }
+    .field { margin-bottom: 1rem; }
+    .field label, .field .field-label { display: block; font-size: 0.95rem; font-weight: 600; color: #1f2a37; margin-bottom: 0.4rem; }
+    .field .req { color: var(--danger); }
+    .field input[type="number"],
+    .field textarea,
+    .field select {
+      width: 100%; min-height: 44px; padding: 0.55rem 0.85rem; border: 1px solid var(--border-color);
+      border-radius: 0.375rem; background: #fff; font-family: inherit; font-size: 0.95rem; color: var(--text-color);
+    }
+    .field select {
+      appearance: none;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='%23003957' d='M8 11L3 6h10z'/></svg>");
+      background-repeat: no-repeat; background-position: left 0.75rem center; background-size: 12px; padding-left: 2rem;
+    }
+    .field textarea { min-height: 120px; resize: vertical; }
+    .field input:focus, .field textarea:focus, .field select:focus {
+      outline: 0; border-color: var(--primary-green); box-shadow: 0 0 0 0.2rem rgba(27, 131, 84, 0.18);
+    }
+    .field-error { display: none; color: var(--danger); font-size: 0.82rem; margin-top: 0.3rem; }
+    .field.is-invalid input, .field.is-invalid textarea, .field.is-invalid select { border-color: var(--danger); }
+    .field.is-invalid .field-error { display: block; }
+    .field.is-invalid .radio-row { outline: 1px solid rgba(180, 35, 24, 0.35); border-radius: 6px; padding: 0.35rem; }
+    .user-count { margin-top: 0.35rem; font-size: 0.84rem; color: var(--text-muted); }
+    .user-count.is-ok { color: var(--dark-green); font-weight: 600; }
+
+    .radio-row { display: flex; flex-wrap: wrap; gap: 0.65rem; }
+    .radio-row label {
+      display: inline-flex; align-items: center; gap: 0.45rem; margin: 0; padding: 0.65rem 0.95rem;
+      border: 1.5px solid var(--border-color); border-radius: 0.5rem; background: #fff; font-weight: 500; cursor: pointer;
+    }
+    .radio-row label:hover { border-color: #b8eacb; background: #fbfefc; }
+    .radio-row label:has(input:checked) { border-color: var(--primary-green); background: var(--mint-soft); }
+    .radio-row input { accent-color: var(--primary-green); width: 1.05rem; height: 1.05rem; }
+
+    .check-row {
+      display: flex; align-items: flex-start; gap: 0.65rem; margin-bottom: 0.85rem;
+      padding: 0.85rem 1rem; border: 1px solid var(--border-color); border-radius: 0.5rem; background: #fff;
+    }
+    .check-row input { margin-top: 0.3rem; accent-color: var(--primary-green); width: 1.1rem; height: 1.1rem; flex-shrink: 0; }
+    .check-row label { margin: 0; font-weight: 500; cursor: pointer; }
+
+    .form-actions {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 0.85rem;
+      margin-top: 1.35rem; padding-top: 1.1rem; border-top: 1px solid #e5e7eb;
+    }
+    .btn-comm {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.35rem;
+      min-height: 46px; padding: 0.55rem 1.35rem; border-radius: 0.5rem;
+      font-family: inherit; font-size: 0.95rem; font-weight: 700; border: 1.5px solid transparent; cursor: pointer;
+    }
+    .btn-comm-primary { background: var(--dark-green); color: #fff; }
+    .btn-comm-primary:hover { background: #053824; color: #fff; }
+
+    .form-success {
+      display: none; align-items: flex-start; gap: 12px; padding: 14px 16px; border-radius: 0.5rem;
+      background: #e8f6ef; border: 1px solid #b7dfc8; color: var(--dark-green); margin-bottom: 1rem;
+    }
+    .form-success.is-visible { display: flex; }
+    .form-success strong { display: block; margin-bottom: 0.15rem; }
+    .form-success p { margin: 0; color: var(--text-muted); font-size: 0.9rem; }
+
+    .info-bar {
+      display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+      margin-top: 1.25rem; padding: 1.15rem 1.6rem;
+      background: var(--dark-green); color: #fff; border-radius: 1.75rem;
+    }
+    .info-bar p {
+      margin: 0; flex: 1 1 auto; font-size: 0.95rem; font-weight: 600; line-height: 1.7; color: #fff;
+    }
+    .info-stats { display: flex; align-items: center; gap: 1.6rem; flex-shrink: 0; }
+    .info-stat { display: flex; align-items: center; gap: 0.7rem; }
+    .info-stat__icon {
+      width: 36px; height: 36px; flex-shrink: 0; color: #fff;
+    }
+    .info-stat__icon svg { width: 100%; height: 100%; display: block; }
+    .info-stat__text strong { display: block; font-size: 1.12rem; font-weight: 800; line-height: 1.2; color: #fff; }
+    .info-stat__text span {
+      display: block; font-size: 0.74rem; font-weight: 500; line-height: 1.4;
+      color: rgba(255,255,255,.9); max-width: 9.2rem;
+    }
+
+    .comm-footer { background: #fff; border-top: 1px solid var(--naama-border); padding: 2.2rem 0 2.4rem; }
+    .comm-footer .footer-links a { color: var(--naama-primary); font-weight: 600; }
+    .comm-footer .footer-links a:hover { color: var(--primary-green); }
+    .comm-footer .brand-mark {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: radial-gradient(circle at 30% 30%, #e8a34f 0 22%, transparent 23%), linear-gradient(145deg, var(--naama-accent) 0%, var(--naama-primary) 100%);
+    }
+    .comm-footer .text-muted { color: #62717d !important; }
+
+    @media (max-width: 991.98px) {
+      .header-search { display: none; }
+      .btn-menu-toggle { display: inline-flex; }
+      #mainNav { display: none !important; }
+    }
+    @media (max-width: 767.98px) {
+      .wrapper-form { padding: 1.15rem 0.9rem 1.35rem; }
+      .btn-comm { width: 100%; }
+      .info-bar { flex-direction: column; align-items: flex-start; border-radius: 1.15rem; padding: 1.1rem 1.15rem; }
+      .info-stats { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div id="platform-header-root"></div>
+<script src="platform-header.js" data-active="services"></script>
+
+
+  <div class="exp3-page-title">
+    <div class="container">
+      <div class="exp3-page-hero-top">
+        <nav class="exp3-breadcrumb" aria-label="مسار التنقل">
+          <a href="index.html?view=our-services">الخدمات</a>
+          <span aria-hidden="true"> — </span>
+          <a href="index.html?view=our-service&id=1">الدعم الاستشاري والاستشراف التقني</a>
+          <span aria-hidden="true"> — </span>
+          <span>الوصول لمنصة نبراس</span>
+        </nav>
+        <div class="exp3-page-actions">
+          <a class="exp3-back-services" href="index.html?view=our-service&id=1">
+            <i class="bi bi-arrow-right" aria-hidden="true"></i> رجوع
+          </a>
+          <a class="exp3-back-services" href="index.html?view=our-services">
+            <i class="bi bi-arrow-right" aria-hidden="true"></i> رجوع إلى الخدمات الرئيسية
+          </a>
+        </div>
+      </div>
+      <h1>الوصول لمنصة نبراس</h1>
+    </div>
+  </div>
+
+  <main class="comm-main">
+    <div class="container" style="max-width:960px">
+      <div class="wrapper-form">
+        <h2 class="form-page-title">نموذج طلب الاشتراك في منصة نبراس</h2>
+        <p class="form-intro">الخانات التي يعبّئها المستفيد عند طلب الوصول لمنصة نبراس (اشتراك شهري)</p>
+        <p class="form-note">ملاحظة: الحقول المشار إليها بـ (*) إلزامية.</p>
+
+        <div id="formSuccess" class="form-success" role="status" aria-live="polite">
+          <i class="bi bi-check-circle-fill" aria-hidden="true" style="font-size:1.35rem"></i>
+          <div>
+            <strong>تم إرسال طلب الاشتراك بنجاح</strong>
+            <p>تم استلام طلب الاشتراك في منصة نبراس بنجاح، وسيتم مراجعة الطلب وفق الإجراءات المعتمدة.</p>
+          </div>
+        </div>
+
+        <form id="nebrasForm" novalidate>
+          <div class="form-section">
+            <div class="form-section__head">عدد المستخدمين</div>
+            <div class="field" data-f="count">
+              <label for="count"><span class="req">*</span> عدد المستخدمين</label>
+              <input id="count" name="count" type="number" min="1" step="1" inputmode="numeric" placeholder="عدد الحسابات المطلوب تفعيلها">
+              <span class="field-error">يرجى إدخال عدد المستخدمين</span>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <div class="form-section__head">مدة الاشتراك</div>
+            <div class="field" data-f="duration">
+              <label for="duration"><span class="req">*</span> مدة الاشتراك</label>
+              <select id="duration" name="duration">
+                <option value="">شهر / 3 أشهر / سنة</option>
+                <option>شهر</option>
+                <option>3 أشهر</option>
+                <option>سنة</option>
+              </select>
+              <span class="field-error">يرجى اختيار مدة الاشتراك</span>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <div class="form-section__head">أسماء المستخدمين وبريدهم الإلكتروني</div>
+            <div class="field" data-f="users">
+              <label for="users"><span class="req">*</span> أسماء المستخدمين وبريدهم الإلكتروني</label>
+              <textarea id="users" name="users" rows="5" placeholder="اكتب لكل مستخدم: الاسم، المسمى الوظيفي، البريد الإلكتروني الرسمي – سطر لكل مستخدم."></textarea>
+              <div class="user-count" id="counter">عدد المستخدمين المدخلين: 0 من 0</div>
+              <span class="field-error">يرجى إدخال أسماء المستخدمين وبياناتهم</span>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <div class="form-section__head">جلسة تمكين المستخدمين</div>
+            <div class="field" data-f="session">
+              <span class="field-label"><span class="req">*</span> جلسة تمكين المستخدمين <small style="color:var(--text-muted);font-weight:500">(جلسة تدريبية على استخدام المنصة)</small></span>
+              <div class="radio-row">
+                <label><input type="radio" name="session" value="نعم"> نعم</label>
+                <label><input type="radio" name="session" value="لا"> لا</label>
+              </div>
+              <span class="field-error">يرجى تحديد ما إذا كنت ترغب في جلسة تمكين المستخدمين</span>
+            </div>
+            <label class="check-row">
+              <input type="checkbox" id="guide" name="guide">
+              <span>يشمل الاشتراك دليلًا إرشاديًا لاستخدام المنصة</span>
+            </label>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-comm btn-comm-primary">
+              <i class="bi bi-send"></i> إرسال طلب الاشتراك
+            </button>
+          </div>
+        </form>
+
+        <div class="info-bar">
+          <p>جميع الخدمات مدعومة بمنهجيات علمية، وبيانات عالمية، وأدوات ذكاء اصطناعي وتحليلات متقدمة.</p>
+          <div class="info-stats">
+            <div class="info-stat">
+              <span class="info-stat__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="10.2" r="6.4"></circle>
+                  <path d="M5.6 10.2h12.8M12 3.8c-2.1 1.9-3.2 4.1-3.2 6.4s1.1 4.5 3.2 6.4c2.1-1.9 3.2-4.1 3.2-6.4S14.1 5.7 12 3.8z"></path>
+                  <path d="M12 16.6v4.6M9.4 21.2h5.2"></path>
+                </svg>
+              </span>
+              <span class="info-stat__text">
+                <strong>+100</strong>
+                <span>مليون نقطة بيانات يتم رصدها وتحليلها</span>
+              </span>
+            </div>
+            <div class="info-stat">
+              <span class="info-stat__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="6.2" cy="6.2" r="2.1"></circle>
+                  <circle cx="17.8" cy="6.2" r="2.1"></circle>
+                  <circle cx="12" cy="12" r="2.1"></circle>
+                  <circle cx="6.2" cy="17.8" r="2.1"></circle>
+                  <circle cx="17.8" cy="17.8" r="2.1"></circle>
+                  <path d="M8.1 7.4 10.3 10.4M15.9 7.4 13.7 10.4M10.3 13.6 8.1 16.6M13.7 13.6 15.9 16.6"></path>
+                </svg>
+              </span>
+              <span class="info-stat__text">
+                <strong>+10,000</strong>
+                <span>مصدر بيانات محلي وعالمي موثوق</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="platform-footer-root"></div>
+<script src="platform-footer.js"></script>
+
+
+  <script>
+    (function () {
+      var form = document.getElementById("nebrasForm");
+      var countEl = document.getElementById("count");
+      var usersEl = document.getElementById("users");
+      var counter = document.getElementById("counter");
+      var success = document.getElementById("formSuccess");
+      var menuToggle = document.getElementById("menuToggle");
+      var mobileNav = document.getElementById("mobileNav");
+
+      function lines() {
+        return String(usersEl.value || "").split(/\r?\n/).map(function (s) { return s.trim(); }).filter(Boolean).length;
+      }
+      function need() {
+        var n = Number(countEl.value);
+        return Number.isInteger(n) && n > 0 ? n : 0;
+      }
+      function syncCount() {
+        var n = need(), h = lines();
+        counter.textContent = "عدد المستخدمين المدخلين: " + h + " من " + n;
+        counter.classList.toggle("is-ok", n > 0 && h >= n);
+      }
+      function setErr(name, msg) {
+        var box = form.querySelector('[data-f="' + name + '"]');
+        if (!box) return;
+        var el = box.querySelector(".field-error");
+        if (el && msg) el.textContent = msg;
+        box.classList.toggle("is-invalid", Boolean(msg));
+      }
+      function valid() {
+        var ok = true, first = null;
+        function fail(name, msg) {
+          setErr(name, msg); ok = false; first = first || form.querySelector('[data-f="' + name + '"]');
+        }
+        ["count", "duration", "users", "session"].forEach(function (n) { setErr(n, ""); });
+        var raw = String(countEl.value || "").trim();
+        var num = Number(raw);
+        if (!raw) fail("count", "يرجى إدخال عدد المستخدمين");
+        else if (!Number.isInteger(num) || num < 1) fail("count", "يجب أن يكون عدد المستخدمين رقمًا صحيحًا أكبر من صفر");
+        if (!form.duration.value) fail("duration", "يرجى اختيار مدة الاشتراك");
+        var have = lines();
+        if (!have) fail("users", "يرجى إدخال أسماء المستخدمين وبياناتهم");
+        else if (num >= 1 && have < num) fail("users", "يرجى إدخال بيانات جميع المستخدمين حسب العدد المحدد.");
+        if (!form.querySelector('input[name="session"]:checked')) fail("session", "يرجى تحديد ما إذا كنت ترغب في جلسة تمكين المستخدمين");
+        if (first) first.scrollIntoView({ block: "center", behavior: "smooth" });
+        return ok;
+      }
+
+      countEl.addEventListener("input", function () { setErr("count", ""); syncCount(); });
+      usersEl.addEventListener("input", function () { setErr("users", ""); syncCount(); });
+      form.duration.addEventListener("change", function () { setErr("duration", ""); });
+      form.querySelectorAll('input[name="session"]').forEach(function (el) {
+        el.addEventListener("change", function () { setErr("session", ""); });
+      });
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        success.classList.remove("is-visible");
+        if (!valid()) return;
+        success.classList.add("is-visible");
+        success.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+      if (menuToggle && mobileNav) {
+        menuToggle.addEventListener("click", function () {
+          var open = mobileNav.classList.toggle("is-open");
+          menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+      }
+      syncCount();
+    })();
+  </script>
+</body>
+</html>

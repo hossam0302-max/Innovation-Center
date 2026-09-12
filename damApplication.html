@@ -14,76 +14,9 @@
 </head>
 <body class="dama-body">
 
-  <div class="platform-top">
-    <div class="gov-bar">
-      <div class="container platform-gov-inner">
-        <span><i class="bi bi-shield-check verified" aria-hidden="true"></i> موقع حكومي تابع لوزارة البيئة والمياه والزراعة</span>
-        <span class="platform-gov-left">متوافق مع هوية منصة نما · الرقم الموحد <strong>939</strong></span>
-      </div>
-    </div>
+  <div id="platform-header-root"></div>
+<script src="platform-header.js" data-active="services"></script>
 
-    <header class="site-header">
-      <div class="container platform-header-inner">
-        <div class="header-row">
-          <a class="brand-link" href="index.html" aria-label="الصفحة الرئيسية">
-            <span class="brand-mark" aria-hidden="true"></span>
-            <span class="brand-text">
-              <strong>منصة البحث والابتكار</strong>
-              <small>وزارة البيئة والمياه والزراعة</small>
-            </span>
-          </a>
-
-          <nav id="mainNav" class="main-nav" aria-label="التنقل الرئيسي">
-            <a class="nav-pill" href="index.html"><i class="bi bi-house" aria-hidden="true"></i>الرئيسية</a>
-            <a class="nav-pill active" href="index.html?view=our-services" aria-current="page"><i class="bi bi-briefcase" aria-hidden="true"></i>خدماتنا</a>
-            <a class="nav-pill" href="index.html?view=news"><i class="bi bi-megaphone" aria-hidden="true"></i>الأخبار</a>
-            <a class="nav-pill" href="index.html?view=publications"><i class="bi bi-journal-richtext" aria-hidden="true"></i>منشورات وتقارير</a>
-            <a class="nav-pill" href="index.html?view=my-requests"><i class="bi bi-file-earmark-text" aria-hidden="true"></i>طلباتي</a>
-          </nav>
-
-          <div class="header-search" aria-label="بحث سريع">
-            <div class="h-search-input">
-              <i class="bi bi-search icon" aria-hidden="true"></i>
-              <input type="search" placeholder="البحث عن خدمة..." aria-label="البحث عن خدمة" autocomplete="off" />
-            </div>
-            <select class="h-search-select" aria-label="نوع المستفيد">
-              <option value="الكل" selected>نوع المستفيد: الكل</option>
-              <option value="باحث">باحث</option>
-              <option value="مبتكر">مبتكر</option>
-              <option value="جهة حكومية">جهة حكومية</option>
-              <option value="قطاع خاص">قطاع خاص</option>
-            </select>
-            <button type="button" class="h-search-reset" title="إعادة تعيين الفلتر" aria-label="إعادة تعيين الفلتر">
-              <i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i>
-              <span class="h-reset-label">إعادة تعيين</span>
-            </button>
-          </div>
-
-          <div class="header-actions">
-            <a class="btn-header-back" href="Dam3.html">
-              <i class="bi bi-arrow-right" aria-hidden="true"></i>
-              رجوع
-            </a>
-            <a class="btn-login" href="https://naama.sa/Account/Login" target="_blank" rel="noopener">
-              <i class="bi bi-box-arrow-in-left" aria-hidden="true"></i>
-              <span>تسجيل الدخول</span>
-            </a>
-            <button type="button" class="btn-menu-toggle" id="damaMenuToggle" aria-label="القائمة" aria-expanded="false" aria-controls="mobileNav">
-              <i class="bi bi-list" aria-hidden="true"></i>
-            </button>
-          </div>
-        </div>
-
-        <nav id="mobileNav" aria-label="قائمة الجوال">
-          <a class="nav-pill" href="index.html"><i class="bi bi-house" aria-hidden="true"></i>الرئيسية</a>
-          <a class="nav-pill active" href="index.html?view=our-services"><i class="bi bi-briefcase" aria-hidden="true"></i>خدماتنا</a>
-          <a class="nav-pill" href="index.html?view=news"><i class="bi bi-megaphone" aria-hidden="true"></i>الأخبار</a>
-          <a class="nav-pill" href="index.html?view=publications"><i class="bi bi-journal-richtext" aria-hidden="true"></i>منشورات وتقارير</a>
-          <a class="nav-pill" href="index.html?view=my-requests"><i class="bi bi-file-earmark-text" aria-hidden="true"></i>طلباتي</a>
-        </nav>
-      </div>
-    </header>
-  </div>
 
   <div class="dam3-page-title">
     <div class="container">
@@ -93,7 +26,7 @@
 
   <main class="dama-main">
     <div class="container">
-      <a class="dama-back" href="Dam3.html">← العودة إلى صفحة التحدي</a>
+      <a class="dama-back" href="dam3.html">← العودة إلى صفحة التحدي</a>
 
       <div class="dama-form-card">
         <p class="dama-intro">شارك في تحدي الابتكار في إدارة رسوبيات السدود</p>
@@ -452,7 +385,7 @@
 
           <div class="dama-actions">
             <button type="submit" class="dama-btn dama-btn-primary">إرسال</button>
-            <a class="dama-btn dama-btn-secondary" href="Dam3.html">إلغاء</a>
+            <a class="dama-btn dama-btn-secondary" href="dam3.html">إلغاء</a>
           </div>
 
           <div id="damaSuccess" class="dama-success" role="status" aria-live="polite">
@@ -463,39 +396,9 @@
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="site-footer__grid">
-        <div class="site-footer__brand">
-          <div class="site-footer__brand-row">
-            <span class="brand-mark" aria-hidden="true"></span>
-            <strong>منصة البحث والابتكار</strong>
-          </div>
-          <p>المحور المركزي لأنشطة البحث والابتكار في قطاعات البيئة والمياه والزراعة، ضمن منظومة منصة نما وأهداف رؤية 2030.</p>
-        </div>
-        <div>
-          <h6>روابط سريعة</h6>
-          <div class="site-footer__links">
-            <a href="index.html">الرئيسية</a>
-            <a href="index.html?view=our-services">خدماتنا</a>
-            <a href="index.html?view=publications">منشورات وتقارير</a>
-            <a href="index.html?view=my-requests">طلباتي</a>
-            <a href="https://naama.sa/" target="_blank" rel="noreferrer">منصة نما</a>
-          </div>
-        </div>
-        <div>
-          <h6>الدعم</h6>
-          <p class="site-footer__muted"><i class="bi bi-headset" aria-hidden="true"></i> الرقم الموحد <strong>939</strong></p>
-          <p class="site-footer__muted site-footer__muted--last"><i class="bi bi-envelope" aria-hidden="true"></i> ri-support@mewa.gov.sa</p>
-        </div>
-      </div>
-      <hr class="site-footer__hr" />
-      <div class="site-footer__bottom">
-        <span>© جميع الحقوق محفوظة · وزارة البيئة والمياه والزراعة</span>
-        <span>الإصدار التجريبي · متوافق مع النفاذ الموحد</span>
-      </div>
-    </div>
-  </footer>
+  <div id="platform-footer-root"></div>
+<script src="platform-footer.js"></script>
+
 
   <script>
     (function () {

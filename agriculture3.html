@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>البيئة التنظيمية التجريبية لقطاع المياه | MEWA</title>
-  <meta name="description" content="البيئة التنظيمية التجريبية لقطاع المياه — وكالة البحث والابتكار بوزارة البيئة والمياه والزراعة" />
+  <title>البيئة التنظيمية التجريبية لقطاع الزراعة | MEWA</title>
+  <meta name="description" content="البيئة التنظيمية التجريبية لقطاع الزراعة — وكالة البحث والابتكار بوزارة البيئة والمياه والزراعة" />
   <meta name="theme-color" content="#074d31" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -31,9 +31,9 @@
       --naama-muted: #62717d;
       --naama-border: #e4ecef;
       --danger: #b42318;
-      --img-water: url("agency-reports/assets/experimental/water/waterInner.jpg");
-      --img-focus: url("agency-reports/assets/experimental/water/regulatoryFocusAreas.jpg");
-      --img-form: url("agency-reports/assets/experimental/water/Apply-forms.jpg");
+      --img-hero: url("agency-reports/assets/experimental/agriculture/agricultureInner.jpg");
+      --img-focus: url("agency-reports/assets/experimental/agriculture/regulatoryFocusAreas.jpg");
+      --img-form: url("agency-reports/assets/experimental/agriculture/Apply-forms.jpg");
     }
 
     * { box-sizing: border-box; }
@@ -271,7 +271,7 @@
       .platform-top .header-search .h-search-reset { padding: 0.4rem 0.5rem; }
     }
     @media (min-width: 992px) {
-      .platform-top .header-search { display: flex !important; }
+      .platform-top .header-row .header-search { display: flex !important; }
       .platform-top .header-row {
         flex-wrap: nowrap !important;
         gap: 0.6rem !important;
@@ -397,27 +397,27 @@
       .exp3-back-services { font-size: 0.78rem; padding: 7px 12px; }
     }
 
-    /* ===== Lay-environment / Water page ===== */
-    .lay-water .container {
+    /* ===== Lay-agriculture page ===== */
+    .lay-agri .container {
       max-width: 1140px;
       margin-inline: auto;
       padding-inline: 1rem;
     }
 
-    .lay-water .hero {
+    .lay-agri .hero {
       position: relative;
       min-height: calc(100vh - 250px);
       display: flex;
       align-items: center;
-      background: var(--img-water) center / cover no-repeat;
+      background: var(--img-hero) center / cover no-repeat;
     }
-    .lay-water .hero::before {
+    .lay-agri .hero::before {
       content: "";
       position: absolute;
       inset: 0;
       background: linear-gradient(45deg, transparent, #09140f);
     }
-    .lay-water .hero > .container {
+    .lay-agri .hero > .container {
       position: relative;
       z-index: 1;
       display: flex;
@@ -425,7 +425,7 @@
       min-height: inherit;
       padding-block: 4rem;
     }
-    .lay-water .hero .title {
+    .lay-agri .hero .title {
       font-size: clamp(1.6rem, 3.5vw, 2.5rem);
       font-weight: 600;
       color: #fff;
@@ -433,13 +433,13 @@
       margin: 0 0 1.5rem;
       max-width: 18ch;
     }
-    .lay-water .btn-hero {
+    .lay-agri .btn-hero {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 0.5rem;
     }
-    .lay-water .btn-hero .btn {
+    .lay-agri .btn-hero .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -451,17 +451,17 @@
       border: 0;
       transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
     }
-    .lay-water .btn-hero .btn-primary {
+    .lay-agri .btn-hero .btn-primary {
       background: var(--primary-color);
       color: #fff;
     }
-    .lay-water .btn-hero .btn-primary:hover { background: #146c44; color: #fff; }
-    .lay-water .btn-hero .btn-outline {
+    .lay-agri .btn-hero .btn-primary:hover { background: #146c44; color: #fff; }
+    .lay-agri .btn-hero .btn-outline {
       background: transparent;
       color: #fff;
       border: 1.5px solid #fff;
     }
-    .lay-water .btn-hero .btn-outline:hover {
+    .lay-agri .btn-hero .btn-outline:hover {
       background: rgba(255,255,255,.12);
       color: #fff;
     }
@@ -485,7 +485,7 @@
     }
     .focus-columns {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       column-gap: 1.5rem;
       row-gap: 0;
       align-items: stretch;
@@ -493,7 +493,7 @@
     .focus-col {
       display: grid;
       grid-template-rows: subgrid;
-      grid-row: span 5;
+      grid-row: span 7;
       align-items: stretch;
     }
     .card-objectives-green {
@@ -603,7 +603,7 @@
     }
     @media (max-width: 575.98px) {
       .focus-columns { grid-template-columns: 1fr; }
-      .focus-col { grid-row: span 5; }
+      .focus-col { grid-row: span 7; }
     }
 
     .Apply-forms {
@@ -887,8 +887,8 @@
 
     @media (max-width: 991.98px) {
       .check-cols { grid-template-columns: 1fr; }
-      .lay-water .hero { min-height: 420px; }
-      .lay-water .hero .title { max-width: none; }
+      .lay-agri .hero { min-height: 420px; }
+      .lay-agri .hero .title { max-width: none; }
     }
     @media (max-width: 767.98px) {
       .regulatoryFocusAreas,
@@ -900,72 +900,9 @@
 </head>
 <body>
 
-  <div class="platform-top">
-  <div class="gov-bar">
-    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
-      <span><i class="bi bi-shield-check verified me-1"></i> موقع حكومي تابع لوزارة البيئة والمياه والزراعة</span>
-      <span class="d-none d-md-inline">متوافق مع هوية منصة نما · الرقم الموحد <strong>939</strong></span>
-    </div>
-  </div>
+  <div id="platform-header-root"></div>
+<script src="platform-header.js" data-active="services"></script>
 
-  <header class="site-header">
-      <div class="container py-3">
-        <div class="header-row d-flex flex-wrap align-items-center gap-3">
-          <a class="brand-link" href="index.html" aria-label="الصفحة الرئيسية">
-            <span class="brand-mark" aria-hidden="true"></span>
-            <span class="brand-text text-start">
-              <strong>منصة البحث والابتكار</strong>
-              <small>وزارة البيئة والمياه والزراعة</small>
-            </span>
-          </a>
-
-          <nav id="mainNav" class="d-none d-lg-flex gap-1" aria-label="التنقل الرئيسي">
-            <a class="nav-pill" href="index.html"><i class="bi bi-house me-1"></i>الرئيسية</a>
-            <a class="nav-pill active" href="index.html?view=our-services" aria-current="page"><i class="bi bi-briefcase me-1"></i>خدماتنا</a>
-            <a class="nav-pill" href="index.html?view=news"><i class="bi bi-megaphone me-1"></i>الأخبار</a>
-            <a class="nav-pill" href="index.html?view=publications"><i class="bi bi-journal-richtext me-1"></i>منشورات وتقارير</a>
-            <a class="nav-pill" href="index.html?view=my-requests"><i class="bi bi-file-earmark-text me-1"></i>طلباتي</a>
-          </nav>
-
-          <div class="header-search" aria-label="بحث سريع">
-            <div class="h-search-input">
-              <i class="bi bi-search icon" aria-hidden="true"></i>
-              <input type="search" placeholder="البحث عن خدمة..." aria-label="البحث عن خدمة" autocomplete="off" />
-            </div>
-            <select class="h-search-select" aria-label="نوع المستفيد">
-              <option selected>نوع المستفيد: الكل</option>
-              <option>باحث</option>
-              <option>مبتكر</option>
-              <option>جهة حكومية</option>
-              <option>قطاع خاص</option>
-            </select>
-            <button type="button" class="h-search-reset" title="إعادة تعيين الفلتر" aria-label="إعادة تعيين الفلتر">
-              <i class="bi bi-arrow-counterclockwise"></i>
-              <span class="h-reset-label">إعادة تعيين</span>
-            </button>
-          </div>
-
-          <div class="ms-auto d-flex align-items-center gap-2">
-            <a class="btn-login" href="https://naama.sa/Account/Login" target="_blank" rel="noopener">
-              <i class="bi bi-box-arrow-in-left"></i>
-              <span>تسجيل الدخول</span>
-            </a>
-            <button type="button" class="btn-menu-toggle" id="w3MenuToggle" aria-label="القائمة" aria-expanded="false" aria-controls="mobileNav">
-              <i class="bi bi-list"></i>
-            </button>
-          </div>
-        </div>
-
-        <nav id="mobileNav" aria-label="قائمة الجوال">
-          <a class="nav-pill" href="index.html"><i class="bi bi-house me-1"></i>الرئيسية</a>
-          <a class="nav-pill active" href="index.html?view=our-services"><i class="bi bi-briefcase me-1"></i>خدماتنا</a>
-          <a class="nav-pill" href="index.html?view=news"><i class="bi bi-megaphone me-1"></i>الأخبار</a>
-          <a class="nav-pill" href="index.html?view=publications"><i class="bi bi-journal-richtext me-1"></i>منشورات وتقارير</a>
-          <a class="nav-pill" href="index.html?view=my-requests"><i class="bi bi-file-earmark-text me-1"></i>طلباتي</a>
-        </nav>
-      </div>
-    </header>
-  </div>
 
   <div class="exp3-page-title">
     <div class="container">
@@ -973,12 +910,12 @@
         <nav class="exp3-breadcrumb" aria-label="مسار التنقل">
           <a href="index.html?view=our-services">الخدمات</a>
           <span aria-hidden="true"> — </span>
-          <a href="Experimental3.html">البيئة التنظيمية التجريبية</a>
+          <a href="experimental3.html">البيئة التنظيمية التجريبية</a>
           <span aria-hidden="true"> / </span>
-          <span>قطاع المياه</span>
+          <span>قطاع الزراعة</span>
         </nav>
         <div class="exp3-page-actions">
-          <a class="exp3-back-services" href="Experimental3.html">
+          <a class="exp3-back-services" href="experimental3.html">
             <i class="bi bi-arrow-right" aria-hidden="true"></i>
             رجوع
           </a>
@@ -988,27 +925,27 @@
           </a>
         </div>
       </div>
-      <h1>المياه</h1>
+      <h1>الزراعة</h1>
       <p class="exp3-page-intro exp3-page-intro--spacer" aria-hidden="true">
-        البيئة التنظيمية التجريبية لقطاع المياه.
+        البيئة التنظيمية التجريبية لقطاع الزراعة.
       </p>
     </div>
   </div>
 
-  <main class="lay-water">
-    <section class="hero" aria-label="البيئة التنظيمية التجريبية لقطاع المياه">
+  <main class="lay-agri">
+    <section class="hero" aria-label="البيئة التنظيمية التجريبية لقطاع الزراعة">
       <div class="container">
         <div class="hero-content">
-          <h2 class="title">البيئة التنظيمية التجريبية لقطاع المياه</h2>
+          <h2 class="title">البيئة التنظيمية التجريبية لقطاع الزراعة</h2>
           <div class="btn-hero">
-            <a href="#waterFocusAreas" class="btn btn-primary">استكشِف القطاع</a>
-            <a href="#water-Apply-forms" class="btn btn-outline">قدِّم طلبك</a>
+            <a href="#agriFocusAreas" class="btn btn-primary">استكشِف القطاع</a>
+            <a href="#agri-Apply-forms" class="btn btn-outline">قدِّم طلبك</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="regulatoryFocusAreas" id="waterFocusAreas">
+    <section class="regulatoryFocusAreas" id="agriFocusAreas">
       <div class="container">
         <div class="title-section">
           <h2 class="title">المجالات ذات الأولوية والمحاور الأساسية</h2>
@@ -1017,79 +954,72 @@
         <div class="focus-columns">
           <div class="focus-col">
             <div class="card-objectives-green">
-              <div class="icons"><img src="agency-reports/assets/experimental/water/Supply.png" alt="" /></div>
-              <div class="title">الإمداد</div>
+              <div class="icons"><img src="agency-reports/assets/experimental/agriculture/Crops.png" alt="الإنتاج النباتي" /></div>
+              <div class="title">الإنتاج النباتي</div>
             </div>
-            <div class="styp-icon"><img src="agency-reports/assets/experimental/water/arrow-down-02.svg" alt="" /></div>
+            <div class="styp-icon"><img src="agency-reports/assets/experimental/agriculture/arrow-down-02.svg" alt="" /></div>
             <div class="card-objectives">
-              <div class="icons"><img src="agency-reports/assets/experimental/water/AdvancedRO.png" alt="" /></div>
-              <div class="title">أنظمة التناضح العكسي المتقدمة</div>
-              <p>التقنيات المستخدمة في عملية تحلية المياه بالأغشية، بما في ذلك المعالجة المسبقة المتقدمة واستعادة الطاقة</p>
+              <div class="icons"><img src="agency-reports/assets/experimental/agriculture/IrrigationandWaterManagement.png" alt="الري وإدارة المياه" /></div>
+              <div class="title">الري وإدارة المياه</div>
+              <p>مجموعة من الأنظمة المصممة لتحسين استخدام المياه، وزيادة كفاءة الري، وإدارة الموارد المائية بفعالية</p>
+            </div>
+            <div class="styp-icon"><img src="agency-reports/assets/experimental/agriculture/arrow-down-02.svg" alt="" /></div>
+            <div class="card-objectives">
+              <div class="icons"><img src="agency-reports/assets/experimental/agriculture/ProtectedAgricultureandControlledEnvironment.png" alt="الزراعة المحمية والتحكم البيئي" /></div>
+              <div class="title">الزراعة المحمية والتحكم البيئي</div>
+              <p>تطوير المحاصيل في بيئات محمية، بما في ذلك الزراعة بدون تربة</p>
+            </div>
+            <div class="styp-icon"><img src="agency-reports/assets/experimental/agriculture/arrow-down-02.svg" alt="" /></div>
+            <div class="card-objectives">
+              <div class="icons"><img src="agency-reports/assets/experimental/agriculture/DronesandSatellites.png" alt="الأقمار الصناعية والطائرات بدون طيار" /></div>
+              <div class="title">الأقمار الصناعية والطائرات بدون طيار</div>
+              <p>تطبيقات الأقمار الصناعية والطائرات بدون طيار للمحاصيل</p>
             </div>
           </div>
 
           <div class="focus-col">
             <div class="card-objectives-green">
-              <div class="icons"><img src="agency-reports/assets/experimental/water/TransmissionDistribution.png" alt="" /></div>
-              <div class="title">النقل والتوزيع</div>
+              <div class="icons"><img src="agency-reports/assets/experimental/agriculture/LivestockandFish.png" alt="الثروة الحيوانية والسمكية" /></div>
+              <div class="title">الثروة الحيوانية والسمكية</div>
             </div>
-            <div class="styp-icon"><img src="agency-reports/assets/experimental/water/arrow-down-02.svg" alt="" /></div>
+            <div class="styp-icon"><img src="agency-reports/assets/experimental/agriculture/arrow-down-02.svg" alt="" /></div>
             <div class="card-objectives">
-              <div class="icons"><img src="agency-reports/assets/experimental/water/SmartLeakageManagement.png" alt="" /></div>
-              <div class="title">إدارة التسرب الذكية</div>
-              <p>التقنيات والاستراتيجيات المتقدمة للكشف عن التسربات في أنظمة توزيع المياه وتحديد موقعها والتخفيف من حدته</p>
+              <div class="icons"><img src="agency-reports/assets/experimental/agriculture/IntegratedAquacultureManagement.png" alt="الإدارة المتكاملة للاستزراع المائي" /></div>
+              <div class="title">الإدارة المتكاملة للاستزراع المائي</div>
+              <p>تنمية أنواع مختلفة من الأسماك في المزارع المائية مع التحكم بالبيئة</p>
             </div>
           </div>
 
           <div class="focus-col">
             <div class="card-objectives-green">
-              <div class="icons"><img src="agency-reports/assets/experimental/water/WastewaterTreatmentReuse.png" alt="" /></div>
-              <div class="title">معالجة مياه الصرف وإعادة استخدامها</div>
+              <div class="icons"><img src="agency-reports/assets/experimental/agriculture/Food.png" alt="الغذاء" /></div>
+              <div class="title">الغذاء</div>
             </div>
-            <div class="styp-icon"><img src="agency-reports/assets/experimental/water/arrow-down-02.svg" alt="" /></div>
+            <div class="styp-icon"><img src="agency-reports/assets/experimental/agriculture/arrow-down-02.svg" alt="" /></div>
             <div class="card-objectives">
-              <div class="icons"><img src="agency-reports/assets/experimental/water/AdaptiveTechnologiesWastewaterReuse.png" alt="" /></div>
-              <div class="title">التقنيات التكيفية لإعادة استخدام مياه الصرف</div>
-              <p>تقنيات لإعادة استخدام مياه الصرف الصحي لأغراض مفيدة</p>
-            </div>
-          </div>
-
-          <div class="focus-col">
-            <div class="card-objectives-green">
-              <div class="icons"><img src="agency-reports/assets/experimental/water/Demand.png" alt="" /></div>
-              <div class="title">الطلب</div>
-            </div>
-            <div class="styp-icon"><img src="agency-reports/assets/experimental/water/arrow-down-02.svg" alt="" /></div>
-            <div class="card-objectives">
-              <div class="icons"><img src="agency-reports/assets/experimental/water/InnovativeWaterConsumptionHomes.png" alt="" /></div>
-              <div class="title">الاستهلاك المبتكر للمياه في المنازل</div>
-              <p>اعتماد ممارسات وتقنيات متقدمة لتحسين استخدام المياه في المنازل</p>
-            </div>
-            <div class="styp-icon"><img src="agency-reports/assets/experimental/water/arrow-down-02.svg" alt="" /></div>
-            <div class="card-objectives">
-              <div class="icons"><img src="agency-reports/assets/experimental/water/InnovativeWaterConsumptionFarming.png" alt="" /></div>
-              <div class="title">الاستهلاك المبتكر للمياه في الزراعة</div>
-              <p>اعتماد ممارسات وتقنيات متقدمة لتحسين استخدام المياه في الزراعة</p>
+              <div class="icons"><img src="agency-reports/assets/experimental/agriculture/FoodLossandWaste.png" alt="حفظ الأغذية واستخراج قيمة مضافة من الفاقد" /></div>
+              <div class="title">حفظ الأغذية واستخراج قيمة مضافة من الفاقد</div>
+              <p>تقنيات لزيادة العمر الافتراضي للأغذية والحد من مخاطر الأمراض</p>
             </div>
           </div>
         </div>
 
         <p class="focus-note">
-          لمزيد من المعلومات حول الابتكار في قطاع المياه، يُرجى الرجوع إلى التقرير بعنوان:
-          «الابتكار المائي في المملكة العربية السعودية – خارطة طريق تبني التقنيات».
-          <a class="btn-link" href="https://www.mewa.gov.sa/ar/Ministry/Agencies/AgencyForInnovation/Topics/LegislativeExperimentalEnvProgram/Documents/MEWA-Water-AR_changes_05.16.pdf" target="_blank" rel="noopener">اضغط هنا لمزيد من المعلومات</a>
+          لمزيد من المعلومات حول الابتكار في قطاع الزراعة، يُرجى الرجوع إلى التقرير بعنوان:
+          «الابتكار الزراعي في المملكة العربية السعودية – خارطة طريق تبني التقنيات».
+          <a class="btn-link" href="https://www.mewa.gov.sa/ar/Ministry/Agencies/AgencyForInnovation/Topics/LegislativeExperimentalEnvProgram/Documents/MEWA-Agriculture-AR_changes_05.09.pdf" target="_blank" rel="noopener">اضغط هنا لمزيد من المعلومات</a>
         </p>
       </div>
     </section>
 
-    <section class="Apply-forms" id="water-Apply-forms">
+    <section class="Apply-forms" id="agri-Apply-forms">
       <div class="container">
         <div class="title-section">
-          <h2 class="title">قدّم طلبك للانضمام إلى البيئة التنظيمية التجريبية لقطاع المياه</h2>
-          <p>للتقديم إلى البيئة التنظيمية التجريبية لقطاع المياه التابعة لوزارة البيئة والمياه والزراعة</p>
+          <h2 class="title">قدّم طلبك للانضمام إلى البيئة التنظيمية التجريبية لقطاع الزراعة</h2>
+          <p>للتقديم إلى البيئة التنظيمية التجريبية لقطاع الزراعة التابعة لوزارة البيئة والمياه والزراعة</p>
         </div>
 
-        <form class="wrapper-form" id="waterForm" novalidate>
+        <form class="wrapper-form" id="agriForm" novalidate>
           <p class="form-lead">تعبئة وإرسال النموذج التالي:</p>
 
           <div class="form-section">
@@ -1300,11 +1230,11 @@
           </div>
 
           <div class="form-actions">
-            <button type="submit" class="btn-submit" id="waterSubmit">إرسال الطلب</button>
-            <div class="form-success" id="waterSuccess" role="status" aria-live="polite">
+            <button type="submit" class="btn-submit" id="agriSubmit">إرسال الطلب</button>
+            <div class="form-success" id="agriSuccess" role="status" aria-live="polite">
               <div>
                 <strong>تم تسجيل طلبك بنجاح</strong>
-                <p>شكرًا لاهتمامك. سيتم التواصل معك بخصوص طلب الانضمام إلى البيئة التنظيمية التجريبية لقطاع المياه.</p>
+                <p>شكرًا لاهتمامك. سيتم التواصل معك بخصوص طلب الانضمام إلى البيئة التنظيمية التجريبية لقطاع الزراعة.</p>
               </div>
             </div>
           </div>
@@ -1317,7 +1247,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     (function () {
-      var menuToggle = document.getElementById("w3MenuToggle");
+      var menuToggle = document.getElementById("agriMenuToggle");
       var mobileNav = document.getElementById("mobileNav");
       if (menuToggle && mobileNav) {
         menuToggle.addEventListener("click", function () {
@@ -1326,9 +1256,9 @@
         });
       }
 
-      var form = document.getElementById("waterForm");
-      var success = document.getElementById("waterSuccess");
-      var submitBtn = document.getElementById("waterSubmit");
+      var form = document.getElementById("agriForm");
+      var success = document.getElementById("agriSuccess");
+      var submitBtn = document.getElementById("agriSubmit");
       var fileInput = document.getElementById("docs");
       var fileName = document.getElementById("fileName");
       if (!form) return;

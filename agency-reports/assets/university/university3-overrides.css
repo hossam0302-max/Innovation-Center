@@ -97,7 +97,7 @@ img { max-width: 100%; height: auto; }
     flex-wrap: nowrap !important;
     gap: 0.6rem !important;
   }
-  .uni3-body .platform-top .header-search { display: flex !important; }
+  .uni3-body .platform-top .header-row .header-search { display: flex !important; }
   .uni3-body .platform-top #mainNav {
     display: flex !important;
     flex: 0 0 auto !important;

@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>نموذج طلب تسجيل فعالية أو جلسة وبرنامج توعوي | MEWA</title>
+  <meta name="description" content="نموذج طلب تسجيل الفعاليات والجلسات والبرامج التوعوية — وكالة البحث والابتكار بوزارة البيئة والمياه والزراعة">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="agency-reports/assets/experimental/experimental3-overrides.css">
+  <style>
+    :root {
+      --brand-900: #063A28;
+      --brand-700: #0A5C3E;
+      --brand-050: #EAF3EE;
+      --ps-green-deep: #0B5D42;
+      --ps-green: #12805A;
+      --ps-green-soft: #E4F1EA;
+      --ink: #17211C;
+      --muted: #5C6B62;
+      --line: #DCE3DD;
+      --bg: #F6F7F4;
+      --danger: #A32B22;
+      --danger-bg: #FBEEEC;
+      --warn: #8A5A12;
+      --warn-bg: #F8F1E4;
+      --naama-primary: #003957;
+      --naama-primary-dark: #00283e;
+      --naama-accent: #49aa8b;
+      --naama-accent-dark: #378a6f;
+      --naama-accent-soft: #e8f6f1;
+      --naama-gold: #e8a34f;
+      --naama-muted: #62717d;
+      --naama-border: #e4ecef;
+      --radius: 10px;
+      --shadow: 0 8px 24px -14px rgba(11, 93, 66, 0.22);
+    }
+    * { box-sizing: border-box; }
+    html, body { overflow-x: hidden; max-width: 100%; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "IBM Plex Sans Arabic", "Cairo", "Tajawal", "Segoe UI", Tahoma, sans-serif;
+      font-size: 15px;
+      line-height: 1.75;
+      margin: 0;
+    }
+    img, svg, video { max-width: 100%; }
+
+    .platform-top { font-family: "IBM Plex Sans Arabic", "Cairo", "Tajawal", "Segoe UI", Tahoma, sans-serif; line-height: 1.75; }
+    .platform-top a { color: inherit; text-decoration: none; }
+    .platform-top .gov-bar { background: var(--naama-primary-dark); color: rgba(255,255,255,.86); font-size: .82rem; padding: .55rem 0; }
+    .platform-top .gov-bar .verified { color: var(--naama-accent); }
+    .platform-top .site-header { background: #fff; border-bottom: 1px solid var(--naama-border); position: sticky; top: 0; z-index: 1030; }
+    .platform-top .brand-link { display: inline-flex; align-items: center; gap: .7rem; background: none; border: 0; padding: 0; cursor: pointer; }
+    .platform-top .brand-mark {
+      width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0; position: relative;
+      background: radial-gradient(circle at 30% 30%, var(--naama-gold) 0 22%, transparent 23%), linear-gradient(145deg, var(--naama-accent) 0%, var(--naama-primary) 100%);
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,.18);
+    }
+    .platform-top .brand-mark::after { content: ""; position: absolute; inset: 16px 8px 10px; border-top: 2px solid rgba(255,255,255,.75); border-radius: 40%; }
+    .platform-top .brand-text strong { color: var(--naama-primary); font-size: 1.02rem; display: block; line-height: 1.2; font-weight: 700; }
+    .platform-top .brand-text small { color: var(--naama-muted); font-size: .78rem; display: block; }
+    .platform-top .nav-pill {
+      display: inline-flex; align-items: center; padding: .5rem 1rem; border-radius: 999px;
+      color: var(--naama-primary) !important; font-weight: 500; background: transparent; border: 0;
+      cursor: pointer; font-size: .92rem; white-space: nowrap; line-height: 1.4;
+      transition: background .2s ease, color .2s ease;
+    }
+    .platform-top .nav-pill:hover, .platform-top .nav-pill.active { background: var(--naama-accent-soft); color: var(--naama-accent-dark) !important; }
+    .platform-top .btn-login {
+      display: inline-flex; align-items: center; gap: .5rem; background: var(--naama-primary); color: #fff !important;
+      border: 0; border-radius: 999px; padding: .55rem 1.3rem; font-weight: 600; white-space: nowrap;
+      transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+    }
+    .platform-top .btn-login:hover { background: var(--naama-primary-dark); transform: translateY(-1px); box-shadow: 0 10px 22px rgba(0,40,62,.22); }
+    .platform-top .header-search {
+      display: none; align-items: center; gap: .4rem; padding: .35rem .45rem; background: #f4f7f9;
+      border: 1px solid var(--naama-border); border-radius: 12px; margin-inline-start: .5rem; flex: 1 1 auto; min-width: 0; max-width: 560px;
+    }
+    .platform-top .header-search .h-search-input { position: relative; flex: 1 1 auto; min-width: 0; }
+    .platform-top .header-search .h-search-input .icon { position: absolute; top: 50%; transform: translateY(-50%); inset-inline-start: .7rem; color: var(--naama-muted); pointer-events: none; font-size: .9rem; }
+    .platform-top .header-search .h-search-input input {
+      width: 100%; padding: .4rem .6rem; padding-inline-start: 2rem; border: 1px solid var(--naama-border);
+      border-radius: 8px; background: #fff; font-size: .85rem; color: var(--naama-primary); outline: none; font-family: inherit;
+    }
+    .platform-top .header-search .h-search-select {
+      min-width: 7.5rem; padding: .4rem .6rem; padding-inline-end: 1.9rem; border: 1px solid var(--naama-border);
+      border-radius: 8px; background-color: #fff; font-size: .85rem; color: var(--naama-primary); cursor: pointer;
+      appearance: none; font-family: inherit;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='%23003957' d='M8 11L3 6h10z'/></svg>");
+      background-repeat: no-repeat; background-position: left .55rem center; background-size: 12px;
+    }
+    .platform-top .header-search .h-search-reset {
+      padding: .4rem .65rem; border: 1px solid var(--naama-border); border-radius: 8px; background: #fff;
+      color: var(--naama-primary); cursor: pointer; display: inline-flex; align-items: center; gap: .3rem;
+      font-size: .82rem; font-weight: 600; white-space: nowrap; font-family: inherit;
+    }
+    .platform-top .btn-menu-toggle {
+      display: none; align-items: center; justify-content: center; width: 42px; height: 42px;
+      border: 1px solid var(--naama-border); border-radius: 12px; background: #fff; color: var(--naama-primary);
+    }
+    .platform-top #mobileNav { display: none; flex-wrap: wrap; gap: .35rem; padding-top: .85rem; margin-top: .85rem; border-top: 1px solid var(--naama-border); }
+    .platform-top #mobileNav.is-open { display: flex; }
+
+    .exp3-page-actions { display: inline-flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
+    .exp3-page-title { background: #F4F1E9; border-bottom: 1px solid #E3E0D2; padding: 44px 0 34px; }
+    .exp3-page-hero-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .75rem 1rem; margin-bottom: 10px; }
+    .exp3-breadcrumb { margin: 0; font-size: .82rem; color: #4B5C54; }
+    .exp3-breadcrumb a { color: #0B5D42; font-weight: 700; text-decoration: none; }
+    .exp3-breadcrumb a:hover { text-decoration: underline; }
+    .exp3-page-title h1 { margin: 0; max-width: 46rem; color: #0B5D42; font-size: 1.75rem; line-height: 1.4; font-weight: 800; }
+    .exp3-page-intro { color: #4B5C54; margin: 10px 0 0; max-width: 52rem; line-height: 1.8; font-size: .98rem; visibility: visible !important; }
+    .exp3-back-services {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 8px 16px;
+      border-radius: 999px; font-weight: 700; font-size: .82rem; border: 1.5px solid #E3E0D2;
+      background: #fff; color: #0B5D42; text-decoration: none;
+    }
+    .exp3-back-services:hover { border-color: #12805A; color: #12805A; }
+
+    .tf-main { padding: 28px 0 56px; }
+    .tf-main .container { max-width: 920px; }
+    .tf-card { background: #fff; border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); padding: 28px 26px 24px; }
+    .tf-card-head { display: flex; align-items: flex-start; gap: 14px; padding-bottom: 18px; margin-bottom: 8px; border-bottom: 1px solid var(--line); }
+    .tf-card-head__icon {
+      width: 48px; height: 48px; border-radius: 10px; background: var(--ps-green-soft); color: var(--ps-green-deep);
+      display: inline-flex; align-items: center; justify-content: center; font-size: 1.35rem; flex-shrink: 0;
+    }
+    .tf-card-head h2 { margin: 0 0 4px; font-size: 1.15rem; font-weight: 700; color: var(--ps-green-deep); }
+    .tf-card-head p { margin: 0; color: var(--muted); font-size: .9rem; }
+
+    .tf-section { padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .tf-section:last-of-type { border-bottom: 0; }
+    .tf-section__title {
+      display: flex; align-items: center; gap: 10px; margin: 0 0 16px;
+      font-size: 1.02rem; font-weight: 700; color: var(--ps-green-deep);
+    }
+    .tf-section__title i { color: var(--ps-green); font-size: 1.1rem; }
+
+    .tf-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .tf-field { margin-bottom: 16px; }
+    .tf-field:last-child { margin-bottom: 0; }
+    .tf-field > label, .tf-label { display: block; font-weight: 600; margin-bottom: 7px; color: var(--ink); }
+    .tf-req { color: var(--danger); margin-inline-start: 3px; }
+    .tf-help { color: var(--muted); font-size: .84rem; margin: 6px 0 0; }
+    .tf-err { color: var(--danger); font-size: .84rem; margin-top: 6px; display: none; }
+    .tf-field.is-invalid .tf-err { display: block; }
+    .tf-field.is-invalid input[type="text"],
+    .tf-field.is-invalid input[type="number"],
+    .tf-field.is-invalid input[type="email"],
+    .tf-field.is-invalid input[type="tel"],
+    .tf-field.is-invalid input[type="date"],
+    .tf-field.is-invalid textarea { border-color: var(--danger); background: var(--danger-bg); }
+    .tf-field.is-invalid .tf-choices { outline: 1px solid var(--danger); outline-offset: 3px; border-radius: 10px; }
+
+    .tf-card input[type="text"],
+    .tf-card input[type="number"],
+    .tf-card input[type="email"],
+    .tf-card input[type="tel"],
+    .tf-card input[type="date"],
+    .tf-card textarea {
+      width: 100%; min-height: 48px; padding: 11px 14px; border: 1px solid var(--line); border-radius: 8px;
+      font: inherit; font-size: .95rem; background: #fff; color: var(--ink);
+      transition: border-color .15s ease, box-shadow .15s ease;
+    }
+    .tf-card input[type="date"] { direction: ltr; text-align: start; }
+    .tf-card textarea { min-height: 132px; resize: vertical; line-height: 1.8; }
+    .tf-card input:focus, .tf-card textarea:focus {
+      outline: none; border-color: var(--ps-green); box-shadow: 0 0 0 3px rgba(18,128,90,.14);
+    }
+
+    .tf-choices { display: grid; gap: 10px; }
+    .tf-choices--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .tf-choice {
+      display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 10px 12px;
+      border: 1px solid var(--line); border-radius: 8px; background: #fff; cursor: pointer; margin: 0; font-weight: 500;
+      transition: border-color .15s ease, background .15s ease;
+    }
+    .tf-choice:hover { border-color: var(--ps-green); }
+    .tf-choice.is-selected { border-color: var(--ps-green); background: var(--brand-050); }
+    .tf-choice input { accent-color: var(--ps-green); width: 17px; height: 17px; flex: none; margin: 0; }
+
+    .tf-check-row {
+      display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px; border: 1px solid var(--line);
+      border-radius: 8px; background: #fafcfb; cursor: pointer; margin: 0 0 14px; font-weight: 500;
+    }
+    .tf-check-row:hover { border-color: var(--ps-green); }
+    .tf-check-row.is-selected { border-color: var(--ps-green); background: var(--brand-050); }
+    .tf-check-row input { accent-color: var(--ps-green); width: 17px; height: 17px; margin-top: 4px; flex: none; }
+
+    .tf-dropzone { border: 1.5px dashed var(--line); border-radius: 10px; background: #fbfcfb; padding: 18px 16px; text-align: center; cursor: pointer; transition: border-color .15s ease, background .15s ease; }
+    .tf-dropzone:hover, .tf-dropzone.is-drag { border-color: var(--ps-green); background: var(--brand-050); }
+    .tf-dropzone input[type="file"] { display: none; }
+    .tf-dropzone__empty i { display: block; font-size: 1.7rem; color: var(--ps-green); margin-bottom: 6px; }
+    .tf-dropzone__empty strong { display: block; color: var(--ps-green-deep); font-size: .95rem; }
+    .tf-dropzone__empty span, .tf-dropzone__empty small { display: block; color: var(--muted); font-size: .82rem; }
+    .tf-dropzone__empty small { margin-top: 4px; }
+    .tf-dropzone__file { display: none; align-items: center; gap: 12px; text-align: start; }
+    .tf-dropzone.has-file { cursor: default; text-align: start; }
+    .tf-dropzone.has-file .tf-dropzone__empty { display: none; }
+    .tf-dropzone.has-file .tf-dropzone__file { display: flex; }
+    .tf-dropzone__file i {
+      width: 40px; height: 40px; border-radius: 8px; background: var(--ps-green-soft); color: var(--ps-green-deep);
+      display: inline-flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;
+    }
+    .tf-dropzone__meta { flex: 1; min-width: 0; }
+    .tf-file-name { display: block; font-weight: 600; color: var(--ink); overflow-wrap: anywhere; }
+    .tf-file-size { display: block; color: var(--muted); font-size: .82rem; }
+    .tf-file-remove {
+      flex: none; border: 1px solid var(--line); background: #fff; color: var(--danger); border-radius: 8px;
+      padding: 7px 12px; font: inherit; font-size: .82rem; font-weight: 600; cursor: pointer;
+    }
+    .tf-file-remove:hover { background: var(--danger-bg); border-color: #e3b4af; }
+
+    .tf-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; padding-top: 22px; border-top: 1px solid var(--line); }
+    .tf-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px;
+      padding: 10px 20px; border-radius: 8px; border: 1px solid transparent; font: inherit; font-weight: 600; cursor: pointer;
+      transition: transform .15s ease, filter .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .tf-btn:hover { transform: translateY(-1px); }
+    .tf-btn:focus-visible { outline: 2px solid var(--brand-900); outline-offset: 2px; }
+    .tf-btn--primary { background: var(--ps-green); color: #fff; min-width: 160px; }
+    .tf-btn--primary:hover { filter: brightness(1.06); }
+    .tf-btn--secondary { background: #fff; color: var(--ps-green-deep); border-color: var(--line); }
+    .tf-btn--secondary:hover { border-color: var(--ps-green); background: var(--brand-050); }
+    .tf-btn--ghost { background: #fff; color: var(--warn); border-color: #e6d3b0; }
+    .tf-btn--ghost:hover { background: var(--warn-bg); }
+
+    .tf-footnote { color: var(--muted); font-size: .82rem; text-align: center; margin: 18px 0 0; }
+    .tf-footnote a { color: var(--brand-700); text-decoration: none; }
+    .tf-toast {
+      position: fixed; inset-inline-end: 20px; bottom: 20px; z-index: 1080; background: var(--ps-green-deep);
+      color: #fff; padding: 12px 16px; border-radius: 10px; box-shadow: 0 10px 24px rgba(6,58,40,.22);
+      opacity: 0; pointer-events: none; transform: translateY(8px); transition: opacity .2s ease, transform .2s ease;
+      max-width: min(360px, calc(100vw - 32px));
+    }
+    .tf-toast.is-visible { opacity: 1; transform: translateY(0); }
+    .tf-modal .modal-content { border: 0; border-radius: 14px; overflow: hidden; }
+    .tf-modal .modal-body { padding: 32px 28px 24px; text-align: center; }
+    .tf-modal__icon {
+      width: 64px; height: 64px; margin: 0 auto 14px; border-radius: 50%; background: var(--ps-green-soft);
+      color: var(--ps-green-deep); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;
+    }
+    .tf-modal h3 { margin: 0 0 8px; color: var(--ps-green-deep); font-weight: 700; font-size: 1.25rem; }
+    .tf-modal p { margin: 0; color: var(--muted); font-size: .95rem; }
+    .tf-modal .modal-footer { border: 0; justify-content: center; padding: 0 28px 26px; }
+
+    .site-footer { background: #fff; border-top: 1px solid var(--naama-border); padding: 2.2rem 0 2.4rem; font-family: "IBM Plex Sans Arabic", "Cairo", "Tajawal", "Segoe UI", Tahoma, sans-serif; }
+    .site-footer .brand-mark {
+      display: inline-block; width: 36px; height: 36px; border-radius: 10px; position: relative; flex-shrink: 0;
+      background: radial-gradient(circle at 30% 30%, var(--naama-gold) 0 22%, transparent 23%), linear-gradient(145deg, var(--naama-accent) 0%, var(--naama-primary) 100%);
+    }
+    .site-footer .brand-mark::after { content: ""; position: absolute; inset: 55% 18% 18% 18%; border-radius: 2px 2px 6px 6px; background: rgba(255,255,255,.35); }
+    .site-footer .footer-links a { color: var(--naama-primary); font-weight: 600; text-decoration: none; }
+    .site-footer .footer-links a:hover { color: var(--naama-accent-dark); }
+    .site-footer .text-muted { color: var(--naama-muted) !important; }
+
+    @media (min-width: 992px) {
+      .platform-top .header-row .header-search { display: flex !important; }
+      .platform-top .header-row { flex-wrap: nowrap !important; gap: .6rem !important; align-items: center !important; }
+      .platform-top .header-row #mainNav { display: flex !important; flex-wrap: nowrap; white-space: nowrap; gap: .25rem; }
+      .platform-top .header-row #mainNav .nav-pill { padding: .4rem .7rem; font-size: .88rem; }
+      .platform-top .header-row .btn-login { padding: .45rem .9rem; font-size: .88rem; }
+      .platform-top .header-row .ms-auto { margin-inline-start: auto !important; }
+    }
+    @media (max-width: 991.98px) {
+      .platform-top #mainNav { display: none !important; }
+      .platform-top .btn-menu-toggle { display: inline-flex; }
+      .platform-top .header-search { display: none !important; }
+    }
+    @media (max-width: 767.98px) {
+      .tf-card { padding: 20px 16px 18px; }
+      .tf-grid, .tf-choices--2 { grid-template-columns: 1fr; }
+      .tf-actions { flex-direction: column; }
+      .tf-btn { width: 100%; }
+      .tf-dropzone__file { flex-wrap: wrap; }
+      .exp3-page-title { padding: 28px 0 24px; }
+      .exp3-page-title h1 { font-size: 1.35rem; }
+    }
+  </style>
+</head>
+<body>
+  <div id="platform-header-root"></div>
+<script src="platform-header.js" data-active="services"></script>
+
+
+  <div class="exp3-page-title">
+    <div class="container">
+      <div class="exp3-page-hero-top">
+        <nav class="exp3-breadcrumb" aria-label="مسار التنقل">
+          <a href="index.html?view=our-services">الخدمات</a>
+          <span aria-hidden="true"> ← </span>
+          <a href="index.html?view=our-service&id=8">الفعاليات وبناء القدرات</a>
+          <span aria-hidden="true"> ← </span>
+          <a href="index.html?view=our-service-node&code=8.1">بناء القدرات الابتكارية</a>
+          <span aria-hidden="true"> ← </span>
+          <span>الفعاليات</span>
+        </nav>
+        <div class="exp3-page-actions">
+          <a class="exp3-back-services" href="index.html?view=our-service-node&code=8.1.3">
+            <i class="bi bi-arrow-right" aria-hidden="true"></i>
+            رجوع
+          </a>
+          <a class="exp3-back-services" href="index.html?view=our-services">
+            <i class="bi bi-arrow-right" aria-hidden="true"></i>
+            رجوع إلى الخدمات الرئيسية
+          </a>
+        </div>
+      </div>
+      <h1>نموذج طلب تسجيل فعالية أو جلسة وبرنامج توعوي</h1>
+      <p class="exp3-page-intro">
+        يهدف هذا النموذج إلى استقبال طلبات تسجيل الفعاليات والجلسات والبرامج التوعوية، واستكمال البيانات اللازمة لتنظيم المشاركة والتنفيذ وفق الإجراءات والآليات المعتمدة.
+      </p>
+    </div>
+  </div>
+
+  <main class="tf-main">
+    <div class="container">
+      <div class="tf-card">
+        <div class="tf-card-head">
+          <span class="tf-card-head__icon" aria-hidden="true"><i class="bi bi-calendar-event"></i></span>
+          <div>
+            <h2>بيانات طلب التسجيل</h2>
+            <p>الحقول المشار إليها بعلامة <span class="tf-req">*</span> إلزامية. لا تُرسل البيانات إلى خادم؛ هذه صفحة نموذج أمامية.</p>
+          </div>
+        </div>
+
+        <form id="eventForm" novalidate>
+          <section class="tf-section" aria-labelledby="sec-event">
+            <h3 class="tf-section__title" id="sec-event"><i class="bi bi-mic" aria-hidden="true"></i> بيانات الفعالية أو الجلسة</h3>
+            <div class="tf-field" data-required="true">
+              <label for="eventName">اسم الفعالية أو الجلسة المطلوبة <span class="tf-req">*</span></label>
+              <input type="text" id="eventName" name="eventName" maxlength="200" placeholder="أدخل اسم الفعالية أو الجلسة المطلوبة" autocomplete="off">
+              <div class="tf-err">هذا الحقل مطلوب</div>
+            </div>
+            <div class="tf-field" data-group="attendance">
+              <span class="tf-label">نمط الحضور المفضل <span class="tf-req">*</span></span>
+              <div class="tf-choices tf-choices--2" role="radiogroup" aria-label="نمط الحضور المفضل">
+                <label class="tf-choice">
+                  <input type="radio" name="attendance" value="حضوري">
+                  <span>حضوري</span>
+                </label>
+                <label class="tf-choice">
+                  <input type="radio" name="attendance" value="عن بعد">
+                  <span>عن بُعد</span>
+                </label>
+              </div>
+              <div class="tf-err">يرجى اختيار نمط الحضور</div>
+            </div>
+            <div class="tf-field" data-required="true">
+              <label for="profession">الفئة المهنية أو الأكاديمية للمشارك <span class="tf-req">*</span></label>
+              <input type="text" id="profession" name="profession" maxlength="150" placeholder="أدخل الفئة المهنية أو الأكاديمية">
+              <p class="tf-help">مثل: موظف، باحث، طالب، أكاديمي، مختص...</p>
+              <div class="tf-err">هذا الحقل مطلوب</div>
+            </div>
+            <div class="tf-field" data-required="true">
+              <label for="interest">مجال الاهتمام المرتبط بموضوع الفعالية <span class="tf-req">*</span></label>
+              <input type="text" id="interest" name="interest" maxlength="200" placeholder="أدخل مجال الاهتمام">
+              <div class="tf-err">هذا الحقل مطلوب</div>
+            </div>
+            <div class="tf-field">
+              <label for="supportNeeds">الاحتياجات المساندة أو متطلبات الدخول — عند الحاجة</label>
+              <textarea id="supportNeeds" name="supportNeeds" rows="4" maxlength="800" placeholder="اذكر أي احتياجات مساندة أو متطلبات خاصة بالدخول عند الحاجة"></textarea>
+            </div>
+            <label class="tf-check-row">
+              <input type="checkbox" id="mediaConsent" name="mediaConsent" value="1">
+              <span>أوافق على التصوير أو النشر الإعلامي وفق ما هو موضح للفعالية.</span>
+            </label>
+            <div class="tf-field" data-upload="mediaConsentFile">
+              <span class="tf-label">الموافقة المستقلة على التصوير أو النشر الإعلامي <small style="color:var(--muted);font-weight:500">(اختياري)</small></span>
+              <div class="tf-dropzone" data-dropzone="mediaConsentFile">
+                <input type="file" id="mediaConsentFile" name="mediaConsentFile" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                <div class="tf-dropzone__empty">
+                  <i class="bi bi-cloud-arrow-up" aria-hidden="true"></i>
+                  <strong>اضغط لاختيار ملف</strong>
+                  <span>أو اسحب الملف وأفلته هنا</span>
+                  <small>PDF, DOC, DOCX, JPG, PNG — الحد الأقصى 5 ميجابايت</small>
+                </div>
+                <div class="tf-dropzone__file">
+                  <i class="bi bi-file-earmark-check" aria-hidden="true"></i>
+                  <div class="tf-dropzone__meta">
+                    <span class="tf-file-name"></span>
+                    <span class="tf-file-size"></span>
+                  </div>
+                  <button type="button" class="tf-file-remove" data-remove="mediaConsentFile">حذف</button>
+                </div>
+              </div>
+              <p class="tf-help">يُرفق مستند الموافقة المستقلة على التصوير أو النشر الإعلامي إذا كانت الفعالية مصورة وتتطلب ذلك.</p>
+              <div class="tf-err">الملف غير مقبول. تحقق من النوع أو الحجم.</div>
+            </div>
+          </section>
+
+          <section class="tf-section" aria-labelledby="sec-org">
+            <h3 class="tf-section__title" id="sec-org"><i class="bi bi-building" aria-hidden="true"></i> بيانات الجهة</h3>
+            <div class="tf-grid">
+              <div class="tf-field" data-required="true">
+                <label for="orgName">اسم الجهة <span class="tf-req">*</span></label>
+                <input type="text" id="orgName" name="orgName" maxlength="200" placeholder="أدخل اسم الجهة" autocomplete="organization">
+                <div class="tf-err">هذا الحقل مطلوب</div>
+              </div>
+              <div class="tf-field" data-required="true">
+                <label for="orgRep">اسم ممثل الجهة <span class="tf-req">*</span></label>
+                <input type="text" id="orgRep" name="orgRep" maxlength="150" placeholder="أدخل اسم ممثل الجهة" autocomplete="name">
+                <div class="tf-err">هذا الحقل مطلوب</div>
+              </div>
+              <div class="tf-field" data-required="true">
+                <label for="orgPhone">رقم التواصل <span class="tf-req">*</span></label>
+                <input type="tel" id="orgPhone" name="orgPhone" maxlength="20" placeholder="05xxxxxxxx" autocomplete="tel" inputmode="tel">
+                <div class="tf-err">يرجى إدخال رقم تواصل صحيح</div>
+              </div>
+              <div class="tf-field" data-required="true">
+                <label for="orgEmail">البريد الإلكتروني <span class="tf-req">*</span></label>
+                <input type="email" id="orgEmail" name="orgEmail" maxlength="120" placeholder="name@example.com" autocomplete="email" dir="ltr" style="text-align:start">
+                <div class="tf-err">يرجى إدخال بريد إلكتروني صحيح</div>
+              </div>
+            </div>
+          </section>
+
+          <section class="tf-section" aria-labelledby="sec-program">
+            <h3 class="tf-section__title" id="sec-program"><i class="bi bi-lightbulb" aria-hidden="true"></i> بيانات البرنامج التوعوي</h3>
+            <div class="tf-field" data-required="true">
+              <label for="programTitle">عنوان البرنامج التوعوي <span class="tf-req">*</span></label>
+              <input type="text" id="programTitle" name="programTitle" maxlength="200" placeholder="أدخل عنوان البرنامج التوعوي">
+              <div class="tf-err">هذا الحقل مطلوب</div>
+            </div>
+            <div class="tf-field" data-required="true">
+              <label for="programGoal">الهدف منه <span class="tf-req">*</span></label>
+              <textarea id="programGoal" name="programGoal" rows="5" maxlength="1200" placeholder="وضح الهدف من البرنامج التوعوي والنتائج المتوقعة منه"></textarea>
+              <div class="tf-err">هذا الحقل مطلوب</div>
+            </div>
+            <div class="tf-field" data-required="true">
+              <label for="targetAudience">الفئة المستهدفة <span class="tf-req">*</span></label>
+              <textarea id="targetAudience" name="targetAudience" rows="4" maxlength="600" placeholder="حدد الفئة أو الفئات المستهدفة من البرنامج"></textarea>
+              <div class="tf-err">هذا الحقل مطلوب</div>
+            </div>
+            <div class="tf-field" data-required="true">
+              <label for="expectedAttendees">عدد الحضور المتوقع <span class="tf-req">*</span></label>
+              <input type="number" id="expectedAttendees" name="expectedAttendees" min="1" max="100000" step="1" inputmode="numeric" placeholder="أدخل العدد المتوقع للحضور">
+              <div class="tf-err">يرجى إدخال عدد صحيح موجب</div>
+            </div>
+          </section>
+
+          <section class="tf-section" aria-labelledby="sec-exec">
+            <h3 class="tf-section__title" id="sec-exec"><i class="bi bi-geo-alt" aria-hidden="true"></i> بيانات التنفيذ والتجهيزات</h3>
+            <div class="tf-grid">
+              <div class="tf-field" data-required="true">
+                <label for="eventDate">تاريخ التنفيذ <span class="tf-req">*</span></label>
+                <input type="date" id="eventDate" name="eventDate">
+                <div class="tf-err">هذا الحقل مطلوب</div>
+              </div>
+              <div class="tf-field">
+                <label for="duration">مدة التنفيذ</label>
+                <input type="text" id="duration" name="duration" maxlength="80" placeholder="مثال: ساعتان / يوم واحد / 3 أيام">
+              </div>
+            </div>
+            <div class="tf-field">
+              <label for="venue">مقر التنفيذ</label>
+              <input type="text" id="venue" name="venue" maxlength="200" placeholder="أدخل مقر تنفيذ البرنامج">
+            </div>
+            <div class="tf-field">
+              <label for="equipment">التجهيزات المتاحة لدى الجهة</label>
+              <textarea id="equipment" name="equipment" rows="4" maxlength="800" placeholder="اذكر التجهيزات المتاحة مثل القاعات، الشاشات، أجهزة العرض، أجهزة الصوت وغيرها"></textarea>
+            </div>
+          </section>
+
+          <div class="tf-actions">
+            <button type="submit" class="tf-btn tf-btn--primary" id="tfSubmitBtn">
+              <i class="bi bi-send" aria-hidden="true"></i>
+              إرسال الطلب
+            </button>
+            <button type="button" class="tf-btn tf-btn--secondary" id="tfDraftBtn">
+              <i class="bi bi-floppy" aria-hidden="true"></i>
+              حفظ كمسودة
+            </button>
+          </div>
+        </form>
+      </div>
+      <p class="tf-footnote">لأي استفسار: <a href="mailto:ri-support@mewa.gov.sa">ri-support@mewa.gov.sa</a> — الرقم الموحد 939</p>
+    </div>
+  </main>
+
+  <div id="platform-footer-root"></div>
+<script src="platform-footer.js"></script>
+
+
+  <div class="modal fade tf-modal" id="tfSuccessModal" tabindex="-1" aria-labelledby="tfSuccessTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="tf-modal__icon" aria-hidden="true"><i class="bi bi-check-lg"></i></div>
+          <h3 id="tfSuccessTitle">تم استلام الطلب بنجاح</h3>
+          <p>شكرًا لتقديم طلب تسجيل الفعالية أو البرنامج التوعوي. سيتم مراجعة البيانات وفق الإجراءات والآليات المعتمدة.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="tf-btn tf-btn--primary" data-bs-dismiss="modal">إغلاق</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-toast" id="tfToast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    (function () {
+      var ALLOWED_EXT = ["pdf", "doc", "docx", "jpg", "jpeg", "png"];
+      var MAX_BYTES = 5 * 1024 * 1024;
+      var DRAFT_KEY = "registeringeventform-draft";
+      var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+      var PHONE_RE = /^(\+?\d[\d\s-]{7,})$/;
+      var TEXT_IDS = ["eventName", "profession", "interest", "supportNeeds", "orgName", "orgRep", "orgPhone", "orgEmail", "programTitle", "programGoal", "targetAudience", "expectedAttendees", "eventDate", "duration", "venue", "equipment"];
+
+      var form = document.getElementById("eventForm");
+      var toastEl = document.getElementById("tfToast");
+      var toastTimer = null;
+      var successModal = (window.bootstrap && document.getElementById("tfSuccessModal"))
+        ? new bootstrap.Modal(document.getElementById("tfSuccessModal"))
+        : null;
+
+      function showToast(msg) {
+        toastEl.textContent = msg;
+        toastEl.classList.add("is-visible");
+        if (toastTimer) clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () { toastEl.classList.remove("is-visible"); }, 2800);
+      }
+
+      function formatSize(bytes) {
+        if (bytes < 1024) return bytes + " بايت";
+        if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " كيلوبايت";
+        return (bytes / (1024 * 1024)).toFixed(1) + " ميجابايت";
+      }
+
+      function fileExt(name) {
+        var parts = String(name || "").toLowerCase().split(".");
+        return parts.length > 1 ? parts.pop() : "";
+      }
+
+      function validateFile(file) {
+        if (!file) return "";
+        if (ALLOWED_EXT.indexOf(fileExt(file.name)) === -1) {
+          return "نوع الملف غير مسموح. الصيغ المقبولة: PDF, DOC, DOCX, JPG, PNG.";
+        }
+        if (file.size > MAX_BYTES) return "حجم الملف يتجاوز 5 ميجابايت.";
+        return "";
+      }
+
+      function setFieldError(field, message) {
+        if (!field) return;
+        var err = field.querySelector(".tf-err");
+        if (err && message) err.textContent = message;
+        field.classList.toggle("is-invalid", Boolean(message));
+      }
+
+      function clearFieldError(field) {
+        if (field) field.classList.remove("is-invalid");
+      }
+
+      function syncAllChoices() {
+        form.querySelectorAll(".tf-choice, .tf-check-row").forEach(function (label) {
+          var input = label.querySelector("input");
+          label.classList.toggle("is-selected", Boolean(input && input.checked));
+        });
+      }
+
+      function setDropzoneFile(id, file) {
+        var zone = form.querySelector('[data-dropzone="' + id + '"]');
+        var field = zone ? zone.closest(".tf-field") : null;
+        if (!zone) return;
+        if (!file) {
+          zone.classList.remove("has-file");
+          zone.querySelector(".tf-file-name").textContent = "";
+          zone.querySelector(".tf-file-size").textContent = "";
+          clearFieldError(field);
+          return;
+        }
+        zone.classList.add("has-file");
+        zone.querySelector(".tf-file-name").textContent = file.name;
+        zone.querySelector(".tf-file-size").textContent = formatSize(file.size);
+      }
+
+      function assignFile(input, file) {
+        var field = input.closest(".tf-field");
+        if (!file) {
+          input.value = "";
+          setDropzoneFile(input.id, null);
+          return;
+        }
+        var error = validateFile(file);
+        if (error) {
+          input.value = "";
+          setDropzoneFile(input.id, null);
+          setFieldError(field, error);
+          return;
+        }
+        clearFieldError(field);
+        setDropzoneFile(input.id, file);
+      }
+
+      function collectDraft() {
+        var data = { mediaConsent: form.mediaConsent.checked, attendance: "" };
+        TEXT_IDS.forEach(function (id) { data[id] = form[id] ? form[id].value : ""; });
+        var attendance = form.querySelector('input[name="attendance"]:checked');
+        data.attendance = attendance ? attendance.value : "";
+        return data;
+      }
+
+      function applyDraft(data) {
+        if (!data) return;
+        TEXT_IDS.forEach(function (id) {
+          if (form[id]) form[id].value = data[id] || "";
+        });
+        form.mediaConsent.checked = Boolean(data.mediaConsent);
+        if (data.attendance) {
+          form.querySelectorAll('input[name="attendance"]').forEach(function (el) {
+            el.checked = el.value === data.attendance;
+          });
+        }
+        syncAllChoices();
+      }
+
+      function requireText(id, message) {
+        var field = form[id] && form[id].closest(".tf-field");
+        if (!String(form[id].value || "").trim()) {
+          setFieldError(field, message || "هذا الحقل مطلوب");
+          return field;
+        }
+        return null;
+      }
+
+      function validateForm() {
+        var ok = true;
+        var firstBad = null;
+        form.querySelectorAll(".tf-field.is-invalid").forEach(function (field) { field.classList.remove("is-invalid"); });
+
+        function fail(field) {
+          if (!field) return;
+          ok = false;
+          firstBad = firstBad || field;
+        }
+
+        fail(requireText("eventName"));
+        var attendanceField = form.querySelector('[data-group="attendance"]');
+        if (!form.querySelector('input[name="attendance"]:checked')) {
+          setFieldError(attendanceField, "يرجى اختيار نمط الحضور");
+          fail(attendanceField);
+        }
+        fail(requireText("profession"));
+        fail(requireText("interest"));
+        fail(requireText("orgName"));
+        fail(requireText("orgRep"));
+
+        var phoneField = form.orgPhone.closest(".tf-field");
+        var phone = String(form.orgPhone.value || "").trim();
+        if (!phone) {
+          setFieldError(phoneField, "هذا الحقل مطلوب");
+          fail(phoneField);
+        } else if (!PHONE_RE.test(phone)) {
+          setFieldError(phoneField, "يرجى إدخال رقم تواصل صحيح");
+          fail(phoneField);
+        }
+
+        var emailField = form.orgEmail.closest(".tf-field");
+        var email = String(form.orgEmail.value || "").trim();
+        if (!email) {
+          setFieldError(emailField, "هذا الحقل مطلوب");
+          fail(emailField);
+        } else if (!EMAIL_RE.test(email)) {
+          setFieldError(emailField, "يرجى إدخال بريد إلكتروني صحيح");
+          fail(emailField);
+        }
+
+        fail(requireText("programTitle"));
+        fail(requireText("programGoal"));
+        fail(requireText("targetAudience"));
+
+        var countField = form.expectedAttendees.closest(".tf-field");
+        var countRaw = String(form.expectedAttendees.value || "").trim();
+        var countNum = Number(countRaw);
+        if (!countRaw) {
+          setFieldError(countField, "هذا الحقل مطلوب");
+          fail(countField);
+        } else if (!Number.isFinite(countNum) || !Number.isInteger(countNum) || countNum < 1) {
+          setFieldError(countField, "يرجى إدخال عدد صحيح موجب");
+          fail(countField);
+        }
+
+        fail(requireText("eventDate"));
+
+        form.querySelectorAll('input[type="file"]').forEach(function (input) {
+          var file = input.files && input.files[0];
+          if (!file) return;
+          var error = validateFile(file);
+          if (error) {
+            var field = input.closest(".tf-field");
+            setFieldError(field, error);
+            fail(field);
+          }
+        });
+
+        if (firstBad) firstBad.scrollIntoView({ block: "center", behavior: "smooth" });
+        return ok;
+      }
+
+      document.querySelectorAll(".tf-choice, .tf-check-row").forEach(function (label) {
+        label.addEventListener("change", function () {
+          syncAllChoices();
+          clearFieldError(label.closest(".tf-field"));
+        });
+      });
+
+      form.querySelectorAll("input, textarea").forEach(function (el) {
+        el.addEventListener("input", function () { clearFieldError(el.closest(".tf-field")); });
+      });
+
+      form.querySelectorAll("[data-dropzone]").forEach(function (zone) {
+        var input = zone.querySelector('input[type="file"]');
+        zone.addEventListener("click", function (e) {
+          if (e.target.closest(".tf-file-remove") || zone.classList.contains("has-file")) return;
+          input.click();
+        });
+        zone.addEventListener("dragover", function (e) { e.preventDefault(); zone.classList.add("is-drag"); });
+        zone.addEventListener("dragleave", function () { zone.classList.remove("is-drag"); });
+        zone.addEventListener("drop", function (e) {
+          e.preventDefault();
+          zone.classList.remove("is-drag");
+          var file = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+          if (!file) return;
+          try {
+            var dt = new DataTransfer();
+            dt.items.add(file);
+            input.files = dt.files;
+          } catch (err) {}
+          assignFile(input, file);
+        });
+        input.addEventListener("change", function () { assignFile(input, input.files && input.files[0]); });
+      });
+
+      form.querySelectorAll(".tf-file-remove").forEach(function (btn) {
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          var input = document.getElementById(btn.getAttribute("data-remove"));
+          if (input) assignFile(input, null);
+        });
+      });
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (!validateForm()) return;
+        try { localStorage.removeItem(DRAFT_KEY); } catch (err) {}
+        if (successModal) successModal.show();
+        else window.alert("تم استلام الطلب بنجاح");
+      });
+
+      document.getElementById("tfDraftBtn").addEventListener("click", function () {
+        try {
+          localStorage.setItem(DRAFT_KEY, JSON.stringify(collectDraft()));
+          showToast("تم حفظ المسودة على هذا الجهاز");
+        } catch (err) {
+          showToast("تعذّر حفظ المسودة على هذا الجهاز");
+        }
+      });
+
+      var menuToggle = document.getElementById("tfMenuToggle");
+      var mobileNav = document.getElementById("mobileNav");
+      if (menuToggle && mobileNav) {
+        menuToggle.addEventListener("click", function () {
+          var open = mobileNav.classList.toggle("is-open");
+          menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+      }
+
+      try {
+        var saved = localStorage.getItem(DRAFT_KEY);
+        if (saved) applyDraft(JSON.parse(saved));
+      } catch (err) {}
+      syncAllChoices();
+    })();
+  </script>
+</body>
+</html>

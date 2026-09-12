@@ -343,7 +343,7 @@ html { scroll-behavior: smooth; }
   max-width: 100%;
 }
 
-/* Page hero styles live in Dam3.html (.dam3-page-hero) */
+/* Page hero styles live in dam3.html (.dam3-page-hero) */
 
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; height: auto; }
@@ -666,7 +666,7 @@ img { max-width: 100%; height: auto; }
   font-size: 0.875rem;
 }
 
-/* ===== FOOTER (old MEWA dark footer replaced by .site-footer in Dam3.html) ===== */
+/* ===== FOOTER (old MEWA dark footer replaced by .site-footer in dam3.html) ===== */
 
 @media (max-width: 992px) {
   .dam3-menu-btn { display: inline-flex; }

@@ -334,6 +334,108 @@
         font-size: 0.8rem;
       }
     }
+    .nxt3-page-hero {
+      --ps-green-deep: #0B5D42;
+      --ps-green: #12805A;
+      --ps-ink-soft: #4B5C54;
+      --ps-paper-alt: #F4F1E9;
+      --ps-line: #E3E0D2;
+      --ps-white: #FFFFFF;
+      background: var(--ps-paper-alt);
+      padding: 44px 0 34px;
+      border-bottom: 1px solid var(--ps-line);
+      min-height: 220px;
+      box-sizing: border-box;
+      font-family: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+    }
+    .nxt3-page-hero .container {
+      max-width: 1180px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 28px;
+      display: block;
+      height: auto;
+    }
+    .nxt3-page-hero .page-hero-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem 1rem;
+      margin-bottom: 10px;
+    }
+    .nxt3-page-hero .breadcrumb {
+      font-size: 0.82rem;
+      color: var(--ps-ink-soft);
+      margin: 0;
+      line-height: 1.6;
+    }
+    .nxt3-page-hero .portal-crumb-link {
+      background: none;
+      border: 0;
+      padding: 0;
+      color: var(--ps-green-deep);
+      font-weight: 700;
+      cursor: pointer;
+      font-size: inherit;
+      font-family: inherit;
+      text-decoration: none;
+    }
+    .nxt3-page-hero .portal-crumb-link:hover {
+      color: var(--ps-green);
+    }
+    .nxt3-page-hero h1 {
+      font-size: 1.9rem;
+      color: var(--ps-green-deep);
+      font-weight: 800;
+      margin: 0;
+      line-height: 1.35;
+    }
+    .nxt3-page-hero > .container > p {
+      color: var(--ps-ink-soft);
+      margin: 8px 0 0;
+      max-width: 72ch;
+      line-height: 1.75;
+      font-size: 1rem;
+    }
+    .nxt3-page-hero .page-hero-actions {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.55rem;
+      flex-shrink: 0;
+    }
+    .nxt3-page-hero .ps-back-services-btn {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.82rem;
+      line-height: 1.2;
+      border: 1.5px solid var(--ps-line);
+      background: var(--ps-white);
+      color: var(--ps-green-deep);
+      text-decoration: none;
+      font-family: inherit;
+      white-space: nowrap;
+      box-shadow: 0 1px 3px rgba(16, 40, 30, 0.06);
+    }
+    .nxt3-page-hero .ps-back-services-btn:hover {
+      border-color: var(--ps-green);
+      color: var(--ps-green-deep);
+    }
+    @media (max-width: 768px) {
+      .nxt3-page-hero {
+        padding: 28px 0 24px;
+        min-height: 0;
+      }
+      .nxt3-page-hero h1 { font-size: 1.45rem; }
+      .nxt3-page-hero .container { padding: 0 16px; }
+    }
   </style>
 </head>
 <body class="nxt3-body">
@@ -341,6 +443,32 @@
   <div id="platform-header-root"></div>
 <script src="platform-header.js" data-active="services"></script>
 
+  <section class="nxt3-page-hero" aria-label="عنوان الصفحة">
+    <div class="container">
+      <div class="page-hero-top">
+        <div class="breadcrumb">
+          <a class="portal-crumb-link" href="index.html?view=our-services">الخدمات</a>
+          ←
+          <a class="portal-crumb-link" href="index.html?view=our-service&id=8">الفعاليات وبناء القدرات</a>
+          ←
+          <a class="portal-crumb-link" href="index.html?view=our-service-node&code=8.3">الفعاليات</a>
+          ← المؤتمر السنوي للابتكار NXT
+        </div>
+        <div class="page-hero-actions">
+          <a class="ps-back-services-btn" href="index.html?view=our-service-node&code=8.3">
+            <i class="bi bi-arrow-right" aria-hidden="true"></i>
+            رجوع
+          </a>
+          <a class="ps-back-services-btn" href="index.html?view=our-services">
+            <i class="bi bi-arrow-right" aria-hidden="true"></i>
+            رجوع إلى الخدمات الرئيسية
+          </a>
+        </div>
+      </div>
+      <h1>المؤتمر السنوي للابتكار NXT</h1>
+      <p>المؤتمر السنوي الذي يجمع المبتكرين والباحثين والشركاء لعرض أحدث نتاجات الابتكار.</p>
+    </div>
+  </section>
 
   <main>
 <div class="nxt-InnovationForum">

@@ -1528,20 +1528,6 @@
       height: 1.5rem;
       transform: scaleX(-1);
     }
-    .agency-reports-view .meta-row {
-      margin-top: 1rem;
-      padding: 0.85rem 1.1rem;
-      background: #f3f4f6;
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
-      color: #384250;
-      font-size: 0.86rem;
-    }
-    .agency-reports-view .meta-row a {
-      color: #1b8354;
-      font-weight: 600;
-      text-decoration: none;
-    }
     .agency-reports-view .agency-page-hero-top {
       display: flex;
       flex-wrap: wrap;
@@ -2614,90 +2600,94 @@
     .beneficiaries-panel {
       display: flex;
       align-items: stretch;
-      border: 1px solid var(--naama-border);
-      border-radius: var(--radius);
+      border: 1px solid rgba(11, 93, 66, 0.1);
+      border-radius: 24px;
       overflow: hidden;
       background: #fff;
-      box-shadow: var(--shadow-sm);
+      box-shadow: 0 16px 40px -24px rgba(11, 93, 66, 0.35);
     }
     .beneficiaries-title {
-      flex: 0 0 clamp(4.25rem, 7.5vw, 5.75rem);
+      flex: 0 0 clamp(5rem, 8vw, 6.25rem);
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 1.25rem 0.65rem;
-      background: linear-gradient(165deg, var(--naama-accent) 0%, var(--naama-accent-dark) 100%);
+      gap: 0.85rem;
+      padding: 1.4rem 0.7rem;
+      background: linear-gradient(180deg, #12805A 0%, #0B5D42 100%);
       color: #fff;
       font-weight: 800;
-      font-size: clamp(1.2rem, 1.9vw, 1.45rem);
+      font-size: clamp(1.15rem, 1.8vw, 1.4rem);
       line-height: 1.35;
-      letter-spacing: 0.01em;
       writing-mode: vertical-rl;
       text-orientation: mixed;
       transform: rotate(180deg);
       user-select: none;
+      position: relative;
+    }
+    .beneficiaries-title i {
+      font-size: 1.35rem;
+      opacity: 0.92;
     }
     .beneficiaries-grid {
       flex: 1;
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.8rem;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.85rem;
       margin: 0;
-      padding: 1rem 1.1rem;
+      padding: 1.15rem 1.2rem;
       list-style: none;
-      background: linear-gradient(135deg, #f9fcfb 0%, #f3faf7 55%, #eef7f3 100%);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(18, 128, 90, 0.06) 0, transparent 42%),
+        linear-gradient(180deg, #fbfaf6 0%, #f4f8f5 100%);
     }
     .beneficiaries-card {
       position: relative;
       display: flex;
       align-items: center;
-      gap: 0.7rem;
-      min-height: 4.35rem;
-      padding: 0.85rem 0.95rem;
-      border: 1px solid rgba(73, 170, 139, 0.16);
-      border-radius: 12px;
-      background: rgba(232, 246, 241, 0.72);
-      transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease, border-color 0.22s ease;
-      overflow: hidden;
-    }
-    .beneficiaries-card::before {
-      content: "";
-      position: absolute;
-      inset: auto auto -2.5rem -2.5rem;
-      width: 5rem;
-      height: 5rem;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(232, 163, 79, 0.22) 0%, rgba(232, 163, 79, 0) 70%);
-      opacity: 0;
-      transition: opacity 0.22s ease;
-      pointer-events: none;
+      gap: 0.75rem;
+      min-height: 4.6rem;
+      padding: 0.9rem 1rem;
+      border: 1px solid rgba(11, 93, 66, 0.08);
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 6px 18px -14px rgba(11, 93, 66, 0.45);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
     }
     .beneficiaries-card:hover {
-      transform: translateY(-2px);
-      background: #fff;
-      border-color: rgba(73, 170, 139, 0.38);
-      box-shadow: 0 10px 24px rgba(55, 138, 111, 0.12);
+      transform: translateY(-4px);
+      border-color: rgba(18, 128, 90, 0.28);
+      box-shadow: 0 16px 28px -16px rgba(11, 93, 66, 0.4);
     }
-    .beneficiaries-card:hover::before {
-      opacity: 1;
+    .beneficiaries-card:hover .beneficiaries-card-icon {
+      background: linear-gradient(160deg, #12805A 0%, #0B5D42 100%);
+      color: #fff;
     }
     .beneficiaries-card-icon {
-      flex: 0 0 2.35rem;
-      width: 2.35rem;
-      height: 2.35rem;
+      flex: 0 0 2.55rem;
+      width: 2.55rem;
+      height: 2.55rem;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      color: var(--naama-accent-dark);
-      font-size: 1.45rem;
+      border-radius: 50%;
+      background: #e8f6f1;
+      color: #0B5D42;
+      font-size: 1.15rem;
       line-height: 1;
+      transition: background 0.22s ease, color 0.22s ease;
     }
     .beneficiaries-card-label {
       margin: 0;
-      color: var(--naama-ink);
-      font-size: clamp(0.8rem, 1.1vw, 0.9rem);
-      font-weight: 600;
+      color: #14263a;
+      font-size: clamp(0.8rem, 1.05vw, 0.9rem);
+      font-weight: 700;
       line-height: 1.5;
+    }
+    @media (max-width: 1199.98px) {
+      .beneficiaries-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
     }
     @media (max-width: 991.98px) {
       .beneficiaries-grid {
@@ -2711,14 +2701,16 @@
       .beneficiaries-title {
         flex: none;
         width: 100%;
-        padding: 0.9rem 1rem;
+        flex-direction: row;
+        padding: 0.95rem 1rem;
         writing-mode: horizontal-tb;
         transform: none;
         text-align: center;
+        gap: 0.5rem;
       }
       .beneficiaries-grid {
         grid-template-columns: 1fr;
-        padding: 0.85rem;
+        padding: 0.9rem;
       }
     }
 
@@ -2822,6 +2814,8 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
+      align-items: stretch;
+      grid-auto-rows: 1fr;
     }
     .portal-svc .ps-empty-filter {
       grid-column: 1 / -1;
@@ -2848,14 +2842,38 @@
       color: var(--ps-green-deep);
     }
     .portal-svc .ps-service-card {
-      background: var(--ps-white);
-      border: 1px solid var(--ps-line);
-      border-radius: 16px;
-      padding: 26px;
+      position: relative;
+      background:
+        linear-gradient(180deg, #ffffff 0%, #fbfaf6 100%);
+      border: 1px solid rgba(11, 93, 66, 0.1);
+      border-inline-start: 4px solid rgba(18, 128, 90, 0.22);
+      border-radius: 22px;
+      padding: 22px 22px 20px;
       display: flex;
-      gap: 18px;
+      gap: 16px;
       height: 100%;
-      transition: transform .18s ease, box-shadow .18s ease;
+      overflow: visible;
+      isolation: isolate;
+      box-shadow: 0 8px 28px -18px rgba(11, 93, 66, 0.35);
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    .portal-svc .ps-service-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(circle at 0 0, rgba(18, 128, 90, 0.09) 0%, transparent 42%);
+      pointer-events: none;
+    }
+    .portal-svc .ps-service-card-index {
+      position: absolute;
+      inset-inline-end: 18px;
+      inset-block-start: 14px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: rgba(11, 93, 66, 0.28);
+      z-index: 1;
     }
     .portal-svc .ps-service-card-body {
       display: flex;
@@ -2863,15 +2881,40 @@
       flex: 1;
       min-width: 0;
       width: 100%;
+      position: relative;
+      z-index: 1;
     }
     .portal-svc .ps-service-card-top {
       flex: 1;
+    }
+    .portal-svc .ps-service-card-head {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 10px;
+      padding-inline-end: 2rem;
+    }
+    .portal-svc .ps-service-card-icon {
+      width: 44px;
+      height: 44px;
+      flex: 0 0 44px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(160deg, #e7f4ee 0%, #d7efe4 100%);
+      color: var(--ps-green-deep);
+      font-size: 1.15rem;
+      box-shadow: inset 0 0 0 1px rgba(11, 93, 66, 0.08);
+      transition: transform .22s ease, background .22s ease;
     }
     .portal-svc .ps-service-card-foot {
       margin-top: auto;
       overflow: visible;
       position: relative;
       z-index: 2;
+      padding-top: 14px;
+      border-top: 1px solid rgba(11, 93, 66, 0.08);
     }
     .portal-svc .ps-service-card:has(.beneficiaries-more:hover),
     .portal-svc .ps-service-card:has(.beneficiaries-more.is-open) {
@@ -2879,9 +2922,15 @@
     }
     .portal-svc .ps-service-card:hover,
     .portal-svc .ps-service-card:focus-within {
-      transform: translateY(-3px);
-      box-shadow: var(--ps-shadow);
+      transform: translateY(-6px);
+      border-color: rgba(18, 128, 90, 0.28);
+      border-inline-start-color: rgba(18, 128, 90, 0.32);
+      box-shadow: 0 18px 40px -20px rgba(11, 93, 66, 0.45);
       z-index: 3;
+    }
+    .portal-svc .ps-service-card:hover .ps-service-card-icon {
+      transform: translateY(-1px);
+      background: linear-gradient(160deg, #d8f3e6 0%, #c4ead8 100%);
     }
     .portal-svc .ps-service-card.is-clickable {
       cursor: pointer;
@@ -2907,22 +2956,37 @@
       flex: none;
     }
     .portal-svc .ps-service-card h3 {
-      font-size: 1.02rem;
-      margin: 0 0 8px;
+      font-size: 1.08rem;
+      margin: 0;
       color: var(--ps-green-deep);
       font-weight: 800;
+      line-height: 1.45;
+      min-height: calc(1.45em * 2);
     }
     .portal-svc .ps-service-card p {
-      font-size: .87rem;
+      font-size: .88rem;
       color: var(--ps-ink-soft);
-      margin: 0 0 14px;
-      line-height: 1.7;
+      margin: 0 0 12px;
+      line-height: 1.75;
+      min-height: calc(1.75em * 3);
     }
     .portal-svc .service-sub-note {
-      font-size: .76rem;
+      display: block;
+      font-size: .74rem;
       color: var(--ps-teal);
       font-weight: 700;
-      margin-bottom: 12px;
+      margin: 0 0 4px;
+      padding: 8px 12px;
+      border-radius: 12px;
+      background: rgba(28, 124, 130, 0.08);
+      border-inline-start: 3px solid var(--ps-teal);
+      line-height: 1.6;
+      min-height: 2.7em;
+    }
+    .portal-svc .service-sub-note.is-placeholder {
+      visibility: hidden;
+      border-color: transparent;
+      background: transparent;
     }
     .portal-svc .service-beneficiaries {
       display: grid;
@@ -2967,6 +3031,14 @@
       align-items: center;
       flex-wrap: wrap;
     }
+    .portal-svc .ps-service-card .ps-btn-primary {
+      gap: 8px;
+      padding: 9px 16px 9px 14px;
+      box-shadow: 0 8px 18px -12px rgba(11, 93, 66, 0.8);
+    }
+    .portal-svc .ps-service-card .ps-btn-primary i {
+      font-size: 0.92rem;
+    }
     .portal-svc .ps-btn {
       display: inline-flex;
       align-items: center;
@@ -3008,6 +3080,36 @@
       font-size: .72rem;
       color: var(--ps-ink-soft);
       font-weight: 600;
+    }
+    .ps-coming-soon-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 4000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      background: rgba(55, 65, 81, 0.45);
+    }
+    .ps-coming-soon-overlay.is-open {
+      display: flex;
+    }
+    .ps-coming-soon-dialog {
+      background: #6b7280;
+      color: #fff;
+      border-radius: 18px;
+      padding: 1.6rem 1.9rem;
+      max-width: min(92vw, 420px);
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 18px 40px rgba(17, 24, 39, 0.28);
+    }
+    .ps-coming-soon-dialog p {
+      margin: 0;
+      font-size: 1.12rem;
+      font-weight: 800;
+      line-height: 1.7;
+      color: #fff;
     }
     .portal-svc .ps-cta-band {
       background: var(--ps-green-deep);
@@ -3053,7 +3155,7 @@
       background: var(--ps-amber-soft);
       color: var(--ps-green-deep);
     }
-    /* الخدمات الفرعية لخدمات مركز البحث والابتكار */
+    /* الخدمات الفرعية لمنصة مركز الابتكار للاستدامة */
     .portal-svc .ps-pillar-block {
       margin-bottom: 22px;
       background: var(--ps-white);
@@ -4503,6 +4605,11 @@
   </div>
 
   <div id="toast" class="toast-notify" style="display:none"></div>
+  <div id="portalComingSoonOverlay" class="ps-coming-soon-overlay" hidden onclick="hidePortalServiceComingSoon()">
+    <div class="ps-coming-soon-dialog" role="dialog" aria-modal="true" aria-labelledby="portalComingSoonText">
+      <p id="portalComingSoonText">جاري العمل على هذه الخدمات</p>
+    </div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
@@ -4715,7 +4822,7 @@
       "القطاع غير الربحي",
       "المؤسسات الأكاديمية والبحثية",
       "طلبة الجامعات والمبتكرون الأفراد",
-      "لجميع المستفيدين زوار المنصة"
+      "زوار المنصة"
     ];
 
     function collectBeneficiaryTypes(list, set) {
@@ -4936,7 +5043,8 @@
       { icon: "bi-buildings", label: "الشركات الناشئة" },
       { icon: "bi-flower1", label: "القطاع غير الربحي" },
       { icon: "bi-bank2", label: "الجهات والبرامج الحكومية" },
-      { icon: "bi-mortarboard", label: "المؤسسات الأكاديمية والبحثية" }
+      { icon: "bi-mortarboard", label: "المؤسسات الأكاديمية والبحثية" },
+      { icon: "bi-globe", label: "زوار المنصة" }
     ];
 
     const FOCUS_AREAS = [
@@ -5407,10 +5515,20 @@
 
     /** رسالة للخدمات التي ما زالت قيد إعداد التفاصيل الفرعية. */
     function showPortalServiceComingSoon() {
-      showToast("يتم العمل حالياً على الخدمات الفرعية", null, {
-        softGreen: true,
-        duration: 5000
-      });
+      const overlay = document.getElementById("portalComingSoonOverlay");
+      if (!overlay) return;
+      overlay.hidden = false;
+      overlay.classList.add("is-open");
+      clearTimeout(showPortalServiceComingSoon._t);
+      showPortalServiceComingSoon._t = setTimeout(hidePortalServiceComingSoon, 2800);
+    }
+
+    function hidePortalServiceComingSoon() {
+      const overlay = document.getElementById("portalComingSoonOverlay");
+      if (!overlay) return;
+      overlay.classList.remove("is-open");
+      overlay.hidden = true;
+      clearTimeout(showPortalServiceComingSoon._t);
     }
     function toggleMobileNav() {
       const el = document.getElementById("mobileNav");
@@ -6003,7 +6121,7 @@
       return `
         <section class="container beneficiaries-section fade-up" aria-label="المستفيدون">
           <div class="beneficiaries-panel">
-            <div class="beneficiaries-title">المستفيدون</div>
+            <div class="beneficiaries-title"><i class="bi bi-people" aria-hidden="true"></i><span>المستفيدون</span></div>
             <ul class="beneficiaries-grid">${cards}</ul>
           </div>
         </section>
@@ -6418,18 +6536,12 @@
                   <i class="bi bi-arrow-right" aria-hidden="true"></i> رجوع إلى الخدمات الرئيسية
                 </button>
               </div>
-              <h1 class="page-title-agency">مواضيع الوكالة</h1>
+              <h1 class="page-title-agency">المنشورات والتقارير</h1>
               <p class="block-head-sub">إصدارات وتقارير ومبادرات وكالة البحث والابتكار.</p>
             </div>
           </div>
           <div class="container py-4">
             <div class="row" id="agencyReportsGrid">${cardsHtml}</div>
-            <p class="meta-row">
-              المصدر:
-              <a href="https://www.mewa.gov.sa/ar/Ministry/Agencies/AgencyForInnovation/Topics/Pages/default.aspx" target="_blank" rel="noopener noreferrer">
-                مواضيع الوكالة كافة | MEWA
-              </a>
-            </p>
           </div>
         </section>
       `;
@@ -7058,7 +7170,7 @@
     }
 
 
-    /* ============ خدمات مركز البحث والابتكار (منقولة من Elwan1.html — قسم الخدمات) ============ */
+    /* ============ منصة مركز الابتكار للاستدامة (منقولة من Elwan1.html — قسم الخدمات) ============ */
     const PORTAL_SERVICES = [
       {
         id: 1,
@@ -7315,7 +7427,7 @@
         id: 8,
         title: "الفعاليات وبناء القدرات والمسؤولية المجتمعية",
         desc: "فعاليات ومؤتمرات وتحديات لبناء القدرات الابتكارية، مثل تحدي الابتكار الجامعي والمؤتمر السنوي للابتكار.",
-        note: "تضم: بناء القدرات، تحديات البحث والابتكار، مؤتمر NXT، الابتكار المؤسسي",
+        note: "تضم: بناء القدرات، تحديات البحث والابتكار، الفعاليات، الابتكار المؤسسي",
         beneficiaries: [
           "الجهات والبرامج الحكومية",
           "المستثمرون والمؤسسات التمويلية",
@@ -7332,26 +7444,7 @@
             hideChildrenPreview: true,
             children: [
               { code: "8.1.1", title: "الاشتراك للوصول لمنصات علمية", desc: "إتاحة الوصول لقواعد بيانات ومنصات بحثية متخصصة", cta: "تفاصيل الخدمة", headingFromSelf: true },
-              { code: "8.1.2", title: "البرامج والتدريب", desc: "برامج تدريبية متخصصة لبناء القدرات", listCta: "نموذج", headingFromSelf: true, externalUrl: "trainingform.html" },
-              {
-                code: "8.1.3",
-                title: "الفعاليات",
-                desc: "ورش وفعاليات دورية",
-                listCta: "تفاصيل الخدمة",
-                headingFromSelf: true,
-                hideChildrenPreview: true,
-                children: [
-                  {
-                    code: "8.1.3.1",
-                    title: "المؤتمر السنوي للابتكار NXT",
-                    desc: "المؤتمر السنوي الذي يجمع المبتكرين والباحثين والشركاء لعرض أحدث نتاجات الابتكار.",
-                    listCta: "تفاصيل الخدمة",
-                    headingFromSelf: true,
-                    externalUrl: "nXT3.html"
-                  },
-                  { code: "8.1.3.2", title: "التسجيل في الفعاليات وطلب تنفيذ البرامج التوعوية", listCta: "نموذج", headingFromSelf: true, externalUrl: "registeringeventform.html" }
-                ]
-              }
+              { code: "8.1.2", title: "البرامج والتدريب", desc: "برامج تدريبية متخصصة لبناء القدرات", listCta: "نموذج", headingFromSelf: true, externalUrl: "trainingform.html" }
             ]
           },
           {
@@ -7379,10 +7472,22 @@
           },
           {
             code: "8.3",
-            title: "المؤتمر السنوي للابتكار NXT",
-            desc: "المؤتمر السنوي الذي يجمع المبتكرين والباحثين والشركاء لعرض أحدث نتاجات الابتكار.",
+            title: "الفعاليات",
+            desc: "ورش وفعاليات دورية",
             listCta: "تفاصيل الخدمة",
-            externalUrl: "nXT3.html"
+            headingFromSelf: true,
+            hideChildrenPreview: true,
+            children: [
+              {
+                code: "8.3.1",
+                title: "المؤتمر السنوي للابتكار NXT",
+                desc: "المؤتمر السنوي الذي يجمع المبتكرين والباحثين والشركاء لعرض أحدث نتاجات الابتكار.",
+                listCta: "تفاصيل الخدمة",
+                headingFromSelf: true,
+                externalUrl: "nXT3.html"
+              },
+              { code: "8.3.2", title: "التسجيل في الفعاليات وطلب تنفيذ البرامج التوعوية", listCta: "نموذج", headingFromSelf: true, externalUrl: "registeringeventform.html" }
+            ]
           },
           {
             code: "8.4",
@@ -7398,7 +7503,7 @@
         title: "المنشورات والتقارير للبحث والابتكار",
         desc: "إصدارات وتقارير دورية تعرض نتائج وإنجازات منظومة البحث والابتكار بالوزارة.",
         beneficiaries: [
-          "لجميع المستفيدين زوار المنصة"
+          "زوار المنصة"
         ],
         portalRoute: "publications"
       }
@@ -7869,33 +7974,44 @@
         : visibleServices.map((s) => {
         const children = getPortalChildren(s);
         const hasChildren = children.length > 0;
-        let actionsHtml;
-        if (s.portalRoute || s.externalUrl) {
-          actionsHtml = `<span class="ps-btn ps-btn-sm ps-btn-primary">تفاصيل الخدمة</span>`;
-        } else if (hasChildren) {
-          actionsHtml = `<span class="ps-btn ps-btn-sm ps-btn-primary">تفاصيل الخدمة</span>`;
-        } else {
-          actionsHtml = `<button type="button" class="ps-btn ps-btn-sm ps-btn-disabled" onclick="showPortalServiceComingSoon()">تفاصيل الخدمة</button>
-             <span class="soon-tag">الصفحة التفصيلية قيد الإعداد</span>`;
-        }
+        const serviceIcons = {
+          1: "bi-binoculars",
+          2: "bi-kanban",
+          3: "bi-lightning-charge",
+          4: "bi-shield-check",
+          5: "bi-award",
+          6: "bi-cash-coin",
+          7: "bi-diagram-3",
+          8: "bi-calendar-event",
+          9: "bi-journal-richtext"
+        };
+        const serviceIcon = serviceIcons[s.id] || "bi-grid";
+        const serviceIndex = String(s.id).padStart(2, "0");
+        let actionsHtml = `<span class="ps-btn ps-btn-sm ps-btn-primary">تفاصيل الخدمة <i class="bi bi-arrow-left" aria-hidden="true"></i></span>`;
         const cardAction = s.portalRoute
           ? `navigate('${s.portalRoute}')`
           : s.externalUrl
           ? getPortalExternalUrlAction(s.externalUrl)
           : hasChildren
             ? `navigate('our-service', { id: ${s.id} })`
-            : "";
+            : "showPortalServiceComingSoon()";
         const cardClass = `ps-service-card${cardAction ? " is-clickable" : ""}`;
         const cardAttrs = cardAction
           ? ` class="${cardClass}" role="button" tabindex="0" onclick="if(isInsideBeneficiariesMore(event)){stopBeneficiariesMoreEvent(event);return;} ${cardAction}" onkeydown="if(isInsideBeneficiariesMore(event)){stopBeneficiariesMoreEvent(event);return;} if(event.key==='Enter'||event.key===' '){event.preventDefault();${cardAction};}"`
           : ` class="${cardClass}"`;
         return `
         <article${cardAttrs}>
+          <span class="ps-service-card-index">${serviceIndex}</span>
           <div class="ps-service-card-body">
             <div class="ps-service-card-top">
-              <h3>${escapeHtml(s.title)}</h3>
+              <div class="ps-service-card-head">
+                <span class="ps-service-card-icon" aria-hidden="true"><i class="bi ${serviceIcon}"></i></span>
+                <h3>${escapeHtml(s.title)}</h3>
+              </div>
               <p>${escapeHtml(s.desc)}</p>
-              ${s.note ? `<div class="service-sub-note">${escapeHtml(s.note)}</div>` : ""}
+              ${s.note
+                ? `<div class="service-sub-note">${escapeHtml(s.note)}</div>`
+                : `<div class="service-sub-note is-placeholder" aria-hidden="true">&nbsp;</div>`}
             </div>
             <div class="ps-service-card-foot">
               ${Array.isArray(s.beneficiaries) && s.beneficiaries.length ? `
@@ -7920,7 +8036,7 @@
                 <button type="button" class="portal-crumb-link" onclick="navigate('home')">الرئيسية</button>
                 ← الخدمات
               </div>
-              <h1>خدمات مركز البحث والابتكار</h1>
+              <h1>منصة مركز الابتكار للاستدامة</h1>
               <p>مجموعة الخدمات التي يقدمها المركز لدعم الباحثين والمبتكرين ورواد الأعمال، من الاستشارات المبكرة وحتى التمويل والوصول إلى السوق.</p>
               ${beneficiaryValue && beneficiaryValue !== "الكل" ? `<div class="ps-filter-hint">عرض الخدمات المتاحة لـ: ${escapeHtml(beneficiaryValue)}</div>` : ""}
             </div>
@@ -9605,7 +9721,7 @@
               <h1 class="section-title">طلباتي</h1>
               <p class="section-sub mt-1">تابع حالة طلباتك المقدّمة عبر منصة البحث والابتكار.</p>
             </div>
-            <button type="button" class="btn-naama-primary" onclick="navigate('services')">
+            <button type="button" class="btn-naama-primary" onclick="navigate('our-services')">
               <i class="bi bi-plus-lg"></i> تقديم طلب جديد
             </button>
           </div>

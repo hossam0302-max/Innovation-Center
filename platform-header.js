@@ -97,7 +97,7 @@
         "القطاع غير الربحي",
         "المؤسسات الأكاديمية والبحثية",
         "طلبة الجامعات والمبتكرون الأفراد",
-        "لجميع المستفيدين زوار المنصة"
+        "زوار المنصة"
       ].map(function (item) { return "<option>" + item + "</option>"; }).join("") +
       "</select>" +
       '<button type="button" class="h-search-reset" title="إعادة تعيين الفلتر" aria-label="إعادة تعيين الفلتر">' +
@@ -125,7 +125,7 @@
             brand +
               '<span class="brand-mark" aria-hidden="true"></span>' +
               '<span class="brand-text text-start">' +
-                "<strong>منصة البحث والابتكار</strong>" +
+                "<strong>منصة مركز الابتكار للاستدامة</strong>" +
                 "<small>وزارة البيئة والمياه والزراعة</small>" +
               "</span>" +
             brandClose +

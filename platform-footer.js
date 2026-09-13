@@ -45,7 +45,7 @@
           '<div class="col-md-5">' +
             '<div class="d-flex align-items-center gap-2 mb-2">' +
               '<span class="brand-mark" aria-hidden="true"></span>' +
-              '<strong class="footer-brand">منصة البحث والابتكار</strong>' +
+              '<strong class="footer-brand">منصة مركز الابتكار للاستدامة</strong>' +
             "</div>" +
             '<p class="text-muted footer-desc mb-0">المحور المركزي لأنشطة البحث والابتكار في قطاعات البيئة والمياه والزراعة، ضمن منظومة منصة نما وأهداف رؤية 2030.</p>' +
           "</div>" +

@@ -974,6 +974,7 @@
 
   <div id="platform-footer-root"></div>
 <script src="platform-footer.js"></script>
+<script src="platform-request-submit.js"></script>
 
 
   <div class="modal fade tf-modal" id="tfSuccessModal" tabindex="-1" aria-labelledby="tfSuccessTitle" aria-hidden="true">
@@ -1254,10 +1255,13 @@
         e.preventDefault();
         if (!validateForm()) return;
         try { localStorage.removeItem(DRAFT_KEY); } catch (err) {}
-        if (successModal) {
-          successModal.show();
-        } else {
-          window.alert("تم استلام طلبك بنجاح");
+        if (window.MEWARequests) {
+          MEWARequests.complete({
+            service: "البرامج والتدريب",
+            title: MEWARequests.val("programName") || "طلب التحاق ببرنامج تدريبي",
+            summary: MEWARequests.val("programName", "experienceType"),
+            organization: MEWARequests.val("experienceType")
+          });
         }
       });
 

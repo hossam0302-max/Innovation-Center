@@ -1048,7 +1048,7 @@
               <div class="col-md-6">
                 <div class="field" data-field="phone">
                   <label for="phone">1.4 رقم الجوال <span class="req">*</span></label>
-                  <input id="phone" name="phone" type="tel" maxlength="20" required aria-required="true" dir="rtl" placeholder="1.4 رقم الجوال" />
+                  <input id="phone" name="phone" type="tel" maxlength="10" required aria-required="true" dir="ltr" inputmode="numeric" placeholder="05xxxxxxxx" />
                   <span class="field-error">يرجى إدخال رقم الجوال بشكل صحيح (05xxxxxxxx)</span>
                 </div>
               </div>
@@ -1244,6 +1244,7 @@
     </section>
   </main>
 
+  <script src="platform-request-submit.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     (function () {
@@ -1289,8 +1290,7 @@
       }
 
       function isPhone(v) {
-        var digits = String(v || "").replace(/[\s\-()]/g, "");
-        return /^(05\d{8}|9665\d{8}|\+9665\d{8})$/.test(digits);
+        return /^05\d{8}$/.test(String(v || "").replace(/\D/g, ""));
       }
 
       function checkedAny(name) {
@@ -1343,15 +1343,17 @@
         }
 
         if (submitBtn) submitBtn.disabled = true;
-        window.setTimeout(function () {
-          if (success) {
-            success.classList.add("is-visible");
-            success.scrollIntoView({ behavior: "smooth", block: "nearest" });
-          }
-          form.reset();
-          if (fileName) fileName.textContent = "";
-          if (submitBtn) submitBtn.disabled = false;
-        }, 450);
+        if (window.MEWARequests) {
+          MEWARequests.complete({
+            service: "البيئة التنظيمية التجريبية لقطاع الزراعة",
+            title: MEWARequests.val("orgName") || "طلب الانضمام لبيئة الزراعة التجريبية",
+            applicant: MEWARequests.val("contactPerson"),
+            organization: MEWARequests.val("orgName"),
+            email: MEWARequests.val("email"),
+            phone: MEWARequests.val("phone"),
+            summary: MEWARequests.val("innovationDesc", "challenge")
+          });
+        }
       });
 
       form.querySelectorAll("input, textarea, select").forEach(function (el) {

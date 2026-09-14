@@ -214,12 +214,51 @@
     .btn-comm-primary:hover { background: #053824; color: #fff; }
 
     .form-success {
-      display: none; align-items: flex-start; gap: 12px; padding: 14px 16px; border-radius: 0.5rem;
-      background: #e8f6ef; border: 1px solid #b7dfc8; color: var(--dark-green); margin-bottom: 1rem;
+      display: none;
     }
-    .form-success.is-visible { display: flex; }
-    .form-success strong { display: block; margin-bottom: 0.15rem; }
-    .form-success p { margin: 0; color: var(--text-muted); font-size: 0.9rem; }
+    .success-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      background: rgba(7, 32, 24, 0.48);
+    }
+    .success-modal.is-open { display: flex; }
+    .success-modal-dialog {
+      width: min(28rem, 100%);
+      padding: 1.75rem 1.5rem 1.4rem;
+      border-radius: 1.15rem;
+      background: #fff;
+      box-shadow: 0 24px 48px -18px rgba(7, 77, 49, 0.45);
+      text-align: center;
+    }
+    .success-modal-dialog i {
+      display: inline-flex;
+      font-size: 2.35rem;
+      color: var(--primary-green);
+      margin-bottom: 0.65rem;
+    }
+    .success-modal-dialog h2 {
+      margin: 0 0 0.45rem;
+      color: var(--dark-green);
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+    .success-modal-dialog p {
+      margin: 0 0 1.15rem;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+    .success-modal-dialog strong { color: var(--dark-green); }
+    .success-modal-dialog .btn-comm-primary {
+      width: 100%;
+      justify-content: center;
+      color: #fff !important;
+    }
 
     .info-bar {
       display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
@@ -297,14 +336,6 @@
         <h2 class="form-page-title">نموذج طلب الاشتراك في منصة نبراس</h2>
         <p class="form-intro">الخانات التي يعبّئها المستفيد عند طلب الوصول لمنصة نبراس (اشتراك شهري)</p>
         <p class="form-note">ملاحظة: الحقول المشار إليها بـ (*) إلزامية.</p>
-
-        <div id="formSuccess" class="form-success" role="status" aria-live="polite">
-          <i class="bi bi-check-circle-fill" aria-hidden="true" style="font-size:1.35rem"></i>
-          <div>
-            <strong>تم إرسال طلب الاشتراك بنجاح</strong>
-            <p>تم استلام طلب الاشتراك في منصة نبراس بنجاح، وسيتم مراجعة الطلب وفق الإجراءات المعتمدة.</p>
-          </div>
-        </div>
 
         <form id="nebrasForm" novalidate>
           <div class="form-section">
@@ -401,6 +432,17 @@
     </div>
   </main>
 
+  <div id="successModal" class="success-modal" hidden>
+    <div class="success-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="successTitle" aria-describedby="successDesc">
+      <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+      <h2 id="successTitle">تم إرسال الطلب بنجاح</h2>
+      <p id="successDesc">تم استلام طلب الاشتراك في منصة نبراس بنجاح، وسيتم مراجعة الطلب وفق الإجراءات المعتمدة.<br>رقم الطلب: <strong id="successRequestId">—</strong></p>
+      <a class="btn-comm btn-comm-primary" id="successGoRequests" href="index.html?view=my-requests">
+        متابعة الطلب في طلباتي
+      </a>
+    </div>
+  </div>
+
   <div id="platform-footer-root"></div>
 <script src="platform-footer.js"></script>
 
@@ -411,9 +453,71 @@
       var countEl = document.getElementById("count");
       var usersEl = document.getElementById("users");
       var counter = document.getElementById("counter");
-      var success = document.getElementById("formSuccess");
+      var successModal = document.getElementById("successModal");
+      var successRequestId = document.getElementById("successRequestId");
       var menuToggle = document.getElementById("menuToggle");
       var mobileNav = document.getElementById("mobileNav");
+      var STORAGE_KEY = "mewa-ri-naama-v2";
+      var submitted = false;
+
+      function loadRequests() {
+        try {
+          var raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) return [];
+          var list = JSON.parse(raw);
+          return Array.isArray(list) ? list : [];
+        } catch (err) {
+          return [];
+        }
+      }
+
+      function nextRequestId(list) {
+        var max = 0;
+        (list || []).forEach(function (item) {
+          var match = String(item && item.id || "").match(/(\d+)$/);
+          var num = match ? Number(match[1]) : 0;
+          if (num > max) max = num;
+        });
+        return "REQ-2026-" + String(max + 1).padStart(3, "0");
+      }
+
+      function saveNebrasRequest() {
+        var list = loadRequests();
+        var count = String(countEl.value || "").trim();
+        var duration = form.duration.value;
+        var users = String(usersEl.value || "").trim();
+        var session = (form.querySelector('input[name="session"]:checked') || {}).value || "";
+        var firstUser = users.split(/\r?\n/).map(function (s) { return s.trim(); }).filter(Boolean)[0] || "مقدم طلب الاشتراك";
+        var created = {
+          id: nextRequestId(list),
+          title: "اشتراك لمدة " + duration + " — " + count + " مستخدم",
+          service: "الاشتراك في منصة نبراس",
+          sector: "تمكين الابتكار",
+          summary: users,
+          applicant: firstUser,
+          organization: "",
+          email: "",
+          phone: "",
+          session: session,
+          guide: Boolean(document.getElementById("guide") && document.getElementById("guide").checked),
+          submittedAt: new Date().toISOString().slice(0, 10),
+          status: "قيد المراجعة"
+        };
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify([created].concat(list)));
+        } catch (err) {
+          console.error("تعذر حفظ الطلب", err);
+          throw new Error("تعذر حفظ الطلب محليًا");
+        }
+        return created;
+      }
+
+      function openSuccessModal(requestId) {
+        if (successRequestId) successRequestId.textContent = requestId;
+        if (!successModal) return;
+        successModal.hidden = false;
+        successModal.classList.add("is-open");
+      }
 
       function lines() {
         return String(usersEl.value || "").split(/\r?\n/).map(function (s) { return s.trim(); }).filter(Boolean).length;
@@ -461,10 +565,21 @@
       });
       form.addEventListener("submit", function (e) {
         e.preventDefault();
-        success.classList.remove("is-visible");
+        if (submitted) return;
         if (!valid()) return;
-        success.classList.add("is-visible");
-        success.scrollIntoView({ behavior: "smooth", block: "center" });
+        var created;
+        try {
+          created = saveNebrasRequest();
+        } catch (err) {
+          window.alert("تعذر إرسال الطلب. يرجى المحاولة مرة أخرى.");
+          return;
+        }
+        submitted = true;
+        form.querySelector('button[type="submit"]').disabled = true;
+        openSuccessModal(created.id);
+        window.setTimeout(function () {
+          window.location.href = "index.html?view=my-requests";
+        }, 2800);
       });
       if (menuToggle && mobileNav) {
         menuToggle.addEventListener("click", function () {

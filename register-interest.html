@@ -378,7 +378,7 @@
           <div class="row-2">
             <div class="field" data-field="phone">
               <label for="phone">رقم الجوال</label>
-              <input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="20" placeholder="05XXXXXXXX" />
+              <input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="10" inputmode="numeric" placeholder="05xxxxxxxx" />
               <p class="field-error" role="alert">يرجى إدخال رقم جوال صحيح.</p>
             </div>
             <div class="field" data-field="website">
@@ -492,6 +492,7 @@
 
   <div id="platform-footer-root"></div>
 <script src="platform-footer.js"></script>
+<script src="platform-request-submit.js"></script>
 
 
   <script>try { localStorage.setItem("safta.lang", "ar"); } catch (e) {}</script>
@@ -532,8 +533,7 @@
 
       function validPhone(v) {
         if (!v) return true;
-        var digits = v.replace(/[\s\-()]/g, "");
-        return /^(?:\+?966|0)?5\d{8}$/.test(digits) || /^\+?\d{8,15}$/.test(digits);
+        return /^05\d{8}$/.test(String(v).replace(/\D/g, ""));
       }
 
       if (fileInput && fileName) {
@@ -589,13 +589,17 @@
           return;
         }
 
-        success.classList.add("is-on");
-        form.reset();
-        if (fileName) {
-          fileName.textContent = "لم يُختر أي ملف";
-          fileName.classList.remove("is-set");
+        if (window.MEWARequests) {
+          MEWARequests.complete({
+            service: "تسجيل الاهتمام في تحالف سافتا",
+            title: MEWARequests.val("orgName", "fullName") || "تسجيل اهتمام",
+            applicant: MEWARequests.val("fullName"),
+            organization: MEWARequests.val("orgName"),
+            email: MEWARequests.val("email"),
+            phone: MEWARequests.val("phone"),
+            summary: MEWARequests.val("interest")
+          });
         }
-        success.scrollIntoView({ behavior: "smooth", block: "nearest" });
       });
     })();
   </script>

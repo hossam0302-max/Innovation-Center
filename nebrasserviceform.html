@@ -244,12 +244,51 @@
     .btn-comm-primary:hover { background: #053824; color: #fff; }
 
     .form-success {
-      display: none; align-items: flex-start; gap: 12px; padding: 14px 16px; border-radius: 0.5rem;
-      background: #e8f6ef; border: 1px solid #b7dfc8; color: var(--dark-green); margin-bottom: 1rem;
+      display: none;
     }
-    .form-success.is-visible { display: flex; }
-    .form-success strong { display: block; margin-bottom: 0.15rem; }
-    .form-success p { margin: 0; color: var(--text-muted); font-size: 0.9rem; }
+    .success-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      background: rgba(7, 32, 24, 0.48);
+    }
+    .success-modal.is-open { display: flex; }
+    .success-modal-dialog {
+      width: min(28rem, 100%);
+      padding: 1.75rem 1.5rem 1.4rem;
+      border-radius: 1.15rem;
+      background: #fff;
+      box-shadow: 0 24px 48px -18px rgba(7, 77, 49, 0.45);
+      text-align: center;
+    }
+    .success-modal-dialog i {
+      display: inline-flex;
+      font-size: 2.35rem;
+      color: var(--primary-green);
+      margin-bottom: 0.65rem;
+    }
+    .success-modal-dialog h2 {
+      margin: 0 0 0.45rem;
+      color: var(--dark-green);
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+    .success-modal-dialog p {
+      margin: 0 0 1.15rem;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+    .success-modal-dialog strong { color: var(--dark-green); }
+    .success-modal-dialog .btn-comm-primary {
+      width: 100%;
+      justify-content: center;
+      color: #fff !important;
+    }
 
     .info-bar {
       display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
@@ -329,14 +368,6 @@
         <p class="form-intro">الخانات التي يعبّئها المستفيد عند رفع طلب لأي خدمة من خدمات نبراس الاستشارية</p>
         <p class="form-note">ملاحظة: الحقول المشار إليها بـ (*) إلزامية.</p>
 
-        <div id="formSuccess" class="form-success" role="status" aria-live="polite">
-          <i class="bi bi-check-circle-fill" aria-hidden="true" style="font-size:1.35rem"></i>
-          <div>
-            <strong>تم إرسال الطلب بنجاح</strong>
-            <p>تم استلام طلب الخدمة بنجاح، وسيتم التواصل مع مقدم الطلب لتحديد موعد التسليم بعد دراسة الطلب.</p>
-          </div>
-        </div>
-
         <form id="nebrasServiceForm" novalidate>
           <div class="form-section">
             <div class="form-section__head">الجهة الطالبة</div>
@@ -362,7 +393,7 @@
               </div>
               <div class="field" data-f="phone">
                 <label for="phone"><span class="req">*</span> رقم الجوال</label>
-                <input id="phone" name="phone" type="tel" placeholder="05xxxxxxxx" dir="ltr">
+                <input id="phone" name="phone" type="tel" inputmode="numeric" maxlength="10" autocomplete="tel" placeholder="05xxxxxxxx" dir="ltr">
                 <span class="field-error">يرجى إدخال رقم الجوال</span>
               </div>
             </div>
@@ -459,6 +490,17 @@
     </div>
   </main>
 
+  <div id="successModal" class="success-modal" hidden>
+    <div class="success-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="successTitle" aria-describedby="successDesc">
+      <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+      <h2 id="successTitle">تم حفظ الطلب بنجاح</h2>
+      <p id="successDesc">تم حفظ طلب الخدمة وسيتم التواصل مع مقدم الطلب لتحديد موعد التسليم بعد دراسة الطلب.<br>رقم الطلب: <strong id="successRequestId">—</strong></p>
+      <a class="btn-comm btn-comm-primary" id="successGoRequests" href="index.html?view=my-requests">
+        متابعة الطلب في طلباتي
+      </a>
+    </div>
+  </div>
+
   <div id="platform-footer-root"></div>
 <script src="platform-footer.js"></script>
 
@@ -466,12 +508,15 @@
   <script>
     (function () {
       var form = document.getElementById("nebrasServiceForm");
-      var success = document.getElementById("formSuccess");
+      var successModal = document.getElementById("successModal");
+      var successRequestId = document.getElementById("successRequestId");
       var menuToggle = document.getElementById("menuToggle");
       var mobileNav = document.getElementById("mobileNav");
       var fileInput = document.getElementById("attachment");
       var fileName = document.getElementById("fileName");
       var serviceEl = document.getElementById("service");
+      var STORAGE_KEY = "mewa-ri-naama-v2";
+      var submitted = false;
 
       var params = new URLSearchParams(window.location.search);
       var preset = params.get("service");
@@ -499,7 +544,7 @@
         else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) fail("email", "يرجى إدخال بريد إلكتروني صحيح");
         var phone = String(form.phone.value || "").trim();
         if (!phone) fail("phone", "يرجى إدخال رقم الجوال");
-        else if (!/^[\d+\-\s]{8,}$/.test(phone)) fail("phone", "يرجى إدخال رقم جوال صحيح");
+        else if (!/^05\d{8}$/.test(phone)) fail("phone", "رقم الجوال يجب أن يتكون من 10 أرقام ويبدأ بـ 05");
         if (!form.service.value) fail("service", "يرجى اختيار الخدمة المطلوبة");
         if (!String(form.desc.value || "").trim()) fail("desc", "يرجى إدخال وصف الطلب");
         if (!form.pledge.checked) fail("pledge", "يرجى تأكيد التعهد لتحديد موعد التسليم");
@@ -507,21 +552,101 @@
         return ok;
       }
 
-      ["org", "name", "email", "phone", "desc"].forEach(function (id) {
+      ["org", "name", "email", "desc"].forEach(function (id) {
         var el = document.getElementById(id);
         if (el) el.addEventListener("input", function () { setErr(id, ""); });
+      });
+      form.phone.addEventListener("input", function () {
+        var digits = String(form.phone.value || "").replace(/\D/g, "").slice(0, 10);
+        form.phone.value = digits;
+        setErr("phone", "");
+      });
+      form.phone.addEventListener("paste", function (event) {
+        event.preventDefault();
+        var pasted = (event.clipboardData || window.clipboardData).getData("text");
+        form.phone.value = String(pasted || "").replace(/\D/g, "").slice(0, 10);
+        setErr("phone", "");
       });
       serviceEl.addEventListener("change", function () { setErr("service", ""); });
       form.pledge.addEventListener("change", function () { setErr("pledge", ""); });
       fileInput.addEventListener("change", function () {
         fileName.textContent = fileInput.files && fileInput.files[0] ? fileInput.files[0].name : "لم يُختر ملف";
       });
+
+      function loadRequests() {
+        try {
+          var raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) return [];
+          var list = JSON.parse(raw);
+          return Array.isArray(list) ? list : [];
+        } catch (err) {
+          return [];
+        }
+      }
+
+      function nextRequestId(list) {
+        var max = 0;
+        (list || []).forEach(function (item) {
+          var match = String(item && item.id || "").match(/(\d+)$/);
+          var num = match ? Number(match[1]) : 0;
+          if (num > max) max = num;
+        });
+        return "REQ-2026-" + String(max + 1).padStart(3, "0");
+      }
+
+      function saveNebrasServiceRequest() {
+        var list = loadRequests();
+        var serviceOption = serviceEl.options[serviceEl.selectedIndex];
+        var serviceTitle = serviceOption ? serviceOption.text : "خدمات نبراس الاستشارية";
+        var file = fileInput.files && fileInput.files[0];
+        var created = {
+          id: nextRequestId(list),
+          title: serviceTitle,
+          service: "خدمات نبراس الاستشارية",
+          sector: "تمكين الابتكار",
+          summary: String(form.desc.value || "").trim(),
+          applicant: String(form.name.value || "").trim(),
+          organization: String(form.org.value || "").trim(),
+          email: String(form.email.value || "").trim(),
+          phone: String(form.phone.value || "").trim(),
+          attachment: file ? { name: file.name, size: file.size, type: file.type || "file" } : null,
+          submittedAt: new Date().toISOString().slice(0, 10),
+          status: "قيد المراجعة"
+        };
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify([created].concat(list)));
+        } catch (err) {
+          console.error("تعذر حفظ الطلب", err);
+          throw new Error("تعذر حفظ الطلب محليًا");
+        }
+        return created;
+      }
+
+      function openSuccessModal(requestId) {
+        if (successRequestId) successRequestId.textContent = requestId;
+        if (!successModal) return;
+        successModal.hidden = false;
+        successModal.classList.add("is-open");
+      }
+
       form.addEventListener("submit", function (e) {
         e.preventDefault();
-        success.classList.remove("is-visible");
+        if (submitted) return;
         if (!valid()) return;
-        success.classList.add("is-visible");
-        success.scrollIntoView({ behavior: "smooth", block: "center" });
+        var created;
+        try {
+          created = saveNebrasServiceRequest();
+        } catch (err) {
+          window.alert("تعذر حفظ الطلب. يرجى المحاولة مرة أخرى.");
+          return;
+        }
+        submitted = true;
+        var submitBtn = form.querySelector('button[type="submit"]');
+        if (submitBtn) submitBtn.disabled = true;
+        openSuccessModal(created.id);
+        window.setTimeout(function () {
+          window.location.href = "index.html?view=my-requests";
+        }, 2800);
       });
       if (menuToggle && mobileNav) {
         menuToggle.addEventListener("click", function () {

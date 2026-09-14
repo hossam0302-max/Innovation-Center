@@ -441,7 +441,7 @@
               <div class="col-lg-6">
                 <div class="field" data-field="phone">
                   <label for="phone"><span class="req">*</span> رقم التواصل</label>
-                  <input type="tel" id="phone" name="phone" required autocomplete="tel" dir="ltr" placeholder="+9665xxxxxxxx أو 05xxxxxxxx" />
+                  <input type="tel" id="phone" name="phone" required autocomplete="tel" dir="ltr" maxlength="10" inputmode="numeric" placeholder="05xxxxxxxx" />
                   <div class="field-error">هذا الحقل مطلوب</div>
                 </div>
               </div>
@@ -716,6 +716,7 @@
 
   <div id="platform-footer-root"></div>
 <script src="platform-footer.js"></script>
+<script src="platform-request-submit.js"></script>
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -773,9 +774,7 @@
     }
     function isEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v || "").trim()); }
     function isFlexiblePhone(v) {
-      var n = String(v || "").trim();
-      if (!n) return false;
-      return /^\+?\d{8,15}$/.test(n.replace(/[\s\-()]/g, ""));
+      return /^05\d{8}$/.test(String(v || "").replace(/\D/g, ""));
     }
     function requireText(id) {
       var el = document.getElementById(id);
@@ -1206,12 +1205,20 @@
       for (var s = 1; s <= totalSteps; s++) {
         if (!validateStep(s)) { showStep(s); return; }
       }
-      success.classList.add("is-visible");
-      clearDraft();
-      success.scrollIntoView({ behavior: "smooth", block: "center" });
       var btn = document.getElementById("sponSubmit");
-      btn.disabled = true;
-      setTimeout(function () { btn.disabled = false; }, 1500);
+      if (btn) btn.disabled = true;
+      clearDraft();
+      if (window.MEWARequests) {
+        MEWARequests.complete({
+          service: "طلب الرعاية والتوعية",
+          title: MEWARequests.val("solutionName", "fullName") || "طلب رعاية وتوعية",
+          applicant: MEWARequests.val("fullName"),
+          organization: MEWARequests.val("orgName"),
+          email: MEWARequests.val("email"),
+          phone: MEWARequests.val("phone"),
+          summary: MEWARequests.val("solutionDesc", "solutionName")
+        });
+      }
     });
 
     showStep(1, true);

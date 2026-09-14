@@ -245,13 +245,49 @@
     .btn-spt-secondary { background: #fff; color: var(--dark-green); border-color: var(--border-color); }
     .btn-spt-ghost { background: transparent; color: var(--text-muted); border-color: var(--border-color); }
 
-    .form-success {
-      display: none; align-items: flex-start; gap: 0.75rem; margin-bottom: 1.25rem;
-      padding: 1rem 1.1rem; border-radius: 0.65rem; background: var(--mint-soft);
-      border: 1px solid #b8eacb; color: var(--dark-green);
+    .form-success { display: none; }
+    .success-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      background: rgba(7, 32, 24, 0.48);
     }
-    .form-success.is-visible { display: flex; }
-    .form-success p { margin: 0; color: var(--text-muted); }
+    .success-modal.is-open { display: flex; }
+    .success-modal-dialog {
+      width: min(28rem, 100%);
+      padding: 1.75rem 1.5rem 1.4rem;
+      border-radius: 1.15rem;
+      background: #fff;
+      box-shadow: 0 24px 48px -18px rgba(7, 77, 49, 0.45);
+      text-align: center;
+    }
+    .success-modal-dialog i {
+      display: inline-flex;
+      font-size: 2.35rem;
+      color: var(--primary-green);
+      margin-bottom: 0.65rem;
+    }
+    .success-modal-dialog h2 {
+      margin: 0 0 0.45rem;
+      color: var(--dark-green);
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+    .success-modal-dialog p {
+      margin: 0 0 1.15rem;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+    .success-modal-dialog strong { color: var(--dark-green); }
+    .success-modal-dialog .btn-spt-primary {
+      width: 100%;
+      color: #fff !important;
+    }
 
     .site-footer { background: #fff; border-top: 1px solid var(--naama-border); padding: 2.2rem 0 2.4rem; }
     .site-footer .footer-links a { color: var(--naama-primary); font-weight: 600; }
@@ -295,14 +331,6 @@
           <div class="actions">
             <button type="button" class="btn-spt btn-spt-primary" id="sptResumeDraft">استكمال المسودة</button>
             <button type="button" class="btn-spt btn-spt-ghost" id="sptDiscardDraft">بدء طلب جديد</button>
-          </div>
-        </div>
-
-        <div id="sptSuccess" class="form-success" role="status" aria-live="polite">
-          <i class="bi bi-check-circle-fill" style="font-size:1.35rem;flex-shrink:0"></i>
-          <div>
-            <strong>تم إرسال طلب دعم الاختبار التجريبي بنجاح</strong>
-            <p>شكراً لتقديم الطلب. سيتم مراجعة البيانات والتواصل معكم عند الحاجة لاستكمال إجراءات التقييم.</p>
           </div>
         </div>
 
@@ -377,7 +405,7 @@
               <div class="col-lg-6">
                 <div class="field" data-field="phone">
                   <label for="phone"><span class="req">*</span> رقم التواصل</label>
-                  <input type="tel" id="phone" name="phone" required autocomplete="tel" dir="ltr" placeholder="05xxxxxxxx" />
+                  <input type="tel" id="phone" name="phone" required autocomplete="tel" dir="ltr" maxlength="10" inputmode="numeric" placeholder="05xxxxxxxx" />
                   <div class="field-error">يرجى إدخال رقم جوال سعودي صحيح</div>
                 </div>
               </div>
@@ -632,6 +660,17 @@
     </div>
   </main>
 
+  <div id="successModal" class="success-modal" hidden>
+    <div class="success-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="successTitle" aria-describedby="successDesc">
+      <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+      <h2 id="successTitle">تم حفظ الطلب بنجاح</h2>
+      <p id="successDesc">تم حفظ طلب دعم الاختبار التجريبي، وسيتم مراجعة البيانات والتواصل معكم عند الحاجة.<br>رقم الطلب: <strong id="successRequestId">—</strong></p>
+      <a class="btn-spt btn-spt-primary" id="successGoRequests" href="index.html?view=my-requests">
+        متابعة الطلب في طلباتي
+      </a>
+    </div>
+  </div>
+
   <div id="platform-footer-root"></div>
 <script src="platform-footer.js"></script>
 
@@ -640,12 +679,15 @@
   <script>
   (function () {
     var DRAFT_KEY = "supporting-pilot-tests-draft";
+    var STORAGE_KEY = "mewa-ri-naama-v2";
     var form = document.getElementById("sptForm");
-    var success = document.getElementById("sptSuccess");
+    var successModal = document.getElementById("successModal");
+    var successRequestId = document.getElementById("successRequestId");
     var stepper = document.getElementById("sptStepper");
     var draftBanner = document.getElementById("sptDraftBanner");
     var currentStep = 1;
     var totalSteps = 4;
+    var submitted = false;
 
     var menuToggle = document.getElementById("sptMenuToggle");
     var mobileNav = document.getElementById("mobileNav");
@@ -688,8 +730,7 @@
     }
     function isEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
     function isSaudiPhone(v) {
-      var n = String(v || "").replace(/[\s\-()]/g, "");
-      return /^(05\d{8}|5\d{8}|\+9665\d{8}|9665\d{8})$/.test(n);
+      return /^05\d{8}$/.test(String(v || "").replace(/\D/g, ""));
     }
     function isUrl(v) {
       if (!v) return true;
@@ -935,7 +976,6 @@
       document.getElementById("projectFilesList").innerHTML = "";
       document.getElementById("extraFilesList").innerHTML = "";
       Array.prototype.forEach.call(form.querySelectorAll(".field.is-invalid"), function (f) { f.classList.remove("is-invalid"); });
-      success.classList.remove("is-visible");
       draftBanner.classList.remove("is-visible");
       syncConditionals();
       showStep(1);
@@ -953,17 +993,85 @@
       draftBanner.classList.remove("is-visible");
     });
 
+    function loadRequests() {
+      try {
+        var raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return [];
+        var list = JSON.parse(raw);
+        return Array.isArray(list) ? list : [];
+      } catch (err) {
+        return [];
+      }
+    }
+
+    function nextRequestId(list) {
+      var max = 0;
+      (list || []).forEach(function (item) {
+        var match = String(item && item.id || "").match(/(\d+)$/);
+        var num = match ? Number(match[1]) : 0;
+        if (num > max) max = num;
+      });
+      return "REQ-2026-" + String(max + 1).padStart(3, "0");
+    }
+
+    function fieldVal(id) {
+      var el = document.getElementById(id);
+      return el ? String(el.value || "").trim() : "";
+    }
+
+    function savePilotRequest() {
+      var list = loadRequests();
+      var solutionName = fieldVal("solutionName") || "طلب دعم اختبار تجريبي";
+      var created = {
+        id: nextRequestId(list),
+        title: solutionName,
+        service: "دعم الاختبارات التجريبية للحلول الابتكارية",
+        sector: "تمكين الابتكار",
+        summary: fieldVal("solutionDesc"),
+        applicant: fieldVal("fullName"),
+        organization: fieldVal("orgName"),
+        email: fieldVal("email"),
+        phone: fieldVal("phone"),
+        submittedAt: new Date().toISOString().slice(0, 10),
+        status: "قيد المراجعة"
+      };
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify([created].concat(list)));
+      } catch (err) {
+        console.error("تعذر حفظ الطلب", err);
+        throw new Error("تعذر حفظ الطلب محليًا");
+      }
+      return created;
+    }
+
+    function openSuccessModal(requestId) {
+      if (successRequestId) successRequestId.textContent = requestId;
+      if (!successModal) return;
+      successModal.hidden = false;
+      successModal.classList.add("is-open");
+    }
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      if (submitted) return;
       for (var s = 1; s <= totalSteps; s++) {
         if (!validateStep(s)) { showStep(s); return; }
       }
-      success.classList.add("is-visible");
+      var created;
+      try {
+        created = savePilotRequest();
+      } catch (err) {
+        window.alert("تعذر حفظ الطلب. يرجى المحاولة مرة أخرى.");
+        return;
+      }
+      submitted = true;
       clearDraft();
-      success.scrollIntoView({ behavior: "smooth", block: "center" });
       var btn = document.getElementById("sptSubmit");
-      btn.disabled = true;
-      setTimeout(function () { btn.disabled = false; }, 1500);
+      if (btn) btn.disabled = true;
+      openSuccessModal(created.id);
+      window.setTimeout(function () {
+        window.location.href = "index.html?view=my-requests";
+      }, 2800);
     });
 
     syncConditionals();

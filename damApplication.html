@@ -112,7 +112,7 @@
               </div>
               <div class="dama-field" data-required="true">
                 <label for="contactPhone">رقم الهاتف <span class="dama-req">*</span></label>
-                <input type="tel" id="contactPhone" name="contactPhone" maxlength="255" dir="ltr" style="text-align:left" autocomplete="tel" />
+                <input type="tel" id="contactPhone" name="contactPhone" maxlength="10" inputmode="numeric" dir="ltr" style="text-align:left" autocomplete="tel" placeholder="05xxxxxxxx" />
                 <span class="dama-error">هذا الحقل مطلوب</span>
               </div>
             </div>
@@ -398,6 +398,7 @@
 
   <div id="platform-footer-root"></div>
 <script src="platform-footer.js"></script>
+<script src="platform-request-submit.js"></script>
 
 
   <script>
@@ -473,8 +474,17 @@
         e.preventDefault();
         success.classList.remove("is-visible");
         if (!validate()) return;
-        success.classList.add("is-visible");
-        success.scrollIntoView({ behavior: "smooth", block: "center" });
+        if (window.MEWARequests) {
+          MEWARequests.complete({
+            service: "تحدي ابتكار رسوبيات السدود",
+            title: MEWARequests.val("orgNameAr", "contactName") || "طلب تحدي رسوبيات السدود",
+            applicant: MEWARequests.val("contactName"),
+            organization: MEWARequests.val("orgNameAr"),
+            email: MEWARequests.val("contactEmail"),
+            phone: MEWARequests.val("contactPhone"),
+            summary: MEWARequests.val("solutionOverview", "problemDesc")
+          });
+        }
       });
     })();
   </script>

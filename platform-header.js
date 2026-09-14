@@ -187,4 +187,68 @@
       });
     }
   }
+
+  function isSaudiMobileField(input) {
+    if (!input || input.tagName !== "INPUT" || input.disabled || input.readOnly) return false;
+    var type = String(input.getAttribute("type") || "").toLowerCase();
+    var id = String(input.id || "").toLowerCase();
+    var name = String(input.name || "").toLowerCase();
+    var autocomplete = String(input.getAttribute("autocomplete") || "").toLowerCase();
+    var haystack = id + " " + name + " " + autocomplete;
+    if (type === "tel") return true;
+    if (/(phone|mobile|جوال|هاتف)/i.test(haystack)) return true;
+    if (input.id) {
+      var lab = document.querySelector('label[for="' + input.id.replace(/"/g, "") + '"]');
+      if (lab && /جوال|هاتف|mobile|phone/i.test(lab.textContent || "")) return true;
+    }
+    return false;
+  }
+
+  function constrainSaudiMobile(input) {
+    if (!input || input.dataset.saudiMobileBound === "1") return;
+    input.dataset.saudiMobileBound = "1";
+    input.setAttribute("maxlength", "10");
+    input.setAttribute("inputmode", "numeric");
+    function sanitize() {
+      var digits = String(input.value || "").replace(/\D/g, "").slice(0, 10);
+      if (input.value !== digits) input.value = digits;
+    }
+    input.addEventListener("input", sanitize);
+    input.addEventListener("paste", function (event) {
+      event.preventDefault();
+      var pasted = (event.clipboardData || window.clipboardData).getData("text");
+      input.value = String(pasted || "").replace(/\D/g, "").slice(0, 10);
+      input.dispatchEvent(new Event("input", { bubbles: true }));
+    });
+    sanitize();
+  }
+
+  function scanSaudiMobileFields(root) {
+    if (!root) return;
+    if (root.nodeType === 1 && isSaudiMobileField(root)) constrainSaudiMobile(root);
+    if (!root.querySelectorAll) return;
+    Array.prototype.forEach.call(root.querySelectorAll("input"), function (el) {
+      if (isSaudiMobileField(el)) constrainSaudiMobile(el);
+    });
+  }
+
+  function startSaudiMobileGuard() {
+    if (window.__mewaSaudiPhoneGuard) return;
+    window.__mewaSaudiPhoneGuard = true;
+    scanSaudiMobileFields(document);
+    var observer = new MutationObserver(function (mutations) {
+      mutations.forEach(function (mutation) {
+        Array.prototype.forEach.call(mutation.addedNodes, function (node) {
+          if (node.nodeType === 1) scanSaudiMobileFields(node);
+        });
+      });
+    });
+    observer.observe(document.documentElement, { childList: true, subtree: true });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", startSaudiMobileGuard);
+  } else {
+    startSaudiMobileGuard();
+  }
 })();

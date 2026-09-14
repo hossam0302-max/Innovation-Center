@@ -84,6 +84,20 @@ form button:focus-visible{outline:2px solid var(--brand-900);outline-offset:2px}
 .done .ref{font-size:22px;font-weight:700;letter-spacing:.06em;color:var(--sector);margin:14px 0}
 .done ul{text-align:start;max-width:500px;margin:16px auto;padding-inline-start:20px;color:var(--muted);font-size:14px}
 .form-footnote{color:var(--muted);font-size:12.5px;text-align:center;margin-top:20px}
+.success-modal{
+  position:fixed;inset:0;z-index:2000;display:none;align-items:center;justify-content:center;
+  padding:1.25rem;background:rgba(7,32,24,.48)
+}
+.success-modal.is-open{display:flex}
+.success-modal-dialog{
+  width:min(28rem,100%);padding:1.75rem 1.5rem 1.4rem;border-radius:1.15rem;background:#fff;
+  box-shadow:0 24px 48px -18px rgba(7,77,49,.45);text-align:center
+}
+.success-modal-dialog i{display:inline-flex;font-size:2.35rem;color:#1b8354;margin-bottom:.65rem}
+.success-modal-dialog h2{margin:0 0 .45rem;color:var(--brand-900);font-size:1.2rem;font-weight:800}
+.success-modal-dialog p{margin:0 0 1.15rem;color:var(--muted);font-size:.92rem;line-height:1.7}
+.success-modal-dialog strong{color:var(--brand-900)}
+.success-modal-dialog .primary{display:inline-flex;width:100%;justify-content:center;text-decoration:none;color:#fff}
 .exp3-page-actions{display:inline-flex;flex-wrap:wrap;align-items:center;gap:.5rem}
 .platform-top{font-family:"IBM Plex Sans Arabic","Segoe UI",Tahoma,sans-serif;line-height:1.75}
 .platform-top a{color:inherit;text-decoration:none}
@@ -185,6 +199,15 @@ form button:focus-visible{outline:2px solid var(--brand-900);outline-offset:2px}
   <p class="form-footnote">لأي استفسار: <a href="mailto:MRS@mewa.gov.sa" style="color:var(--brand-700)">MRS@mewa.gov.sa</a> — الرقم الموحد 939</p>
 </main>
 
+  <div id="successModal" class="success-modal" hidden>
+    <div class="success-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="successTitle" aria-describedby="successDesc">
+      <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+      <h2 id="successTitle">تم حفظ الطلب بنجاح</h2>
+      <p id="successDesc">تم حفظ طلب استشارة الدعم التنظيمي، وسيتم مراجعته وفق الإجراءات المعتمدة.<br>رقم الطلب: <strong id="successRequestId">—</strong></p>
+      <a class="primary" id="successGoRequests" href="index.html?view=my-requests">متابعة الطلب في طلباتي</a>
+    </div>
+  </div>
+
   <div id="platform-footer-root"></div>
 <script src="platform-footer.js"></script>
 
@@ -230,7 +253,7 @@ const STEPS = [
         help:'يُدخل المبتكر الفرد رقم الهوية الوطنية أو الإقامة.'},
       {id:'repName', label:'اسم ممثل التواصل وصفته الوظيفية', type:'text', required:true},
       {id:'repEmail', label:'البريد الإلكتروني', type:'email', required:true},
-      {id:'repMobile', label:'رقم الجوال', type:'tel', required:true}
+      {id:'repMobile', label:'رقم الجوال', type:'tel', required:true, help:'أدخل رقم جوال سعودي مكونًا من 10 أرقام ويبدأ بـ 05.'}
     ]
   },
   {
@@ -304,6 +327,8 @@ function fieldHTML(f){
       return `<label class="opt ${on?'sel':''}"><input type="${f.type}" name="${f.id}" value="${o.v}" ${on?'checked':''}>
         <span><span class="t">${o.v}</span>${o.d?`<span class="d">${o.d}</span>`:''}</span></label>`;
     }).join('')}</div>`;
+  } else if(f.type==='tel'){
+    inner = `<input type="tel" id="${f.id}" value="${data[f.id]||''}" inputmode="numeric" maxlength="10" autocomplete="tel" dir="ltr" placeholder="05xxxxxxxx">`;
   } else {
     inner = `<input type="${f.type}" id="${f.id}" value="${data[f.id]||''}">`;
   }
@@ -354,9 +379,14 @@ function bind(){
         data[t.name] = t.value;
         if(t.name==='sector') return render();
       } else {
-        data[t.id] = t.value;
+        var nextVal = t.value;
+        if(t.id==='repMobile'){
+          nextVal = String(nextVal || '').replace(/\D/g, '').slice(0, 10);
+          t.value = nextVal;
+        }
+        data[t.id] = nextVal;
         const c = document.getElementById('c_'+t.id);
-        if(c) c.textContent = t.value.length;
+        if(c) c.textContent = nextVal.length;
       }
       form.querySelectorAll('.opt').forEach(l=>l.classList.toggle('sel', l.querySelector('input').checked));
       t.closest('.field') && t.closest('.field').classList.remove('bad');
@@ -392,29 +422,76 @@ function validate(){
     }
     if(!v || !String(v).trim()){ setErr(f.id); ok=false; return; }
     if(f.type==='email' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){ setErr(f.id,'صيغة البريد الإلكتروني غير صحيحة.'); ok=false; }
-    if(f.type==='tel' && !/^(\+?\d[\d\s-]{7,})$/.test(v)){ setErr(f.id,'صيغة رقم الجوال غير صحيحة.'); ok=false; }
+    if(f.type==='tel' && !/^05\d{8}$/.test(String(v).trim())){ setErr(f.id,'رقم الجوال يجب أن يتكون من 10 أرقام ويبدأ بـ 05'); ok=false; }
   });
   const bad = form.querySelector('.field.bad');
   if(bad) bad.scrollIntoView({block:'center', behavior:'smooth'});
   return ok;
 }
 
+function loadRequests(){
+  try {
+    const raw = localStorage.getItem('mewa-ri-naama-v2');
+    if(!raw) return [];
+    const list = JSON.parse(raw);
+    return Array.isArray(list) ? list : [];
+  } catch (err) {
+    return [];
+  }
+}
+
+function nextRequestId(list){
+  let max = 0;
+  (list || []).forEach(function (item) {
+    const match = String(item && item.id || '').match(/(\d+)$/);
+    const num = match ? Number(match[1]) : 0;
+    if(num > max) max = num;
+  });
+  return 'REQ-2026-' + String(max + 1).padStart(3, '0');
+}
+
+function saveConsultRequest(){
+  const list = loadRequests();
+  const created = {
+    id: nextRequestId(list),
+    title: data.solutionName || 'طلب استشارة الدعم التنظيمي',
+    service: 'طلب استشارة الدعم التنظيمي للحلول الابتكارية',
+    sector: data.sector || 'تمكين الابتكار',
+    summary: data.challenge || data.solutionDesc || '',
+    applicant: data.repName || '',
+    organization: data.entityName || '',
+    email: data.repEmail || '',
+    phone: data.repMobile || '',
+    submittedAt: new Date().toISOString().slice(0, 10),
+    status: 'قيد المراجعة'
+  };
+  localStorage.setItem('mewa-ri-naama-v2', JSON.stringify([created].concat(list)));
+  return created;
+}
+
+function openSuccessModal(requestId){
+  const modal = document.getElementById('successModal');
+  const idEl = document.getElementById('successRequestId');
+  if(idEl) idEl.textContent = requestId;
+  if(!modal) return;
+  modal.hidden = false;
+  modal.classList.add('is-open');
+}
+
 function submit(){
-  const ref = 'RS-' + new Date().getFullYear() + '-' + Math.floor(100000+Math.random()*899999);
-  document.getElementById('stepper').innerHTML = '';
-  form.innerHTML = `<div class="done">
-    <h2 style="margin:0">تم استلام طلبك</h2>
-    <p style="color:var(--muted);margin:6px 0 0">احتفظ بالرقم المرجعي لمتابعة الطلب.</p>
-    <div class="ref">${ref}</div>
-    <p style="max-width:540px;margin:0 auto;color:var(--muted);font-size:14px">أُرسلت نسخة من الطلب إلى ${data.repEmail||'بريدك الإلكتروني'}.</p>
-    <ul>
-      <li>إشعار باكتمال المتطلبات خلال ٥ أيام عمل.</li>
-      <li>قد يُطلب منك اجتماع تعريفي أو مستندات إضافية عند الحاجة.</li>
-      <li>الرد الاستشاري خلال ٣٠ يوم عمل.</li>
-    </ul>
-    <button type="button" class="ghost" onclick="window.print()">طباعة نسخة من الطلب</button>
-  </div>`;
-  window.scrollTo({top:0, behavior:'smooth'});
+  let created;
+  try {
+    created = saveConsultRequest();
+  } catch (err) {
+    window.alert('تعذر حفظ الطلب. يرجى المحاولة مرة أخرى.');
+    return;
+  }
+  const nextBtn = document.getElementById('next');
+  if(nextBtn) nextBtn.disabled = true;
+  openSuccessModal(created.id);
+  window.setTimeout(function () {
+    window.location.href = 'index.html?view=my-requests';
+  }, 2800);
 }
 
 render();

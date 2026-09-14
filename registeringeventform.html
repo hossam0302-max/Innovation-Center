@@ -409,7 +409,7 @@
               </div>
               <div class="tf-field" data-required="true">
                 <label for="orgPhone">رقم التواصل <span class="tf-req">*</span></label>
-                <input type="tel" id="orgPhone" name="orgPhone" maxlength="20" placeholder="05xxxxxxxx" autocomplete="tel" inputmode="tel">
+                <input type="tel" id="orgPhone" name="orgPhone" maxlength="10" placeholder="05xxxxxxxx" autocomplete="tel" inputmode="numeric">
                 <div class="tf-err">يرجى إدخال رقم تواصل صحيح</div>
               </div>
               <div class="tf-field" data-required="true">
@@ -485,6 +485,7 @@
 
   <div id="platform-footer-root"></div>
 <script src="platform-footer.js"></script>
+<script src="platform-request-submit.js"></script>
 
 
   <div class="modal fade tf-modal" id="tfSuccessModal" tabindex="-1" aria-labelledby="tfSuccessTitle" aria-hidden="true">
@@ -511,7 +512,7 @@
       var MAX_BYTES = 5 * 1024 * 1024;
       var DRAFT_KEY = "registeringeventform-draft";
       var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-      var PHONE_RE = /^(\+?\d[\d\s-]{7,})$/;
+      var PHONE_RE = /^05\d{8}$/;
       var TEXT_IDS = ["eventName", "profession", "interest", "supportNeeds", "orgName", "orgRep", "orgPhone", "orgEmail", "programTitle", "programGoal", "targetAudience", "expectedAttendees", "eventDate", "duration", "venue", "equipment"];
 
       var form = document.getElementById("eventForm");
@@ -659,7 +660,7 @@
           setFieldError(phoneField, "هذا الحقل مطلوب");
           fail(phoneField);
         } else if (!PHONE_RE.test(phone)) {
-          setFieldError(phoneField, "يرجى إدخال رقم تواصل صحيح");
+          setFieldError(phoneField, "رقم الجوال يجب أن يتكون من 10 أرقام ويبدأ بـ 05");
           fail(phoneField);
         }
 
@@ -752,8 +753,17 @@
         e.preventDefault();
         if (!validateForm()) return;
         try { localStorage.removeItem(DRAFT_KEY); } catch (err) {}
-        if (successModal) successModal.show();
-        else window.alert("تم استلام الطلب بنجاح");
+        if (window.MEWARequests) {
+          MEWARequests.complete({
+            service: "التسجيل في الفعاليات وطلب تنفيذ البرامج التوعوية",
+            title: MEWARequests.val("eventName", "programTitle") || "طلب تسجيل فعالية",
+            applicant: MEWARequests.val("orgRep"),
+            organization: MEWARequests.val("orgName"),
+            email: MEWARequests.val("orgEmail"),
+            phone: MEWARequests.val("orgPhone"),
+            summary: MEWARequests.val("programTitle", "eventName")
+          });
+        }
       });
 
       document.getElementById("tfDraftBtn").addEventListener("click", function () {

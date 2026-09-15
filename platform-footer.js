@@ -29,11 +29,13 @@
   var links = isSpa
     ? '<button type="button" onclick="navigate(\'home\')">الرئيسية</button>' +
       '<button type="button" onclick="navigate(\'our-services\')">خدماتنا</button>' +
+      '<button type="button" onclick="navigate(\'innovation-programs\')">برامج الابتكار</button>' +
       '<button type="button" onclick="navigate(\'publications\')">منشورات وتقارير</button>' +
       '<button type="button" onclick="navigate(\'my-requests\')">طلباتي</button>' +
       '<a href="https://naama.sa/" target="_blank" rel="noreferrer">منصة نما</a>'
     : '<a href="' + href() + '">الرئيسية</a>' +
       '<a href="' + href("our-services") + '">خدماتنا</a>' +
+      '<a href="' + href("innovation-programs") + '">برامج الابتكار</a>' +
       '<a href="' + href("publications") + '">منشورات وتقارير</a>' +
       '<a href="' + href("my-requests") + '">طلباتي</a>' +
       '<a href="https://naama.sa/" target="_blank" rel="noreferrer">منصة نما</a>';
@@ -45,7 +47,7 @@
           '<div class="col-md-5">' +
             '<div class="d-flex align-items-center gap-2 mb-2">' +
               '<span class="brand-mark" aria-hidden="true"></span>' +
-              '<strong class="footer-brand">منصة مركز الابتكار للاستدامة</strong>' +
+              '<strong class="footer-brand">منصة الابتكار للاستدامة</strong>' +
             "</div>" +
             '<p class="text-muted footer-desc mb-0">المحور المركزي لأنشطة البحث والابتكار في قطاعات البيئة والمياه والزراعة، ضمن منظومة منصة نما وأهداف رؤية 2030.</p>' +
           "</div>" +

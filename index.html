@@ -3249,7 +3249,7 @@
       background: var(--ps-amber-soft);
       color: var(--ps-green-deep);
     }
-    /* الخدمات الفرعية لمنصة مركز الابتكار للاستدامة */
+    /* الخدمات الفرعية لمنصة الابتكار للاستدامة */
     .portal-svc .ps-pillar-block {
       margin-bottom: 22px;
       background: var(--ps-white);
@@ -4949,7 +4949,7 @@
     }
 
     function applyBeneficiaryFilterToOurServices() {
-      if (route.name === "our-services") {
+      if (route.name === "our-services" || route.name === "innovation-programs") {
         render();
         return;
       }
@@ -5718,7 +5718,8 @@
     }
 
     function navigateBackToOurServices() {
-      navigate("our-services", { restoreOurServicesView: true });
+      const catalog = getPortalCatalogHome();
+      navigate(catalog.name, { restoreOurServicesView: true });
     }
 
     function navigateBackFromPortalPage(code) {
@@ -5797,7 +5798,7 @@
 
     /* ============ Routing ============ */
     const ROUTE_NAMES = new Set([
-      "home", "our-services", "our-service", "our-service-node", "our-service-request",
+      "home", "our-services", "innovation-programs", "our-service", "our-service-node", "our-service-request",
       "our-service-pdf", "our-service-ip-form", "our-service-ip-consulting-form", "our-service-water-strip", "our-service-driving", "our-service-experimental",
       "services", "login", "submit", "my-requests", "news", "news-detail",
       "publications", "publication-detail", "agency-report", "staff", "queue", "criteria", "review"
@@ -5858,9 +5859,10 @@
     }
 
     function navigate(name, params = {}) {
-      if (route.name === "our-services" && name !== "our-services") {
+      if ((route.name === "our-services" || route.name === "innovation-programs") && name !== route.name) {
         savedOurServicesViewState = {
-          scrollY: window.scrollY || window.pageYOffset || 0
+          scrollY: window.scrollY || window.pageYOffset || 0,
+          catalog: route.name
         };
       }
       if (route.name === "our-service" && name !== "our-service") {
@@ -5869,8 +5871,8 @@
           id: route.params.id
         };
       }
-      const restoreOurServices = name === "our-services" && params.restoreOurServicesView && savedOurServicesViewState;
-      if (name === "our-services" && !params.restoreOurServicesView) {
+      const restoreOurServices = (name === "our-services" || name === "innovation-programs") && params.restoreOurServicesView && savedOurServicesViewState;
+      if ((name === "our-services" || name === "innovation-programs") && !params.restoreOurServicesView) {
         savedOurServicesViewState = null;
       }
       const restorePortalService = name === "our-service" && params.restorePortalServiceView && savedPortalServiceViewState
@@ -5934,7 +5936,8 @@
           ]
         : [
             { label: "الرئيسية", name: "home", icon: "bi-house" },
-            { label: "خدماتنا", name: "our-services", icon: "bi-briefcase", matches: ["our-services", "our-service", "our-service-node", "our-service-request", "our-service-pdf", "our-service-ip-form", "our-service-ip-consulting-form", "our-service-water-strip", "our-service-driving", "our-service-experimental"] },
+            { label: "خدماتنا", name: "our-services", icon: "bi-briefcase", isActive: isOurServicesNavActive },
+            { label: "برامج الابتكار", name: "innovation-programs", icon: "bi-lightbulb", isActive: isInnovationProgramsNavActive },
             { label: "الأخبار", name: "news", icon: "bi-megaphone", matches: ["news", "news-detail"] },
             { label: "منشورات وتقارير", name: "publications", icon: "bi-journal-richtext", matches: ["publications", "publication-detail", "agency-report"] },
             { label: "طلباتي", name: "my-requests", icon: "bi-file-earmark-text" }
@@ -5942,7 +5945,9 @@
 
       const html = menus.map((item) => {
         const matches = item.matches || [item.name];
-        const activeByRoute = matches.includes(route.name) && !item.focus && !route.params.focus;
+        const activeByRoute = typeof item.isActive === "function"
+          ? item.isActive()
+          : (matches.includes(route.name) && !item.focus && !route.params.focus);
         const activeByFocus = item.focus
           && route.name === item.name
           && route.params.focus === item.focus;
@@ -6208,9 +6213,9 @@
           </div>
         </section>
 
-        <section class="page-hero page-hero--plain fade-up" aria-label="نبذة عن منصة مركز الابتكار للاستدامة">
+        <section class="page-hero page-hero--plain fade-up" aria-label="نبذة عن منصة الابتكار للاستدامة">
           <div class="container">
-            <h1 class="page-intro-title">منصة مركز الابتكار للاستدامة</h1>
+            <h1 class="page-intro-title">منصة الابتكار للاستدامة</h1>
             <p class="page-intro-desc">منصة متخصصة تعمل كنقطة وصول موحدة لخدمات البحث والابتكار، وتوفر حزمة متكاملة من الممكنات والخدمات التي تدعم تطوير الحلول الابتكارية واختبارها وتبنيها وتسريع أثرها في قطاعات البيئة والمياه والزراعة.</p>
           </div>
         </section>
@@ -6695,12 +6700,12 @@
                 <nav class="breadcrumb-nav" aria-label="فتات الخبز">
                   <a onclick="navigate('home')"><i class="bi bi-house-door"></i> الرئيسية</a>
                   <span class="sep">/</span>
-                  <a onclick="navigate('our-services')">خدماتنا</a>
+                  <a onclick="navigate('innovation-programs')">برامج الابتكار</a>
                   <span class="sep">/</span>
                   <span class="current">المنشورات والتقارير</span>
                 </nav>
-                <button type="button" class="agency-back-services-btn" onclick="navigateBackToOurServices()">
-                  <i class="bi bi-arrow-right" aria-hidden="true"></i> رجوع إلى الخدمات الرئيسية
+                <button type="button" class="agency-back-services-btn" onclick="navigate('innovation-programs')">
+                  <i class="bi bi-arrow-right" aria-hidden="true"></i> رجوع إلى برامج الابتكار
                 </button>
               </div>
               <h1 class="page-title-agency">المنشورات والتقارير</h1>
@@ -6747,7 +6752,7 @@
                 <nav class="breadcrumb-nav" aria-label="فتات الخبز">
                   <a onclick="navigate('home')"><i class="bi bi-house-door"></i> الرئيسية</a>
                   <span class="sep">/</span>
-                  <a onclick="navigate('our-services')">خدماتنا</a>
+                  <a onclick="navigate('innovation-programs')">برامج الابتكار</a>
                   <span class="sep">/</span>
                   <a onclick="navigate('publications')">المنشورات والتقارير</a>
                   <span class="sep">/</span>
@@ -7337,7 +7342,7 @@
     }
 
 
-    /* ============ منصة مركز الابتكار للاستدامة (منقولة من Elwan1.html — قسم الخدمات) ============ */
+    /* ============ منصة الابتكار للاستدامة (منقولة من Elwan1.html — قسم الخدمات) ============ */
     const PORTAL_SERVICES = [
       {
         id: 1,
@@ -7416,7 +7421,7 @@
       },
       {
         id: 3,
-        title: "التجارب والاختبارات التجريبية ونشر الابتكار",
+        title: "برنامج نشر الابتكار",
         desc: "دعم اختبار الحلول الابتكارية ميدانيًا وتسريع نشرها عبر مسارات دعم متعددة.",
         note: "تضم ٦ خدمات فرعية: استشاري وشراكات، مالي وتوسع، بيانات ومحاكاة، تمكين تنظيمي، تسويق ونشر",
         beneficiaries: [
@@ -7442,7 +7447,7 @@
       },
       {
         id: 4,
-        title: "التمكين التنظيمي والبيئة التنظيمية التجريبية",
+        title: "برنامج البيئة التنظيمية التجريبية",
         desc: "تسهيل التجارب التنظيمية والتصاريح المشروطة والاستشارات التنظيمية لتمكين تطبيق الحلول الابتكارية.",
         note: "تضم: التمكين التنظيمي، الاستشارات التنظيمية، التصاريح المشروطة",
         beneficiaries: [
@@ -7560,7 +7565,7 @@
       },
       {
         id: 7,
-        title: "بناء المنظومة والشراكات والتحالفات",
+        title: "برامج الشراكات والتحالفات",
         desc: "برامج تحالفات وشراكات قطاعية، منها برنامج التحالف السعودي لتقنيات الزراعة والغذاء وبرنامج الشريط المائي والشراكات الأكاديمية.",
         note: "تضم: تحالف الزراعة والغذاء، برنامج الشريط المائي، الشراكات الأكاديمية",
         beneficiaries: [
@@ -7592,7 +7597,7 @@
       },
       {
         id: 8,
-        title: "الفعاليات وبناء القدرات والمسؤولية المجتمعية",
+        title: "برنامج بناء القدرات الابتكارية والفعاليات",
         desc: "فعاليات ومؤتمرات وتحديات لبناء القدرات الابتكارية، مثل تحدي الابتكار الجامعي والمؤتمر السنوي للابتكار.",
         note: "تضم: بناء القدرات، تحديات البحث والابتكار، الفعاليات، الابتكار المؤسسي",
         beneficiaries: [
@@ -7738,6 +7743,73 @@
 
     const getPortalChildren = (node) => node?.children || node?.subServices || [];
 
+    const PORTAL_PROGRAM_IDS = [3, 4, 7, 8, 9];
+
+    function isPortalProgramService(service) {
+      return Boolean(service && PORTAL_PROGRAM_IDS.includes(Number(service.id)));
+    }
+
+    function getPortalCatalogServices(group) {
+      return PORTAL_SERVICES.filter((service) => {
+        const isProgram = PORTAL_PROGRAM_IDS.includes(Number(service.id));
+        return group === "programs" ? isProgram : !isProgram;
+      });
+    }
+
+    function getPortalRootFromRoute() {
+      if (route.name === "our-service" && route.params.id != null) {
+        return findPortalService(route.params.id);
+      }
+      if (route.params && route.params.code) {
+        const path = findPortalNodePath(route.params.code) || [];
+        const root = path[0];
+        if (root && root.id) return findPortalService(root.id);
+        return root || null;
+      }
+      if (route.name === "our-service-driving") return findPortalService(3);
+      if (route.name === "our-service-experimental") return findPortalService(4);
+      if (route.name === "our-service-water-strip") return findPortalService(7);
+      return null;
+    }
+
+    function isInnovationProgramsNavActive() {
+      if (route.name === "innovation-programs") return true;
+      return isPortalProgramService(getPortalRootFromRoute());
+    }
+
+    function isOurServicesNavActive() {
+      const serviceRoutes = [
+        "our-services",
+        "our-service",
+        "our-service-node",
+        "our-service-request",
+        "our-service-pdf",
+        "our-service-ip-form",
+        "our-service-ip-consulting-form",
+        "our-service-water-strip",
+        "our-service-driving",
+        "our-service-experimental"
+      ];
+      if (route.name === "our-services") return true;
+      if (!serviceRoutes.includes(route.name)) return false;
+      return !isInnovationProgramsNavActive();
+    }
+
+    function getPortalCatalogHome() {
+      if (route.name === "innovation-programs" || isPortalProgramService(getPortalRootFromRoute())) {
+        return {
+          name: "innovation-programs",
+          crumbLabel: "برامج الابتكار",
+          backLabel: "رجوع إلى برامج الابتكار"
+        };
+      }
+      return {
+        name: "our-services",
+        crumbLabel: "الخدمات",
+        backLabel: "رجوع إلى الخدمات الرئيسية"
+      };
+    }
+
     const PORTAL_FORM_ROUTES = {
       "ip-registration": "our-service-ip-form",
       "ip-consulting": "our-service-ip-consulting-form"
@@ -7820,7 +7892,7 @@
         ? (parent.id && !parent.code
           ? `navigate('our-service', { id: ${parent.id}, restorePortalServiceView: true })`
           : `openPortalServiceNode('${escapeHtml(parent.code)}')`)
-        : `navigate('our-services')`;
+        : `navigate('${getPortalCatalogHome().name}')`;
     }
 
     function renderPortalFormPageTop(code) {
@@ -7890,8 +7962,9 @@
     }
 
     function renderPortalBreadcrumb(path) {
+      const catalog = getPortalCatalogHome();
       const crumbs = [
-        `<button type="button" class="portal-crumb-link" onclick="navigate('our-services')">الخدمات</button>`
+        `<button type="button" class="portal-crumb-link" onclick="navigate('${catalog.name}')">${escapeHtml(catalog.crumbLabel)}</button>`
       ];
       (path || []).forEach((node, index) => {
         const isLast = index === path.length - 1;
@@ -7908,7 +7981,10 @@
       return crumbs.join(" ← ");
     }
 
-    function renderPortalPageHeroTop(breadcrumbHtml, backOnclick = "navigateBackToOurServices()", backLabel = "رجوع إلى الخدمات الرئيسية", parentBack = null) {
+    function renderPortalPageHeroTop(breadcrumbHtml, backOnclick, backLabel, parentBack = null) {
+      const catalog = getPortalCatalogHome();
+      const resolvedBackOnclick = backOnclick || "navigateBackToOurServices()";
+      const resolvedBackLabel = backLabel || catalog.backLabel;
       const parentBtn = parentBack && parentBack.onclick
         ? `<button type="button" class="ps-btn ps-btn-sm ps-btn-ghost ps-back-services-btn" onclick="${parentBack.onclick}">
             <i class="bi bi-arrow-right" aria-hidden="true"></i> ${escapeHtml(parentBack.label || "رجوع")}
@@ -7919,8 +7995,8 @@
           <div class="breadcrumb">${breadcrumbHtml}</div>
           <div class="ps-page-actions">
             ${parentBtn}
-            <button type="button" class="ps-btn ps-btn-sm ps-btn-ghost ps-back-services-btn" onclick="${backOnclick}">
-              <i class="bi bi-arrow-right" aria-hidden="true"></i> ${escapeHtml(backLabel)}
+            <button type="button" class="ps-btn ps-btn-sm ps-btn-ghost ps-back-services-btn" onclick="${resolvedBackOnclick}">
+              <i class="bi bi-arrow-right" aria-hidden="true"></i> ${escapeHtml(resolvedBackLabel)}
             </button>
           </div>
         </div>
@@ -8129,16 +8205,24 @@
     }
 
     function viewOurServices() {
-      /* محتوى «خدماتنا» من Elwan1.html — قسم الخدمات في شريط التنقّل */
+      return renderPortalCatalogPage("services");
+    }
+
+    function viewInnovationPrograms() {
+      return renderPortalCatalogPage("programs");
+    }
+
+    function renderPortalCatalogPage(group) {
+      const isPrograms = group === "programs";
       const beneficiaryValue = getActiveBeneficiaryFilter();
-      const visibleServices = PORTAL_SERVICES.filter(matchesBeneficiaryFilter);
+      const visibleServices = getPortalCatalogServices(group).filter(matchesBeneficiaryFilter);
       const cardsHtml = visibleServices.length === 0
         ? `<div class="ps-empty-filter" role="status">
              <i class="bi bi-funnel" aria-hidden="true"></i>
              <p>لا توجد خدمات مطابقة لنوع المستفيد المحدد.</p>
              <button type="button" class="ps-btn ps-btn-primary" onclick="onHeaderReset()">إعادة تعيين الفلتر</button>
            </div>`
-        : visibleServices.map((s) => {
+        : visibleServices.map((s, cardIndex) => {
         const children = getPortalChildren(s);
         const hasChildren = children.length > 0;
         const serviceIcons = {
@@ -8153,8 +8237,8 @@
           9: "bi-journal-richtext"
         };
         const serviceIcon = serviceIcons[s.id] || "bi-grid";
-        const serviceIndex = String(s.id).padStart(2, "0");
-        let actionsHtml = `<span class="ps-btn ps-btn-sm ps-btn-primary">تفاصيل الخدمة <i class="bi bi-arrow-left" aria-hidden="true"></i></span>`;
+        const serviceIndex = String(cardIndex + 1).padStart(2, "0");
+        let actionsHtml = `<span class="ps-btn ps-btn-sm ps-btn-primary">${isPrograms ? "تفاصيل البرنامج" : "تفاصيل الخدمة"} <i class="bi bi-arrow-left" aria-hidden="true"></i></span>`;
         const cardAction = s.portalRoute
           ? `navigate('${s.portalRoute}')`
           : s.externalUrl
@@ -8201,10 +8285,12 @@
             <div class="container">
               <div class="breadcrumb">
                 <button type="button" class="portal-crumb-link" onclick="navigate('home')">الرئيسية</button>
-                ← الخدمات
+                ← ${isPrograms ? "برامج الابتكار" : "الخدمات"}
               </div>
-              <h1>منصة مركز الابتكار للاستدامة</h1>
-              <p>مجموعة الخدمات التي يقدمها المركز لدعم الباحثين والمبتكرين ورواد الأعمال، من الاستشارات المبكرة وحتى التمويل والوصول إلى السوق.</p>
+              <h1>${isPrograms ? "برامج الابتكار" : "منصة الابتكار للاستدامة"}</h1>
+              <p>${isPrograms
+                ? "برامج تمكّن التجارب الميدانية، والتمكين التنظيمي، وبناء المنظومة، وبناء القدرات، ونشر المعرفة في قطاعات البيئة والمياه والزراعة."
+                : "مجموعة الخدمات التي يقدمها المركز لدعم الباحثين والمبتكرين ورواد الأعمال، من الاستشارات المبكرة وحتى التمويل والوصول إلى السوق."}</p>
               ${beneficiaryValue && beneficiaryValue !== "الكل" ? `<div class="ps-filter-hint">عرض الخدمات المتاحة لـ: ${escapeHtml(beneficiaryValue)}</div>` : ""}
             </div>
           </div>
@@ -8231,7 +8317,9 @@
     function viewPortalServiceDetail() {
       const service = findPortalService(route.params.id);
       const children = getPortalChildren(service);
-      if (!service || !children.length) return viewOurServices();
+      if (!service || !children.length) {
+        return isPortalProgramService(service) ? viewInnovationPrograms() : viewOurServices();
+      }
 
       return `
         <div class="portal-svc" id="portalServiceDetailRoot">
@@ -8252,10 +8340,10 @@
                 <div class="ps-cta-inner">
                   <div>
                     <h2>تحتاج مساعدة في اختيار الخدمة الفرعية؟</h2>
-                    <p>يمكنك العودة إلى قائمة الخدمات أو تقديم فكرتك عبر النموذج العام وسيتم توجيهها للجهة المختصة.</p>
+                    <p>يمكنك العودة إلى القائمة أو تقديم فكرتك عبر النموذج العام وسيتم توجيهها للجهة المختصة.</p>
                   </div>
                   <button type="button" class="ps-btn ps-btn-primary" onclick="navigateBackToOurServices()">
-                    <i class="bi bi-arrow-right"></i> رجوع إلى الخدمات الرئيسية
+                    <i class="bi bi-arrow-right"></i> ${escapeHtml(getPortalCatalogHome().backLabel)}
                   </button>
                 </div>
               </div>
@@ -8267,7 +8355,7 @@
 
     function viewPortalWaterStrip() {
       const node = findPortalNode(route.params.code);
-      if (!node) return viewOurServices();
+      if (!node) return viewInnovationPrograms();
       return `
         <div class="water-strip-embed-host">
           <div id="waterStripPdfBackBar" class="water-strip-pdf-back-bar" hidden dir="ltr" lang="ar">
@@ -8691,7 +8779,7 @@
               ${renderPortalPageHeroTop(
                 renderPortalBreadcrumb(path),
                 "navigateBackToOurServices()",
-                "رجوع إلى الخدمات الرئيسية",
+                getPortalCatalogHome().backLabel,
                 { onclick: backAction, label: "رجوع" }
               )}
               <h1>${escapeHtml(node.title)}</h1>
@@ -8929,9 +9017,13 @@
     function viewPortalServiceNode() {
       const node = findPortalNode(route.params.code);
       const children = getPortalChildren(node);
-      if (!node || !children.length) return viewOurServices();
+      if (!node || !children.length) {
+        const root = (findPortalNodePath(route.params.code) || [])[0];
+        return isPortalProgramService(root) ? viewInnovationPrograms() : viewOurServices();
+      }
 
       const path = findPortalNodePath(node.code) || [node];
+      const catalog = getPortalCatalogHome();
 
       return `
         <div class="portal-svc" id="portalServiceNodeRoot">
@@ -8951,7 +9043,7 @@
                 <div class="ps-cta-inner">
                   <div>
                     <h2>العودة للمستوى السابق</h2>
-                    <p>يمكنك الرجوع خطوة للخلف أو إلى قائمة الخدمات الرئيسية.</p>
+                    <p>يمكنك الرجوع خطوة للخلف أو إلى ${escapeHtml(catalog.crumbLabel)}.</p>
                   </div>
                   <div class="d-flex flex-wrap gap-2">
                     ${path.length > 1 ? `
@@ -8963,7 +9055,7 @@
                         <i class="bi bi-arrow-right"></i> رجوع
                       </button>
                     ` : ""}
-                    <button type="button" class="ps-btn ps-btn-ghost" onclick="navigateBackToOurServices()">قائمة الخدمات</button>
+                    <button type="button" class="ps-btn ps-btn-ghost" onclick="navigateBackToOurServices()">${escapeHtml(catalog.crumbLabel)}</button>
                   </div>
                 </div>
               </div>
@@ -9502,7 +9594,7 @@
           <nav aria-label="breadcrumb" class="mb-3">
             <ol class="breadcrumb small">
               <li class="breadcrumb-item"><button type="button" class="btn btn-link p-0" onclick="navigate('home')">الرئيسية</button></li>
-              <li class="breadcrumb-item"><button type="button" class="btn btn-link p-0" onclick="navigate('services')">برامج الابتكار</button></li>
+              <li class="breadcrumb-item"><button type="button" class="btn btn-link p-0" onclick="navigate('our-services')">خدماتنا</button></li>
               <li class="breadcrumb-item active" aria-current="page">تقديم طلب</li>
             </ol>
           </nav>
@@ -9664,7 +9756,7 @@
           <nav aria-label="breadcrumb" class="mb-3">
             <ol class="breadcrumb small">
               <li class="breadcrumb-item"><button type="button" class="btn btn-link p-0" onclick="navigate('home')">الرئيسية</button></li>
-              <li class="breadcrumb-item"><button type="button" class="btn btn-link p-0" onclick="navigate('services')">برامج الابتكار</button></li>
+              <li class="breadcrumb-item"><button type="button" class="btn btn-link p-0" onclick="navigate('our-services')">خدماتنا</button></li>
               <li class="breadcrumb-item active" aria-current="page">تقديم الطلب</li>
             </ol>
           </nav>
@@ -10588,11 +10680,11 @@
       const isLogin = route.name === "login";
       document.body.classList.toggle("login-mode", isLogin);
       renderHeader();
-      renderHeaderSearch();
       const app = document.getElementById("app");
       const views = {
         home: viewHome,
         "our-services": viewOurServices,
+        "innovation-programs": viewInnovationPrograms,
         "our-service": viewPortalServiceDetail,
         "our-service-node": viewPortalServiceNode,
         "our-service-request": viewPortalSubServiceRequest,

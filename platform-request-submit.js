@@ -74,6 +74,18 @@
     window.location.href = url;
   }
 
+  function closeModal() {
+    if (redirectTimer) {
+      window.clearTimeout(redirectTimer);
+      redirectTimer = null;
+    }
+    var modal = document.getElementById(MODAL_ID);
+    if (!modal) return;
+    modal.classList.remove("is-open");
+    modal.hidden = true;
+    modal.style.display = "none";
+  }
+
   function showModal(created, options) {
     options = options || {};
     injectStyles();
@@ -95,17 +107,22 @@
     if (idEl) idEl.textContent = created && created.id ? created.id : "—";
     var goLink = document.getElementById("mewaSuccessGo");
     var go = typeof options.onGo === "function" ? options.onGo : function () { defaultGo(options); };
+    function goNow() {
+      closeModal();
+      go();
+    }
     if (goLink) {
       goLink.onclick = function (event) {
         event.preventDefault();
-        if (redirectTimer) window.clearTimeout(redirectTimer);
-        go();
+        goNow();
       };
     }
     modal.hidden = false;
     modal.classList.add("is-open");
+    modal.style.display = "flex";
     if (redirectTimer) window.clearTimeout(redirectTimer);
-    redirectTimer = window.setTimeout(go, options.delay != null ? options.delay : 2800);
+    var dismissAfter = options.delay != null ? options.delay : 3000;
+    redirectTimer = window.setTimeout(goNow, dismissAfter);
   }
 
   function complete(payload, options) {

@@ -35,6 +35,10 @@
       padding-top: 1.25rem;
     }
 
+    body.is-embedded .water-page-backs {
+      display: none;
+    }
+
     .page-wrap {
       max-width: 1180px;
       margin: 0 auto;
@@ -291,20 +295,29 @@
       font-weight: 700;
     }
 
+    .water-page-backs {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
     .back-link {
       display: inline-flex;
       align-items: center;
       gap: 0.45rem;
-      margin-bottom: 1rem;
-      padding: 0.55rem 1rem;
+      padding: 0.38rem 0.7rem;
       border-radius: 999px;
-      border: 1.5px solid var(--ws-line);
+      border: 1px solid #c9ddd4;
       background: #fff;
       color: var(--ws-green-deep);
       font-weight: 700;
-      font-size: 0.88rem;
+      font-size: 0.76rem;
+      line-height: 1.3;
       text-decoration: none;
-      transition: border-color 0.2s ease;
+      transition: border-color 0.2s ease, background 0.2s ease;
     }
 
     .back-link:hover {
@@ -821,10 +834,16 @@
   </div>
 
   <div class="page-wrap">
-    <a class="back-link" href="منصة-البحث-والابتكار.html" id="waterBackLink">
-      <i class="bi bi-arrow-left" aria-hidden="true"></i>
-      رجوع
-    </a>
+    <div class="water-page-backs" dir="rtl" lang="ar">
+      <a class="back-link" href="index.html?view=our-service&amp;id=7" id="waterBackLink">
+        <i class="bi bi-arrow-right" aria-hidden="true"></i>
+        رجوع
+      </a>
+      <a class="back-link" href="index.html?view=innovation-programs">
+        <i class="bi bi-arrow-right" aria-hidden="true"></i>
+        رجوع إلى البرامج الرئيسية
+      </a>
+    </div>
 
     <header class="page-top" id="waterStripHome">
       <h1>Particularly, the Water STRIP is mandated to advance national water priorities through technology and innovation</h1>
@@ -1074,7 +1093,7 @@
       </div>
       <div class="join-notice" dir="rtl" lang="ar">
         <div class="join-notice-header">
-          <p class="join-notice-text">للانضمام لبرنامج الشريط المائي يجب تحميل خطاب الانضمام إلى البرنامج وتوقيعه وإعادة رفعه</p>
+          <p class="join-notice-text">للانضمام لبرنامج الشريط المائي يجب تحميل خطاب الانضمام إلى البرنامج وتوقيعه وإعادة رفعه وتقديم الطلب</p>
         </div>
         <div class="join-notice-content">
         <div class="join-notice-body">
@@ -1111,6 +1130,10 @@
             <i class="bi bi-trash" aria-hidden="true"></i>
             حذف الملف المرفوع
           </button>
+          <button type="button" class="join-notice-btn join-notice-btn--primary is-hidden" id="waterJoinSubmitBtn">
+            <i class="bi bi-send" aria-hidden="true"></i>
+            تقديم الطلب
+          </button>
           <input
             type="file"
             id="waterJoinUploadInput"
@@ -1133,6 +1156,7 @@
       </div>
     </section>
   </div>
+  <script src="platform-request-submit.js?v=20260916c"></script>
   <script>
     (function initWaterStripPage() {
       const params = new URLSearchParams(window.location.search);
@@ -1144,6 +1168,7 @@
       const downloadEnBtn = document.getElementById("waterJoinDownloadEn");
       const previewBtn = document.getElementById("waterJoinPreviewBtn");
       const deleteBtn = document.getElementById("waterJoinDeleteBtn");
+      const submitBtn = document.getElementById("waterJoinSubmitBtn");
       const downloadToast = document.getElementById("waterDownloadToast");
       const downloadToastLayer = document.getElementById("waterDownloadToastLayer");
       const pdfViewer = document.getElementById("waterPdfViewer");
@@ -1360,6 +1385,10 @@
         if (uploadInput) uploadInput.value = "";
         if (previewBtn) previewBtn.classList.add("is-hidden");
         if (deleteBtn) deleteBtn.classList.add("is-hidden");
+        if (submitBtn) {
+          submitBtn.classList.add("is-hidden");
+          submitBtn.disabled = false;
+        }
         if (uploadBtn) uploadBtn.classList.remove("is-hidden");
         if (uploadStatus) {
           uploadStatus.hidden = true;
@@ -1384,6 +1413,7 @@
           uploadedFileUrl = URL.createObjectURL(file);
 
           uploadBtn.classList.add("is-hidden");
+          if (submitBtn) submitBtn.classList.remove("is-hidden");
           if (previewBtn) previewBtn.classList.remove("is-hidden");
           if (deleteBtn) deleteBtn.classList.remove("is-hidden");
 
@@ -1396,6 +1426,35 @@
             refreshEmbedHeight();
           }
         });
+      }
+
+      function submitJoinRequest() {
+        const file = uploadInput && uploadInput.files && uploadInput.files[0];
+        if (!file || !submitBtn || submitBtn.disabled) return;
+        submitBtn.disabled = true;
+        const payload = {
+          title: "طلب الانضمام لبرنامج الشريط المائي",
+          service: "برنامج الشريط المائي",
+          sector: "المياه",
+          summary: "خطاب انضمام موقّع: " + file.name
+        };
+        if (isEmbedded && window.parent && window.parent !== window) {
+          window.parent.postMessage({ type: "water-strip-submit-request", payload: payload }, "*");
+          return;
+        }
+        if (window.MEWARequests) {
+          MEWARequests.complete(payload, {
+            onGo: function () {
+              window.location.href = "index.html?view=my-requests";
+            }
+          });
+          return;
+        }
+        submitBtn.disabled = false;
+      }
+
+      if (submitBtn) {
+        submitBtn.addEventListener("click", submitJoinRequest);
       }
 
       if (previewBtn) {

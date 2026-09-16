@@ -37,6 +37,12 @@
       ".platform-top .nav-pill:hover,.platform-top .nav-pill.active{background:var(--naama-accent-soft,#e8f6f1);color:var(--naama-accent-dark,#378a6f)!important}",
       ".platform-top .btn-login{display:inline-flex;align-items:center;gap:.5rem;background:var(--naama-primary,#003957);color:#fff!important;border:0;border-radius:999px;padding:.55rem 1.3rem;font-weight:600;white-space:nowrap}",
       ".platform-top .btn-login:hover{color:#fff!important;background:var(--naama-primary-dark,#00283e);transform:translateY(-1px);box-shadow:0 10px 22px rgba(0,40,62,.22)}",
+      ".platform-top .header-tools{display:flex;align-items:center;gap:.45rem;flex-wrap:wrap;justify-content:flex-end}",
+      ".platform-top .header-page-actions{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap}",
+      ".platform-top .header-page-actions[hidden]{display:none!important}",
+      ".platform-top .header-page-actions>a,.platform-top .header-page-actions>button{display:inline-flex!important;align-items:center;gap:.3rem;margin:0!important;position:static!important;padding:.38rem .7rem!important;border-radius:999px!important;border:1px solid #c9ddd4!important;background:#fff!important;color:#0B5D42!important;font-size:.76rem!important;font-weight:700!important;line-height:1.3!important;white-space:nowrap;text-decoration:none!important;box-shadow:none!important;font-family:inherit}",
+      ".platform-top .header-page-actions>a:hover,.platform-top .header-page-actions>button:hover{background:#eef7f2!important;border-color:#0B5D42!important}",
+      ".exp3-page-actions[hidden],.page-hero-actions[hidden],.ps-page-actions[hidden],.inst3-back-bar[hidden],.safta3-back-bar[hidden]{display:none!important}",
       ".platform-top .header-search,.platform-top #headerSearchBox,.platform-top #mobileHeaderSearchBox{display:none!important}",
       ".platform-top .btn-menu-toggle{display:none;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid var(--naama-border,#e4ecef);border-radius:12px;background:#fff;color:var(--naama-primary,#003957)}",
       ".platform-top #mobileNav{display:none;flex-wrap:wrap;gap:.35rem;padding-top:.85rem;margin-top:.85rem;border-top:1px solid var(--naama-border,#e4ecef)}",
@@ -100,10 +106,11 @@
               "</span>" +
             brandClose +
             '<nav id="mainNav" class="d-none d-lg-flex gap-1" aria-label="التنقل الرئيسي">' + navHtml + "</nav>" +
-            '<div class="ms-auto d-flex align-items-center gap-2">' +
+            '<div class="ms-auto header-tools">' +
               '<a class="btn-login" href="https://naama.sa/Account/Login" target="_blank" rel="noopener">' +
                 '<i class="bi bi-box-arrow-in-left"></i><span>تسجيل الدخول</span>' +
               "</a>" +
+              '<div id="headerPageActions" class="header-page-actions" hidden aria-label="الرجوع"></div>' +
               menuBtn +
             "</div>" +
           "</div>" +
@@ -131,6 +138,7 @@
   }
   syncHeaderOffset();
   window.addEventListener("resize", syncHeaderOffset);
+  hoistHeaderPageActions(syncHeaderOffset);
   var mobileNavEl = document.getElementById("mobileNav");
   if (mobileNavEl && window.MutationObserver) {
     new MutationObserver(syncHeaderOffset).observe(mobileNavEl, { attributes: true, attributeFilter: ["style", "class"] });
@@ -145,6 +153,71 @@
         toggle.setAttribute("aria-expanded", open ? "true" : "false");
         syncHeaderOffset();
       });
+    }
+  }
+
+  function hoistHeaderPageActions(onChange) {
+    var slot = document.getElementById("headerPageActions");
+    if (!slot || slot.dataset.hoistBound === "1") return;
+    slot.dataset.hoistBound = "1";
+    var groupSelector = ".exp3-page-actions, .page-hero-actions, .ps-page-actions";
+    var loneSelector = ".drv3-back-services, .inst3-back-services, .exp3-back-services, .agency-back-services-btn, .safta3-back-services";
+    var syncing = false;
+
+    function outside(list) {
+      return Array.prototype.filter.call(list, function (el) {
+        return el && !slot.contains(el);
+      });
+    }
+
+    function sync() {
+      if (syncing) return;
+      var groups = outside(document.querySelectorAll(groupSelector));
+      var lone = outside(document.querySelectorAll(loneSelector)).filter(function (el) {
+        return !el.closest(groupSelector);
+      });
+      var hasButtons = lone.length > 0 || groups.some(function (group) {
+        return group.querySelector("a, button");
+      });
+      if (hasButtons) {
+        syncing = true;
+        slot.replaceChildren();
+        groups.forEach(function (group) {
+          Array.prototype.forEach.call(group.querySelectorAll("a, button"), function (btn) {
+            slot.appendChild(btn);
+          });
+          group.hidden = true;
+        });
+        lone.forEach(function (btn) {
+          var bar = btn.closest(".inst3-back-bar, .safta3-back-bar");
+          slot.appendChild(btn);
+          if (bar) bar.hidden = true;
+        });
+        slot.dataset.source = groups.length ? "group" : "lone";
+        slot.hidden = slot.childElementCount === 0;
+        syncing = false;
+        if (onChange) onChange();
+        return;
+      }
+      var groupsRemain = outside(document.querySelectorAll(groupSelector)).length > 0;
+      if (!groupsRemain && slot.dataset.source === "group" && slot.childElementCount) {
+        syncing = true;
+        slot.replaceChildren();
+        slot.hidden = true;
+        delete slot.dataset.source;
+        syncing = false;
+        if (onChange) onChange();
+      }
+    }
+
+    sync();
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", sync);
+    }
+    if (window.MutationObserver && document.body) {
+      new MutationObserver(function () {
+        if (!syncing) sync();
+      }).observe(document.body, { childList: true, subtree: true });
     }
   }
 

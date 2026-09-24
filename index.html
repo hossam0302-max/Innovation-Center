@@ -1488,6 +1488,16 @@
       border-color: #c5ebd4;
       box-shadow: 0 8px 24px rgba(16, 70, 49, 0.08);
     }
+    .agency-reports-view .sharing-card.is-inert {
+      cursor: default;
+    }
+    .agency-reports-view .sharing-card.is-inert:hover {
+      border-color: #e5e7eb;
+      box-shadow: none;
+    }
+    .agency-reports-view .sharing-card.is-inert .btn-secondary-solid {
+      pointer-events: none;
+    }
     .agency-reports-view .card-content {
       display: flex;
       flex-direction: column;
@@ -2915,6 +2925,17 @@
       line-height: 1.75;
       white-space: normal;
     }
+    .portal-svc .page-hero .ps-services-lead {
+      margin-top: 8px;
+      margin-bottom: 0;
+      padding: 0;
+      border-radius: 0;
+      background: transparent;
+      color: var(--ps-ink-soft);
+      font-size: inherit;
+      font-weight: 600;
+      line-height: 1.75;
+    }
     .portal-svc .portal-pdf-hero-desc {
       margin-top: 8px;
       max-width: 72ch;
@@ -2928,6 +2949,53 @@
       margin-bottom: 0;
     }
     .portal-svc .services-section { padding: 56px 0 100px; }
+    .portal-svc .ps-services-searchbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem 1rem;
+      margin: 0 0 1.25rem;
+    }
+    .portal-svc .ps-services-searchbar label {
+      margin: 0;
+      color: #5B6B63;
+      font-size: 0.95rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .portal-svc .ps-services-searchbar input {
+      flex: 1 1 280px;
+      min-width: 0;
+      padding: 0.75rem 0.9rem;
+      border: 1px solid #D3DBD6;
+      border-radius: 10px;
+      background: #fff;
+      color: #1B2A23;
+      font: inherit;
+      font-size: 0.95rem;
+    }
+    .portal-svc .ps-services-searchbar input::placeholder {
+      color: #8A9690;
+    }
+    .portal-svc .ps-services-searchbar input:focus {
+      outline: none;
+      border-color: var(--ps-green-deep);
+      box-shadow: 0 0 0 3px rgba(11, 93, 66, 0.12);
+    }
+    .portal-svc .ps-services-search-results {
+      margin-top: 0.25rem;
+    }
+    .portal-svc .ps-services-search-results .ps-search-parent-tag {
+      display: inline-block;
+      margin: 0 0 0.45rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(11, 93, 66, 0.08);
+      color: var(--ps-green-deep, #0B5D42);
+      font-size: 0.78rem;
+      font-weight: 600;
+      line-height: 1.4;
+    }
     .portal-svc .service-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -3011,6 +3079,14 @@
       gap: 12px;
       margin-bottom: 10px;
       padding-inline-end: 2rem;
+    }
+    .portal-svc .ps-service-en {
+      margin: -0.35rem 0 0.55rem;
+      color: var(--ps-muted, #5C6B64);
+      font-size: 0.82rem;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: 0.01em;
     }
     .portal-svc .ps-service-card-icon {
       width: 44px;
@@ -3721,6 +3797,147 @@
       border-radius: 18px;
       padding: 38px;
       box-shadow: var(--ps-shadow);
+    }
+    .portal-svc .hf-wrap { max-width: 920px; margin: 0 auto; }
+    .portal-svc .hf-intro {
+      background: #fff;
+      border: 1px solid var(--ps-line);
+      border-top: 5px solid var(--ps-green-deep);
+      border-radius: 12px;
+      padding: 1.25rem 1.35rem;
+      margin-bottom: 1rem;
+    }
+    .portal-svc .hf-meta { font-size: 0.85rem; color: var(--ps-green-deep); font-weight: 700; }
+    .portal-svc .hf-intro h2 { margin: 0.25rem 0 0.5rem; font-size: clamp(1.2rem, 2.4vw, 1.55rem); color: var(--ps-green-deep); line-height: 1.4; }
+    .portal-svc .hf-intro p { margin: 0 0 0.85rem; color: #4B5C54; }
+    .portal-svc .hf-flow-title { font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .portal-svc .hf-flow { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; list-style: none; padding: 0; margin: 0; font-size: 0.84rem; }
+    .portal-svc .hf-flow li { padding: 0.3rem 0.75rem; background: #E2EAE4; border-radius: 999px; color: #0B5D42; }
+    .portal-svc .hf-form-panel {
+      background: #fff;
+      border: 1px solid var(--ps-line);
+      border-radius: 12px;
+      padding: 1.35rem 1.35rem 1.5rem;
+      box-shadow: 0 4px 16px rgba(16, 24, 40, 0.06);
+    }
+    .portal-svc .hf-sec {
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      padding: 0 0 1.25rem;
+      margin: 0 0 1.25rem;
+    }
+    .portal-svc .hf-sec:last-of-type {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .portal-svc .hf-sec.is-special { border-color: transparent; background: transparent; }
+    .portal-svc .hf-sec legend {
+      float: none;
+      width: auto;
+      display: block;
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin: 0 0 1rem;
+      padding: 0.7rem 0.95rem;
+      color: var(--ps-green-deep);
+      background: #E8F6F1;
+      border: 1px solid #D1E8DF;
+      border-radius: 8px;
+      border-inline-start: 0;
+      line-height: 1.3;
+    }
+    .portal-svc .hf-grid { clear: both; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.25rem; }
+    .portal-svc .hf-field { display: flex; flex-direction: column; gap: 0.35rem; }
+    .portal-svc .hf-field.is-wide { grid-column: 1 / -1; }
+    .portal-svc .hf-label { font-weight: 700; font-size: 0.92rem; color: #1B2A23; }
+    .portal-svc .hf-label-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.2rem 0.45rem;
+    }
+    .portal-svc .hf-label-row .hf-label { margin: 0; }
+    .portal-svc .hf-req { color: #A9852F; margin-inline-start: 0.2rem; }
+    .portal-svc .hf-hint { font-size: 0.8rem; color: #5B6B63; }
+    .portal-svc .hf-field input[type=text],
+    .portal-svc .hf-field input[type=email],
+    .portal-svc .hf-field input[type=tel],
+    .portal-svc .hf-field input[type=number],
+    .portal-svc .hf-field input[type=date],
+    .portal-svc .hf-field input[type=url],
+    .portal-svc .hf-field select,
+    .portal-svc .hf-field textarea {
+      font: inherit;
+      font-size: 0.95rem;
+      padding: 0.65rem 0.75rem;
+      border: 1px solid #B9C6BE;
+      border-radius: 8px;
+      background: #fff;
+      color: #1B2A23;
+      width: 100%;
+    }
+    .portal-svc .hf-field textarea { min-height: 110px; resize: vertical; }
+    .portal-svc .hf-field input[type=file] {
+      font-size: 0.88rem;
+      padding: 0.65rem;
+      border: 1px dashed #9FB3A7;
+      border-radius: 8px;
+      background: #F4F6F3;
+    }
+    .portal-svc .hf-opts { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .portal-svc .hf-opts label {
+      display: flex; align-items: center; gap: 0.45rem;
+      padding: 0.45rem 0.75rem; border: 1px solid #C3CEC7; border-radius: 8px;
+      font-size: 0.9rem; background: #fff; cursor: pointer;
+    }
+    .portal-svc .hf-opts label:has(input:checked) { border-color: var(--ps-green-deep); background: #E2EAE4; }
+    .portal-svc .hf-check { display: flex; gap: 0.65rem; align-items: flex-start; font-size: 0.95rem; }
+    .portal-svc .hf-check input { width: 1.15rem; height: 1.15rem; margin-top: 0.2rem; flex: none; accent-color: var(--ps-green-deep); }
+    .portal-svc .hf-count { font-size: 0.78rem; color: #5B6B63; text-align: left; }
+    .portal-svc .hf-field.is-bad input,
+    .portal-svc .hf-field.is-bad select,
+    .portal-svc .hf-field.is-bad textarea { border-color: #B3261E; }
+    .portal-svc .hf-field.is-bad .hf-opts { border: 1px solid #B3261E; border-radius: 8px; padding: 0.4rem; }
+    .portal-svc .hf-msg { color: #B3261E; font-size: 0.84rem; display: none; }
+    .portal-svc .hf-field.is-bad .hf-msg { display: block; }
+    .portal-svc .hf-submit-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.85rem;
+      margin-top: 1.35rem;
+      padding-top: 1.1rem;
+      border-top: 1px solid #e5e7eb;
+    }
+    .portal-svc .hf-submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      min-height: 46px;
+      background: #074d31;
+      color: #fff;
+      border: 0;
+      padding: 0.55rem 1.35rem;
+      border-radius: 0.5rem;
+      font: inherit;
+      font-weight: 700;
+      font-size: 0.95rem;
+      line-height: 1.3;
+      cursor: pointer;
+    }
+    .portal-svc .hf-submit:hover {
+      background: #053824;
+      color: #fff;
+    }
+    .portal-svc .hf-submit:focus-visible {
+      outline: 3px solid rgba(7, 77, 49, 0.28);
+      outline-offset: 2px;
+    }
+    @media (max-width: 767.98px) {
+      .portal-svc .hf-grid { grid-template-columns: 1fr; }
+      .portal-svc .hf-submit { width: 100%; }
     }
     .portal-svc .ps-form-card h3 { font-size: 1.2rem; font-weight: 800; color: var(--ps-green-deep); margin: 0 0 6px; }
     .portal-svc .ps-form-card p.ps-sub { color: var(--ps-ink-soft); font-size: .9rem; margin-bottom: 28px; }
@@ -4705,6 +4922,634 @@
   <div id="platform-footer-root"></div>
 <script src="platform-footer.js" data-mode="spa"></script>
 <script src="platform-request-submit.js?v=20260916c"></script>
+<script>
+/*! Hanadi service request forms — shared with portal SPA */
+(function (global) {
+  "use strict";
+
+const MODELS = [
+ {n:1,code:'IA',stage:'الاستشارات الابتكارية',unit:'الاستشارات الابتكارية',en:'Innovation Advisory',
+  desc:'إعداد التوجه والأساس المعرفي من خلال الاستراتيجيات والسياسات والدراسات.',
+  sla:{ack:3,decision:10,decisionLabel:'تقديم العرض الفني والمالي'},
+  flow:['تقديم الطلب','التحقق من الاكتمال','اجتماع تحديد النطاق','إعداد المقترح','التعاقد والتنفيذ']},
+ {n:2,code:'EM',stage:'إدارة منظومة الابتكار',unit:'إدارة منظومة الابتكار',en:'Innovation Ecosystem Management',
+  desc:'تحويل الخطط إلى برامج ومبادرات وتشغيلها.',
+  sla:{ack:3,decision:7,decisionLabel:'تقديم خطة التشغيل والتكلفة'},
+  flow:['تقديم الطلب','التحقق من الاكتمال','تحديد متطلبات التشغيل','خطة التشغيل والتكلفة','الإطلاق والتشغيل']},
+ {n:3,code:'IS',stage:'إدارة الحلول الابتكارية وريادة الأعمال',unit:'إدارة الحلول الابتكارية وريادة الأعمال',en:'Innovation Solutions & Venture Services',
+  desc:'دعم بناء التقنيات ونقلها إلى السوق.',
+  sla:{ack:5,decision:15,decisionLabel:'قرار لجنة التقييم الفني'},
+  flow:['تقديم الطلب','فحص الأهلية','التقييم الفني والتجاري','قرار لجنة التقييم','الاتفاقية وبدء الدعم']},
+ {n:4,code:'IF',stage:'إدارة تمويل الابتكار',unit:'إدارة تمويل الابتكار',en:'Innovation Funding',
+  desc:'ربط حلول الابتكار بمصادر التمويل.',
+  sla:{ack:5,decision:30,decisionLabel:'قرار لجنة التمويل'},
+  flow:['تقديم الطلب','فحص الأهلية','التحكيم المستقل','قرار لجنة التمويل','اتفاقية التمويل والصرف المرحلي']}
+];
+
+/* ===================== خيارات مشتركة ===================== */
+const TRL = ['TRL 1 — المبادئ الأساسية مرصودة','TRL 2 — صياغة مفهوم التقنية','TRL 3 — إثبات المفهوم تجريبياً','TRL 4 — التحقق في المختبر','TRL 5 — التحقق في بيئة ذات صلة','TRL 6 — عرض نموذج أولي في بيئة ذات صلة','TRL 7 — عرض النموذج في بيئة التشغيل','TRL 8 — نظام مكتمل ومؤهل','TRL 9 — نظام مثبت في التشغيل الفعلي'];
+const YESNO = ['نعم','لا'];
+const HORIZON = ['سنة واحدة','3 سنوات','5 سنوات','10 سنوات فأكثر'];
+const LANG = ['العربية','الإنجليزية','العربية والإنجليزية'];
+const OUT = ['تقرير PDF','عرض تقديمي','لوحة معلومات تفاعلية','ملف بيانات'];
+const REGIONS = ['الرياض','مكة المكرمة','المدينة المنورة','القصيم','المنطقة الشرقية','عسير','تبوك','حائل','الحدود الشمالية','جازان','نجران','الباحة','الجوف'];
+
+/* ===================== الخدمات الـ27 ===================== */
+const SERVICES = [
+/* ---------- 1. الاستشارات الابتكارية ---------- */
+{code:'IA-01',m:1,name:'إعداد وتطوير استراتيجية وخارطة طريق الابتكار',
+ purpose:'بناء استراتيجية ابتكار للجهة مرتبطة بأولوياتها الوطنية، مع خارطة طريق تنفيذية ومؤشرات أداء.',
+ fields:[
+  {k:'current_strategy',l:'وضع استراتيجية الابتكار الحالية',t:'radio',r:1,o:['لا توجد','موجودة وتحتاج تحديثاً','قيد الإعداد']},
+  {k:'scope_level',l:'مستوى الاستراتيجية',t:'select',r:1,o:['الجهة كاملة','قطاع أو وكالة','إدارة محددة']},
+  {k:'horizon',l:'الأفق الزمني',t:'select',r:1,o:HORIZON},
+  {k:'stakeholders',l:'عدد أصحاب المصلحة المتوقع إشراكهم',t:'number',h:'عدد تقريبي للمقابلات وورش العمل'},
+  {k:'national_alignment',l:'التوجهات الوطنية المطلوب المواءمة معها',t:'multi',r:1,o:['رؤية المملكة 2030','الاستراتيجية الوطنية للبيئة','الاستراتيجية الوطنية للمياه','مبادرة السعودية الخضراء','أولويات البحث والتطوير والابتكار الوطنية','أخرى'],w:1},
+  {k:'challenges',l:'أبرز التحديات التي تريد أن تعالجها الاستراتيجية',t:'textarea',r:1,max:1500,w:1},
+  {k:'deliverables',l:'المخرجات المطلوبة',t:'multi',r:1,o:['تقييم الوضع الراهن ونضج الابتكار','الرؤية والأهداف ومؤشرات الأداء','محافظ الابتكار والمبادرات','خارطة طريق تنفيذية','خطة إدارة التغيير'],w:1}
+ ],
+ att:[{k:'existing_docs',l:'الاستراتيجيات أو الخطط الحالية ذات العلاقة',t:'file'}]},
+
+{code:'IA-02',m:1,name:'إعداد وتطوير السياسات والأطر التنظيمية للابتكار',
+ purpose:'صياغة السياسات واللوائح والأطر التي تمكّن الابتكار داخل الجهة أو في القطاع.',
+ fields:[
+  {k:'doc_types',l:'نوع الوثائق المطلوبة',t:'multi',r:1,o:['سياسة ابتكار','إطار تنظيمي','لائحة أو دليل إجرائي','سياسة ملكية فكرية','سياسة حوافز الابتكار','سياسة البيانات المفتوحة'],w:1},
+  {k:'regulated_area',l:'المجال الذي ستنظمه الوثيقة',t:'textarea',r:1,max:1200,w:1},
+  {k:'existing_docs_status',l:'هل توجد وثائق حالية؟',t:'radio',r:1,o:['نعم وتحتاج مراجعة','لا']},
+  {k:'benchmarking',l:'هل تحتاج مقارنة معيارية دولية؟',t:'radio',r:1,o:YESNO},
+  {k:'regulators',l:'الجهات التنظيمية ذات العلاقة',t:'text'},
+  {k:'approval_level',l:'مستوى الاعتماد المستهدف',t:'select',o:['اعتماد داخلي','مجلس الإدارة','جهة تنظيمية عليا']}
+ ]},
+
+{code:'IA-03',m:1,name:'إعداد وتطوير نماذج الحوكمة الخاصة بالابتكار',
+ purpose:'تصميم الهيكل واللجان والصلاحيات وآليات القرار التي تدير الابتكار في الجهة.',
+ fields:[
+  {k:'governance_now',l:'الوضع الحالي لحوكمة الابتكار',t:'select',r:1,o:['لا يوجد هيكل','لجان غير رسمية','وحدة ابتكار قائمة','إدارة ابتكار مكتملة']},
+  {k:'reporting_line',l:'الجهة التي ترتبط بها وحدة الابتكار حالياً أو مستقبلاً',t:'text'},
+  {k:'elements',l:'عناصر الحوكمة المطلوبة',t:'multi',r:1,o:['الهيكل التنظيمي لوحدة الابتكار','اللجان والصلاحيات','مصفوفة المسؤوليات RACI','آليات القرار والتمويل المرحلي Stage-Gate','مؤشرات الأداء والتقارير','إدارة مخاطر الابتكار'],w:1},
+  {k:'context',l:'معلومات إضافية عن السياق',t:'textarea',max:1200,w:1}
+ ],
+ att:[{k:'org_chart',l:'الهيكل التنظيمي الحالي',t:'file'}]},
+
+{code:'IA-04',m:1,name:'تصميم برامج ومبادرات الابتكار',
+ purpose:'تصميم برنامج أو مبادرة ابتكار متكاملة: الفكرة، الفئة المستهدفة، الرحلة، ومؤشرات النجاح.',
+ fields:[
+  {k:'initiative_name',l:'اسم المبادرة المقترح',t:'text'},
+  {k:'program_type',l:'نوع البرنامج',t:'select',r:1,o:['تحدي ابتكار مفتوح','هاكاثون','مسرّعة أعمال','برنامج بناء قدرات','ابتكار مفتوح مع الشركات','أخرى']},
+  {k:'target_groups',l:'الفئات المستهدفة',t:'multi',r:1,o:['موظفو الجهة','طلاب وباحثون','شركات ناشئة','منشآت صغيرة ومتوسطة','المجتمع'],w:1},
+  {k:'problem',l:'المشكلة أو الفرصة التي يعالجها البرنامج',t:'textarea',r:1,max:1500,w:1},
+  {k:'beneficiaries',l:'عدد المستفيدين المستهدف',t:'number'},
+  {k:'include_ops',l:'هل تريد أن يتولى المركز التشغيل بعد التصميم؟',t:'radio',o:['نعم','لا','لم نقرر بعد']}
+ ]},
+
+{code:'IA-05',m:1,name:'تقديم الدراسات المتخصصة',
+ purpose:'إعداد دراسة تجيب عن أسئلة محددة تدعم قراراً استثمارياً أو تنظيمياً أو تقنياً.',
+ fields:[
+  {k:'study_type',l:'نوع الدراسة',t:'select',r:1,o:['دراسة جدوى','دراسة سوق','استشراف مستقبلي','مقارنة معيارية','دراسة أثر','دراسة تقنية']},
+  {k:'study_title',l:'عنوان الدراسة',t:'text',r:1},
+  {k:'questions',l:'الأسئلة الرئيسية التي يجب أن تجيب عنها الدراسة',t:'textarea',r:1,max:1500,w:1,h:'اكتب كل سؤال في سطر'},
+  {k:'geo_scope',l:'النطاق الجغرافي',t:'select',r:1,o:['محلي','إقليمي (الخليج والشرق الأوسط)','دولي']},
+  {k:'language',l:'لغة المخرج',t:'select',o:LANG},
+  {k:'methods',l:'المنهجيات المفضلة',t:'multi',o:['مسح ميداني','مقابلات','تحليل بيانات ثانوية','ورش عمل','نمذجة كمية'],w:1},
+  {k:'intended_use',l:'كيف ستستخدم نتائج الدراسة؟',t:'textarea',max:800,w:1}
+ ]},
+
+{code:'IA-06',m:1,name:'إعداد التقارير الخاصة بالابتكار',
+ purpose:'إصدار تقارير ومؤشرات دورية أو خاصة ترصد أداء الابتكار وتوجهاته.',
+ fields:[
+  {k:'report_type',l:'نوع التقرير',t:'select',r:1,o:['مؤشر أو لوحة أداء ابتكار','تقرير دوري','تقرير رصد تقني','تقرير سنوي','ملخص تنفيذي لصانعي القرار']},
+  {k:'frequency',l:'التكرار',t:'select',r:1,o:['مرة واحدة','ربع سنوي','نصف سنوي','سنوي']},
+  {k:'audience',l:'الجمهور المستهدف',t:'text',r:1},
+  {k:'formats',l:'صيغة المخرج',t:'multi',r:1,o:OUT},
+  {k:'indicators',l:'المؤشرات أو الموضوعات المطلوب تغطيتها',t:'textarea',max:1200,w:1},
+  {k:'data_sources',l:'مصادر البيانات المتاحة لديكم',t:'textarea',max:800,w:1}
+ ]},
+
+{code:'IA-07',m:1,name:'إعداد وتطوير خرائط تبني التقنيات',
+ purpose:'تحديد التقنيات الواعدة وتوقيت تبنيها ومسارها داخل الجهة.',
+ fields:[
+  {k:'tech_domain',l:'المجال التقني',t:'text',r:1,h:'مثال: الزراعة الدقيقة، تحلية المياه، الاستشعار البيئي'},
+  {k:'objective',l:'الهدف من الخريطة',t:'select',r:1,o:['تحديد الأولويات','خطة تبنٍ مرحلية','تقييم الجاهزية','إحلال تقنيات قائمة']},
+  {k:'horizon',l:'الأفق الزمني',t:'select',r:1,o:HORIZON},
+  {k:'digital_maturity',l:'مستوى النضج الرقمي الحالي',t:'select',o:['مبتدئ','متوسط','متقدم']},
+  {k:'technologies',l:'التقنيات محل الاهتمام إن وجدت',t:'textarea',max:1000,w:1}
+ ]},
+
+{code:'IA-08',m:1,name:'تقييم التقنيات وتوجيه الاستثمار',
+ purpose:'تقييم تقنية محددة فنياً واقتصادياً وسوقياً لدعم قرار الاستثمار فيها أو تبنيها.',
+ fields:[
+  {k:'tech_name',l:'اسم التقنية',t:'text',r:1},
+  {k:'tech_owner',l:'مالك التقنية',t:'select',r:1,o:['الجهة نفسها','طرف ثالث','غير محدد']},
+  {k:'tech_desc',l:'وصف التقنية',t:'textarea',r:1,max:1500,w:1},
+  {k:'trl',l:'مستوى الجاهزية التقنية الحالي',t:'select',r:1,o:TRL,w:1},
+  {k:'assessment_types',l:'أنواع التقييم المطلوبة',t:'multi',r:1,o:['تقني','اقتصادي ومالي','سوقي','بيئي (دورة الحياة)','تنظيمي'],w:1},
+  {k:'investment_size',l:'حجم الاستثمار المحتمل',t:'select',o:['أقل من مليون ريال','1–10 ملايين ريال','10–50 مليون ريال','أكثر من 50 مليون ريال']}
+ ],
+ att:[{k:'tech_docs',l:'وثائق التقنية (مواصفات، نتائج اختبارات)',t:'file'}]},
+
+{code:'IA-09',m:1,name:'تصميم برامج الابتكار المؤسسي',
+ purpose:'تصميم برنامج داخلي يحوّل أفكار الموظفين إلى حلول منفذة.',
+ fields:[
+  {k:'current_level',l:'المستوى الحالي للابتكار المؤسسي',t:'select',r:1,o:['لا يوجد برنامج','مبادرات متفرقة','برنامج قائم يحتاج تطويراً']},
+  {k:'employees',l:'عدد الموظفين المستهدفين',t:'number',r:1},
+  {k:'components',l:'مكونات البرنامج المطلوبة',t:'multi',r:1,o:['منصة إدارة الأفكار','مسار احتضان داخلي','حوافز ومكافآت','تدريب وتأهيل','معمل ابتكار'],w:1},
+  {k:'departments',l:'الإدارات المشاركة',t:'text',w:1},
+  {k:'challenges',l:'التحديات الحالية',t:'textarea',max:1000,w:1}
+ ]},
+
+{code:'IA-10',m:1,name:'دراسة العائد من الابتكار',
+ purpose:'قياس العائد المالي والاقتصادي والاجتماعي والبيئي لبرنامج أو مبادرة ابتكار.',
+ fields:[
+  {k:'program_name',l:'اسم البرنامج أو المبادرة المراد قياسها',t:'text',r:1},
+  {k:'running_period',l:'مدة التشغيل حتى الآن',t:'select',r:1,o:['أقل من سنة','1–2 سنة','3–5 سنوات','أكثر من 5 سنوات']},
+  {k:'return_types',l:'أنواع العائد المطلوب قياسها',t:'multi',r:1,o:['مالي ROI','اقتصادي','اجتماعي SROI','بيئي','معرفي'],w:1},
+  {k:'invested_cost',l:'إجمالي التكلفة المستثمرة (ريال)',t:'number'},
+  {k:'data_available',l:'البيانات المتوفرة عن البرنامج',t:'textarea',max:1000,w:1}
+ ]},
+
+{code:'IA-11',m:1,name:'تصميم جوائز الابتكار',
+ purpose:'تصميم جائزة ابتكار: الهدف، الفئات، المعايير، التحكيم، والحوافز.',
+ fields:[
+  {k:'prize_name',l:'اسم الجائزة المقترح',t:'text'},
+  {k:'prize_type',l:'نوع الجائزة',t:'select',r:1,o:['جائزة تحدٍّ لحل مشكلة محددة','جائزة تكريمية للإنجاز','جائزة داخلية للموظفين']},
+  {k:'problem',l:'المشكلة أو الهدف الذي تستهدفه الجائزة',t:'textarea',r:1,max:1200,w:1},
+  {k:'categories',l:'الفئات المقترحة',t:'textarea',max:800,w:1},
+  {k:'prize_pool',l:'إجمالي قيمة الجوائز المتوقعة',t:'select',o:['أقل من 500 ألف ريال','500 ألف – 2 مليون ريال','2–10 ملايين ريال','أكثر من 10 ملايين ريال']},
+  {k:'reach',l:'النطاق',t:'select',r:1,o:['وطني','إقليمي','دولي']},
+  {k:'recurrence',l:'الدورية',t:'select',o:['دورة واحدة','سنوية','كل سنتين']}
+ ]},
+
+{code:'IA-12',m:1,name:'تقديم خدمات معرفية مدعومة بقواعد بيانات متخصصة وذكاء اصطناعي',
+ purpose:'بحث وتحليل البراءات والمنشورات والأسواق باستخدام قواعد بيانات متخصصة وأدوات ذكاء اصطناعي.',
+ fields:[
+  {k:'knowledge_services',l:'نوع الخدمة المعرفية',t:'multi',r:1,o:['بحث البراءات وحالة التقنية','رصد تقني مستمر','تحليل المنافسين','تحليل المنشورات العلمية','ملخصات معرفية بالذكاء الاصطناعي'],w:1},
+  {k:'keywords',l:'الموضوع والكلمات المفتاحية',t:'textarea',r:1,max:1000,w:1,h:'بالعربية والإنجليزية إن أمكن'},
+  {k:'databases',l:'مصادر البيانات المفضلة',t:'multi',o:['براءات (WIPO / EPO / USPTO)','منشورات علمية','بيانات السوق','بيانات حكومية مفتوحة'],w:1},
+  {k:'frequency',l:'التكرار',t:'select',r:1,o:['طلب لمرة واحدة','شهري','ربع سنوي']},
+  {k:'formats',l:'صيغة المخرج',t:'multi',o:OUT}
+ ]},
+
+/* ---------- 2. إدارة منظومة الابتكار ---------- */
+{code:'EM-01',m:2,name:'إدارة برامج بناء القدرات',
+ purpose:'تصميم وتنفيذ برامج تدريبية تبني مهارات الابتكار لدى الأفراد والفرق.',
+ fields:[
+  {k:'topics',l:'المجالات التدريبية',t:'multi',r:1,o:['التفكير التصميمي','إدارة الابتكار ISO 56002','ريادة الأعمال','نقل التقنية والملكية الفكرية','الابتكار في الاستدامة','أخرى'],w:1},
+  {k:'audience',l:'الفئة المستهدفة',t:'select',r:1,o:['القيادات','الموظفون','المختصون بالابتكار','الطلاب والباحثون','رواد الأعمال']},
+  {k:'trainees',l:'عدد المتدربين',t:'number',r:1},
+  {k:'delivery',l:'أسلوب التقديم',t:'radio',r:1,o:['حضوري','عن بعد','مدمج']},
+  {k:'level',l:'مستوى المتدربين',t:'select',o:['مبتدئ','متوسط','متقدم']},
+  {k:'certificate',l:'هل تلزم شهادة معتمدة؟',t:'radio',o:YESNO},
+  {k:'location',l:'موقع التنفيذ',t:'text'}
+ ]},
+
+{code:'EM-02',m:2,name:'إدارة عملية نشر ثقافة الابتكار',
+ purpose:'تخطيط وتنفيذ حملات وأنشطة تنشر ثقافة الابتكار داخل الجهة أو في المجتمع.',
+ fields:[
+  {k:'activities',l:'الأنشطة المطلوبة',t:'multi',r:1,o:['حملات توعوية','محاضرات وورش','مسابقات أفكار','محتوى رقمي','برنامج سفراء الابتكار'],w:1},
+  {k:'audience_scope',l:'الجمهور',t:'radio',r:1,o:['داخلي','خارجي','كلاهما']},
+  {k:'audience_size',l:'الحجم التقريبي للجمهور',t:'number'},
+  {k:'campaign_duration',l:'مدة الحملة',t:'select',o:['شهر','3 أشهر','6 أشهر','سنة']},
+  {k:'channels',l:'القنوات المتاحة لديكم',t:'text',w:1,h:'مثال: البريد الداخلي، حسابات التواصل الاجتماعي، الشاشات'}
+ ]},
+
+{code:'EM-03',m:2,name:'إدارة برامج ومبادرات الابتكار',
+ purpose:'إدارة برنامج ابتكار مصمم مسبقاً: التخطيط والتنفيذ والمتابعة والتقارير.',
+ fields:[
+  {k:'program_name',l:'اسم البرنامج',t:'text',r:1},
+  {k:'design_status',l:'حالة تصميم البرنامج',t:'select',r:1,o:['مصمم ووثائقه جاهزة','مصمم جزئياً','فكرة أولية']},
+  {k:'mgmt_scope',l:'نطاق الإدارة المطلوب',t:'multi',r:1,o:['مكتب إدارة المشروع PMO','إدارة أصحاب المصلحة','المتابعة والتقارير','إدارة المشاركين','التقييم النهائي'],w:1},
+  {k:'participants',l:'عدد المشاركين المتوقع',t:'number'},
+  {k:'program_duration',l:'مدة البرنامج',t:'select',o:['أقل من 3 أشهر','3–6 أشهر','6–12 شهراً','أكثر من سنة']}
+ ],
+ att:[{k:'program_docs',l:'وثيقة تصميم البرنامج',t:'file'}]},
+
+{code:'EM-04',m:2,name:'تشغيل برامج الابتكار المؤسسي',
+ purpose:'تشغيل برنامج الابتكار الداخلي بالكامل: استقبال الأفكار وتقييمها واحتضانها.',
+ fields:[
+  {k:'has_design',l:'هل يوجد برنامج مصمم مسبقاً؟',t:'radio',r:1,o:YESNO},
+  {k:'ops_components',l:'مكونات التشغيل المطلوبة',t:'multi',r:1,o:['تشغيل منصة الأفكار','تقييم الأفكار وفرزها','احتضان الأفكار المختارة','إدارة الحوافز','التقارير الدورية'],w:1},
+  {k:'employees',l:'عدد الموظفين',t:'number',r:1},
+  {k:'current_platform',l:'المنصة المستخدمة حالياً إن وجدت',t:'text'}
+ ]},
+
+{code:'EM-05',m:2,name:'تنظيم وإقامة فعاليات الابتكار',
+ purpose:'تنظيم فعالية ابتكار متكاملة من المحتوى إلى اللوجستيات والإعلام.',
+ fields:[
+  {k:'event_type',l:'نوع الفعالية',t:'select',r:1,o:['مؤتمر','هاكاثون','معرض','ورشة عمل','ملتقى','يوم عرض للشركات الناشئة']},
+  {k:'event_name',l:'اسم الفعالية',t:'text'},
+  {k:'event_date',l:'التاريخ المقترح',t:'date',r:1},
+  {k:'attendees',l:'عدد الحضور المتوقع',t:'number',r:1},
+  {k:'city',l:'المدينة',t:'text'},
+  {k:'format',l:'الصيغة',t:'radio',r:1,o:['حضوري','افتراضي','هجين']},
+  {k:'event_services',l:'الخدمات المطلوبة',t:'multi',r:1,o:['المحتوى والمتحدثون','التسجيل وإدارة الحضور','اللوجستيات والمكان','الإعلام والتسويق','الرعايات','فعالية مستدامة وفق ISO 20121'],w:1}
+ ]},
+
+{code:'EM-06',m:2,name:'إدارة وتشغيل جوائز الابتكار',
+ purpose:'تشغيل دورة الجائزة كاملة: الإطلاق واستقبال المشاركات والتحكيم والتكريم.',
+ fields:[
+  {k:'prize_name',l:'اسم الجائزة',t:'text',r:1},
+  {k:'design_documented',l:'هل تصميم الجائزة موثق؟',t:'radio',r:1,o:YESNO,h:'إن لم يكن، ننصح بطلب خدمة تصميم جوائز الابتكار أولاً'},
+  {k:'phases',l:'مراحل التشغيل المطلوبة',t:'multi',r:1,o:['الإطلاق والاستقطاب','استقبال المشاركات عبر منصة','التحكيم','حفل التكريم','متابعة الفائزين'],w:1},
+  {k:'submissions',l:'عدد المشاركات المتوقع',t:'number'},
+  {k:'launch_date',l:'تاريخ الإطلاق',t:'date'}
+ ],
+ att:[{k:'prize_docs',l:'وثيقة تصميم الجائزة وشروطها',t:'file'}]},
+
+{code:'EM-07',m:2,name:'بناء وإدارة الشراكات',
+ purpose:'تحديد الشركاء المناسبين وصياغة الاتفاقيات وتفعيل الشراكة وقياس أثرها.',
+ fields:[
+  {k:'partner_type',l:'نوع الشراكة',t:'select',r:1,o:['حكومية محلية','القطاع الخاص','الجامعات ومراكز البحث','دولية','المنظمات الدولية']},
+  {k:'partnership_goal',l:'الهدف من الشراكة',t:'textarea',r:1,max:1200,w:1},
+  {k:'potential_partners',l:'الشركاء المحتملون إن وجدوا',t:'text',w:1},
+  {k:'partnership_services',l:'الخدمات المطلوبة',t:'multi',r:1,o:['تحديد الشركاء وتقييمهم','صياغة مذكرة التفاهم أو الاتفاقية','تفعيل الشراكة وإدارتها','قياس أداء الشراكة'],w:1},
+  {k:'partnership_term',l:'مدة الشراكة المتوقعة',t:'select',o:['سنة','2–3 سنوات','5 سنوات فأكثر']}
+ ]},
+
+/* ---------- 3. الحلول الابتكارية وريادة الأعمال ---------- */
+{code:'IS-01',m:3,name:'إدارة تطوير التقنيات',
+ purpose:'رفع جاهزية تقنية أو حل من مستواه الحالي إلى مستوى أعلى وصولاً إلى السوق.',
+ fields:[
+  {k:'solution_name',l:'اسم التقنية أو الحل',t:'text',r:1},
+  {k:'ip_owner',l:'مالك الملكية الفكرية',t:'select',r:1,o:['مقدم الطلب','جامعة أو جهة بحثية','مشتركة','لا توجد حماية بعد']},
+  {k:'solution_desc',l:'وصف الحل والمشكلة التي يعالجها',t:'textarea',r:1,max:2000,w:1},
+  {k:'trl_now',l:'مستوى الجاهزية الحالي',t:'select',r:1,o:TRL},
+  {k:'trl_target',l:'مستوى الجاهزية المستهدف',t:'select',r:1,o:TRL},
+  {k:'support_types',l:'نوع الدعم المطلوب',t:'multi',r:1,o:['بناء نموذج أولي','اختبار ميداني أو تجريبي','تحسين هندسي','التأهيل للاعتماد والمطابقة','الوصول إلى مختبرات ومعامل'],w:1},
+  {k:'team_size',l:'عدد أعضاء الفريق',t:'number'}
+ ]},
+
+{code:'IS-02',m:3,name:'الاحتضان التنظيمي للتقنيات الحديثة',
+ purpose:'تجربة حل مبتكر في بيئة تنظيمية تجريبية محكومة قبل وجود تنظيم يغطيه.',
+ fields:[
+  {k:'solution_name',l:'اسم الحل',t:'text',r:1},
+  {k:'regulator',l:'الجهة التنظيمية المعنية',t:'text',r:1},
+  {k:'innovation',l:'وصف الحل ووجه الابتكار فيه',t:'textarea',r:1,max:1500,w:1},
+  {k:'barrier',l:'العائق التنظيمي الذي يمنع إطلاق الحل حالياً',t:'textarea',r:1,max:1200,w:1},
+  {k:'test_period',l:'مدة التجربة المطلوبة',t:'radio',r:1,o:['3 أشهر','6 أشهر','12 شهراً']},
+  {k:'test_users',l:'عدد المستخدمين في التجربة',t:'number',r:1},
+  {k:'risks',l:'المخاطر المحتملة وخطط الحد منها',t:'textarea',r:1,max:1500,w:1,h:'تشمل المخاطر البيئية وحماية المستخدمين والبيانات'},
+  {k:'exit_criteria',l:'معايير نجاح التجربة وخطة الخروج',t:'textarea',r:1,max:1000,w:1}
+ ],
+ att:[{k:'test_plan',l:'خطة التجربة',t:'file',r:1}]},
+
+{code:'IS-03',m:3,name:'إستقطاب وتوطين التقنيات العالمية المثبتة',
+ purpose:'البحث عن تقنيات عالمية أو محلية تلبي حاجة محددة واستقطابها أو توطينها.',
+ fields:[
+  {k:'need',l:'الحاجة أو التحدي التقني',t:'textarea',r:1,max:1500,w:1},
+  {k:'specs',l:'المواصفات أو المتطلبات الفنية',t:'textarea',max:1500,w:1},
+  {k:'sources',l:'مصادر التقنية المفضلة',t:'multi',o:['شركات عالمية','شركات ناشئة','جامعات ومراكز بحث','منصات الابتكار المفتوح'],w:1},
+  {k:'acquisition_model',l:'نموذج الاستقطاب',t:'select',r:1,o:['ترخيص','شراكة أو مشروع مشترك','شراء','توطين وتصنيع محلي','تجربة مشتركة']},
+  {k:'target_date',l:'الموعد المستهدف للتبني',t:'date'}
+ ]},
+
+{code:'IS-04',m:3,name:'تطوير برامج نقل وتسويق التقنية',
+ purpose:'بناء قدرة الجهة على نقل مخرجات البحث إلى السوق وتسويقها وترخيصها.',
+ fields:[
+  {k:'source_type',l:'نوع الجهة مصدر التقنيات',t:'select',r:1,o:['جامعة','مركز بحثي','جهة حكومية','شركة']},
+  {k:'assets',l:'عدد التقنيات أو الأصول المعرفية الحالية',t:'number'},
+  {k:'tto_exists',l:'هل لديكم مكتب لنقل التقنية؟',t:'radio',r:1,o:YESNO},
+  {k:'tt_needs',l:'المطلوب',t:'multi',r:1,o:['تأسيس مكتب نقل التقنية','سياسات نقل التقنية','تقييم التقنيات وتسعيرها','إيجاد مرخِّصين','حملات تسويق التقنيات'],w:1},
+  {k:'notes',l:'ملاحظات',t:'textarea',max:1000,w:1}
+ ],
+ att:[{k:'tech_portfolio',l:'قائمة التقنيات أو المحفظة',t:'file'}]},
+
+{code:'IS-05',m:3,name:'حماية وتتجير الملكية الفكرية',
+ purpose:'الإفصاح عن اختراع، وتقييم قابليته للحماية، وتسجيله، ثم تحويله إلى عائد.',
+ fields:[
+  {k:'invention_title',l:'عنوان الاختراع',t:'text',r:1,w:1},
+  {k:'inventors',l:'المخترعون ونسبة مساهمة كل منهم',t:'textarea',r:1,max:800,w:1,h:'الاسم، الجهة، النسبة %'},
+  {k:'invention_desc',l:'وصف الاختراع والمشكلة التي يحلها',t:'textarea',r:1,max:2500,w:1},
+  {k:'novelty',l:'أوجه الجدة والتميز عن الحلول القائمة',t:'textarea',r:1,max:1500,w:1},
+  {k:'disclosed',l:'هل أُفصح عن الاختراع علناً (نشر، مؤتمر، عرض)؟',t:'radio',r:1,o:YESNO},
+  {k:'disclosure_date',l:'تاريخ الإفصاح',t:'date',r:1,show:['disclosed','نعم'],h:'مهم لتحديد مهلة الحماية المتاحة'},
+  {k:'external_funding',l:'هل موّل البحثَ طرفٌ خارجي؟',t:'radio',r:1,o:YESNO},
+  {k:'funder',l:'الجهة الممولة',t:'text',r:1,show:['external_funding','نعم']},
+  {k:'protection_types',l:'نوع الحماية المطلوبة',t:'multi',r:1,o:['براءة اختراع','نموذج صناعي','علامة تجارية','حق مؤلف أو برمجيات','سر تجاري'],w:1},
+  {k:'protection_scope',l:'نطاق الحماية',t:'select',r:1,o:['محلي (الهيئة السعودية للملكية الفكرية)','خليجي','دولي عبر PCT']},
+  {k:'commercial_path',l:'مسار التتجير المفضل',t:'select',o:['ترخيص','بيع','تأسيس شركة ناشئة','غير محدد']}
+ ],
+ att:[{k:'drawings',l:'الرسومات أو النتائج التجريبية',t:'file'}]},
+
+{code:'IS-06',m:3,name:'نقل التقنية وتسويق الملكية الفكرية',
+ purpose:'تأسيس شركة ناشئة تستثمر ملكية فكرية قائمة، مع الترخيص والإرشاد والربط بالتمويل.',
+ fields:[
+  {k:'company_name',l:'اسم الشركة المقترح',t:'text'},
+  {k:'ip_ref',l:'رقم البراءة أو طلب الحماية المرتبط',t:'text',r:1},
+  {k:'founders',l:'فريق التأسيس وأدوارهم',t:'textarea',r:1,max:1200,w:1},
+  {k:'problem_solution',l:'المشكلة والحل',t:'textarea',r:1,max:1500,w:1},
+  {k:'market',l:'السوق المستهدف وحجمه التقريبي',t:'textarea',max:1000,w:1},
+  {k:'business_model',l:'نموذج العمل',t:'textarea',max:1000,w:1},
+  {k:'trl',l:'مستوى الجاهزية التقنية',t:'select',r:1,o:TRL,w:1},
+  {k:'spinoff_support',l:'الدعم المطلوب',t:'multi',r:1,o:['التأسيس القانوني','اتفاقية الترخيص','الإرشاد','تمويل أولي','الربط بالمستثمرين'],w:1}
+ ],
+ att:[{k:'pitch_deck',l:'العرض التقديمي للشركة',t:'file'}]},
+
+/* ---------- 4. تمويل الابتكار ---------- */
+{code:'IF-01',m:4,name:'إدارة تمويل برامج الابتكار من خلال المنح والأوقاف',
+ purpose:'التقدم بمشروع ابتكاري للحصول على منحة أو تمويل وقفي.',
+ noTiming:1,
+ fields:[
+  {k:'project_title',l:'عنوان المشروع',t:'text',r:1,w:1},
+  {k:'summary',l:'الملخص التنفيذي',t:'textarea',r:1,max:1500,w:1},
+  {k:'funding_type',l:'نوع التمويل',t:'select',r:1,o:['منحة','وقف','شراكة مانحة']},
+  {k:'amount',l:'المبلغ المطلوب (ريال)',t:'number',r:1},
+  {k:'duration_months',l:'مدة المشروع (بالأشهر)',t:'number',r:1},
+  {k:'cofunding',l:'المساهمة الذاتية أو التمويل المشترك (ريال)',t:'number'},
+  {k:'trl',l:'مستوى الجاهزية التقنية',t:'select',r:1,o:TRL,w:1},
+  {k:'objectives',l:'الأهداف والمخرجات القابلة للقياس',t:'textarea',r:1,max:1500,w:1},
+  {k:'impact',l:'الأثر البيئي والاستدامة',t:'textarea',r:1,max:1500,w:1},
+  {k:'sdgs',l:'أهداف التنمية المستدامة المرتبطة',t:'multi',r:1,o:['2 القضاء على الجوع','6 المياه النظيفة','7 الطاقة النظيفة','11 مدن مستدامة','12 الاستهلاك والإنتاج المسؤولان','13 العمل المناخي','14 الحياة تحت الماء','15 الحياة في البر'],w:1}
+ ],
+ att:[{k:'budget_sheet',l:'الميزانية التفصيلية',t:'file',r:1},{k:'workplan',l:'خطة العمل والجدول الزمني',t:'file',r:1},{k:'team_cvs',l:'السير الذاتية للفريق',t:'file'}]},
+
+{code:'IF-02',m:4,name:'إدارة تمويل الشركات الناشئة',
+ purpose:'التقدم بطلب تمويل لشركة ناشئة تعمل في حلول الاستدامة.',
+ noTiming:1,
+ fields:[
+  {k:'startup_name',l:'اسم الشركة',t:'text',r:1},
+  {k:'website',l:'الموقع الإلكتروني',t:'url'},
+  {k:'founded_year',l:'سنة التأسيس',t:'number'},
+  {k:'stage',l:'المرحلة',t:'select',r:1,o:['فكرة','ما قبل البذرة','البذرة','الجولة A']},
+  {k:'problem_solution',l:'المشكلة والحل في جملتين',t:'textarea',r:1,max:600,w:1},
+  {k:'monthly_revenue',l:'الإيرادات الشهرية الحالية',t:'select',r:1,o:['لا توجد إيرادات','أقل من 50 ألف ريال','50–250 ألف ريال','أكثر من 250 ألف ريال']},
+  {k:'customers',l:'عدد العملاء أو المستخدمين',t:'number'},
+  {k:'team_size',l:'حجم الفريق',t:'number',r:1},
+  {k:'amount',l:'المبلغ المطلوب (ريال)',t:'number',r:1},
+  {k:'instrument',l:'أداة التمويل',t:'select',r:1,o:['منحة','استثمار في الملكية','قرض ميسر','سند قابل للتحويل (SAFE)']},
+  {k:'use_of_funds',l:'أوجه استخدام التمويل',t:'textarea',r:1,max:1000,w:1},
+  {k:'prior_funding',l:'التمويل السابق (الجهة والمبلغ)',t:'text',w:1}
+ ],
+ att:[{k:'pitch_deck',l:'العرض التقديمي للمستثمرين',t:'file',r:1},{k:'financials',l:'النموذج المالي',t:'file'}]}
+];
+
+/* ===================== الأقسام المشتركة ===================== */
+const COMMON = {
+ applicant:{title:'بيانات مقدم الطلب',fields:[
+  {k:'applicant_name',l:'الاسم الكامل',t:'text',r:1},
+  {k:'job_title',l:'المسمى الوظيفي',t:'text',r:1},
+  {k:'email',l:'البريد الإلكتروني',t:'email',r:1},
+  {k:'mobile',l:'رقم الجوال',t:'tel',r:1,h:'مثال: 0551234567'}]},
+ org:{title:'بيانات الجهة',fields:[
+  {k:'org_name',l:'اسم الجهة',t:'text',r:1},
+  {k:'org_type',l:'نوع الجهة',t:'select',r:1,o:['جهة حكومية','شركة من القطاع الخاص','شركة ناشئة','جامعة أو مركز بحثي','منظمة غير ربحية','فرد أو مبتكر مستقل']},
+  {k:'unified_number',l:'الرقم الموحد أو السجل التجاري',t:'text',h:'غير مطلوب للأفراد'},
+  {k:'sector',l:'القطاع',t:'select',r:1,o:['البيئة والغطاء النباتي','المياه','الزراعة','الثروة الحيوانية والسمكية','الأمن الغذائي','الطاقة المتجددة','الاقتصاد الدائري وإدارة النفايات','أخرى']},
+  {k:'region',l:'المنطقة',t:'select',r:1,o:REGIONS},
+  {k:'org_size',l:'عدد العاملين',t:'select',o:['أقل من 10','10–49','50–249','250–999','1000 فأكثر']}]},
+ timing:{title:'التوقيت والميزانية',fields:[
+  {k:'start_date',l:'تاريخ البدء المطلوب',t:'date',r:1},
+  {k:'duration',l:'المدة المتوقعة',t:'select',o:['أقل من شهر','1–3 أشهر','3–6 أشهر','6–12 شهراً','أكثر من سنة']},
+  {k:'budget_range',l:'الميزانية التقديرية',t:'select',o:['أقل من 100 ألف ريال','100–500 ألف ريال','500 ألف – مليون ريال','1–5 ملايين ريال','أكثر من 5 ملايين ريال','غير محددة']},
+  {k:'funding_source',l:'مصدر تمويل الخدمة',t:'select',o:['ميزانية الجهة','تمويل مشترك','يُطلب تمويلها من المركز','غير محدد']},
+  {k:'priority',l:'درجة الأولوية',t:'radio',o:['عادية','مرتفعة','عاجلة'],w:1}]},
+ attachments:{title:'المرفقات',base:[
+  {k:'official_letter',l:'خطاب الطلب الرسمي',t:'file',h:'PDF، بحد أقصى 10 ميجابايت'},
+  {k:'supporting_docs',l:'مستندات داعمة أخرى',t:'file'}]},
+ consent:{title:'الإقرار',fields:[
+  {k:'accuracy',l:'أقر بصحة البيانات المقدمة واكتمالها.',t:'check',r:1,w:1},
+  {k:'privacy',l:'أوافق على معالجة بياناتي لأغراض هذا الطلب وفق نظام حماية البيانات الشخصية.',t:'check',r:1,w:1},
+  {k:'nda',l:'أرغب في توقيع اتفاقية عدم إفصاح قبل مشاركة معلومات سرية.',t:'check',w:1}]}
+};
+
+
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
+      return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c];
+    });
+  }
+
+  function sectionsFor(svc) {
+    var s = [
+      { id: "applicant", title: COMMON.applicant.title, fields: COMMON.applicant.fields },
+      { id: "org", title: COMMON.org.title, fields: COMMON.org.fields },
+      { id: "service", title: "تفاصيل الطلب", fields: svc.fields, special: 1 }
+    ];
+    if (!svc.noTiming) s.push({ id: "timing", title: COMMON.timing.title, fields: COMMON.timing.fields });
+    s.push({
+      id: "attachments",
+      title: COMMON.attachments.title,
+      fields: (svc.att || []).concat(COMMON.attachments.base)
+    });
+    s.push({ id: "consent", title: COMMON.consent.title, fields: COMMON.consent.fields });
+    return s;
+  }
+
+  function fieldHTML(f) {
+    var id = "hf_" + f.k;
+    var req = f.r ? '<span class="hf-req" aria-hidden="true">*</span>' : "";
+    var wide = f.w || f.t === "textarea" || f.t === "multi" || f.t === "check" ? " is-wide" : "";
+    var show = f.show ? ' data-show="' + f.show[0] + '" data-val="' + esc(f.show[1]) + '" hidden' : "";
+    var hint = f.h ? '<span class="hf-hint" id="' + id + '_h">' + esc(f.h) + "</span>" : "";
+    var desc = f.h ? ' aria-describedby="' + id + '_h"' : "";
+    var msg = '<span class="hf-msg" role="alert"></span>';
+    var labelRow = function (labelHtml) {
+      return '<div class="hf-label-row">' + labelHtml + hint + "</div>";
+    };
+    var ctl = "";
+    if (f.t === "textarea") {
+      ctl = '<textarea id="' + id + '" name="' + f.k + '"' + (f.max ? ' maxlength="' + f.max + '"' : "") + desc + "></textarea>" +
+        (f.max ? '<span class="hf-count" data-for="' + id + '">0 / ' + f.max + "</span>" : "");
+    } else if (f.t === "select") {
+      ctl = '<select id="' + id + '" name="' + f.k + '"' + desc + '><option value="">اختر…</option>' +
+        f.o.map(function (o) { return "<option>" + esc(o) + "</option>"; }).join("") + "</select>";
+    } else if (f.t === "radio" || f.t === "multi") {
+      var type = f.t === "radio" ? "radio" : "checkbox";
+      return '<div class="hf-field' + wide + '" data-k="' + f.k + '"' + show + '>' +
+        labelRow('<span class="hf-label" id="' + id + '_l">' + esc(f.l) + req + "</span>") +
+        '<div class="hf-opts" role="' + (f.t === "radio" ? "radiogroup" : "group") + '" aria-labelledby="' + id + '_l">' +
+        f.o.map(function (o) {
+          return "<label><input type=\"" + type + '" name="' + f.k + '" value="' + esc(o) + '">' + esc(o) + "</label>";
+        }).join("") +
+        "</div>" + msg + "</div>";
+    } else if (f.t === "check") {
+      return '<div class="hf-field' + wide + '" data-k="' + f.k + '">' +
+        '<label class="hf-check"><input type="checkbox" id="' + id + '" name="' + f.k + '" value="yes"><span>' +
+        esc(f.l) + req + "</span></label>" + msg + "</div>";
+    } else if (f.t === "file") {
+      ctl = '<input type="file" id="' + id + '" name="' + f.k + '" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.png,.jpg"' + desc + ">";
+    } else {
+      var extra = f.t === "number" ? ' min="0" inputmode="numeric"' :
+        f.t === "tel" ? ' inputmode="tel" dir="ltr"' :
+        (f.t === "email" || f.t === "url") ? ' dir="ltr"' : "";
+      ctl = '<input type="' + f.t + '" id="' + id + '" name="' + f.k + '"' + extra + desc + ">";
+    }
+    return '<div class="hf-field' + wide + '" data-k="' + f.k + '"' + show + '>' +
+      labelRow('<label class="hf-label" for="' + id + '">' + esc(f.l) + req + "</label>") +
+      ctl + msg + "</div>";
+  }
+
+  function flowHTML(m) {
+    return '<div class="hf-flow-title">مسار الطلب</div><ol class="hf-flow">' +
+      m.flow.map(function (s) { return "<li>" + esc(s) + "</li>"; }).join("") + "</ol>";
+  }
+
+  function getService(code) {
+    return SERVICES.find(function (s) { return s.code === String(code); }) || null;
+  }
+
+  function getModel(svc) {
+    return MODELS[svc.m - 1] || null;
+  }
+
+  function hasService(code) {
+    return Boolean(getService(code));
+  }
+
+  function renderFormHTML(code) {
+    var svc = getService(code);
+    if (!svc) return "";
+    var m = getModel(svc);
+    return (
+      '<div class="hf-wrap" data-hanadi-code="' + esc(svc.code) + '">' +
+        '<div class="hf-intro">' +
+          '<div class="hf-meta">' + esc(m.stage) + "</div>" +
+          "<h2>" + esc(svc.name) + "</h2>" +
+          "<p>" + esc(svc.purpose) + "</p>" +
+          flowHTML(m) +
+        "</div>" +
+        '<form id="hanadiReqForm" class="hf-form" novalidate>' +
+          '<div class="hf-form-panel">' +
+            sectionsFor(svc).map(function (s) {
+              return '<fieldset class="hf-sec' + (s.special ? " is-special" : "") + '"><legend>' + esc(s.title) + "</legend>" +
+                '<div class="hf-grid">' + s.fields.map(fieldHTML).join("") + "</div></fieldset>";
+            }).join("") +
+            '<div class="hf-submit-row">' +
+              '<button class="hf-submit" type="submit"><i class="bi bi-send" aria-hidden="true"></i> إرسال الطلب</button>' +
+            "</div>" +
+          "</div>" +
+        "</form>" +
+      "</div>"
+    );
+  }
+
+  function allFields(svc) {
+    return sectionsFor(svc).reduce(function (acc, s) { return acc.concat(s.fields); }, []);
+  }
+
+  function validate(svc, form) {
+    var first = null;
+    allFields(svc).forEach(function (f) {
+      var box = form.querySelector('.hf-field[data-k="' + f.k + '"]');
+      if (!box || box.hidden) return;
+      var err = "";
+      if (f.t === "multi" || f.t === "radio" || f.t === "check") {
+        if (f.r && !form.querySelector('input[name="' + f.k + '"]:checked')) {
+          err = f.t === "check" ? "هذا الإقرار مطلوب لإرسال الطلب." : "اختر خياراً واحداً على الأقل.";
+        }
+      } else {
+        var el = form.elements[f.k];
+        if (!el) return;
+        var v = f.t === "file" ? el.files.length : String(el.value || "").trim();
+        if (f.r && !v) err = f.t === "file" ? "أرفق هذا المستند." : "هذا الحقل مطلوب.";
+        else if (v && f.t === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) err = "اكتب بريداً إلكترونياً صحيحاً.";
+        else if (v && f.t === "tel" && !/^(\+?966|0)?5\d{8}$/.test(v.replace(/\s/g, ""))) err = "اكتب رقم جوال سعودي صحيحاً يبدأ بـ 05.";
+        else if (v && f.t === "url" && !/^https?:\/\/.+\..+/.test(v)) err = "اكتب الرابط كاملاً، مثل https://example.sa";
+        else if (f.t === "file" && el.files.length) {
+          Array.prototype.forEach.call(el.files, function (x) {
+            if (x.size > 10 * 1024 * 1024) err = "حجم الملف " + x.name + " يتجاوز 10 ميجابايت.";
+          });
+        }
+      }
+      box.classList.toggle("is-bad", !!err);
+      var msgEl = box.querySelector(".hf-msg");
+      if (msgEl) msgEl.textContent = err;
+      if (err && !first) first = box;
+    });
+    if (first) {
+      first.scrollIntoView({ block: "center" });
+      var c = first.querySelector("input,select,textarea");
+      if (c) c.focus({ preventScroll: true });
+    }
+    return !first;
+  }
+
+  function collect(svc, form) {
+    var out = {};
+    sectionsFor(svc).forEach(function (s) {
+      out[s.id] = {};
+      s.fields.forEach(function (f) {
+        var box = form.querySelector('.hf-field[data-k="' + f.k + '"]');
+        if (box && box.hidden) return;
+        var v;
+        if (f.t === "multi") v = Array.prototype.map.call(form.querySelectorAll('input[name="' + f.k + '"]:checked'), function (i) { return i.value; });
+        else if (f.t === "radio") {
+          var c = form.querySelector('input[name="' + f.k + '"]:checked');
+          v = c ? c.value : null;
+        } else if (f.t === "check") v = !!form.querySelector('input[name="' + f.k + '"]:checked');
+        else if (f.t === "file") {
+          var files = form.elements[f.k] && form.elements[f.k].files;
+          v = files ? Array.prototype.map.call(files, function (x) { return { name: x.name, size: x.size, type: x.type }; }) : [];
+        } else if (f.t === "number") v = form.elements[f.k].value === "" ? null : Number(form.elements[f.k].value);
+        else v = String(form.elements[f.k].value || "").trim() || null;
+        out[s.id][f.k] = v;
+      });
+    });
+    return out;
+  }
+
+  function mount(root, code, options) {
+    options = options || {};
+    var svc = getService(code);
+    if (!root || !svc) return null;
+    var form = root.querySelector("#hanadiReqForm");
+    if (!form) return null;
+
+    form.querySelectorAll("textarea[maxlength]").forEach(function (t) {
+      var c = form.querySelector('.hf-count[data-for="' + t.id + '"]');
+      if (!c) return;
+      t.addEventListener("input", function () {
+        c.textContent = t.value.length + " / " + t.maxLength;
+      });
+    });
+
+    function toggle() {
+      form.querySelectorAll("[data-show]").forEach(function (el) {
+        var v = form.querySelector('input[name="' + el.dataset.show + '"]:checked');
+        el.hidden = !(v && v.value === el.dataset.val);
+      });
+    }
+    form.addEventListener("change", function (e) {
+      toggle();
+      var f = e.target.closest(".hf-field");
+      if (f) f.classList.remove("is-bad");
+    });
+    toggle();
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (!validate(svc, form)) return;
+      var m = getModel(svc);
+      var data = collect(svc, form);
+      var payload = {
+        code: svc.code,
+        title: svc.name,
+        service: m.stage,
+        sector: (data.org && data.org.sector) || "",
+        summary: (function () {
+          var raw = data.service && (data.service.challenges || data.service.problem || data.service.summary || data.service.questions || data.service.need || data.service.invention_desc || data.service.problem_solution);
+          if (Array.isArray(raw)) return raw.join(" · ");
+          return raw || svc.purpose;
+        })(),
+        applicant: (data.applicant && data.applicant.applicant_name) || "",
+        email: (data.applicant && data.applicant.email) || "",
+        phone: (data.applicant && data.applicant.mobile) || "",
+        organization: (data.org && data.org.org_name) || "",
+        hanadi: data
+      };
+      if (typeof options.onSubmit === "function") options.onSubmit(payload, svc, m);
+    });
+    return { svc: svc, form: form };
+  }
+
+  global.HanadiServiceForms = {
+    hasService: hasService,
+    getService: getService,
+    getModel: getModel,
+    renderFormHTML: renderFormHTML,
+    mount: mount
+  };
+})(typeof window !== "undefined" ? window : globalThis);
+</script>
 
 
   <!-- Request details modal -->
@@ -5573,6 +6418,7 @@
     /* ============ State ============ */
     let route = { name: "home", params: {} };
     let searchTerm = "";
+    let portalServicesQuery = "";
     let categoryFilter = "";
     let beneficiaryFilter = "الكل";
     let homeServicesExpanded = false;
@@ -5609,6 +6455,32 @@
       showToast(`تم حفظ الطلب برقم ${created.id}`);
       setTimeout(() => navigate("my-requests"), 800);
     }
+
+    function initHanadiPortalRequestForm() {
+      const root = document.getElementById("portalRequestRoot");
+      if (!root || root.dataset.hanadiForm !== "1" || !window.HanadiServiceForms) return;
+      const code = root.dataset.subservice;
+      HanadiServiceForms.mount(root, code, {
+        onSubmit: function (payload) {
+          if (!window.MEWARequests) {
+            showToast("تعذر حفظ الطلب حالياً");
+            return;
+          }
+          const created = MEWARequests.save({
+            title: payload.title || "طلب خدمة",
+            service: payload.service || "",
+            sector: payload.sector || "",
+            summary: typeof payload.summary === "string" ? payload.summary : (payload.summary ? String(payload.summary) : ""),
+            applicant: payload.applicant || "",
+            email: payload.email || "",
+            phone: payload.phone || "",
+            organization: payload.organization || ""
+          });
+          showRequestSavedThenGo(created);
+        }
+      });
+    }
+
     function nextRequestId(list) {
       let max = 0;
       (list || []).forEach((item) => {
@@ -6063,6 +6935,7 @@
 
     function onHeaderReset() {
       searchTerm = "";
+      portalServicesQuery = "";
       filterRegistry.forEach((f) => f.setValue(f.defaultValue));
       categoryFilter = "";
       homeServicesShowAll = false;
@@ -6074,6 +6947,31 @@
       }
       showToast("تم إعادة تعيين الفلاتر", "bi-arrow-counterclockwise");
       applyBeneficiaryFilterToOurServices();
+    }
+
+    /** Normalize Arabic text for search: treat ا أ آ إ (and variants) as the same letter. */
+    function normalizeArabicSearchText(value) {
+      return String(value || "")
+        .toLowerCase()
+        .replace(/[أإآٱٲٳ]/g, "ا")
+        .trim();
+    }
+
+    function onPortalServicesSearch(value) {
+      portalServicesQuery = value == null ? "" : String(value);
+      if (route.name !== "our-services") return;
+      const active = document.activeElement;
+      const keepFocus = active && active.id === "portalServicesSearch";
+      const selectionStart = keepFocus ? active.selectionStart : null;
+      const selectionEnd = keepFocus ? active.selectionEnd : null;
+      render();
+      if (!keepFocus) return;
+      const input = document.getElementById("portalServicesSearch");
+      if (!input) return;
+      input.focus();
+      if (selectionStart != null && selectionEnd != null) {
+        try { input.setSelectionRange(selectionStart, selectionEnd); } catch (err) {}
+      }
     }
 
     /** Keep all filter UIs (header + in-page) in sync with current state. */
@@ -6664,6 +7562,16 @@
         title: "الابتكار المائي في المملكة العربية السعودية",
         url: "agency-reports/pdfs/water-innovation.pdf",
         desc: "يلقي هذا التقرير الضوء على خطة الوزارة التنفيذية لتعزيز تبني التقنية والممارسات المبتكرة في قطاع المياه، ونطاق التركيز الاستراتيجي الموجّه نحو تبني المنتجات والحلول الابتكارية ذات الأولوية لسد الاحتياجات في قطاع المياه، والذي سيشكل بوصلة للتدابير والمبادرات المؤسسية لضمان التوجيه الأمثل للجهود والموارد."
+      },
+      {
+        title: "تقرير توجهات الابتكار في قطاع البيئة إدارة النفايات",
+        url: "agency-reports/waste-management-trends.html",
+        openInSameTab: true
+      },
+      {
+        title: "برنامج البيئة التنظيمية التجريبية",
+        url: "agency-reports/regulatory-sandbox.html",
+        openInSameTab: true
       }
     ];
 
@@ -6673,9 +7581,17 @@
       </svg>
     `;
 
+    function isAgencyReportInert(topic) {
+      return Boolean(topic && (topic.inert || !topic.url));
+    }
+
     function openAgencyReportTopic(index) {
       const topic = AGENCY_REPORT_TOPICS[index];
-      if (!topic) return;
+      if (!topic || isAgencyReportInert(topic)) return;
+      if (topic.openInSameTab) {
+        window.location.href = topic.url;
+        return;
+      }
       navigate("agency-report", { index });
     }
 
@@ -6690,7 +7606,7 @@
           : card
             ? Number(card.getAttribute("data-agency-card-index"))
             : -1;
-        if (index < 0 || !AGENCY_REPORT_TOPICS[index]) return;
+        if (index < 0 || !AGENCY_REPORT_TOPICS[index] || isAgencyReportInert(AGENCY_REPORT_TOPICS[index])) return;
         event.preventDefault();
         openAgencyReportTopic(index);
       });
@@ -6700,12 +7616,29 @@
         if (!card) return;
         event.preventDefault();
         const index = Number(card.getAttribute("data-agency-card-index"));
-        if (AGENCY_REPORT_TOPICS[index]) openAgencyReportTopic(index);
+        if (AGENCY_REPORT_TOPICS[index] && !isAgencyReportInert(AGENCY_REPORT_TOPICS[index])) {
+          openAgencyReportTopic(index);
+        }
       });
     }
 
     function viewPublications() {
-      const cardsHtml = AGENCY_REPORT_TOPICS.map((topic, index) => `
+      const cardsHtml = AGENCY_REPORT_TOPICS.map((topic, index) => {
+        if (isAgencyReportInert(topic)) {
+          return `
+        <div class="col-xl-3 col-lg-4 col-md-6 mb-3">
+          <div class="social-card sharing-card mb-0 h-100 is-inert" aria-label="${escapeHtml(topic.title)}">
+            <div class="card-content mt-0 h-100">
+              <h2>${escapeHtml(topic.title)}</h2>
+              <span class="btn btn-secondary-solid mt-auto" aria-hidden="true">${agencyReportArrowSvg}</span>
+            </div>
+          </div>
+        </div>`;
+        }
+        const href = topic.openInSameTab
+          ? escapeHtml(topic.url)
+          : `?view=agency-report&index=${index}`;
+        return `
         <div class="col-xl-3 col-lg-4 col-md-6 mb-3">
           <div
             class="social-card sharing-card mb-0 h-100"
@@ -6717,15 +7650,15 @@
             <div class="card-content mt-0 h-100">
               <h2>${escapeHtml(topic.title)}</h2>
               <a
-                href="?view=agency-report&index=${index}"
+                href="${href}"
                 class="btn btn-secondary-solid mt-auto"
                 data-agency-report-index="${index}"
                 aria-label="فتح موضوع: ${escapeHtml(topic.title)}"
               >${agencyReportArrowSvg}</a>
             </div>
           </div>
-        </div>
-      `).join("");
+        </div>`;
+      }).join("");
 
       return `
         <section class="fade-up agency-reports-view">
@@ -6739,9 +7672,6 @@
                   <span class="sep">/</span>
                   <span class="current">المنشورات والتقارير</span>
                 </nav>
-                <button type="button" class="agency-back-services-btn" onclick="navigate('innovation-programs')">
-                  <i class="bi bi-arrow-right" aria-hidden="true"></i> رجوع إلى البرامج الرئيسية
-                </button>
               </div>
               <h1 class="page-title-agency">المنشورات والتقارير</h1>
               <p class="block-head-sub">إصدارات وتقارير ومبادرات وكالة البحث والابتكار.</p>
@@ -6757,7 +7687,11 @@
     function viewAgencyReportTopic() {
       const index = Number(route.params.index);
       const topic = AGENCY_REPORT_TOPICS[index];
-      if (!topic) return viewPublications();
+      if (!topic || isAgencyReportInert(topic)) return viewPublications();
+      if (topic.openInSameTab) {
+        window.location.href = topic.url;
+        return "";
+      }
       const src = escapeHtml(topic.url);
       const isPdf = /\.pdf($|\?|#)/i.test(topic.url);
       const iframeSrc = isPdf ? `${src}#view=FitH` : src;
@@ -6796,9 +7730,6 @@
                 <div class="ps-page-actions">
                   <button type="button" class="agency-back-services-btn" onclick="navigate('publications')">
                     <i class="bi bi-arrow-right" aria-hidden="true"></i> رجوع
-                  </button>
-                  <button type="button" class="agency-back-services-btn" onclick="navigate('innovation-programs')">
-                    <i class="bi bi-arrow-right" aria-hidden="true"></i> رجوع إلى البرامج الرئيسية
                   </button>
                 </div>
               </div>
@@ -7388,7 +8319,7 @@
         id: 1,
         title: "الدعم الاستشاري والاستشراف التقني",
         desc: "استشارات تقنية ودراسات استشراف لأحدث الاتجاهات التقنية في قطاعات البيئة والمياه والزراعة لدعم القرارات المبكرة.",
-        note: "تضم خدمات منصة نبراس: الوصول، خدمات نبراس الاستشارية",
+        note: "تضم خدمات منصة نبراس: الوصول، نبراس الاستشارية",
         beneficiaries: [
           "الجهات والبرامج الحكومية",
           "القطاع الخاص",
@@ -7429,7 +8360,7 @@
           },
           {
             code: "02",
-            title: "خدمات نبراس الاستشارية",
+            title: "نبراس الاستشارية",
             largeTitle: true,
             hideDefinitionLabel: true,
             desc: "خدمات معرفية مخصصة يقدّمها فريق نبراس حسب احتياج الجهة، من تقارير ودراسات وخرائط تقنية تدعم القرار، وتعتمد على أكثر من 10,000 مصدر بيانات و100+ مليون نقطة بيانات وشبكة من الخبراء.",
@@ -7449,14 +8380,105 @@
       },
       {
         id: 2,
-        title: "إدارة المحافظ التقنية ومشاريع البحث والابتكار",
-        desc: "متابعة وإدارة محافظ المشاريع البحثية والابتكارية بدءًا من الفكرة وحتى التنفيذ والقياس.",
+        title: "الاستشارات الابتكارية",
+        enTitle: "Innovation Advisory",
+        desc: "إعداد التوجه والأساس المعرفي من خلال الاستراتيجيات والسياسات والدراسات.",
+        note: "12 خدمات فرعية",
         beneficiaries: [
           "الجهات والبرامج الحكومية",
           "القطاع الخاص",
           "المستثمرون والمؤسسات التمويلية",
           "الشركات الناشئة",
-          "القطاع غير الربحي"
+          "القطاع غير الربحي",
+          "المؤسسات الأكاديمية والبحثية",
+          "طلبة الجامعات والمبتكرون الأفراد"
+        ],
+        intro: "إعداد التوجه والأساس المعرفي من خلال الاستراتيجيات والسياسات والدراسات.",
+        children: [
+          { code: "IA-01", title: "إعداد وتطوير استراتيجية وخارطة طريق الابتكار", desc: "بناء استراتيجية ابتكار للجهة مرتبطة بأولوياتها الوطنية، مع خارطة طريق تنفيذية ومؤشرات أداء.", cta: "تقديم طلب", headingFromSelf: true },
+          { code: "IA-02", title: "إعداد وتطوير السياسات والأطر التنظيمية للابتكار", desc: "صياغة السياسات واللوائح والأطر التي تمكّن الابتكار داخل الجهة أو في القطاع.", cta: "تقديم طلب", headingFromSelf: true },
+          { code: "IA-03", title: "إعداد وتطوير نماذج الحوكمة الخاصة بالابتكار", desc: "تصميم الهيكل واللجان والصلاحيات وآليات القرار التي تدير الابتكار في الجهة.", cta: "تقديم طلب", headingFromSelf: true },
+          { code: "IA-04", title: "تصميم برامج ومبادرات الابتكار", desc: "تصميم برنامج أو مبادرة ابتكار متكاملة: الفكرة، الفئة المستهدفة، الرحلة، ومؤشرات النجاح.", cta: "تقديم طلب", headingFromSelf: true },
+          { code: "IA-05", title: "تقديم الدراسات المتخصصة", desc: "إعداد دراسة تجيب عن أسئلة محددة تدعم قراراً استثمارياً أو تنظيمياً أو تقنياً.", cta: "تقديم طلب", headingFromSelf: true },
+          { code: "IA-06", title: "إعداد التقارير الخاصة بالابتكار", desc: "إصدار تقارير ومؤشرات دورية أو خاصة ترصد أداء الابتكار وتوجهاته.", cta: "تقديم طلب", headingFromSelf: true },
+          { code: "IA-07", title: "إعداد وتطوير خرائط تبني التقنيات", desc: "تحديد التقنيات الواعدة وتوقيت تبنيها ومسارها داخل الجهة.", cta: "تقديم طلب", headingFromSelf: true },
+          { code: "IA-08", title: "تقييم التقنيات وتوجيه الاستثمار", desc: "تقييم تقنية محددة فنياً واقتصادياً وسوقياً لدعم قرار الاستثمار فيها أو تبنيها.", cta: "تقديم طلب", headingFromSelf: true },
+          { code: "IA-09", title: "تصميم برامج الابتكار المؤسسي", desc: "تصميم برنامج داخلي يحوّل أفكار الموظفين إلى حلول منفذة.", cta: "تقديم طلب", headingFromSelf: true },
+          { code: "IA-10", title: "دراسة العائد من الابتكار", desc: "قياس العائد المالي والاقتصادي والاجتماعي والبيئي لبرنامج أو مبادرة ابتكار.", cta: "تقديم طلب", headingFromSelf: true },
+          { code: "IA-11", title: "تصميم جوائز الابتكار", desc: "تصميم جائزة ابتكار: الهدف، الفئات، المعايير، التحكيم، والحوافز.", cta: "تقديم طلب", headingFromSelf: true },
+          { code: "IA-12", title: "تقديم خدمات معرفية مدعومة بقواعد بيانات متخصصة وذكاء اصطناعي", desc: "بحث وتحليل البراءات والمنشورات والأسواق باستخدام قواعد بيانات متخصصة وأدوات ذكاء اصطناعي.", cta: "تقديم طلب", headingFromSelf: true }
+        ]
+      },
+      {
+        id: 10,
+        title: "إدارة منظومة الابتكار",
+        enTitle: "Innovation Ecosystem Management",
+        desc: "تحويل الخطط إلى برامج ومبادرات وتشغيلها.",
+        note: "7 خدمات فرعية",
+        beneficiaries: [
+          "الجهات والبرامج الحكومية",
+          "القطاع الخاص",
+          "المستثمرون والمؤسسات التمويلية",
+          "الشركات الناشئة",
+          "القطاع غير الربحي",
+          "المؤسسات الأكاديمية والبحثية",
+          "طلبة الجامعات والمبتكرون الأفراد"
+        ],
+        intro: "تحويل الخطط إلى برامج ومبادرات وتشغيلها.",
+        children: [
+          { code: "EM-01", title: "إدارة برامج بناء القدرات", desc: "تصميم وتنفيذ برامج تدريبية تبني مهارات الابتكار لدى الأفراد والفرق.", cta: "تقديم طلب", headingFromSelf: true },
+          { code: "EM-02", title: "إدارة عملية نشر ثقافة الابتكار", desc: "تخطيط وتنفيذ حملات وأنشطة تنشر ثقافة الابتكار داخل الجهة أو في المجتمع.", cta: "تقديم طلب", headingFromSelf: true },
+          { code: "EM-03", title: "إدارة برامج ومبادرات الابتكار", desc: "إدارة برنامج ابتكار مصمم مسبقاً: التخطيط والتنفيذ والمتابعة والتقارير.", cta: "تقديم طلب", headingFromSelf: true },
+          { code: "EM-04", title: "تشغيل برامج الابتكار المؤسسي", desc: "تشغيل برنامج الابتكار الداخلي بالكامل: استقبال الأفكار وتقييمها واحتضانها.", cta: "تقديم طلب", headingFromSelf: true },
+          { code: "EM-05", title: "تنظيم وإقامة فعاليات الابتكار", desc: "تنظيم فعالية ابتكار متكاملة من المحتوى إلى اللوجستيات والإعلام.", cta: "تقديم طلب", headingFromSelf: true },
+          { code: "EM-06", title: "إدارة وتشغيل جوائز الابتكار", desc: "تشغيل دورة الجائزة كاملة: الإطلاق واستقبال المشاركات والتحكيم والتكريم.", cta: "تقديم طلب", headingFromSelf: true },
+          { code: "EM-07", title: "بناء وإدارة الشراكات", desc: "تحديد الشركاء المناسبين وصياغة الاتفاقيات وتفعيل الشراكة وقياس أثرها.", cta: "تقديم طلب", headingFromSelf: true }
+        ]
+      },
+      {
+        id: 11,
+        title: "إدارة الحلول الابتكارية وريادة الأعمال",
+        enTitle: "Innovation Solutions & Venture Services",
+        desc: "دعم بناء التقنيات ونقلها إلى السوق.",
+        note: "6 خدمات فرعية",
+        beneficiaries: [
+          "الجهات والبرامج الحكومية",
+          "القطاع الخاص",
+          "المستثمرون والمؤسسات التمويلية",
+          "الشركات الناشئة",
+          "القطاع غير الربحي",
+          "المؤسسات الأكاديمية والبحثية",
+          "طلبة الجامعات والمبتكرون الأفراد"
+        ],
+        intro: "دعم بناء التقنيات ونقلها إلى السوق.",
+        children: [
+          { code: "IS-01", title: "إدارة تطوير التقنيات", desc: "رفع جاهزية تقنية أو حل من مستواه الحالي إلى مستوى أعلى وصولاً إلى السوق.", cta: "تقديم طلب", headingFromSelf: true },
+          { code: "IS-02", title: "الاحتضان التنظيمي للتقنيات الحديثة", desc: "تجربة حل مبتكر في بيئة تنظيمية تجريبية محكومة قبل وجود تنظيم يغطيه.", cta: "تقديم طلب", headingFromSelf: true },
+          { code: "IS-03", title: "إستقطاب وتوطين التقنيات العالمية المثبتة", desc: "البحث عن تقنيات عالمية أو محلية تلبي حاجة محددة واستقطابها أو توطينها.", cta: "تقديم طلب", headingFromSelf: true },
+          { code: "IS-04", title: "تطوير برامج نقل وتسويق التقنية", desc: "بناء قدرة الجهة على نقل مخرجات البحث إلى السوق وتسويقها وترخيصها.", cta: "تقديم طلب", headingFromSelf: true },
+          { code: "IS-05", title: "حماية وتتجير الملكية الفكرية", desc: "الإفصاح عن اختراع، وتقييم قابليته للحماية، وتسجيله، ثم تحويله إلى عائد.", cta: "تقديم طلب", headingFromSelf: true },
+          { code: "IS-06", title: "نقل التقنية وتسويق الملكية الفكرية", desc: "تأسيس شركة ناشئة تستثمر ملكية فكرية قائمة، مع الترخيص والإرشاد والربط بالتمويل.", cta: "تقديم طلب", headingFromSelf: true }
+        ]
+      },
+      {
+        id: 12,
+        title: "إدارة تمويل الابتكار",
+        enTitle: "Innovation Funding",
+        desc: "ربط حلول الابتكار بمصادر التمويل.",
+        note: "2 خدمات فرعية",
+        beneficiaries: [
+          "الجهات والبرامج الحكومية",
+          "القطاع الخاص",
+          "المستثمرون والمؤسسات التمويلية",
+          "الشركات الناشئة",
+          "القطاع غير الربحي",
+          "المؤسسات الأكاديمية والبحثية",
+          "طلبة الجامعات والمبتكرون الأفراد"
+        ],
+        intro: "ربط حلول الابتكار بمصادر التمويل.",
+        children: [
+          { code: "IF-01", title: "إدارة تمويل برامج الابتكار من خلال المنح والأوقاف", desc: "التقدم بمشروع ابتكاري للحصول على منحة أو تمويل وقفي.", cta: "تقديم طلب", headingFromSelf: true },
+          { code: "IF-02", title: "إدارة تمويل الشركات الناشئة", desc: "التقدم بطلب تمويل لشركة ناشئة تعمل في حلول الاستدامة.", cta: "تقديم طلب", headingFromSelf: true }
         ]
       },
       {
@@ -7592,18 +8614,6 @@
         ]
       },
       {
-        id: 6,
-        title: "الاستثمار والتمويل والشراكات الاستثمارية",
-        desc: "ربط المبتكرين والمشاريع الواعدة بفرص التمويل والشراكات الاستثمارية المناسبة.",
-        beneficiaries: [
-          "الجهات والبرامج الحكومية",
-          "القطاع الخاص",
-          "المستثمرون والمؤسسات التمويلية",
-          "الشركات الناشئة",
-          "القطاع غير الربحي"
-        ]
-      },
-      {
         id: 7,
         title: "برامج الشراكات والتحالفات",
         desc: "برامج تحالفات وشراكات قطاعية، منها برنامج التحالف السعودي لتقنيات الزراعة والغذاء وبرنامج الشريط المائي والشراكات الأكاديمية.",
@@ -7652,10 +8662,10 @@
             code: "8.1",
             title: "بناء القدرات الابتكارية",
             desc: "مجموعة خدمات لتطوير القدرات المعرفية والتقنية للمبتكرين والباحثين.",
-            listCta: "تفاصيل الخدمة",
+            listCta: "تفاصيل البرنامج",
             hideChildrenPreview: true,
             children: [
-              { code: "8.1.1", title: "الاشتراك للوصول لمنصات علمية", desc: "إتاحة الوصول لقواعد بيانات ومنصات بحثية متخصصة", cta: "تفاصيل الخدمة", headingFromSelf: true },
+              { code: "8.1.1", title: "الاشتراك للوصول لمنصات علمية", desc: "إتاحة الوصول لقواعد بيانات ومنصات بحثية متخصصة", cta: "تفاصيل البرنامج", headingFromSelf: true },
               { code: "8.1.2", title: "البرامج والتدريب", desc: "برامج تدريبية متخصصة لبناء القدرات", listCta: "نموذج", headingFromSelf: true, externalUrl: "trainingform.html" }
             ]
           },
@@ -7663,21 +8673,21 @@
             code: "8.2",
             title: "تحديات البحث والابتكار",
             desc: "تحديات وطنية تحفّز تقديم حلول ابتكارية عملية لمشكلات قطاعية محددة.",
-            listCta: "تفاصيل الخدمة",
+            listCta: "تفاصيل البرنامج",
             hideChildrenPreview: true,
             children: [
               {
                 code: "8.2.1",
                 title: "تحدي الابتكار الجامعي",
                 desc: "يشمل صفحة تعريفية، رابط تقديم مباشر، عرض منجزات النسخة الأولى، والخطة الزمنية للتحدي",
-                listCta: "تفاصيل الخدمة",
+                listCta: "تفاصيل البرنامج",
                 externalUrl: "university3.html"
               },
               {
                 code: "8.2.2",
                 title: "تحدي ابتكار رسوبيات السدود",
                 desc: "تحدٍّ متخصص في حلول إدارة رسوبيات السدود",
-                listCta: "تفاصيل الخدمة",
+                listCta: "تفاصيل البرنامج",
                 externalUrl: "dam3.html"
               }
             ]
@@ -7686,7 +8696,7 @@
             code: "8.3",
             title: "الفعاليات",
             desc: "ورش وفعاليات دورية",
-            listCta: "تفاصيل الخدمة",
+            listCta: "تفاصيل البرنامج",
             headingFromSelf: true,
             hideChildrenPreview: true,
             children: [
@@ -7694,7 +8704,7 @@
                 code: "8.3.1",
                 title: "المؤتمر السنوي للابتكار NXT",
                 desc: "المؤتمر السنوي الذي يجمع المبتكرين والباحثين والشركاء لعرض أحدث نتاجات الابتكار.",
-                listCta: "تفاصيل الخدمة",
+                listCta: "تفاصيل البرنامج",
                 headingFromSelf: true,
                 externalUrl: "nXT3.html"
               },
@@ -7705,7 +8715,7 @@
             code: "8.4",
             title: "الابتكار المؤسسي",
             desc: "برامج تُعنى بتعزيز ثقافة الابتكار داخل الجهات والمؤسسات الحكومية والخاصة.",
-            listCta: "تفاصيل الخدمة",
+            listCta: "تفاصيل البرنامج",
             externalUrl: "institutionalInnovation3.html"
           }
         ]
@@ -7783,7 +8793,7 @@
 
     const getPortalChildren = (node) => node?.children || node?.subServices || [];
 
-    const PORTAL_PROGRAM_IDS = [3, 4, 7, 8, 9];
+    const PORTAL_PROGRAM_IDS = [1, 3, 4, 5, 7, 8, 9];
 
     function isPortalProgramService(service) {
       return Boolean(service && PORTAL_PROGRAM_IDS.includes(Number(service.id)));
@@ -7840,7 +8850,7 @@
         return {
           name: "innovation-programs",
           crumbLabel: "برامج الابتكار",
-          backLabel: "رجوع إلى برامج الابتكار"
+          backLabel: "رجوع إلى البرامج الرئيسية"
         };
       }
       return {
@@ -8255,26 +9265,78 @@
     function renderPortalCatalogPage(group) {
       const isPrograms = group === "programs";
       const beneficiaryValue = getActiveBeneficiaryFilter();
-      const visibleServices = getPortalCatalogServices(group).filter(matchesBeneficiaryFilter);
-      const cardsHtml = visibleServices.length === 0
-        ? `<div class="ps-empty-filter" role="status">
-             <i class="bi bi-funnel" aria-hidden="true"></i>
-             <p>لا توجد خدمات مطابقة لنوع المستفيد المحدد.</p>
-             <button type="button" class="ps-btn ps-btn-primary" onclick="onHeaderReset()">إعادة تعيين الفلتر</button>
-           </div>`
-        : visibleServices.map((s, cardIndex) => {
+      const catalogQuery = !isPrograms ? normalizeArabicSearchText(portalServicesQuery) : "";
+      const nodeMatchesQuery = (node) => {
+        if (!catalogQuery) return true;
+        const haystack = normalizeArabicSearchText(
+          [node.title, node.enTitle, node.desc, node.note, node.intro, node.code]
+            .filter(Boolean).join(" ")
+        );
+        return haystack.includes(catalogQuery);
+      };
+      /** Flatten search hits: include nested sub-cards; if a parent category matches, include all its children. */
+      const collectMatchingPortalNodes = (nodes, parent = null, acc = [], forceInclude = false) => {
+        (nodes || []).forEach((node) => {
+          const children = getPortalChildren(node);
+          const selfMatch = forceInclude || nodeMatchesQuery(node);
+          if (children.length) {
+            // Category/container: never render as a result card; expand into children
+            collectMatchingPortalNodes(children, node, acc, selfMatch);
+          } else if (selfMatch) {
+            acc.push({ node, parent });
+          }
+        });
+        return acc;
+      };
+
+      let cardsHtml = "";
+      let gridClass = "service-grid";
+
+      if (!isPrograms && catalogQuery) {
+        const catalogRoots = getPortalCatalogServices(group).filter(matchesBeneficiaryFilter);
+        const matches = collectMatchingPortalNodes(catalogRoots);
+        gridClass = "ps-subservice-grid ps-services-search-results";
+        cardsHtml = matches.length === 0
+          ? `<div class="ps-empty-filter" role="status">
+               <i class="bi bi-funnel" aria-hidden="true"></i>
+               <p>لا توجد خدمات مطابقة لبحثك.</p>
+               <button type="button" class="ps-btn ps-btn-primary" onclick="onPortalServicesSearch('')">مسح البحث</button>
+             </div>`
+          : matches.map(({ node, parent }) => {
+              const card = renderPortalNodeCard(node);
+              if (!parent || !parent.title) return card;
+              return card.replace(
+                "<article",
+                `<article data-parent-service="${escapeHtml(parent.title)}"`
+              ).replace(
+                /(<h4[^>]*>)/,
+                `<span class="ps-search-parent-tag">${escapeHtml(parent.title)}</span>$1`
+              );
+            }).join("");
+      } else {
+        const visibleServices = getPortalCatalogServices(group)
+          .filter(matchesBeneficiaryFilter);
+        cardsHtml = visibleServices.length === 0
+          ? `<div class="ps-empty-filter" role="status">
+               <i class="bi bi-funnel" aria-hidden="true"></i>
+               <p>لا توجد خدمات مطابقة لنوع المستفيد المحدد.</p>
+               <button type="button" class="ps-btn ps-btn-primary" onclick="onHeaderReset()">إعادة تعيين الفلتر</button>
+             </div>`
+          : visibleServices.map((s, cardIndex) => {
         const children = getPortalChildren(s);
         const hasChildren = children.length > 0;
         const serviceIcons = {
           1: "bi-binoculars",
-          2: "bi-kanban",
+          2: "bi-chat-quote",
           3: "bi-lightning-charge",
           4: "bi-shield-check",
           5: "bi-award",
-          6: "bi-cash-coin",
           7: "bi-diagram-3",
           8: "bi-calendar-event",
-          9: "bi-journal-richtext"
+          9: "bi-journal-richtext",
+          10: "bi-diagram-2",
+          11: "bi-rocket-takeoff",
+          12: "bi-cash-coin"
         };
         const serviceIcon = serviceIcons[s.id] || "bi-grid";
         const serviceIndex = String(cardIndex + 1).padStart(2, "0");
@@ -8299,6 +9361,7 @@
                 <span class="ps-service-card-icon" aria-hidden="true"><i class="bi ${serviceIcon}"></i></span>
                 <h3>${escapeHtml(s.title)}</h3>
               </div>
+              ${s.enTitle ? `<p class="ps-service-en" dir="ltr">${escapeHtml(s.enTitle)}</p>` : ""}
               <p>${escapeHtml(s.desc)}</p>
               ${s.note
                 ? `<div class="service-sub-note">${escapeHtml(s.note)}</div>`
@@ -8318,6 +9381,7 @@
         </article>
       `;
       }).join("");
+      }
 
       return `
         <div class="portal-svc" id="portalServicesRoot">
@@ -8328,15 +9392,27 @@
                 ← ${isPrograms ? "برامج الابتكار" : "الخدمات"}
               </div>
               <h1>${isPrograms ? "برامج الابتكار" : "منصة الابتكار للاستدامة"}</h1>
-              <p>${isPrograms
-                ? "برامج تمكّن التجارب الميدانية، والتمكين التنظيمي، وبناء المنظومة، وبناء القدرات، ونشر المعرفة في قطاعات البيئة والمياه والزراعة."
-                : "يقدم مركز الابتكار للاستدامة حزمة متكاملة من الخدمات والممكنات التي تدعم تطوير الحلول الابتكارية واختبارها وتبنيها، وتسريع أثرها في قطاعات البيئة والمياه والزراعة. ويهدف المركز إلى تسهيل حصول المستفيدين على خدمات الابتكار، وضمان استمرارية هذه الخدمات وتوسيع نطاقها."}</p>
+              ${isPrograms
+                ? `<p>برامج تمكّن التجارب الميدانية، والتمكين التنظيمي، وبناء المنظومة، وبناء القدرات، ونشر المعرفة في قطاعات البيئة والمياه والزراعة.</p>`
+                : `<p class="ps-services-lead">27 خدمة فرعية ضمن أربع خدمات رئيسية. اختر الخدمة وقدّم طلبك مباشرة.</p>
+              <p>يقدم مركز الابتكار للاستدامة حزمة متكاملة من الخدمات والممكنات التي تدعم تطوير الحلول الابتكارية واختبارها وتبنيها، وتسريع أثرها في قطاعات البيئة والمياه والزراعة. ويهدف المركز إلى تسهيل حصول المستفيدين على خدمات الابتكار، وضمان استمرارية هذه الخدمات وتوسيع نطاقها.</p>`}
               ${beneficiaryValue && beneficiaryValue !== "الكل" ? `<div class="ps-filter-hint">عرض الخدمات المتاحة لـ: ${escapeHtml(beneficiaryValue)}</div>` : ""}
             </div>
           </div>
           <section class="services-section">
             <div class="container">
-              <div class="service-grid">
+              ${isPrograms ? "" : `
+              <div class="ps-services-searchbar">
+                <label for="portalServicesSearch">ابحث عن خدمة</label>
+                <input
+                  id="portalServicesSearch"
+                  type="search"
+                  value="${escapeHtml(portalServicesQuery)}"
+                  placeholder="مثال: براءة، جائزة، تمويل، تدريب…"
+                  oninput="onPortalServicesSearch(this.value)"
+                />
+              </div>`}
+              <div class="${gridClass}">
                 ${cardsHtml}
               </div>
               <div class="ps-cta-band">
@@ -8365,14 +9441,7 @@
         <div class="portal-svc" id="portalServiceDetailRoot">
           <div class="page-hero">
             <div class="container">
-              ${service.id === 7
-                ? renderPortalPageHeroTop(
-                    renderPortalBreadcrumb([service]),
-                    "navigate('innovation-programs')",
-                    "رجوع إلى البرامج الرئيسية",
-                    { onclick: "window.location.href='driving3.html'", label: "رجوع" }
-                  )
-                : service.id === 8
+              ${service.id === 7 || service.id === 8 || service.id === 1 || service.id === 5
                 ? renderPortalPageHeroTop(
                     renderPortalBreadcrumb([service]),
                     "navigate('innovation-programs')",
@@ -8397,7 +9466,7 @@
                     <p>يمكنك العودة إلى القائمة أو تقديم فكرتك عبر النموذج العام وسيتم توجيهها للجهة المختصة.</p>
                   </div>
                   <button type="button" class="ps-btn ps-btn-primary" onclick="navigateBackToOurServices()">
-                    <i class="bi bi-arrow-right"></i> ${escapeHtml(getPortalCatalogHome().backLabel)}
+                    <i class="bi bi-arrow-right"></i> ${escapeHtml(service.id === 1 || service.id === 5 ? "رجوع إلى البرامج الرئيسية" : getPortalCatalogHome().backLabel)}
                   </button>
                 </div>
               </div>`}
@@ -8775,12 +9844,9 @@
             </table>
           </div>
 
-          <div class="ip-training-form-actions">
-            <button type="submit" class="btn-naama-primary">
-              <i class="bi bi-send"></i> إرسال الطلب
-            </button>
-            <button type="button" class="ip-form-back-btn" onclick="${backAction}">
-              <i class="bi bi-arrow-right"></i> رجوع
+          <div class="hf-submit-row">
+            <button type="submit" class="hf-submit">
+              <i class="bi bi-send" aria-hidden="true"></i> إرسال الطلب
             </button>
           </div>
         </form>
@@ -8857,8 +9923,12 @@
             <div class="container">
               ${renderPortalPageHeroTop(
                 renderPortalBreadcrumb(path),
-                "navigateBackToOurServices()",
-                getPortalCatalogHome().backLabel,
+                isIpTraining || isIpCommercialization
+                  ? "navigate('innovation-programs')"
+                  : "navigateBackToOurServices()",
+                isIpTraining || isIpCommercialization
+                  ? "رجوع إلى البرامج الرئيسية"
+                  : getPortalCatalogHome().backLabel,
                 { onclick: backAction, label: "رجوع" }
               )}
               <h1>${escapeHtml(node.title)}</h1>
@@ -8926,8 +9996,8 @@
             <div class="container">
               ${renderPortalPageHeroTop(
                 renderPortalBreadcrumb([heroCrumb]),
-                "navigateBackToOurServices()",
-                "رجوع إلى الخدمات الرئيسية",
+                "navigate('innovation-programs')",
+                "رجوع إلى البرامج الرئيسية",
                 { onclick: backAction, label: "رجوع" }
               )}
               <h1>${escapeHtml(heroTitle)}</h1>
@@ -8981,12 +10051,9 @@
                     <input type="file" class="form-control" id="ipAttachments" name="ipAttachments" multiple accept=".pdf,.doc,.docx,.png,.jpg,.jpeg">
                   </div>
 
-                  <div class="ip-form-actions">
-                    <button type="submit" class="btn-naama-primary">
-                      <i class="bi bi-send"></i> إرسال الطلب
-                    </button>
-                    <button type="button" class="ip-form-back-btn" onclick="${backAction}">
-                      <i class="bi bi-arrow-right"></i> رجوع
+                  <div class="hf-submit-row">
+                    <button type="submit" class="hf-submit">
+                      <i class="bi bi-send" aria-hidden="true"></i> إرسال الطلب
                     </button>
                   </div>
                 </form>
@@ -9038,8 +10105,8 @@
             <div class="container">
               ${renderPortalPageHeroTop(
                 renderPortalBreadcrumb([heroCrumb]),
-                "navigateBackToOurServices()",
-                "رجوع إلى الخدمات الرئيسية",
+                "navigate('innovation-programs')",
+                "رجوع إلى البرامج الرئيسية",
                 { onclick: backAction, label: "رجوع" }
               )}
               <h1>${escapeHtml(heroTitle)}</h1>
@@ -9076,12 +10143,9 @@
 
                   ${renderIpConsultingSections()}
 
-                  <div class="ip-form-actions">
-                    <button type="submit" class="btn-naama-primary">
-                      <i class="bi bi-send"></i> إرسال الطلب
-                    </button>
-                    <button type="button" class="btn-naama-outline" onclick="${backAction}">
-                      <i class="bi bi-arrow-right"></i> رجوع
+                  <div class="hf-submit-row">
+                    <button type="submit" class="hf-submit">
+                      <i class="bi bi-send" aria-hidden="true"></i> إرسال الطلب
                     </button>
                   </div>
                 </form>
@@ -9180,8 +10244,16 @@
         ? headingSubject
         : `${ctaLabel} - ${headingSubject}`;
       const profile = isBeneficiaryLoggedIn() ? getLoggedInProfile() : { applicant: "", email: "", phone: "", organization: "" };
+      const isHanadiForm = window.HanadiServiceForms && HanadiServiceForms.hasService(subService.code);
       const usesProgramBackPair = subService.code === "7.3" || subService.code === "8.1.1";
-      const requestHeroTop = usesProgramBackPair
+      const requestHeroTop = isHanadiForm
+        ? renderPortalPageHeroTop(
+            renderPortalBreadcrumb(path),
+            "navigate('our-services')",
+            "رجوع إلى الخدمات الرئيسية",
+            { onclick: getPortalParentBackAction(path), label: "رجوع" }
+          )
+        : usesProgramBackPair
         ? renderPortalPageHeroTop(
             renderPortalBreadcrumb(path),
             "navigate('innovation-programs')",
@@ -9189,6 +10261,25 @@
             { onclick: getPortalParentBackAction(path), label: "رجوع" }
           )
         : renderPortalPageHeroTop(renderPortalBreadcrumb(path), getPortalParentBackAction(path), "رجوع");
+
+      if (isHanadiForm) {
+        return `
+          <div class="portal-svc" id="portalRequestRoot" data-subservice="${escapeHtml(subService.code)}" data-hanadi-form="1">
+            <div class="page-hero">
+              <div class="container">
+                ${requestHeroTop}
+                <h1>${escapeHtml(requestHeading)}</h1>
+                <p>عبّئ نموذج الخدمة بدقة؛ سيتم توجيه طلبك للفريق المختص ويمكنك متابعة حالته من صفحة «طلباتي».</p>
+              </div>
+            </div>
+            <section class="ps-form-section">
+              <div class="container">
+                ${HanadiServiceForms.renderFormHTML(subService.code)}
+              </div>
+            </section>
+          </div>
+        `;
+      }
 
       return `
         <div class="portal-svc" id="portalRequestRoot" data-subservice="${escapeHtml(subService.code)}">
@@ -10813,6 +11904,7 @@
       initDrivingEmbed();
       initExperimentalEmbed();
       initCommercializationEmbed();
+      initHanadiPortalRequestForm();
       if (bannerTimer) { clearInterval(bannerTimer); bannerTimer = null; }
       if (document.getElementById("heroBanner")) initBanner();
       if (document.querySelector(".achievement-value")) initAchievementCounters();

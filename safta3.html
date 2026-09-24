@@ -40,7 +40,7 @@
     }
     .safta-head-back svg { flex-shrink: 0; }
 
-    /* Platform site footer (منصة البحث والابتكار) */
+    /* Platform site footer (منصة الابتكار للاستدامة) */
     :root {
       --naama-primary: #003957;
       --naama-accent: #49aa8b;
@@ -50,13 +50,14 @@
       --naama-border: #e4ecef;
     }
     .site-footer {
-      background: #fff;
+      background: #f7f9fb;
       border-top: 1px solid var(--naama-border);
       margin-top: 0;
-      padding: 2.2rem 0 2.4rem;
+      padding: 2.4rem 0 1.6rem;
       font-family: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
       direction: rtl;
       text-align: right;
+      color: var(--naama-primary);
     }
     .site-footer .container {
       width: min(1140px, calc(100% - 2rem));
@@ -64,14 +65,15 @@
     }
     .site-footer__grid {
       display: grid;
-      grid-template-columns: 1.4fr 1.1fr 0.9fr;
-      gap: 1.75rem 1.5rem;
+      grid-template-columns: 1.45fr 1.15fr 0.9fr;
+      gap: 1.75rem 2rem;
+      align-items: start;
     }
     .site-footer .brand-row {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 0.5rem;
+      gap: 0.55rem;
+      margin-bottom: 0.55rem;
     }
     .site-footer .brand-mark {
       display: inline-block;
@@ -91,9 +93,11 @@
       border-radius: 2px 2px 6px 6px;
       background: rgba(255, 255, 255, 0.35);
     }
-    .site-footer strong {
+    .site-footer .brand-row strong {
       color: var(--naama-primary);
       font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.35;
     }
     .site-footer .desc {
       margin: 0;
@@ -111,7 +115,7 @@
     .site-footer .footer-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem 1.15rem;
+      gap: 0.7rem 1.15rem;
     }
     .site-footer .footer-links a {
       color: var(--naama-primary);
@@ -121,27 +125,45 @@
     }
     .site-footer .footer-links a:hover { color: var(--naama-accent-dark); }
     .site-footer .support-line {
-      margin: 0 0 0.45rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin: 0 0 0.5rem;
       color: var(--naama-muted);
       font-size: 0.92rem;
+      line-height: 1.5;
     }
-    .site-footer .support-line strong { color: var(--naama-primary); font-size: inherit; }
+    .site-footer .support-line i {
+      color: var(--naama-primary);
+      font-size: 1rem;
+    }
+    .site-footer .support-line strong {
+      color: var(--naama-primary);
+      font-size: inherit;
+      font-weight: 700;
+    }
+    .site-footer .support-line a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .site-footer .support-line a:hover { color: var(--naama-accent-dark); }
     .site-footer hr {
       border: 0;
       border-top: 1px solid var(--naama-border);
-      margin: 1.5rem 0 1rem;
+      margin: 1.6rem 0 1rem;
     }
     .site-footer__bottom {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.5rem 1rem;
       color: var(--naama-muted);
       font-size: 0.82rem;
     }
     @media (max-width: 767.98px) {
-      .site-footer__grid { grid-template-columns: 1fr; }
+      .site-footer__grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .site-footer__bottom { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -183,8 +205,40 @@
     </div>
   </div>
 </section>
-<div id="platform-footer-root"></div>
-<script src="platform-footer.js"></script>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <div class="brand-row">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <strong>منصة الابتكار للاستدامة</strong>
+        </div>
+        <p class="desc">المحور المركزي لأنشطة البحث والابتكار في قطاعات البيئة والمياه والزراعة ضمن منظومة منصة نما وأهداف رؤية 2030.</p>
+      </div>
+      <div>
+        <h6>روابط سريعة</h6>
+        <div class="footer-links">
+          <a href="index.html">الرئيسية</a>
+          <a href="index.html?view=our-services">خدماتنا</a>
+          <a href="index.html?view=innovation-programs">برامج الابتكار</a>
+          <a href="index.html?view=publications">منشورات وتقارير</a>
+          <a href="index.html?view=my-requests">طلباتي</a>
+          <a href="https://naama.sa/" target="_blank" rel="noreferrer">منصة نما</a>
+        </div>
+      </div>
+      <div>
+        <h6>الدعم</h6>
+        <p class="support-line"><i class="bi bi-headset" aria-hidden="true"></i> الرقم الموحد: <strong>939</strong></p>
+        <p class="support-line"><i class="bi bi-envelope" aria-hidden="true"></i> <a href="mailto:ri-support@mewa.gov.sa">ri-support@mewa.gov.sa</a></p>
+      </div>
+    </div>
+    <hr>
+    <div class="site-footer__bottom">
+      <span>© جميع الحقوق محفوظة - وزارة البيئة والمياه والزراعة</span>
+      <span>الإصدار التجريبي • متوافق مع النفاذ الموحد</span>
+    </div>
+  </div>
+</footer>
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>

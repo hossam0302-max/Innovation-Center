@@ -136,14 +136,31 @@
       list-style: none; padding: 0;
     }
     .spon-stepper li {
-      text-align: center; padding: 0.75rem 0.4rem; border: 1px solid var(--border-color);
-      border-radius: 0.65rem; background: #fafbfc; font-size: 0.78rem; font-weight: 600;
-      color: var(--text-muted); cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      text-align: center;
+      padding: 0.75rem 0.55rem;
+      border: 1px solid var(--border-color);
+      border-radius: 0.65rem;
+      background: #fafbfc;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
     }
     .spon-step-num {
-      display: inline-flex; width: 1.7rem; height: 1.7rem; border-radius: 50%;
-      align-items: center; justify-content: center; margin-bottom: 0.35rem;
-      background: #e8edf1; color: var(--naama-primary); font-weight: 700;
+      display: inline-flex;
+      width: 1.7rem;
+      height: 1.7rem;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: #e8edf1;
+      color: var(--naama-primary);
+      font-weight: 700;
     }
     .spon-stepper li.is-active { border-color: var(--primary-green); background: var(--mint-soft); color: var(--dark-green); }
     .spon-stepper li.is-active .spon-step-num { background: var(--primary-green); color: #fff; }

@@ -35,8 +35,6 @@
       ".platform-top .brand-text small{color:var(--naama-muted,#62717d);font-size:.78rem;display:block}",
       ".platform-top .nav-pill{display:inline-flex;align-items:center;padding:.5rem 1rem;border-radius:999px;color:var(--naama-primary,#003957)!important;font-weight:500;background:transparent;border:0;cursor:pointer;font-size:.92rem;white-space:nowrap;line-height:1.4}",
       ".platform-top .nav-pill:hover,.platform-top .nav-pill.active{background:var(--naama-accent-soft,#e8f6f1);color:var(--naama-accent-dark,#378a6f)!important}",
-      ".platform-top .btn-login{display:inline-flex;align-items:center;gap:.5rem;background:var(--naama-primary,#003957);color:#fff!important;border:0;border-radius:999px;padding:.55rem 1.3rem;font-weight:600;white-space:nowrap}",
-      ".platform-top .btn-login:hover{color:#fff!important;background:var(--naama-primary-dark,#00283e);transform:translateY(-1px);box-shadow:0 10px 22px rgba(0,40,62,.22)}",
       ".platform-top .header-tools{display:flex;align-items:center;gap:.45rem;flex-wrap:wrap;justify-content:flex-end}",
       ".platform-top .header-page-actions{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap}",
       ".platform-top .header-page-actions[hidden]{display:none!important}",
@@ -47,7 +45,7 @@
       ".platform-top .btn-menu-toggle{display:none;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid var(--naama-border,#e4ecef);border-radius:12px;background:#fff;color:var(--naama-primary,#003957)}",
       ".platform-top #mobileNav{display:none;flex-wrap:wrap;gap:.35rem;padding-top:.85rem;margin-top:.85rem;border-top:1px solid var(--naama-border,#e4ecef)}",
       ".platform-top #mobileNav.is-open{display:flex}",
-      "@media (min-width:992px){.platform-top .header-row{flex-wrap:nowrap!important;gap:.6rem!important;align-items:center!important}.platform-top .header-row .brand-link{flex:0 0 auto}.platform-top .header-row #mainNav{display:flex!important;flex:1 1 auto;flex-wrap:nowrap;white-space:nowrap;gap:.25rem}.platform-top .header-row #mainNav .nav-pill{padding:.4rem .7rem;font-size:.88rem}.platform-top .header-row .btn-login{padding:.45rem .9rem;font-size:.88rem}.platform-top .header-row .brand-text small{display:none}.platform-top .header-row .brand-text strong{font-size:.98rem}.platform-top .header-row .ms-auto{margin-inline-start:auto!important}}",
+      "@media (min-width:992px){.platform-top .header-row{flex-wrap:nowrap!important;gap:.6rem!important;align-items:center!important}.platform-top .header-row .brand-link{flex:0 0 auto}.platform-top .header-row #mainNav{display:flex!important;flex:1 1 auto;flex-wrap:nowrap;white-space:nowrap;gap:.25rem}.platform-top .header-row #mainNav .nav-pill{padding:.4rem .7rem;font-size:.88rem}.platform-top .header-row .brand-text small{display:none}.platform-top .header-row .brand-text strong{font-size:.98rem}.platform-top .header-row .ms-auto{margin-inline-start:auto!important}}",
       "@media (min-width:1280px){.platform-top .header-row .brand-text small{display:block}}",
       "@media (max-width:991.98px){.platform-top #mainNav{display:none!important}.platform-top .btn-menu-toggle{display:inline-flex}}",
       ".page-hero,.exp3-page-title,.dam3-page-hero,.uni3-page-hero,.drv3-page-title{background:#F4F1E9;padding:44px 0 34px;min-height:220px;box-sizing:border-box;border-bottom:1px solid #E3E0D2}",
@@ -107,9 +105,6 @@
             brandClose +
             '<nav id="mainNav" class="d-none d-lg-flex gap-1" aria-label="التنقل الرئيسي">' + navHtml + "</nav>" +
             '<div class="ms-auto header-tools">' +
-              '<a class="btn-login" href="https://naama.sa/Account/Login" target="_blank" rel="noopener">' +
-                '<i class="bi bi-box-arrow-in-left"></i><span>تسجيل الدخول</span>' +
-              "</a>" +
               '<div id="headerPageActions" class="header-page-actions" hidden aria-label="الرجوع"></div>' +
               menuBtn +
             "</div>" +

@@ -6754,6 +6754,19 @@ const COMMON = {
       }
     }
 
+    const DRIVING_PROGRAM_PAGE = "driving3.html";
+
+    /** «رجوع» on the partnerships program always leads to the innovation deployment program page. */
+    function navigateBackToDrivingProgram() {
+      const referrerPage = (document.referrer || "").split(/[?#]/)[0].split("/").pop().toLowerCase();
+      // In-app views use replaceState, so one history step lands on driving3.html at its exact scroll position.
+      if (referrerPage === DRIVING_PROGRAM_PAGE && window.history.length > 1) {
+        window.history.back();
+        return;
+      }
+      window.location.href = DRIVING_PROGRAM_PAGE;
+    }
+
     function navigate(name, params = {}) {
       if ((route.name === "our-services" || route.name === "innovation-programs") && name !== route.name) {
         savedOurServicesViewState = {
@@ -9445,7 +9458,8 @@ const COMMON = {
                 ? renderPortalPageHeroTop(
                     renderPortalBreadcrumb([service]),
                     "navigate('innovation-programs')",
-                    "رجوع إلى البرامج الرئيسية"
+                    "رجوع إلى البرامج الرئيسية",
+                    service.id === 7 ? { onclick: "navigateBackToDrivingProgram()", label: "رجوع" } : null
                   )
                 : renderPortalPageHeroTop(renderPortalBreadcrumb([service]))}
               <h1>${escapeHtml(service.title)}</h1>
